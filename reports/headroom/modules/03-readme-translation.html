@@ -1,0 +1,89 @@
+<section class="module" id="module-3" data-module-title="📖 README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">📖 README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，专业名词保留英文原文</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Headroom — The context compression layer for AI agents.</strong><br><br>
+          60–95% fewer tokens across library, proxy, MCP, and agent-wrap modes. 6 compression algorithms. Local-first. Reversible compression.
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>Headroom —— AI agent 的上下文压缩层。</strong><br><br>
+          在 library、proxy、MCP 和 agent-wrap 四种模式下减少 60-95% 的 token。6 种压缩算法。本地优先。可逆压缩。
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Five main modes:</strong><br>
+          <strong>1. Library</strong> — inline compress(messages) in Python or TypeScript<br>
+          <strong>2. Proxy</strong> — drop-in HTTP proxy on port 8787 requiring zero code changes<br>
+          <strong>3. Agent wrap</strong> — wraps Claude, Codex, Cursor, Aider, Copilot, OpenCode via a single command<br>
+          <strong>4. MCP server</strong> — exposes headroom_compress, headroom_retrieve, headroom_stats tools<br>
+          <strong>5. Cross-agent memory</strong> — shared store across Claude, Codex, Gemini with auto-dedup
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>五种主要模式：</strong><br>
+          <strong>1. Library（代码库模式）</strong>—— 在 Python 或 TypeScript 中直接调用 compress(messages)<br>
+          <strong>2. Proxy（代理模式）</strong>—— 在 8787 端口启动一个 HTTP 代理，一行代码不用改<br>
+          <strong>3. Agent wrap（Agent 包装模式）</strong>—— 一条命令同时包装 Claude、Codex、Cursor、Aider、Copilot、OpenCode<br>
+          <strong>4. MCP server（MCP 服务器模式）</strong>—— 暴露 headroom_compress、headroom_retrieve、headroom_stats 工具<br>
+          <strong>5. Cross-agent memory（跨 Agent 记忆）</strong>—— Claude、Codex、Gemini 之间共享存储，自动去重
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Architecture:</strong> ContentRouter detects content type and routes to SmartCrusher (JSON), CodeCompressor (AST-aware compression), or Kompress-base (HuggingFace text model). CacheAligner stabilizes prefixes for KV cache hits. CCR stores originals locally for on-demand retrieval.<br><br>
+          <strong>headroom learn:</strong> Mines failed sessions and writes corrections — output token reduction trims model verbosity.
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>架构：</strong>ContentRouter（内容路由器）检测内容类型，然后路由到 SmartCrusher（处理 JSON）、CodeCompressor（AST 感知的代码压缩）或 Kompress-base（基于 HuggingFace 文本模型）。CacheAligner 稳定前缀以提高 KV cache 命中率。CCR 在本地存储原始内容供按需检索。<br><br>
+          <strong>headroom learn：</strong>挖掘失败的 session 并自动写修正规则——还能压缩模型输出，trim 掉冗余的"废话"。
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Benchmark results:</strong><br>
+          • Code search: 92% savings (17,765 → 1,408 tokens)<br>
+          • SRE incident debugging: 92% savings (65,694 → 5,118)<br>
+          • Accuracy preserved: GSM8K (±0.000), TruthfulQA (+0.030), SQuAD v2 (97%), BFCL (97%)
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>基准测试结果：</strong><br>
+          • 代码搜索：节省 92% token（17,765 → 1,408）<br>
+          • SRE 事故调试：节省 92% token（65,694 → 5,118）<br>
+          • 准确度保持：GSM8K（±0.000，无变化）、TruthfulQA（+0.030，反而提升）、SQuAD v2（97%）、BFCL（97%）
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Comparison:</strong> RTK, lean-ctx, Compresr, Token Co., OpenAI Compaction — Headroom is the only local, reversible option spanning all content types (JSON, code, text, logs, RAG chunks).<br><br>
+          <strong>Agent compatibility:</strong> Claude Code, Codex, Cursor, Aider, Copilot CLI, OpenClaw, OpenCode, Cortex Code.
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>对比：</strong>RTK、lean-ctx、Compresr、Token Co.、OpenAI Compaction —— Headroom 是唯一一个本地运行、可逆压缩、覆盖所有内容类型（JSON、代码、文本、日志、RAG chunks）的方案。<br><br>
+          <strong>Agent 兼容性：</strong>支持 Claude Code、Codex、Cursor、Aider、Copilot CLI、OpenClaw、OpenCode、Cortex Code。
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

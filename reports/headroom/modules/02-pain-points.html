@@ -1,0 +1,31 @@
+<section class="module" id="module-2" data-module-title="🎯 痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">🎯 解决了什么痛点</h1>
+      <p class="module-subtitle">为什么 49,000+ 人关注这个项目？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">AI agent 好用，但"喂"给它的数据太贵了</h2>
+        <p>如果你用过 AI agent（比如让 AI 帮你写代码、调试错误、分析数据），你可能没意识到一个隐形账单：每次 AI agent 执行一个操作，它要把工具的输出结果发给 LLM。一个 SRE 事故调试场景，agent 可能要传 65,000 个 token 的日志给 LLM。</p>
+        <p>65,000 个 token 是什么概念？按当前主流模型价格，一次调用就要几美分。一个复杂任务跑几十次调用，就是几美元。做产品的团队，一个月下来 token 费用轻松上万美元——而其中大部分传给 LLM 的内容，是重复的、冗余的、或者根本不需要完整传递的。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">核心痛点：三个互相叠加的问题</h2>
+        <p><strong>痛点一：Token 账单失控。</strong>日志、工具输出、RAG 检索结果——这些"上下文"越长，token 消耗越大。但减少上下文又怕信息丢失，这是个两难。</p>
+        <p><strong>痛点二：上下文窗口被垃圾占满。</strong>LLM 有上下文窗口限制（比如 200k token）。如果传了一堆冗余日志和重复的工具输出，真正重要的信息就被挤出去了。LLM 会"忘了"关键上下文。</p>
+        <p><strong>痛点三：没有通用的压缩方案。</strong>JSON 数据需要一种压缩方式，代码需要另一种，自然语言文本又需要另一种。大多数团队要么硬截断（丢失信息），要么花钱硬扛（浪费预算）。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">🔑</div>
+        <div class="callout-content">
+          <strong class="callout-title">Headroom 的核心洞察</strong>
+          <p>"你不需要把所有数据都喂给 LLM。你只需要喂给它'足够做出正确判断'的那部分。压缩不是删减，是保留信号、去掉噪音。"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

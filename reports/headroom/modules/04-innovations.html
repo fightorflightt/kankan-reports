@@ -1,0 +1,43 @@
+<section class="module" id="module-4" data-module-title="💡 创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">💡 创新点</h1>
+      <p class="module-subtitle">和常规做法比，它有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🧠</div>
+          <div class="pattern-title">内容感知路由：不是"一刀切"压缩</div>
+          <p class="pattern-desc">大多数压缩方案是对所有内容用同一种算法。Headroom 的 ContentRouter 先识别内容类型——JSON？代码？自然语言？——然后分发给不同的压缩器。JSON 用 SmartCrusher（理解 JSON 结构），代码用 CodeCompressor（理解 AST 语法树），文本用 Kompress-base（HuggingFace 模型）。这就像分诊台——不同病人去不同科室。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔄</div>
+          <div class="pattern-title">可逆压缩：丢了还能找回来</div>
+          <p class="pattern-desc">常规压缩是不可逆的——压完就丢了原始数据。Headroom 的 CCR（Compressed Content Registry）在本地保存原始内容，需要时可以按需检索还原。如果你发现 LLM 对某个压缩后的信息理解有偏差，可以随时"展开"还原。这在产品上非常关键：压缩不是赌博，是可回退的。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔌</div>
+          <div class="pattern-title">五合一：从零代码到深度集成</div>
+          <p class="pattern-desc">Headroom 同时提供五种接入方式：写代码调用（library）、不改代码的代理模式（proxy）、一条命令包装 agent（agent wrap）、作为 MCP 工具暴露（MCP server）、跨 agent 共享记忆（cross-agent memory）。同一个压缩引擎，从"我一行代码都不想写"到"我要深度定制"，入口全覆盖。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📚</div>
+          <div class="pattern-title">从失败中学习：headroom learn</div>
+          <p class="pattern-desc">这个功能在产品思路上很妙——它会分析之前压缩失败的 session（比如 LLM 因为信息不足给出了错误答案），自动调整压缩策略。就像一个会自我进化的过滤器，越用越聪明。这是典型的"数据飞轮"思路：用真实使用数据优化产品。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">💾</div>
+          <div class="pattern-title">跨 Agent 共享记忆 + 自动去重</div>
+          <p class="pattern-desc">当你同时用多个 AI agent（比如 Claude Code + Codex + Gemini），它们各自维护独立的上下文——同一个文件可能被传给三个 agent 各压缩一次。cross-agent memory 模式让它们共享一个压缩存储，自动去重。这在产品架构上很超前：把压缩从"单 agent 优化"升级到"多 agent 基础设施"。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🎯</div>
+          <div class="pattern-title">不仅压输入，还压输出</div>
+          <p class="pattern-desc">除了压缩传给 LLM 的上下文，Headroom 还能压缩 LLM 的输出——自动剪掉冗余的"模型废话"（verbosity trimming）。这让 AI 的回答更简洁，也进一步降低了 token 消耗。输入和输出两边一起省。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

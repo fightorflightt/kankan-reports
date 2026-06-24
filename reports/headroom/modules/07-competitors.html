@@ -1,0 +1,51 @@
+<section class="module" id="module-7" data-module-title="🔍 竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">🔍 同类项目速览</h1>
+      <p class="module-subtitle">它在整个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">上下文压缩不是新概念，但 Headroom 在一个新品类</h2>
+        <p>AI 上下文压缩领域有几个玩家，但 Headroom 是唯一做到"本地运行 + 可逆 + 全内容类型 + 多接入模式"的方案。它不是在跟现有工具竞争——它在创建一个新的中间件品类。</p>
+      </section>
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">RTK</span>
+          <span class="badge-desc">Reddit 社区开发的轻量 token 计数工具，侧重统计而非压缩。适合"了解 token 消耗"但不适合"减少 token 消耗"。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">lean-ctx</span>
+          <span class="badge-desc">上下文窗口管理工具，主要通过截断和裁剪来减少 token。简单粗暴——超出窗口的直接丢掉。不具备内容感知的能力。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Compresr</span>
+          <span class="badge-desc">基于 LLM 的压缩方案——用一个便宜的模型来"总结"上下文，再传给贵的模型。问题是：多了一层 LLM 调用，增加了延迟和成本，且压缩不可逆。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Token Co.</span>
+          <span class="badge-desc">商业化的 token 优化服务，侧重 API 层面的拦截和优化。闭源，需要付费，且不支持本地部署。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">OpenAI Compaction</span>
+          <span class="badge-desc">OpenAI 官方的上下文压缩 API。只支持 OpenAI 模型，不支持其他 LLM 或 agent。如果你用的不是 OpenAI，这个方案完全不可用。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">Headroom 适合：</strong>
+          <p>你需要显著降低 AI agent 的 token 成本，又不想牺牲回答质量。你用的 AI 工具多样（Claude Code + Codex + Cursor 等），想要一个统一方案。你对数据隐私有要求，不想把数据发给第三方压缩服务。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>你只是偶尔用 ChatGPT（不是 agent，单次对话 token 量不大）。你的 agent 场景主要是短对话，压缩空间本来就小。你需要的是"统计 token 用了多少"而不是"减少 token 使用"。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

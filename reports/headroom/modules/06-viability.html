@@ -1,0 +1,65 @@
+<section class="module" id="module-6" data-module-title="🛠️ 可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">🛠️ 产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">Proxy 模式最简单：一条命令启动，不改代码。Library 模式需要写 Python/TypeScript。对 PM 来说，proxy 模式可以体验，但要深度使用需要技术配合。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">pip install 即可，部分功能需要 Python 3.10+。核心压缩功能本地运行，不需要外部 API。ML 压缩需要下载 HuggingFace 模型（首次有几 GB 下载）。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">高适配</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">可以让 Claude Code 帮你装好并配置 agent wrap 模式，包装你已有的 AI agent。一条命令就能看到效果。不需要自己写任何压缩逻辑。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你想体验，最快的路径</h2>
+        <div class="step-cards">
+          <div class="step-card animate-in">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <strong>让 Claude Code 帮你装</strong>
+              <p>直接说"帮我安装 headroom-ai 并启动 proxy 模式"，AI 会帮你搞定 pip install 和启动命令。</p>
+            </div>
+          </div>
+          <div class="step-card animate-in">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <strong>用 proxy 模式体验</strong>
+              <p>启动后，所有经过 8787 端口的 AI 请求自动压缩。你正常用 AI agent 就行，不用改任何设置。</p>
+            </div>
+          </div>
+          <div class="step-card animate-in">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <strong>看 token 账单变化</strong>
+              <p>对比压缩前后的 token 用量，直观感受 60-95% 的差异。这个数字本身就能说明产品价值。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">💡</div>
+        <div class="callout-content">
+          <strong class="callout-title">对 PM 来说，这个项目的最大价值不是自己用</strong>
+          <p>而是理解它的产品设计思路：怎么把复杂的 AI 基础设施（压缩算法、内容路由、多模式接入）包装成一个"开箱即用"的产品？怎么设计"从零代码到深度定制"的入口矩阵？<strong>如果你以后要做一个 AI 相关的产品，Headroom 的架构设计比它的代码更值得研究。</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

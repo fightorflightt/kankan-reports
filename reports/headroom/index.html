@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Headroom — 产品深度解读</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">Headroom · 产品解读</span>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="📊 总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">Headroom</h1>
+      <p class="cover-repo">github.com/chopratejas/headroom</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">49.3k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Python + Rust</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Apache 2.0</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#Token压缩</span>
+        <span class="cover-tag">#AI Agent</span>
+        <span class="cover-tag">#中间件</span>
+        <span class="cover-tag">#开源</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>想象一下：你每次用 AI agent 干活，它都要把大量的工具输出、日志、文件、RAG 检索结果发给 LLM。这些数据里有很多冗余——但 AI 调用按 token 收费。Headroom 做的事情很直接：<strong>在数据送到 LLM 之前，先给它"瘦身"——压缩掉 60-95% 的 token，但答案质量不变。</strong></p>
+        <p>它像一个聪明的"信息过滤器"，架在 AI agent 和 LLM 之间，自动识别内容类型（JSON？代码？文本？），用最合适的方式压缩，不影响 LLM 理解。而且支持五种使用模式——你可以直接写代码调用，也可以一行代码不改，通过代理模式拦截所有请求自动压缩。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="🎯 痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">🎯 解决了什么痛点</h1>
+      <p class="module-subtitle">为什么 49,000+ 人关注这个项目？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">AI agent 好用，但"喂"给它的数据太贵了</h2>
+        <p>如果你用过 AI agent（比如让 AI 帮你写代码、调试错误、分析数据），你可能没意识到一个隐形账单：每次 AI agent 执行一个操作，它要把工具的输出结果发给 LLM。一个 SRE 事故调试场景，agent 可能要传 65,000 个 token 的日志给 LLM。</p>
+        <p>65,000 个 token 是什么概念？按当前主流模型价格，一次调用就要几美分。一个复杂任务跑几十次调用，就是几美元。做产品的团队，一个月下来 token 费用轻松上万美元——而其中大部分传给 LLM 的内容，是重复的、冗余的、或者根本不需要完整传递的。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">核心痛点：三个互相叠加的问题</h2>
+        <p><strong>痛点一：Token 账单失控。</strong>日志、工具输出、RAG 检索结果——这些"上下文"越长，token 消耗越大。但减少上下文又怕信息丢失，这是个两难。</p>
+        <p><strong>痛点二：上下文窗口被垃圾占满。</strong>LLM 有上下文窗口限制（比如 200k token）。如果传了一堆冗余日志和重复的工具输出，真正重要的信息就被挤出去了。LLM 会"忘了"关键上下文。</p>
+        <p><strong>痛点三：没有通用的压缩方案。</strong>JSON 数据需要一种压缩方式，代码需要另一种，自然语言文本又需要另一种。大多数团队要么硬截断（丢失信息），要么花钱硬扛（浪费预算）。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">🔑</div>
+        <div class="callout-content">
+          <strong class="callout-title">Headroom 的核心洞察</strong>
+          <p>"你不需要把所有数据都喂给 LLM。你只需要喂给它'足够做出正确判断'的那部分。压缩不是删减，是保留信号、去掉噪音。"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="📖 README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">📖 README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，专业名词保留英文原文</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Headroom — The context compression layer for AI agents.</strong><br><br>
+          60–95% fewer tokens across library, proxy, MCP, and agent-wrap modes. 6 compression algorithms. Local-first. Reversible compression.
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>Headroom —— AI agent 的上下文压缩层。</strong><br><br>
+          在 library、proxy、MCP 和 agent-wrap 四种模式下减少 60-95% 的 token。6 种压缩算法。本地优先。可逆压缩。
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Five main modes:</strong><br>
+          <strong>1. Library</strong> — inline compress(messages) in Python or TypeScript<br>
+          <strong>2. Proxy</strong> — drop-in HTTP proxy on port 8787 requiring zero code changes<br>
+          <strong>3. Agent wrap</strong> — wraps Claude, Codex, Cursor, Aider, Copilot, OpenCode via a single command<br>
+          <strong>4. MCP server</strong> — exposes headroom_compress, headroom_retrieve, headroom_stats tools<br>
+          <strong>5. Cross-agent memory</strong> — shared store across Claude, Codex, Gemini with auto-dedup
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>五种主要模式：</strong><br>
+          <strong>1. Library（代码库模式）</strong>—— 在 Python 或 TypeScript 中直接调用 compress(messages)<br>
+          <strong>2. Proxy（代理模式）</strong>—— 在 8787 端口启动一个 HTTP 代理，一行代码不用改<br>
+          <strong>3. Agent wrap（Agent 包装模式）</strong>—— 一条命令同时包装 Claude、Codex、Cursor、Aider、Copilot、OpenCode<br>
+          <strong>4. MCP server（MCP 服务器模式）</strong>—— 暴露 headroom_compress、headroom_retrieve、headroom_stats 工具<br>
+          <strong>5. Cross-agent memory（跨 Agent 记忆）</strong>—— Claude、Codex、Gemini 之间共享存储，自动去重
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Architecture:</strong> ContentRouter detects content type and routes to SmartCrusher (JSON), CodeCompressor (AST-aware compression), or Kompress-base (HuggingFace text model). CacheAligner stabilizes prefixes for KV cache hits. CCR stores originals locally for on-demand retrieval.<br><br>
+          <strong>headroom learn:</strong> Mines failed sessions and writes corrections — output token reduction trims model verbosity.
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>架构：</strong>ContentRouter（内容路由器）检测内容类型，然后路由到 SmartCrusher（处理 JSON）、CodeCompressor（AST 感知的代码压缩）或 Kompress-base（基于 HuggingFace 文本模型）。CacheAligner 稳定前缀以提高 KV cache 命中率。CCR 在本地存储原始内容供按需检索。<br><br>
+          <strong>headroom learn：</strong>挖掘失败的 session 并自动写修正规则——还能压缩模型输出，trim 掉冗余的"废话"。
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Benchmark results:</strong><br>
+          • Code search: 92% savings (17,765 → 1,408 tokens)<br>
+          • SRE incident debugging: 92% savings (65,694 → 5,118)<br>
+          • Accuracy preserved: GSM8K (±0.000), TruthfulQA (+0.030), SQuAD v2 (97%), BFCL (97%)
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>基准测试结果：</strong><br>
+          • 代码搜索：节省 92% token（17,765 → 1,408）<br>
+          • SRE 事故调试：节省 92% token（65,694 → 5,118）<br>
+          • 准确度保持：GSM8K（±0.000，无变化）、TruthfulQA（+0.030，反而提升）、SQuAD v2（97%）、BFCL（97%）
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Comparison:</strong> RTK, lean-ctx, Compresr, Token Co., OpenAI Compaction — Headroom is the only local, reversible option spanning all content types (JSON, code, text, logs, RAG chunks).<br><br>
+          <strong>Agent compatibility:</strong> Claude Code, Codex, Cursor, Aider, Copilot CLI, OpenClaw, OpenCode, Cortex Code.
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>对比：</strong>RTK、lean-ctx、Compresr、Token Co.、OpenAI Compaction —— Headroom 是唯一一个本地运行、可逆压缩、覆盖所有内容类型（JSON、代码、文本、日志、RAG chunks）的方案。<br><br>
+          <strong>Agent 兼容性：</strong>支持 Claude Code、Codex、Cursor、Aider、Copilot CLI、OpenClaw、OpenCode、Cortex Code。
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="💡 创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">💡 创新点</h1>
+      <p class="module-subtitle">和常规做法比，它有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🧠</div>
+          <div class="pattern-title">内容感知路由：不是"一刀切"压缩</div>
+          <p class="pattern-desc">大多数压缩方案是对所有内容用同一种算法。Headroom 的 ContentRouter 先识别内容类型——JSON？代码？自然语言？——然后分发给不同的压缩器。JSON 用 SmartCrusher（理解 JSON 结构），代码用 CodeCompressor（理解 AST 语法树），文本用 Kompress-base（HuggingFace 模型）。这就像分诊台——不同病人去不同科室。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔄</div>
+          <div class="pattern-title">可逆压缩：丢了还能找回来</div>
+          <p class="pattern-desc">常规压缩是不可逆的——压完就丢了原始数据。Headroom 的 CCR（Compressed Content Registry）在本地保存原始内容，需要时可以按需检索还原。如果你发现 LLM 对某个压缩后的信息理解有偏差，可以随时"展开"还原。这在产品上非常关键：压缩不是赌博，是可回退的。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔌</div>
+          <div class="pattern-title">五合一：从零代码到深度集成</div>
+          <p class="pattern-desc">Headroom 同时提供五种接入方式：写代码调用（library）、不改代码的代理模式（proxy）、一条命令包装 agent（agent wrap）、作为 MCP 工具暴露（MCP server）、跨 agent 共享记忆（cross-agent memory）。同一个压缩引擎，从"我一行代码都不想写"到"我要深度定制"，入口全覆盖。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📚</div>
+          <div class="pattern-title">从失败中学习：headroom learn</div>
+          <p class="pattern-desc">这个功能在产品思路上很妙——它会分析之前压缩失败的 session（比如 LLM 因为信息不足给出了错误答案），自动调整压缩策略。就像一个会自我进化的过滤器，越用越聪明。这是典型的"数据飞轮"思路：用真实使用数据优化产品。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">💾</div>
+          <div class="pattern-title">跨 Agent 共享记忆 + 自动去重</div>
+          <p class="pattern-desc">当你同时用多个 AI agent（比如 Claude Code + Codex + Gemini），它们各自维护独立的上下文——同一个文件可能被传给三个 agent 各压缩一次。cross-agent memory 模式让它们共享一个压缩存储，自动去重。这在产品架构上很超前：把压缩从"单 agent 优化"升级到"多 agent 基础设施"。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🎯</div>
+          <div class="pattern-title">不仅压输入，还压输出</div>
+          <p class="pattern-desc">除了压缩传给 LLM 的上下文，Headroom 还能压缩 LLM 的输出——自动剪掉冗余的"模型废话"（verbosity trimming）。这让 AI 的回答更简洁，也进一步降低了 token 消耗。输入和输出两边一起省。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="✨ 灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">✨ 灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">「AI 成本仪表盘」产品</div>
+          <p class="inspo-card-desc">绝大多数用 AI 做产品的团队，根本不知道自己一个月花了多少 token、其中多少是冗余的。能不能做一个面向 PM 和创始人的 AI 成本可视化工具：接入 agent，自动分析 token 消耗分布，告诉你在哪里浪费了钱，建议压缩策略。就像 Mixpanel 之于用户行为，这个产品之于 AI 成本。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">「智能摘要中间件」</div>
+          <p class="inspo-card-desc">Headroom 的核心思路——"在数据到 LLM 之前先处理"——可以应用到更多场景。比如做一个面向非技术用户的产品：你连接你的数据库、客服工单、用户反馈，它自动生成"给 AI 看的摘要"，让不懂技术的业务负责人也能让 AI 分析海量数据，而不需要把所有原始数据都丢给 LLM。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">「上下文优化即服务」</div>
+          <p class="inspo-card-desc">Headroom 的"从失败中学习"（headroom learn）思路可以独立做成产品：一个 SaaS 服务，接入你的 AI agent，持续监控压缩后的回答质量，发现信息丢失时自动调整压缩策略。核心卖点不是"压缩"，而是"压缩后答案质量不降"——这比单纯压缩难得多，也值钱得多。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">「多 Agent 协作中台」</div>
+          <p class="inspo-card-desc">Headroom 的 cross-agent memory 暗示了一个更大的产品方向：当你同时用多个 AI agent 时，它们之间怎么共享信息、避免重复工作？这可以做成一个"Agent 协作中台"——统一管理所有 agent 的上下文、记忆、压缩策略。对于用多个 AI 工具的产品团队，这是基础设施级别的需求。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">「零代码 AI 成本优化器」</div>
+          <p class="inspo-card-desc">Headroom 的 Proxy 模式（一行代码不改就能用）验证了一个产品假设：最好的工具是你不需要适配的。能不能做一个"零代码 AI 成本优化器"——拖拽配置、一键开启，自动分析你所有 AI 调用的 token 冗余，自动压缩。面向不懂技术的创业者和小团队，核心卖点：开了就不用管，账单自动降 50%。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="🛠️ 可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">🛠️ 产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">Proxy 模式最简单：一条命令启动，不改代码。Library 模式需要写 Python/TypeScript。对 PM 来说，proxy 模式可以体验，但要深度使用需要技术配合。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">pip install 即可，部分功能需要 Python 3.10+。核心压缩功能本地运行，不需要外部 API。ML 压缩需要下载 HuggingFace 模型（首次有几 GB 下载）。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">高适配</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">可以让 Claude Code 帮你装好并配置 agent wrap 模式，包装你已有的 AI agent。一条命令就能看到效果。不需要自己写任何压缩逻辑。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你想体验，最快的路径</h2>
+        <div class="step-cards">
+          <div class="step-card animate-in">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <strong>让 Claude Code 帮你装</strong>
+              <p>直接说"帮我安装 headroom-ai 并启动 proxy 模式"，AI 会帮你搞定 pip install 和启动命令。</p>
+            </div>
+          </div>
+          <div class="step-card animate-in">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <strong>用 proxy 模式体验</strong>
+              <p>启动后，所有经过 8787 端口的 AI 请求自动压缩。你正常用 AI agent 就行，不用改任何设置。</p>
+            </div>
+          </div>
+          <div class="step-card animate-in">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <strong>看 token 账单变化</strong>
+              <p>对比压缩前后的 token 用量，直观感受 60-95% 的差异。这个数字本身就能说明产品价值。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">💡</div>
+        <div class="callout-content">
+          <strong class="callout-title">对 PM 来说，这个项目的最大价值不是自己用</strong>
+          <p>而是理解它的产品设计思路：怎么把复杂的 AI 基础设施（压缩算法、内容路由、多模式接入）包装成一个"开箱即用"的产品？怎么设计"从零代码到深度定制"的入口矩阵？<strong>如果你以后要做一个 AI 相关的产品，Headroom 的架构设计比它的代码更值得研究。</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="🔍 竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">🔍 同类项目速览</h1>
+      <p class="module-subtitle">它在整个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">上下文压缩不是新概念，但 Headroom 在一个新品类</h2>
+        <p>AI 上下文压缩领域有几个玩家，但 Headroom 是唯一做到"本地运行 + 可逆 + 全内容类型 + 多接入模式"的方案。它不是在跟现有工具竞争——它在创建一个新的中间件品类。</p>
+      </section>
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">RTK</span>
+          <span class="badge-desc">Reddit 社区开发的轻量 token 计数工具，侧重统计而非压缩。适合"了解 token 消耗"但不适合"减少 token 消耗"。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">lean-ctx</span>
+          <span class="badge-desc">上下文窗口管理工具，主要通过截断和裁剪来减少 token。简单粗暴——超出窗口的直接丢掉。不具备内容感知的能力。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Compresr</span>
+          <span class="badge-desc">基于 LLM 的压缩方案——用一个便宜的模型来"总结"上下文，再传给贵的模型。问题是：多了一层 LLM 调用，增加了延迟和成本，且压缩不可逆。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Token Co.</span>
+          <span class="badge-desc">商业化的 token 优化服务，侧重 API 层面的拦截和优化。闭源，需要付费，且不支持本地部署。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">OpenAI Compaction</span>
+          <span class="badge-desc">OpenAI 官方的上下文压缩 API。只支持 OpenAI 模型，不支持其他 LLM 或 agent。如果你用的不是 OpenAI，这个方案完全不可用。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">Headroom 适合：</strong>
+          <p>你需要显著降低 AI agent 的 token 成本，又不想牺牲回答质量。你用的 AI 工具多样（Claude Code + Codex + Cursor 等），想要一个统一方案。你对数据隐私有要求，不想把数据发给第三方压缩服务。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>你只是偶尔用 ChatGPT（不是 agent，单次对话 token 量不大）。你的 agent 场景主要是短对话，压缩空间本来就小。你需要的是"统计 token 用了多少"而不是"减少 token 使用"。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="✅ 行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">✅ 下一步行动</h1>
+      <p class="module-subtitle">接下来你可以做什么</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text"><strong>理解它的产品架构</strong>：重点看它怎么设计"五种接入模式"——从 proxy（零代码）到 library（写代码）的入口矩阵。这是做 AI 中间件产品的经典范式。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text"><strong>让 Claude Code 帮你跑一个 demo</strong>：说"帮我装 headroom-ai 并以 proxy 模式启动"，体验一下 token 压缩前后的差异。亲眼看到 65,000 → 5,000 token 的对比，比任何文字都有说服力。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text"><strong>关注"数据飞轮"产品设计</strong>：headroom learn 这个功能——从失败中自动学习优化——是高级产品思维。如果你以后做 AI 产品，这是让你的产品有"护城河"的关键模式。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text"><strong>把"灵感 1"（AI 成本仪表盘）和"灵感 5"（零代码优化器）拿出来聊聊</strong>：这两个方向最接近你的背景优势——你做 PM + UI/UX，面向非技术用户做产品是你的强项。我们可以聊聊具体怎么落地。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text"><strong>去看看 GitHub 上的 benchmark 数据</strong>：<a href="https://github.com/chopratejas/headroom" target="_blank">github.com/chopratejas/headroom</a> —— benchmark 表格是说服技术团队跟你合作时有用的"证据弹药"。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>
