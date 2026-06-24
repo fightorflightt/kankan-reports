@@ -198,6 +198,34 @@ pre::-webkit-scrollbar { display: none; }
   max-width: 300px;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-left: auto;
+}
+
+.nav-github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: all var(--duration-fast);
+  white-space: nowrap;
+}
+.nav-github-btn:hover {
+  border-color: var(--color-text);
+  color: var(--color-text);
+  background: var(--color-bg-warm);
+}
+
 .nav-dots {
   display: flex;
   align-items: center;
