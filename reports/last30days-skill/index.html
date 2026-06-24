@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>/last30days — 产品深度解读</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">/last30days · 产品解读</span>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="📊 总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">/last30days</h1>
+      <p class="cover-repo">github.com/mvanhorn/last30days-skill</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">46.3k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Python</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">MIT</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#AI Agent</span>
+        <span class="cover-tag">#研究工具</span>
+        <span class="cover-tag">#开源</span>
+        <span class="cover-tag">#Skill</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>想象一下：你明天要见一个人，Google 只能给你他 2023 年的 LinkedIn。而这个工具能在几秒钟内搜遍 Reddit、X（Twitter）、YouTube、TikTok、Hacker News、Polymarket 预测市场——找到这个人<strong>最近 30 天</strong>在干什么、社区怎么讨论他、他发了什么代码、Podcast 说了什么。</p>
+        <p>它不是一个搜索引擎，它是一个<strong>AI agent 驱动的情报聚合器</strong>。用真实的点赞、评论、转发和真金白银的预测市场数据来排序，而不是靠 SEO 排名。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="🎯 痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">🎯 解决了什么痛点</h1>
+      <p class="module-subtitle">为什么 46,000+ 人给这个项目点了 star？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">信息检索的体验，十年来没变过</h2>
+        <p>你在 Google 搜一个话题。出来的前十条是 SEO 优化过的博客、三年前的新闻稿、加上一堆广告。真正有价值的讨论——Reddit 上那个 1,500 赞的真实用户评价、X 上行业专家昨晚发的长帖、YouTube 上一个 45 分钟的深度分析——Google 要么搜不到，要么埋在第十页。</p>
+        <p>如果你想了解一个人？LinkedIn 给你的是他 2023 年的职位。但真实情况是：他最近在 GitHub 上提交了 23 个 PR，在 X 上跟人争论 AI agent 的未来，在 Reddit 上被讨论了 569 个赞。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">核心痛点：平台都是围墙花园</h2>
+        <p>Reddit 有最真实的用户评价，但 Google 的爬虫碰不到评论区。X 有最快的突发信息和专家观点，但 ChatGPT 搜不了 X。YouTube 里有 45 分钟的深度分析，但 Gemini 虽然能搜 YouTube 却搜不了 Reddit。</p>
+        <p><strong>每个平台都是一个围墙花园</strong>——它们不互通，各有各的 API，各有各的认证方式。如果你想全面了解一个话题，你得一个一个打开：Reddit → X → YouTube → Hacker News → 再搜一下 Polymarket 看看市场怎么押注的。这个过程要花 90 分钟。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">🔑</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目的核心洞察</strong>
+          <p>"不是一个更好的搜索引擎。是十几个互不相连的平台，被一个 AI agent 桥接起来了。"</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">作者自己怎么说的</h2>
+        <p>作者最初做这个是为了跟上 AI 行业的变化。"AI 领域每天都不一样，Reddit 和 X 上的极客总是最先发现新东西。我需要更好的 prompt，但训练数据比社区已经摸索出来的东西落后好几个月。"</p>
+        <p>但后来他发现用途远不止 AI 研究：</p>
+        <ul style="margin-left: 1.5em; margin-bottom: var(--space-4);">
+          <li style="margin-bottom: var(--space-2);"><strong>见客户前</strong>——了解对方公司过去 30 天的真实动态</li>
+          <li style="margin-bottom: var(--space-2);"><strong>开会前</strong>——读一个人的最新推文和 Podcast 文字稿</li>
+          <li style="margin-bottom: var(--space-2);"><strong>做工具对比</strong>——"这几个产品哪个更好？"不用看软文，直接看社区评价</li>
+          <li style="margin-bottom: var(--space-2);"><strong>出行前</strong>——迪士尼哪个项目在检修？社区怎么说 Genie+？</li>
+          <li><strong>做产品前</strong>——了解人们到底在抱怨什么、需要什么</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="📖 README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">📖 README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，专业名词保留英文原文</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>/last30days</strong><br><br>
+          <strong>An AI agent-led search engine scored by upvotes, likes, and real money - not editors.</strong>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>/last30days</strong><br><br>
+          <strong>一个由 AI agent 驱动的搜索引擎，用点赞、喜欢和真金白银来排序——而不是靠人工编辑。</strong>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          Reddit upvotes. X likes. YouTube transcripts. TikTok engagement. Polymarket odds backed by real money and insider information. That's millions of people voting with their attention and their wallets every day. /last30days searches all of it in parallel, scores it by what real people actually engage with, and an AI agent judge synthesizes it into one brief.<br><br>
+          Google aggregates editors. /last30days searches people.<br><br>
+          You can't get this search anywhere else because no single AI has access to all of it. Google search doesn't touch Reddit comments or X posts. ChatGPT has a deal with Reddit but can't search X or TikTok. Gemini has YouTube but not Reddit. Claude has none of them natively. Each platform is a walled garden with its own API, its own tokens, its own auth. But you can bring your own keys and browser sessions, and suddenly an AI agent can search all of them at once, score them against each other, and tell you what actually matters.<br><br>
+          That's the unlock. Not one better search engine. A dozen disconnected platforms, bridged by an agent.
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          Reddit 的点赞。X 的喜欢。YouTube 的文字稿。TikTok 的互动量。Polymarket 上由真实金钱和内幕信息支撑的赔率。这是每天数百万人用注意力和钱包在投票。/last30days 并行搜索所有这些来源，用真实用户的真实互动来评分，然后由一个 AI agent 裁判将其合成为一份简报。<br><br>
+          Google 聚合编辑的观点。/last30days 搜索真实的人。<br><br>
+          你在别处得不到这样的搜索，因为没有单一的 AI 能访问所有这些来源。Google 搜索碰不到 Reddit 评论和 X 帖子。ChatGPT 和 Reddit 有合作但搜不了 X 和 TikTok。Gemini 能搜 YouTube 但搜不了 Reddit。Claude 原生一个都碰不到。每个平台都是一个围墙花园，有自己的 API、token 和认证。但你可以带上自己的 API key 和浏览器 session，然后突然之间，一个 AI agent 就能同时搜索所有平台，互相对比评分，告诉你什么才是真正重要的。<br><br>
+          这就是突破点。不是一个更好的搜索引擎。是十几个互不相连的平台，被一个 agent 桥接起来了。
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Zero config.</strong> Reddit, HN, Polymarket, and GitHub work immediately. Run it once and the setup wizard unlocks X, YouTube, TikTok, and more in 30 seconds.
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>零配置。</strong>Reddit、Hacker News、Polymarket 和 GitHub 开箱即用。运行一次，setup wizard 在 30 秒内解锁 X、YouTube、TikTok 等更多来源。
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Why this exists</strong><br><br>
+          I built it to keep up in AI. Everything changes every day and the Reddit and X nerds are always on top of it first. I needed better prompts, and the training data was always months behind what the community had already figured out.<br><br>
+          But it turned into something bigger. Now I run it before a sales call to know the last 30 days truth about a business. Before a meeting to read someone's recent tweets and podcast transcripts. Before a Disney World trip to know which rides are closed and what the community says about Genie+. Before I build anything to know what problems people are actually hitting.<br><br>
+          If you're meeting with a CEO, have you read all their tweets and YouTube transcripts from the last 30 days? I have.
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>为什么做这个</strong><br><br>
+          我做它是为了跟上 AI 行业的节奏。AI 领域每天都在变，Reddit 和 X 上的极客总是最先发现新东西。我需要更好的 prompt，而训练数据总是比社区已经搞明白的东西落后好几个月。<br><br>
+          但它变成了更大的东西。现在我会在打销售电话之前用它了解一家公司过去 30 天的真实情况。开会之前读一个人最近的推文和 Podcast 文字稿。去迪士尼之前知道哪些项目在检修、社区怎么说 Genie+。做任何东西之前，先了解人们在碰到什么问题。<br><br>
+          你要是去见一个 CEO，过去 30 天里他的所有推文和 YouTube 文字稿你都读过了吗？我读过了。
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Sources, scored by the people</strong><br><br>
+          <em>Table: Reddit, X/Twitter, YouTube, TikTok, Instagram Reels, Hacker News, Polymarket, GitHub, Digg, Threads, Pinterest, Bluesky, Perplexity, Web</em><br><br>
+          A Reddit thread with 1,500 upvotes is a stronger signal than a blog post nobody read. A TikTok with 3.6M views tells you more about what's culturally relevant than a press release. Polymarket odds backed by $66K in volume are harder to argue with than a pundit's guess.<br><br>
+          The synthesis ranks by what real people actually engaged with. Social relevancy, not SEO relevancy.
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>数据来源，由真实的人来评分</strong><br><br>
+          <em>覆盖：Reddit、X/Twitter、YouTube、TikTok、Instagram Reels、Hacker News、Polymarket、GitHub、Digg、Threads、Pinterest、Bluesky、Perplexity、Web</em><br><br>
+          一篇有 1,500 赞的 Reddit 帖子，比一篇没人读的博客更有信号价值。一个 360 万播放的 TikTok，比一篇新闻稿更能告诉你什么是当下文化热点。Polymarket 上 6.6 万美元交易量支撑的赔率，比一个评论员的猜测更难反驳。<br><br>
+          最终的综合排序依据是真实用户的真实互动。是社会相关性，不是 SEO 相关性。
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>What people actually use it for</strong><br><br>
+          <strong>Before a meeting.</strong> /last30days Peter Steinberger — joined OpenAI's Codex team, fighting Anthropic's ban on third-party agents, 23 PRs merged at 85% merge rate on GitHub, building LobsterOS for cross-device agent control. r/ClaudeCode: "Ever since OpenClaw released, it was widely known that if you run it through anything other than the API, you were gonna get banned eventually" (227 upvotes). That's not on LinkedIn.<br><br>
+          <strong>To read hiring signals.</strong> /last30days Listen Labs --hiring-signals — current jobs and careers pages become cited evidence for focus shifts: hiring into enterprise security, customer success, infrastructure, or product expansion.<br><br>
+          <strong>When something drops.</strong> /last30days Kanye West — UK blocked his visa, Wireless Festival canceled, sponsors fled. But BULLY debuted #2 on Billboard. Fantano came back to review it (653K views). SoFi Homecoming brought out Lauryn Hill and Travis Scott for 44 songs. Polymarket: "Will Kanye tweet again?" 86% Yes. 23 Reddit threads, 17 YouTube videos, 86K upvotes.<br><br>
+          <strong>To compare tools.</strong> /last30days OpenClaw vs Hermes vs Paperclip — "These aren't competitors, they're layers." OpenClaw is the executor (351K GitHub stars), Hermes is the self-improving brain (31K stars), Paperclip is the org chart (49K stars). Star counts pulled live from the GitHub API. Side-by-side table with architecture, memory, security, best-for.<br><br>
+          <strong>To understand the world.</strong> /last30days Iran vs USA — Day 38 of the war. Trump's Tuesday deadline for Iran to reopen the Strait of Hormuz. Two US warplanes downed. Oil at $126/barrel. Polymarket: ceasefire by Dec 31 at 74%.<br><br>
+          <strong>Before a trip.</strong> /last30days Universal Epic Universe — Expansion already under construction. "Project 680" permit filed. Fireworks show confirmed by infrastructure but unannounced. Wait times: Mine-Cart Madness averaging 148 minutes. Stardust Racers down for refurbishment through April 5.<br><br>
+          <strong>To learn something fast.</strong> /last30days Nano Banana Pro prompting — JSON-structured prompts are replacing tag soup. @pictsbyai's nested format prevents "concept bleeding." Edit-first workflow beats regeneration. Then it writes you a production prompt using exactly what the community said works.
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>人们实际用它来做什么</strong><br><br>
+          <strong>开会之前。</strong>/last30days Peter Steinberger — 加入了 OpenAI 的 Codex 团队，正在对抗 Anthropic 对第三方 agent 的封禁，在 GitHub 上以 85% 的合并率提交了 23 个 PR，正在构建跨设备 agent 控制系统"LobsterOS"。r/ClaudeCode："自从 OpenClaw 发布以来，大家都知道如果你通过 API 以外的方式运行它，最终会被封"（227 赞）。这些信息 LinkedIn 上没有。<br><br>
+          <strong>读取招聘信号。</strong>/last30days Listen Labs --hiring-signals — 当前的招聘页面成为公司战略转型的佐证：是在招企业安全人员、客户成功经理、基础设施工程师，还是产品扩张方向。报告告诉你招聘行为可能意味着什么，而不是公司路线图会说什么。<br><br>
+          <strong>当大事件发生时。</strong>/last30days Kanye West — 英国拒绝了他的签证，Wireless Festival 取消了演出，赞助商纷纷跑路。但 BULLY 在 Billboard 首周排名第 2。Fantano 从"退休"中回归来评测（65.3 万次观看）。SoFi Homecoming 请来了 Lauryn Hill 和 Travis Scott 唱了 44 首歌。Polymarket："Kanye 还会发推吗？"86% 押"会"。23 条 Reddit 帖子，17 个 YouTube 视频，8.6 万赞。<br><br>
+          <strong>对比工具。</strong>/last30days OpenClaw vs Hermes vs Paperclip — "它们不是竞争对手，是不同层。"OpenClaw 是执行器（35.1 万 GitHub star），Hermes 是自我进化的"大脑"（3.1 万 star），Paperclip 是组织架构图（4.9 万 star）。Star 数从 GitHub API 实时拉取。附有架构、记忆机制、安全性、最适合场景的对比表。<br><br>
+          <strong>理解世界局势。</strong>/last30days Iran vs USA — 战争第 38 天。Trump 给伊朗的最后期限是周二重新开放霍尔木兹海峡。两架美军战机被击落。油价 126 美元一桶。IEA 称这是"全球石油市场历史上最大的供应中断"。Polymarket：12 月 31 日前停火概率 74%。<br><br>
+          <strong>出行之前。</strong>/last30days Universal Epic Universe — 扩建已经在施工中。"Project 680"许可已提交。烟花秀基础设施已确认但未公布。排队时间：Mine-Cart Madness 平均 148 分钟。Stardust Racers 维护中，预计 4 月 5 日恢复。<br><br>
+          <strong>快速学习技能。</strong>/last30days Nano Banana Pro prompting — JSON 结构化 prompt 正在替代"标签堆砌"。@pictsbyai 的嵌套格式能防止"概念串色"。先编辑再生成的流程完胜重新生成。然后它会用社区验证过的方法帮你写一个可用的 prompt。
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="💡 创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">💡 创新点</h1>
+      <p class="module-subtitle">和常规搜索/研究工具比，它有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这不止是一个"聚合搜索"工具</h2>
+        <p>表面上看，它就是把 Reddit、X、YouTube 搜了一遍然后汇总。但你仔细看它的设计，会发现几个很有意思的创新——这些创新才是它能冲到 46k star 的原因。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🧠</div>
+          <div class="pattern-title">智能搜索：搜索之前先"理解"</div>
+          <p class="pattern-desc">普通搜索引擎是"关键词匹配"——你输入什么就搜什么。v3 版本在搜索之前先做一层"预研"：你搜"OpenClaw"，它先自动解析出这个产品的创始人 @steipete、相关 subreddit r/openclaw 和 r/ClaudeCode、正确的 YouTube 频道和 TikTok 标签——然后再去搜。这就像你问一个懂行的朋友，而不是问一个只会匹配字符串的机器人。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔗</div>
+          <div class="pattern-title">跨源故事合并</div>
+          <p class="pattern-desc">当同一个事件出现在 Reddit、X 和 YouTube 上时，v3 会把它们合并成一个"故事"而不是三条重复信息。比如说某音乐节在 Reddit 被讨论、在 X 上被转发、在 TikTok 上晒票价——v3 看到的是一条完整的故事线，而不是三个碎片。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">😂</div>
+          <div class="pattern-title">"最佳吐槽"评分</div>
+          <p class="pattern-desc">Reddit 和 X 上最精彩的内容往往是幽默的评论，而不是最"相关"的结果。v3 增加了一个"趣味性评分"维度——用第二个 AI judge 专门给每条结果打幽默分和病毒传播分。这样报告里不只是干巴巴的信息，还保留了社区最妙的神评论。这个设计在产品上很聪明：它让阅读报告这件事变得有趣。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📊</div>
+          <div class="pattern-title">用真金白银排序</div>
+          <p class="pattern-desc">Polymarket 的赔率是有人拿真钱下注的结果。一个事件在 Polymarket 上有 6.6 万美元的交易量和 96% 的概率——这比任何评论员的猜测都有参考价值。把预测市场和社交媒体数据放在一起做综合排序，这在产品思路上很有意思。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📄</div>
+          <div class="pattern-title">可分享的 HTML 简报</div>
+          <p class="pattern-desc">搜索完不只是聊天框里看看就没了。可以生成一个独立的 HTML 文件，深色模式、打印友好、离线可用。拖进 Slack 或邮件就能分享。这个功能很"产品"——它让研究结果从一个"聊天记录"变成了一个"可以传播的资产"。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🎯</div>
+          <div class="pattern-title">按角色切换搜索方式</div>
+          <p class="pattern-desc">搜一个人的时候，搜索引擎不会自动切到"人模式"。但 v3 会：如果 topic 是一个人，它会自动从"谁提到了这个名字"切换成"这个人最近在干什么"——找他的 GitHub 提交记录、release notes、PR 合并率。你需要的是他的行为数据，不是提到他名字的新闻。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="✨ 灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">✨ 灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">「会前情报卡片」产品</div>
+          <p class="inspo-card-desc">想想你每次见客户、面试候选人、跟合作方开会之前，花多少时间搜索对方信息？能不能做成一个独立产品：输入对方公司名 / 姓名，自动生成一份一页纸的"会前简报"——最近动态、社区口碑、GitHub 活跃度（如果是技术人员）、社交媒体的真实讨论。面向销售、HR、投资人。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">「产品决策雷达」</div>
+          <p class="inspo-card-desc">做产品的人经常要回答"我们该不该做 X？"这个项目告诉你：不用拍脑袋，去看社区在抱怨什么、竞品用户不满什么、哪些需求帖子点赞最多。做一个面向 PM 的工具：输入一个产品方向，自动聚合 Reddit、Hacker News、Product Hunt、X 上的用户真实声音，输出一份"要不要做"的信号报告。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">「价格发现引擎」</div>
+          <p class="inspo-card-desc">这个项目用 Polymarket（预测市场）的数据来辅助判断。这个思路可以用到定价策略上：搜集社区对某类产品价格的讨论、竞品定价变化、用户愿意付多少钱的评论，结合市场价格趋势，给 PM 一个"建议定价区间"。定价一直是最难的产品决策之一，而社区里藏着大量付费意愿信号。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">「行业脉搏 Daily Brief」</div>
+          <p class="inspo-card-desc">每天早上自动生成一份你的行业的"昨日要点"——不是新闻标题汇总，而是社区（Reddit/HN/X）真正在讨论什么、哪些帖子热度高、有什么新的吐槽或新工具被热议。像一份给产品人看的"早报"，但信号来源是社区真实讨论而非媒体通稿。用 HTML 简报格式，每天早上 Slack 推送。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">「Vibe Coding 技能发现」</div>
+          <p class="inspo-card-desc">你正在探索怎么用 AI 做产品，而这个项目本身就是 Claude Code 的一个 skill。能否做一个"AI 工具 / skill 发现平台"——专门面向不会写代码的 PM，展示哪些 skill 能解决什么产品问题、上手难度如何、社区评价怎样。就像 Product Hunt 但聚焦在 AI agent skill 这个品类。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="🛠️ 可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">🛠️ 产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">这就是一个 Claude Code 的 skill。在 Claude Code 里输入一行命令就能装好，然后直接对话使用。零配置开始，Reddit、Hacker News、Polymarket、GitHub 开箱即用。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">基础功能完全免费。想解锁 X、YouTube、TikTok 等更多来源，只需要注册几个免费 API key 或者登录浏览器。不需要付费订阅就能用。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">高适配</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">这是一个 skill，你通过自然语言跟它交互——"/last30days 张三"、"帮我对比一下 A 和 B"。你不需要写一行代码。它是面向对话使用的。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">你怎么上手？三步</h2>
+        <div class="step-cards">
+          <div class="step-card animate-in">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <strong>装 Claude Code</strong>
+              <p>如果你还没装，按官网指引装好 Claude Code 终端工具。</p>
+            </div>
+          </div>
+          <div class="step-card animate-in">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <strong>装这个 skill</strong>
+              <p>在 Claude Code 里输入 <code style="background:#f0f0f0;padding:2px 6px;border-radius:3px;font-size:0.85em;">/plugin marketplace add mvanhorn/last30days-skill</code>，然后 <code style="background:#f0f0f0;padding:2px 6px;border-radius:3px;font-size:0.85em;">/plugin install last30days</code>。搞定。</p>
+            </div>
+          </div>
+          <div class="step-card animate-in">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <strong>开始搜</strong>
+              <p>输入 <code style="background:#f0f0f0;padding:2px 6px;border-radius:3px;font-size:0.85em;">/last30days 你感兴趣的任何话题</code>，第一次运行会自动弹出 setup wizard 帮你解锁更多来源。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">💡</div>
+        <div class="callout-content">
+          <strong class="callout-title">对你来说，最大的价值不是"装好它"</strong>
+          <p>作为一个 PM 在探索期，你最大的收获不是把这个工具跑起来——而是理解它的<strong>产品设计思路</strong>：怎么把十几个互不相通的数据源变成一个用户体验流畅的产品？怎么用 AI agent 做"预研"而非被动搜索？怎么让搜索结果变得"可分享"而不只是一个聊天记录？这些产品决策，比代码本身更有价值。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="🔍 竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">🔍 同类项目速览</h1>
+      <p class="module-subtitle">它在整个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">市面上已有的方案，和它的位置</h2>
+        <p>这个项目不是在跟 Google 竞争。它在做一个新的品类——<strong>AI agent 驱动的多源情报聚合</strong>。没有直接竞品能做到同样的覆盖面和评分方式。</p>
+      </section>
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">Google 搜索</span>
+          <span class="badge-desc">搜网页。碰不到 Reddit 评论区、X 帖子、Polymarket 赔率。SEO 驱动的排序。对"了解一个人最近在做什么"这类需求完全无力。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Perplexity</span>
+          <span class="badge-desc">AI 驱动的网页搜索，能搜 Reddit 但搜不了 X 和 TikTok。更像一个"带总结功能的搜索"，而非多源聚合。适合快速查事实，不适合"了解社区氛围"。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">ChatGPT Search</span>
+          <span class="badge-desc">和 Reddit 有合作，能搜到部分 Reddit 内容。但搜不了 X、TikTok、YouTube 评论区。且无法用 Polymarket 赔率或真实互动数据来排序。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">手动调研</span>
+          <span class="badge-desc">一个一个打开 Reddit → X → YouTube → HN。这是目前大多数人的做法，耗时 60-90 分钟。这个项目把它压缩到了几秒钟。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">GummySearch</span>
+          <span class="badge-desc">Reddit 专用的用户调研工具，帮助产品人搜索 Reddit 上的用户反馈和讨论。但只限于 Reddit，没有多源聚合能力。属于"单源深度"路线。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>你需要快速了解一个话题、一个人、一个产品在"当下"的真实讨论和社区评价。特别是你要做决策、要见客户、要做产品判断之前。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>你需要做深度学术研究（去用 Perplexity 或 Google Scholar）。你只想查一个事实（直接 Google）。你需要长期趋势数据而非 30 天快照（这个项目聚焦最近 30 天）。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="✅ 行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">✅ 下一步行动</h1>
+      <p class="module-subtitle">接下来你可以做什么</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text"><strong>装一个试试</strong>：在 Claude Code 里输入 <code style="background:#f0f0f0;padding:2px 6px;border-radius:3px;">/plugin marketplace add mvanhorn/last30days-skill</code>，体验一下产品流程——看它的交互设计、setup wizard 怎么引导用户、HTML 简报是怎么生成的</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text"><strong>搜一个你熟悉的话题</strong>：比如你关注的产品领域、一个你了解的竞品。看它返回的结果够不够准、有没有发现你不知道的信息——这是最好的产品评估方式</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text"><strong>看它的 skill 定义文件</strong>：这个项目本身是一个 Claude Code skill，它的 "产品说明书" 就在 <a href="https://github.com/mvanhorn/last30days-skill/blob/main/skills/last30days/SKILL.md" target="_blank">skills/last30days/SKILL.md</a>。去看看一个做得好的 skill 是怎么定义自己的——对你以后做自己的 skill 有参考价值</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text"><strong>把"灵感卡片"里的 5 个点子挑一个最感兴趣的</strong>，跟我聊聊——我们可以进一步把它细化成产品方案</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text"><strong>关注这个项目的更新</strong>：46k star 的项目还在快速迭代（v3 是近期大更新）。它的产品设计决策——智能搜索、跨源合并、趣味评分——值得持续跟踪</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kankan Reports</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #FAFAFA; color: #1F1F1F;
+      max-width: 720px; margin: 0 auto; padding: 48px 24px;
+    }
+    h1 { font-size: 2rem; margin-bottom: 8px; }
+    .subtitle { color: #777; margin-bottom: 36px; }
+    .report-card {
+      display: block;
+      padding: 20px 24px;
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #eee;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .report-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      border-color: #CC3333;
+    }
+    .report-name { font-weight: 600; font-size: 1.1rem; margin-bottom: 4px; }
+    .report-desc { color: #777; font-size: 0.9rem; }
+    .report-meta { color: #aaa; font-size: 0.8rem; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Kankan Reports</h1>
+  <p class="subtitle">GitHub 项目解读报告 · Kankan by fightorflightt</p>
+  <div id="reports">
+    <a class="report-card" href="reports/last30days-skill/index.html">
+      <div class="report-name">/last30days</div>
+      <div class="report-desc">AI agent 驱动的多源情报聚合器 · mvanhorn/last30days-skill</div>
+      <div class="report-meta">46.3k Stars · Python · MIT</div>
+    </a>
+  </div>
+</body>
+</html>
