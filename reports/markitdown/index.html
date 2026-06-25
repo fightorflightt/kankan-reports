@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarkItDown · Kanxia 解读</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">MarkItDown 解读</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/microsoft/markitdown" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">MarkItDown</h1>
+      <p class="cover-repo">github.com/microsoft/markitdown</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">159k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Python</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">MIT</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#文档转换</span>
+        <span class="cover-tag">#Markdown</span>
+        <span class="cover-tag">#喂给 LLM</span>
+        <span class="cover-tag">#微软出品</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>一句话：<strong>一个"万能文档翻译机"，把各种乱七八糟的文件统统转成干净的 Markdown 纯文本</strong>。PDF、Word、PPT、Excel、图片、音频、网页、甚至 YouTube 链接，丢进去就吐出一份结构清楚的文字稿——还能尽量保住标题、列表、表格这些排版结构。</p>
+        <p>它主要不是给人读的，而是<strong>给 AI 读的</strong>。现在大模型最"懂"的格式就是 Markdown，但你手里的资料往往是 PDF、PPT 这种 AI 啃不动的格式。MarkItDown 就是中间那道"预处理"工序：先把资料转成 AI 爱吃的纯文本，再喂给它做总结、问答、分析。微软 AutoGen 团队出品，159k 星，是这个领域当下最火的工具。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">社区评价</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>中文实测普遍认可：对 PPT/Word 转换能力较强，能保住大小标题、列表、表格、链接等结构，输出既适合人读、也适合直接喂给 LLM。</strong>来源：腾讯云开发者社区《MarkItDown 初体验》、guoxudong.io 深度解析</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>短板也被多篇评测点名：</strong>内嵌图片用 base64 直接内联，会让生成的 Markdown 文件变得很大；中文音频转写效果不如英文。来源：guoxudong.io《MarkItDown 深度解析》</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>有第三方横向对比：</strong>哥伦比亚大学讲师用证券报告分析任务实测，并与 IBM 的 Docling 对比，两者都能成功提取数据，只是输出呈现不同。来源：智源社区相关评测</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么有人愿意花时间做这个项目？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">做这个项目的人，大概遇到了这些问题</h2>
+        <p>想用 AI 处理资料的人，几乎都卡在第一步：<strong>资料格式 AI 看不懂</strong>。你手里的合同是 PDF、汇报是 PPT、数据是 Excel、参考资料是网页——但大模型最顺手的输入是纯文本/Markdown。每种格式都得找一个专门工具去转，转出来还经常乱码、丢结构，光"把资料喂进去"这一步就能耗掉大半天。</p>
+        <p>第二个痛点是<strong>"转换会把结构搞丢"</strong>。很多简单的提取工具只会把文字一股脑倒出来，标题、列表、表格全拍平成一坨。但对 AI 来说，"这是标题、这是表格"这些结构信息恰恰很重要——丢了结构，AI 的理解质量就跟着掉。</p>
+        <p>第三个痛点是<strong>"省钱省 token"</strong>。同样的内容，Markdown 比带一堆格式标记的格式更精简，喂给大模型时占用的 token 更少。token 少 = 调用更便宜、上下文塞得下更多。对要大批量处理资料的人，这是真金白银的成本差。</p>
+        <p>说白了，作者想做的是 AI 时代的"<strong>统一进料口</strong>"：不管你原始资料是什么格式，一个工具、一行命令，全部转成 AI 爱吃、又省钱的干净文本。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，按原文结构与顺序、一段不漏；代码块保留原样、专业名词保留英文</p>
+    </header>
+    <div class="module-body">
+
+      <!-- 标题 + 徽章 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre># MarkItDown
+
+[![PyPI](pypi version badge)]
+![PyPI - Downloads]
+[![Built by AutoGen Team](badge)]</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃ MarkItDown</strong></p>
+          <p>（三枚徽章：PyPI 版本号、PyPI 每日下载量、「由 AutoGen Team 构建」。）</p>
+        </div>
+      </div>
+
+      <!-- IMPORTANT 安全提示 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>&gt; [!IMPORTANT]
+&gt; MarkItDown performs I/O with the privileges of the current process. Like open() or requests.get(), it will access resources that the process itself can access. Sanitize your inputs in untrusted environments, and call the narrowest convert_* function needed for your use case (e.g., convert_stream(), or convert_local()). See the Security Considerations section for more information.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>&gt; ［重要］</strong></p>
+          <p>MarkItDown 以「当前进程的权限」执行输入/输出（I/O）。就像 <code>open()</code> 或 <code>requests.get()</code> 一样，它能访问该进程本身有权访问的资源。在不可信环境中要对输入做净化处理，并只调用你的用例所需的、范围最窄的那个 <code>convert_*</code> 函数（例如 <code>convert_stream()</code> 或 <code>convert_local()</code>）。更多信息见文档的「Security Considerations（安全注意事项）」一节。</p>
+        </div>
+      </div>
+
+      <!-- 引言段 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>MarkItDown is a lightweight Python utility for converting various files to Markdown for use with LLMs and related text analysis pipelines. To this end, it is most comparable to textract, but with a focus on preserving important document structure and content as Markdown (including: headings, lists, tables, links, etc.) While the output is often reasonably presentable and human-friendly, it is meant to be consumed by text analysis tools -- and may not be the best option for high-fidelity document conversions for human consumption.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>MarkItDown 是一个轻量的 Python 工具，用于把各种文件转换成 Markdown，以便配合 LLM 和相关的文本分析流水线使用。就此目的而言，它最接近 textract，但更侧重于把重要的文档结构和内容以 Markdown 形式保留下来（包括：标题、列表、表格、链接等）。虽然其输出往往相当美观、对人也友好，但它的定位是被文本分析工具消费——对于「供人阅读的高保真文档转换」，它未必是最佳选择。</p>
+        </div>
+      </div>
+
+      <!-- 支持格式列表 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>MarkItDown currently supports the conversion from:
+- PDF
+- PowerPoint
+- Word
+- Excel
+- Images (EXIF metadata and OCR)
+- Audio (EXIF metadata and speech transcription)
+- HTML
+- Text-based formats (CSV, JSON, XML)
+- ZIP files (iterates over contents)
+- Youtube URLs
+- EPubs
+- ... and more!</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>MarkItDown 目前支持从以下来源转换：</p>
+          <p>· PDF<br>· PowerPoint<br>· Word<br>· Excel<br>· 图片（EXIF 元数据与 OCR 文字识别）<br>· 音频（EXIF 元数据与语音转写）<br>· HTML<br>· 基于文本的格式（CSV、JSON、XML）<br>· ZIP 压缩包（会遍历其中内容）<br>· YouTube 链接<br>· EPub 电子书<br>· ……以及更多！</p>
+        </div>
+      </div>
+
+      <!-- Why Markdown -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Why Markdown?
+
+Markdown is extremely close to plain text, with minimal markup or formatting, but still provides a way to represent important document structure. Mainstream LLMs, such as OpenAI's GPT-4o, natively "speak" Markdown, and often incorporate Markdown into their responses unprompted. This suggests that they have been trained on vast amounts of Markdown-formatted text, and understand it well. As a side benefit, Markdown conventions are also highly token-efficient.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Why Markdown?（为什么用 Markdown？）</strong></p>
+          <p>Markdown 极其接近纯文本，标记和格式都很少，但仍能表达出重要的文档结构。主流 LLM（例如 OpenAI 的 GPT-4o）天生就「会说」Markdown，而且常常在没被要求的情况下也把 Markdown 用进回答里。这说明它们是在海量的 Markdown 格式文本上训练出来的，对它理解得很好。还有个附带好处：Markdown 的写法在 token 占用上也非常省。</p>
+        </div>
+      </div>
+
+      <!-- Prerequisites -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Prerequisites
+MarkItDown requires Python 3.10 or higher. It is recommended to use a virtual environment to avoid dependency conflicts.
+
+# standard:
+python -m venv .venv
+source .venv/bin/activate
+
+# uv:
+uv venv --python=3.12 .venv
+source .venv/bin/activate
+
+# Anaconda:
+conda create -n markitdown python=3.12
+conda activate markitdown</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Prerequisites（前置条件）</strong></p>
+          <p>MarkItDown 需要 Python 3.10 或更高版本。建议使用虚拟环境以避免依赖冲突。（虚拟环境＝给这个项目单独隔出一块干净的运行空间，免得和你电脑上别的 Python 项目互相打架。）</p>
+          <p>原文给出了三种创建虚拟环境的方式的命令（代码保留原样不翻译）：标准 Python 的 <code>venv</code>；<code>uv</code>（注意：在该环境里要用 <code>uv pip install</code> 而不是直接 <code>pip install</code>）；以及 Anaconda 的 <code>conda create</code>。</p>
+        </div>
+      </div>
+
+      <!-- Installation -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Installation
+
+To install MarkItDown, use pip: `pip install 'markitdown[all]'`. Alternatively, you can install it from the source:
+
+git clone git@github.com:microsoft/markitdown.git
+cd markitdown
+pip install -e 'packages/markitdown[all]'</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Installation（安装）</strong></p>
+          <p>安装 MarkItDown，用 pip：<code>pip install 'markitdown[all]'</code>。或者，你也可以从源码安装（原文给出了 git clone、cd、pip install -e 的命令，代码保留原样）。</p>
+        </div>
+      </div>
+
+      <!-- Usage Command-Line -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Usage
+### Command-Line
+
+markitdown path-to-file.pdf &gt; document.md
+
+Or use -o to specify the output file:
+markitdown path-to-file.pdf -o document.md
+
+You can also pipe content:
+cat path-to-file.pdf | markitdown</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Usage（用法）</strong></p>
+          <p><strong>＃＃＃ Command-Line（命令行）</strong></p>
+          <p>基本用法：<code>markitdown 文件路径.pdf &gt; document.md</code>（把转换结果写进 document.md）。</p>
+          <p>或者用 <code>-o</code> 指定输出文件：<code>markitdown 文件路径.pdf -o document.md</code>。</p>
+          <p>你也可以用管道（pipe）把内容传进去：<code>cat 文件路径.pdf | markitdown</code>。</p>
+        </div>
+      </div>
+
+      <!-- Optional Dependencies -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Optional Dependencies
+MarkItDown has optional dependencies for activating various file formats. Earlier we installed all with the [all] option. However, you can also install them individually:
+
+pip install 'markitdown[pdf, docx, pptx]'
+
+will install only the dependencies for PDF, DOCX, and PPTX files.
+
+Available: [all], [pptx], [docx], [xlsx], [xls], [pdf], [outlook], [az-doc-intel], [az-content-understanding], [audio-transcription], [youtube-transcription]</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Optional Dependencies（可选依赖）</strong></p>
+          <p>MarkItDown 用「可选依赖」来启用各种文件格式。前面我们用 <code>[all]</code> 一次装了全部；不过你也可以按需单独安装，以获得更精细的控制。例如 <code>pip install 'markitdown[pdf, docx, pptx]'</code> 只会装 PDF、DOCX、PPTX 这三种文件所需的依赖。</p>
+          <p>目前可用的可选依赖有：<code>[all]</code> 全部、<code>[pptx]</code> PowerPoint、<code>[docx]</code> Word、<code>[xlsx]</code> Excel、<code>[xls]</code> 旧版 Excel、<code>[pdf]</code> PDF、<code>[outlook]</code> Outlook 邮件、<code>[az-doc-intel]</code> Azure 文档智能、<code>[az-content-understanding]</code> Azure 内容理解、<code>[audio-transcription]</code> wav/mp3 音频转写、<code>[youtube-transcription]</code> 抓取 YouTube 视频字幕。</p>
+        </div>
+      </div>
+
+      <!-- Plugins -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Plugins
+MarkItDown also supports 3rd-party plugins. Plugins are disabled by default.
+
+markitdown --list-plugins
+markitdown --use-plugins path-to-file.pdf
+
+To find available plugins, search GitHub for the hashtag #markitdown-plugin. To develop a plugin, see packages/markitdown-sample-plugin.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Plugins（插件）</strong></p>
+          <p>MarkItDown 也支持第三方插件。插件默认是关闭的。列出已安装插件用 <code>markitdown --list-plugins</code>；启用插件用 <code>markitdown --use-plugins 文件路径.pdf</code>。</p>
+          <p>想找现成的插件，可在 GitHub 上搜话题标签 <code>#markitdown-plugin</code>。想开发插件，参见 <code>packages/markitdown-sample-plugin</code>。</p>
+        </div>
+      </div>
+
+      <!-- markitdown-ocr Plugin -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>#### markitdown-ocr Plugin
+The markitdown-ocr plugin adds OCR support to PDF, DOCX, PPTX, and XLSX converters, extracting text from embedded images using LLM Vision — the same llm_client / llm_model pattern that MarkItDown already uses for image descriptions. No new ML libraries or binary dependencies required.
+
+Installation: pip install markitdown-ocr; pip install openai
+Usage: (Python code) MarkItDown(enable_plugins=True, llm_client=OpenAI(), llm_model="gpt-4o"); md.convert("document_with_images.pdf")
+
+If no llm_client is provided the plugin still loads, but OCR is silently skipped and the standard built-in converter is used instead. See packages/markitdown-ocr/README.md.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃＃ markitdown-ocr 插件</strong></p>
+          <p>markitdown-ocr 插件给 PDF、DOCX、PPTX、XLSX 转换器加上 OCR 支持，用 LLM Vision（大模型的看图能力）从内嵌图片里提取文字——用的就是 MarkItDown 已经用于图片描述的那套 <code>llm_client</code> / <code>llm_model</code> 模式。不需要新的机器学习库或二进制依赖。</p>
+          <p><strong>安装：</strong><code>pip install markitdown-ocr</code>，再 <code>pip install openai</code>（或任何 OpenAI 兼容的客户端）。<strong>用法：</strong>传入和图片描述一样的 <code>llm_client</code> 和 <code>llm_model</code>（原文给了 Python 代码示例，保留原样）。</p>
+          <p>如果没提供 <code>llm_client</code>，插件仍会加载，但 OCR 会被静默跳过，转而使用标准的内置转换器。详细文档见 <code>packages/markitdown-ocr/README.md</code>。</p>
+        </div>
+      </div>
+
+      <!-- Azure Content Understanding -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Azure Content Understanding
+Azure Content Understanding provides higher-quality conversion with structured field extraction (YAML front matter), multi-modal support (documents, images, audio, video), and configurable analyzers.
+
+Install: pip install 'markitdown[az-content-understanding]'
+
+#### When to use Content Understanding
+Ideal when you need capabilities beyond built-in or Document Intelligence converters:
+- Audio and video files — CU is the only option for video, and the higher-quality cloud option for audio.
+- Structured field extraction — Prebuilt or custom analyzers extract domain-specific fields (invoice amounts, receipt dates, contract clauses) as YAML front matter.
+- Higher-quality document extraction — Cloud-based layout analysis and OCR for scanned PDFs, complex tables, multi-page docs.
+- Single API for all modalities — One cu_endpoint handles documents, images, audio, and video.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Azure Content Understanding（Azure 内容理解）</strong></p>
+          <p>Azure Content Understanding 提供更高质量的转换，支持结构化字段提取（以 YAML front matter 形式）、多模态支持（文档、图片、音频、视频）、以及可配置的分析器（analyzer）。安装：<code>pip install 'markitdown[az-content-understanding]'</code>。</p>
+          <p><strong>＃＃＃＃ 何时该用 Content Understanding</strong>——当你需要内置或 Document Intelligence 转换器之外的能力时最合适：</p>
+          <p>· <strong>音频和视频文件</strong>——CU 是视频的唯一选项，也是音频的更高质量云端选项。内置转换器不支持视频，音频也只有基础转写。<br>· <strong>结构化字段提取</strong>——预置或自建的分析器能提取领域特定字段（发票金额、收据日期、合同条款），序列化为 YAML front matter。内置和 Doc Intel 集成都不暴露这些字段。<br>· <strong>更高质量的文档提取</strong>——基于云的版面分析与 OCR，适合扫描版 PDF、复杂表格、多页文档。<br>· <strong>所有模态共用一个 API</strong>——一个 <code>cu_endpoint</code> 处理文档、图片、音频、视频，自动路由分析器。</p>
+        </div>
+      </div>
+
+      <!-- CU 对比表 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>| Capability | Built-in | Azure Document Intelligence | Azure Content Understanding |
+| Document conversion | Offline, format-specific | Cloud layout extraction | Cloud multimodal extraction |
+| Structured fields | Not available | Not exposed | YAML front matter from analyzer |
+| Custom analyzers | Not available | Not configurable | Supported with cu_analyzer_id |
+| Audio and video | Basic audio, no video | Not supported | Audio and video analyzers |
+| Cost | Local compute only | Billable Azure API | Billable Azure API |</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>能力对比表（内置转换器 | Azure 文档智能 | Azure 内容理解）：</p>
+          <p><strong>文档转换</strong>：离线、按格式提取 | 云端版面提取 | 云端多模态提取<br>
+          <strong>结构化字段</strong>：不支持 | 该集成不暴露 | 来自分析器字段的 YAML front matter<br>
+          <strong>自定义分析器</strong>：不支持 | 该集成不可配 | 用 <code>cu_analyzer_id</code> 支持<br>
+          <strong>音频与视频</strong>：基础音频、无视频 | 不支持 | 音频和视频分析器<br>
+          <strong>成本</strong>：仅本地算力 | 计费的 Azure API 调用 | 计费的 Azure API 调用</p>
+        </div>
+      </div>
+
+      <!-- CU CLI/Python + 自定义分析器 + 成本 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>CLI: markitdown path-to-file.pdf --use-cu --cu-endpoint "<endpoint>"
+Python: MarkItDown(cu_endpoint="<endpoint>"); md.convert("report.pdf" / "meeting.mp4" / "call.wav")
+
+With a custom analyzer: MarkItDown(cu_endpoint=..., cu_analyzer_id="my-invoice-analyzer"); output includes YAML front matter with extracted fields (VendorName, InvoiceDate...).
+
+Cost note: Each convert() call for a CU-routed format is a billable Azure API call. Use cu_file_types to restrict which formats route to CU.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>原文给出了 CLI 和 Python 两种调用方式的代码（保留原样）：CLI 用 <code>--use-cu --cu-endpoint</code>；Python 里设 <code>cu_endpoint</code> 后，<code>convert()</code> 会按文件类型自动选分析器（文档→documentSearch、视频→videoSearch、音频→audioSearch）。</p>
+          <p><strong>配自定义分析器</strong>（做领域特定字段提取）时，设 <code>cu_analyzer_id</code>，输出会带上提取字段的 YAML front matter（如供应商名、发票日期）。当设了 <code>cu_analyzer_id</code>，转换器会自动按分析器模态把它限定到兼容的文件类型；不兼容的类型（如用文档分析器处理音频）会自动回退到默认的预置分析器。</p>
+          <p><strong>成本提示：</strong>每一次对「走 CU 的格式」的 <code>convert()</code> 调用都是一次计费的 Azure API 调用。可用 <code>cu_file_types</code> 限制哪些格式走 CU（原文示例：只让 PDF 走 CU）。</p>
+        </div>
+      </div>
+
+      <!-- Azure Document Intelligence + Python API -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Azure Document Intelligence
+markitdown path-to-file.pdf -o document.md -d -e "<endpoint>"
+
+### Python API
+Basic: MarkItDown(enable_plugins=False); md.convert("test.xlsx"); print(result.text_content)
+Doc Intelligence: MarkItDown(docintel_endpoint="<endpoint>"); md.convert("test.pdf")
+LLM image descriptions (pptx & image only): MarkItDown(llm_client=OpenAI(), llm_model="gpt-4o", llm_prompt="optional"); md.convert("example.jpg")</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Azure Document Intelligence（Azure 文档智能）</strong></p>
+          <p>用微软文档智能来转换，命令加 <code>-d -e "<文档智能 endpoint>"</code>（代码保留原样）。如何开通 Azure 文档智能资源，原文给了官方链接。</p>
+          <p><strong>＃＃＃ Python API</strong></p>
+          <p>原文给了三段 Python 示例（代码保留原样）：① 基本用法——<code>MarkItDown(enable_plugins=False)</code> 后 <code>convert()</code>；② 文档智能转换——传 <code>docintel_endpoint</code>；③ 用大模型给图片生成描述（目前只支持 pptx 和图片文件）——传 <code>llm_client</code>、<code>llm_model</code>、可选的 <code>llm_prompt</code>。</p>
+        </div>
+      </div>
+
+      <!-- Docker + Contributing -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Docker
+docker build -t markitdown:latest .
+docker run --rm -i markitdown:latest < ~/your-file.pdf > output.md
+
+## Contributing
+This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA)... a CLA bot will automatically determine whether you need to provide a CLA... This project has adopted the Microsoft Open Source Code of Conduct.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Docker</strong></p>
+          <p>原文给出用 Docker 构建并运行的两条命令（保留原样）：先 <code>docker build</code> 打镜像，再 <code>docker run</code> 把文件喂进去、输出 md。</p>
+          <p><strong>＃＃ Contributing（贡献）</strong></p>
+          <p>本项目欢迎贡献和建议。大多数贡献需要你同意一份《贡献者许可协议（CLA）》，声明你有权、且确实授予我们使用你贡献内容的权利，详见 https://cla.opensource.microsoft.com。当你提交 PR 时，CLA 机器人会自动判定你是否需要提供 CLA，并相应地标注 PR（如状态检查、评论），按提示操作即可。所有使用我们 CLA 的仓库，你只需做这一次。本项目采用了《Microsoft 开源行为准则》。</p>
+        </div>
+      </div>
+
+      <!-- How to Contribute + 表 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### How to Contribute
+You can help by looking at issues or helping review PRs. Any issue or PR is welcome, but we have also marked some as 'open for contribution' and 'open for reviewing' to help facilitate community contributions.
+
+| | All | Especially Needs Help from Community |
+| Issues | All Issues | Issues open for contribution |
+| PRs | All PRs | PRs open for reviewing |</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ How to Contribute（如何贡献）</strong></p>
+          <p>你可以通过看 issue 或帮忙评审 PR 来出力。任何 issue 或 PR 都欢迎，但我们也把一部分标记成「open for contribution（开放贡献）」和「open for reviewing（开放评审）」，以便促进社区贡献。这些当然只是建议，你也欢迎以任何你喜欢的方式贡献。</p>
+          <p>表格（｜全部｜尤其需要社区帮忙）：<strong>Issues</strong>：所有 Issue ｜ 开放贡献的 Issue；<strong>PRs</strong>：所有 PR ｜ 开放评审的 PR。</p>
+        </div>
+      </div>
+
+      <!-- Running Tests -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Running Tests and Checks
+- cd packages/markitdown
+- pip install hatch; hatch shell; hatch test
+- (Alternative) Use the Devcontainer which has all dependencies installed: hatch test
+- Run pre-commit checks before submitting a PR: pre-commit run --all-files</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Running Tests and Checks（运行测试与检查）</strong></p>
+          <p>· 进入 MarkItDown 包目录：<code>cd packages/markitdown</code>。<br>
+          · 在环境里安装 <code>hatch</code> 并跑测试：<code>pip install hatch</code> → <code>hatch shell</code> → <code>hatch test</code>。<br>
+          · （替代方案）使用已装好全部依赖的 Devcontainer：重新在 Devcontainer 里打开项目并运行 <code>hatch test</code>。<br>
+          · 提交 PR 前运行 pre-commit 检查：<code>pre-commit run --all-files</code>。</p>
+        </div>
+      </div>
+
+      <!-- Security Considerations -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Security Considerations
+MarkItDown performs I/O with the privileges of the current process...
+
+Sanitize your inputs: Do not pass untrusted input directly to MarkItDown. If any part of the input may be controlled by an untrusted user or system... it must be validated and restricted before calling MarkItDown (restricting file paths, limiting URI schemes and network destinations, blocking access to private/loopback/link-local/metadata-service addresses).
+
+Call only the conversion method you need: Prefer the narrowest conversion API. convert() is intentionally permissive (local files, remote URIs, byte streams). Use convert_local() for local files only; convert_response() if you fetch yourself; convert_stream() for maximum control.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Security Considerations（安全注意事项）</strong></p>
+          <p>MarkItDown 以当前进程的权限执行 I/O。就像 <code>open()</code> 或 <code>requests.get()</code>，它会访问该进程本身能访问的资源。</p>
+          <p><strong>净化你的输入：</strong>不要把不可信的输入直接传给 MarkItDown。如果输入中任何部分可能被不可信的用户或系统控制（例如托管或服务端应用），在调用 MarkItDown 之前必须先校验和限制。视环境而定，这可能包括：限制文件路径、限制 URI 协议和网络目标地址、阻止访问私有/回环/链路本地/元数据服务地址。</p>
+          <p><strong>只调用你需要的那个转换方法：</strong>优先用最窄的转换 API。<code>convert()</code> 故意做得很宽松，能处理本地文件、远程 URI 和字节流。如果你的应用只需读本地文件，就用 <code>convert_local()</code>；如果你想更好地控制 URI 抓取，自己调 <code>requests.get()</code> 再把响应对象传给 <code>convert_response()</code>；想要最大控制力，就打开一个流、调 <code>convert_stream()</code>。</p>
+        </div>
+      </div>
+
+      <!-- 3rd-party Plugins + Trademarks -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Contributing 3rd-party Plugins
+You can also contribute by creating and sharing 3rd party plugins. See packages/markitdown-sample-plugin for more details.
+
+## Trademarks
+This project may contain trademarks or logos... Authorized use of Microsoft trademarks or logos is subject to Microsoft's Trademark & Brand Guidelines. Use of Microsoft trademarks or logos in modified versions must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party's policies.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Contributing 3rd-party Plugins（贡献第三方插件）</strong></p>
+          <p>你也可以通过创建和分享第三方插件来贡献。详见 <code>packages/markitdown-sample-plugin</code>。</p>
+          <p><strong>＃＃ Trademarks（商标）</strong></p>
+          <p>本项目可能包含项目、产品或服务的商标或徽标。对 Microsoft 商标或徽标的授权使用，须遵循《Microsoft 商标与品牌指南》。在本项目的修改版本中使用 Microsoft 商标或徽标，不得造成混淆或暗示由 Microsoft 赞助。任何第三方商标或徽标的使用，均受该第三方各自政策的约束。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">和同类方案比，它有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>同类的"文件提取"工具早就有(比如 textract)，但它们大多只管"把字抠出来"。MarkItDown 的不同在于<strong>它是为"喂给 AI"这件事专门设计的</strong>——目标不是给人看的漂亮排版，而是给大模型吃的、结构清晰又省 token 的标准文本。定位变了，取舍就全变了。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🎯</div>
+          <div class="pattern-title">为"AI 食用"而生</div>
+          <p class="pattern-desc">别人追求"转得像原文档"，它追求"转成 AI 最懂、最省钱的 Markdown"。一个明确的定位差，让它在 LLM 时代特别对路——这也是它能爆火的根本原因。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🗂️</div>
+          <div class="pattern-title">一个入口吃下所有格式</div>
+          <p class="pattern-desc">PDF/Word/PPT/Excel/图片/音频/网页/YouTube……十几种格式一个工具搞定，不用每种格式各找一个轮子。"统一进料口"本身就是巨大的体验提升。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🧱</div>
+          <div class="pattern-title">保结构，不只是抠字</div>
+          <p class="pattern-desc">刻意保住标题、列表、表格、链接等结构。因为对 AI 来说"哪是标题、哪是表格"是重要信息，保住结构=保住理解质量。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔌</div>
+          <div class="pattern-title">分层能力：免费够用，付费更强</div>
+          <p class="pattern-desc">基础转换本地免费跑；需要更高质量(扫描件、复杂表格、音视频、字段提取)时，可挂 Azure 云服务。免费打底、按需升级，丰俭由人。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🧩</div>
+          <div class="pattern-title">插件生态 + 可接大模型</div>
+          <p class="pattern-desc">支持第三方插件(搜 #markitdown-plugin)，还能接 GPT-4o 给图片生成文字描述、做 OCR。等于给"转换"这件事留了无限的扩展口。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">把"杂乱资料"变成 AI 能用的素材库</div>
+          <p class="inspo-card-desc">你们手里散落着大量培训资料、活动文档、商品说明(PPT/PDF/截图)。可以用它批量转成 Markdown，攒成一个干净的"知识库"，再喂给 AI——以后让 AI 写群文案、答代理问题时，有料可依，而不是干编。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">商品详情页/PDF 一键转结构化卖点</div>
+          <p class="inspo-card-desc">它擅长把网页、PDF 转成带结构的文本。做单时，可以把商品详情页转成 Markdown，让 AI 自动抽出"核心卖点+参数+适用人群"，运营直接拿去改群文案，省掉手动扒信息的功夫。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">"统一进料口"的产品思维</div>
+          <p class="inspo-card-desc">它最值钱的不是技术，是"不管你给什么格式，我都接得住"的体验。这个思路可套到你们后台:代理上传素材时别限定格式(截图/链接/文档都行)，系统统一吸收、自动整理。降低使用门槛就是降低流失。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">语音/录音转文字做"运营答疑沉淀"</div>
+          <p class="inspo-card-desc">它支持音频转写。群里语音答疑、培训录音可以转成文字稿，再让 AI 归纳成 FAQ。把"一次性的口头答疑"变成"可复用的文字资产"，新代理也能查。(注:中文音频效果一般，需验证)</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">给你的独立小产品加个"文件转换"能力</div>
+          <p class="inspo-card-desc">这是给你做独立开发的启发:它是 MIT 协议、Python 库，能直接嵌进自己的小工具。如果你想做个"上传文档→AI 总结/问答"的小产品，用它当前置处理层，省掉自己啃各种格式的大坑。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">是个命令行/代码库工具，没有现成网页界面，你自己直接用需要点技术或找 AI 帮忙跑</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">需要装 Python 环境；基础功能免费本地跑，高级功能(音视频/扫描件)要接付费的 Azure</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">高适配</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">非常适合让 AI 帮你跑:跟 Claude Code 说"把这个文件夹的 PDF 全转成 md",它就能调它完成</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要用，大概需要什么</h2>
+        <p>对你(PM、不写代码)来说，<strong>别想着自己敲命令</strong>，而是把它当成"给 AI 用的零件"。最现实的两种玩法:① 让团队工程师把它接进你们后台，做成一个"上传文档→自动转文本"的内部功能;② 你自己做独立小工具时，让 Claude Code 这类 AI 直接调用它当预处理层。</p>
+        <p>成本:工具本身免费(MIT)、本地跑不花钱;只有用到 Azure 高级能力(音视频、扫描件、字段提取)才按调用次数付费。时间上接入很快，难点不在它、在你想拿转出来的文本干什么。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意</strong>
+          <p>两个已知坑(评测点过):① 内嵌图片会被转成超长的 base64 直接塞进文本，导致文件巨大——图文混排的资料要留意;② 中文音频转写效果一般。还有安全提醒:别把不可信来源的文件直接丢给它处理(官方专门强调了)。它只负责"转格式",转完的文本质量好不好、AI 用得对不对，是另一回事。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">它在整个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">IBM Docling</span>
+          <span class="badge-desc">最常被拿来和它对比的对手。同样做文档转换，更偏重高质量版面/表格解析。有第三方用证券报告任务实测过两者:都能提取，输出呈现各有不同。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">textract</span>
+          <span class="badge-desc">README 自己点名的"前辈"。也是从各种文件抽文字，但不像 MarkItDown 这样刻意保留 Markdown 结构、也不是为喂 LLM 设计。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Unstructured / LlamaParse 等</span>
+          <span class="badge-desc">同属"给 LLM 做文档预处理"赛道的商业/开源方案，常主打更强的解析质量或云服务。MarkItDown 的差异化是:微软背书、免费轻量、格式全、生态火。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Azure 文档智能 / 内容理解</span>
+          <span class="badge-desc">严格说不是竞品而是"上游能力"——MarkItDown 可以挂上它们来增强(扫描件、音视频、字段提取)。等于它把微软自家云能力也整合进来了。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>要把大量杂格式资料喂给 AI 的人/团队;想给自己的 AI 应用加一个"文件预处理"环节的开发者;追求免费、轻量、格式全的场景。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>追求"转出来供人阅读的高保真排版"(它自己都说不是为这个设计的);或对图文混排、中文音频质量要求很高的场景。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">接下来你可以做什么</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">零门槛先感受效果:随手找一份 PDF/PPT，让 Claude Code 帮你调 MarkItDown 转成 Markdown，看转出来啥样</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">挑一份你们真实的商品详情/培训资料试转，判断"转出来的文本能不能直接喂 AI 写文案"</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">把"统一进料口"的思路记下来:评估后台让代理上传素材时能不能不限格式</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">如果考虑做"上传文档→AI 总结/问答"的小工具，把它列为前置处理层的首选</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">想了解上限:读一篇深度评测(guoxudong.io)和 Docling 对比，心里有个质量预期</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>
