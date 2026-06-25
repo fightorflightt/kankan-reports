@@ -1,0 +1,43 @@
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level hard">需要开发</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">这是给程序员用的 Python 代码库，不是能下载即用的 App。PM 自己没法直接「用」，必须有工程同学接入。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">本身免费开源（MIT，商用无忧）。但它只是「配套」，真要跑起来还得配一个识别模型（如 YOLO）、Python 环境，部分功能要 Roboflow 的 API KEY。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">较高</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">文档好、示例多、社区大，是 AI 编程的「优等生素材」。让工程同学拿 Claude 这类工具来搭原型，跑通一个 demo 会相当快。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要做，大概需要什么</h2>
+        <p>先把预期摆正：这<strong>不是你自己能上手的工具</strong>，而是一个「给工程团队的能力底座」。你的角色是出需求和场景，落地要靠开发。</p>
+        <p>典型配置：1 名懂 Python / 计算机视觉的工程师 + 一个能跑模型的环境（有 GPU 显卡会快很多，但做小原型用普通电脑也行）。做一个「跑通的概念验证」（比如：上传一段视频，自动框出商品、统计数量）大概是<strong>几天到一两周</strong>的活；要做成稳定、能上线的产品功能，则要按正经项目排期，成本主要在算力和工程，不在这个库本身。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意</strong>
+          <p>真正的成本和门槛在「识别模型」那一端，不在 supervision。模型要不要训练、准不准、跑得快不快、用 GPU 还是云端推理（持续按量付费），这些才是项目里花钱花时间的大头。supervision 只是把模型前后的脏活变简单了，它解决不了「识别本身准不准」的问题。所以评估时，别被「这个库免费又好用」误导，要把模型和算力的账一起算。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

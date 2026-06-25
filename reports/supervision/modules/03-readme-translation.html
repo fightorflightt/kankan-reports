@@ -1,0 +1,328 @@
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，专业名词保留英文原文；代码块保持原样不翻译</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>[supervision banner image]</p>
+          <p>[notebooks](https://github.com/roboflow/notebooks) | [inference](https://github.com/roboflow/inference) | [autodistill](https://github.com/autodistill/autodistill) | [maestro](https://github.com/roboflow/multimodal-maestro)</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>[supervision 项目横幅图]</p>
+          <p>相关项目导航：notebooks（教程笔记本） | inference（推理引擎） | autodistill（自动蒸馏） | maestro（多模态工具）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>[badges: version · downloads · license · python-version · codecov · snyk · colab · gradio/Hugging Face Spaces · discord · Trendshift]</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>[一排徽章：发布版本 · 下载量 · 开源协议 · 支持的 Python 版本 · 测试覆盖率 codecov · 安全评分 snyk · 在线试用 Colab · Hugging Face Spaces 演示 · Discord 社群 · Trendshift 榜单]</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>📑 Table of Contents</strong></p>
+          <p>- 👋 Hello<br>- 💻 Install<br>- 🔥 Quickstart（Models / Annotators / Datasets）<br>- 🎬 Tutorials<br>- 💜 Built with Supervision<br>- 📚 Documentation<br>- 🏆 Contribution</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>📑 目录</strong></p>
+          <p>- 👋 你好<br>- 💻 安装<br>- 🔥 快速上手（模型 / 标注器 / 数据集）<br>- 🎬 教程<br>- 💜 用 Supervision 做出来的作品<br>- 📚 文档<br>- 🏆 贡献</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 👋 Hello</strong></p>
+          <p><strong>We are your essential toolkit for computer vision.</strong> From data loading to real-time zone counting, we provide the building blocks so you can focus on building applications around your models. 🤝</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 👋 你好</strong></p>
+          <p><strong>我们是你做计算机视觉时不可或缺的工具箱。</strong>从数据加载，到实时的区域计数，我们提供各种「积木块」，让你能专注于围绕你自己的模型去构建应用。🤝</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 💻 Install</strong></p>
+          <p>Pip install the supervision package in a [<strong>Python&gt;=3.9</strong>] environment.</p>
+          <pre><code>pip install supervision</code></pre>
+          <p>Read more about conda, mamba, and installing from source in our [guide].</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 💻 安装</strong></p>
+          <p>在 <strong>Python&gt;=3.9</strong> 的环境里，用 pip 安装 supervision 这个包。</p>
+          <pre><code>pip install supervision</code></pre>
+          <p>关于用 conda、mamba 安装，以及从源码安装的更多说明，请看我们的安装指南。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 🔥 Quickstart — ### Models</strong></p>
+          <p>Supervision was designed to be model agnostic. Just plug in any classification, detection, or segmentation model. For your convenience, we have created [connectors] for the most popular libraries like Ultralytics, Transformers, MMDetection, or Inference. Other integrations, like <code>rfdetr</code>, already return <code>sv.Detections</code> directly.</p>
+          <p>Install the optional dependencies for this example with <code>pip install pillow rfdetr</code>.</p>
+          <pre><code>import supervision as sv
+from PIL import Image
+from rfdetr import RFDETRSmall
+
+image = Image.open("path/to/image.jpg")
+model = RFDETRSmall()
+detections = model.predict(image, threshold=0.5)
+
+len(detections)
+# 5</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 🔥 快速上手 — ### 模型</strong></p>
+          <p>Supervision 在设计上就做到了「模型无关」（model agnostic）。任何分类、检测或分割模型，直接插进来就能用。为了方便你，我们为最流行的几个库（如 Ultralytics、Transformers、MMDetection、Inference）做好了「连接器」（connector）。还有一些集成，比如 <code>rfdetr</code>，本身就会直接返回 <code>sv.Detections</code> 格式。</p>
+          <p>用 <code>pip install pillow rfdetr</code> 安装本例所需的可选依赖。</p>
+          <pre><code>import supervision as sv
+from PIL import Image
+from rfdetr import RFDETRSmall
+
+image = Image.open("path/to/image.jpg")
+model = RFDETRSmall()
+detections = model.predict(image, threshold=0.5)
+
+len(detections)
+# 5</code></pre>
+          <p><em>（代码大意：加载一张图、调用模型预测，最后得到一组检测结果，这里检测到 5 个目标。）</em></p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>👉 more model connectors — <strong>inference</strong></p>
+          <p>Running with [Inference] requires a [Roboflow API KEY].</p>
+          <pre><code>import supervision as sv
+from PIL import Image
+from inference import get_model
+
+image = Image.open("path/to/image.jpg")
+model = get_model(model_id="rfdetr-small", api_key="ROBOFLOW_API_KEY")
+result = model.infer(image)[0]
+detections = sv.Detections.from_inference(result)
+
+len(detections)
+# 5</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>👉 更多模型连接器 —— <strong>inference</strong></p>
+          <p>用 Inference 来运行，需要一个 Roboflow API KEY（接口密钥）。</p>
+          <pre><code>import supervision as sv
+from PIL import Image
+from inference import get_model
+
+image = Image.open("path/to/image.jpg")
+model = get_model(model_id="rfdetr-small", api_key="ROBOFLOW_API_KEY")
+result = model.infer(image)[0]
+detections = sv.Detections.from_inference(result)
+
+len(detections)
+# 5</code></pre>
+          <p><em>（代码大意：换成用 Roboflow 的云端推理，结果再用 <code>from_inference</code> 转成统一格式。）</em></p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>### Annotators</strong></p>
+          <p>Supervision offers a wide range of highly customizable [annotators], allowing you to compose the perfect visualization for your use case.</p>
+          <pre><code>import cv2
+import supervision as sv
+
+image = cv2.imread("path/to/image.jpg")
+# Assuming detections are obtained from a model
+detections = sv.Detections(...)
+
+box_annotator = sv.BoxAnnotator()
+annotated_frame = box_annotator.annotate(scene=image.copy(), detections=detections)</code></pre>
+          <p>[annotated video demo]</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>### 标注器</strong></p>
+          <p>Supervision 提供了大量高度可定制的「标注器」（annotator），让你能为自己的场景拼出最合适的可视化效果。</p>
+          <pre><code>import cv2
+import supervision as sv
+
+image = cv2.imread("path/to/image.jpg")
+# 假设检测结果已经从某个模型拿到
+detections = sv.Detections(...)
+
+box_annotator = sv.BoxAnnotator()
+annotated_frame = box_annotator.annotate(scene=image.copy(), detections=detections)</code></pre>
+          <p><em>（代码大意：用「画框标注器」把检测框画到原图上，得到一张标注好的图。）</em></p>
+          <p>[一段标注效果的演示视频]</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>### Datasets</strong></p>
+          <p>Supervision provides a set of [utils] that allow you to load, split, merge, and save datasets in one of the supported formats.</p>
+          <pre><code>import supervision as sv
+from roboflow import Roboflow
+
+project = Roboflow().workspace("WORKSPACE_ID").project("PROJECT_ID")
+dataset = project.version("PROJECT_VERSION").download("coco")
+
+ds = sv.DetectionDataset.from_coco(
+    images_directory_path=f"{dataset.location}/train",
+    annotations_path=f"{dataset.location}/train/_annotations.coco.json",
+)
+
+path, image, annotation = ds[0]
+# loads image on demand
+
+for path, image, annotation in ds:
+    # loads image on demand
+    pass</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>### 数据集</strong></p>
+          <p>Supervision 提供了一套工具函数（utils），让你能加载、拆分、合并、保存数据集，并在它支持的几种格式之间互转。</p>
+          <pre><code>import supervision as sv
+from roboflow import Roboflow
+
+project = Roboflow().workspace("WORKSPACE_ID").project("PROJECT_ID")
+dataset = project.version("PROJECT_VERSION").download("coco")
+
+ds = sv.DetectionDataset.from_coco(
+    images_directory_path=f"{dataset.location}/train",
+    annotations_path=f"{dataset.location}/train/_annotations.coco.json",
+)
+
+path, image, annotation = ds[0]
+# 用到时才加载图片
+
+for path, image, annotation in ds:
+    # 用到时才加载图片
+    pass</code></pre>
+          <p><em>（代码大意：下载一个 COCO 格式的数据集，加载进来，再逐张取出图片和标注；图片是「用到才加载」，省内存。）</em></p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>👉 more dataset utils — load / split / merge / save / convert</p>
+          <p>（分别演示：from_yolo、from_pascal_voc、from_coco 加载；split 按比例拆分训练/测试/验证集；merge 合并多个数据集并自动合并类别；as_yolo / as_pascal_voc / as_coco 保存；以及 from_yolo(...).as_pascal_voc(...) 这样的一行式格式转换。）</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>👉 更多数据集工具 —— 加载 / 拆分 / 合并 / 保存 / 转换</p>
+          <p>（分别演示：用 from_yolo、from_pascal_voc、from_coco 从三种主流格式加载；用 split 按比例把数据集拆成训练集/测试集/验证集；用 merge 把多个数据集合并、类别也自动合并去重；用 as_yolo / as_pascal_voc / as_coco 保存；以及像 from_yolo(...).as_pascal_voc(...) 这样一行代码就完成「从一种格式转成另一种格式」。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 🎬 Tutorials</strong></p>
+          <p>Want to learn how to use Supervision? Explore our [how-to guides], [end-to-end examples], [cheatsheet], and [cookbooks]!</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 🎬 教程</strong></p>
+          <p>想学怎么用 Supervision？去看看我们的「how-to 操作指南」「端到端完整示例」「速查表 cheatsheet」和「实战手册 cookbooks」吧！</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>Dwell Time Analysis with Computer Vision | Real-Time Stream Processing</strong> — Created: 5 Apr 2024</p>
+          <p>Learn how to use computer vision to analyze wait times and optimize processes. This tutorial covers object detection, tracking, and calculating time spent in designated zones. Use these techniques to improve customer experience in retail, traffic management, or other scenarios.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>用计算机视觉做停留时长分析 | 实时视频流处理</strong> —— 发布于 2024 年 4 月 5 日</p>
+          <p>学习如何用计算机视觉分析等待时间、优化流程。本教程涵盖目标检测、跟踪，以及计算「在指定区域内停留了多久」。这些技术可用来改善零售门店的顾客体验、做交通管理等场景。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>Speed Estimation &amp; Vehicle Tracking | Computer Vision | Open Source</strong> — Created: 11 Jan 2024</p>
+          <p>Learn how to track and estimate the speed of vehicles using YOLO, ByteTrack, and Roboflow Inference. This comprehensive tutorial covers object detection, multi-object tracking, filtering detections, perspective transformation, speed estimation, visualization improvements, and more.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>车速估计与车辆跟踪 | 计算机视觉 | 开源</strong> —— 发布于 2024 年 1 月 11 日</p>
+          <p>学习如何用 YOLO、ByteTrack 和 Roboflow Inference 来跟踪车辆并估算车速。这份全面的教程涵盖目标检测、多目标跟踪、过滤检测结果、透视变换（perspective transformation）、速度估计、可视化优化等内容。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 💜 Built with Supervision</strong></p>
+          <p>Did you build something cool using supervision? [Let us know!]</p>
+          <p>[three demo videos]</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 💜 用 Supervision 做出来的作品</strong></p>
+          <p>你用 supervision 做出了什么很酷的东西吗？[告诉我们！]</p>
+          <p>[三段作品演示视频]</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 📚 Documentation</strong></p>
+          <p>Visit our [documentation] page to learn how supervision can help you build computer vision applications faster and more reliably.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 📚 文档</strong></p>
+          <p>访问我们的文档页面，了解 supervision 如何帮你更快、更可靠地构建计算机视觉应用。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 🏆 Contribution</strong></p>
+          <p>We love your input! Please see our [contributing guide] to get started. Thank you 🙏 to all our contributors!</p>
+          <p>[contributors image · social links: YouTube / Roboflow / LinkedIn / Docs / Forum / Blog]</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 🏆 贡献</strong></p>
+          <p>我们很欢迎你的参与！请查看我们的「贡献指南」来开始。🙏 感谢所有的贡献者！</p>
+          <p>[贡献者头像墙 · 社交链接：YouTube / Roboflow / LinkedIn / 文档 / 论坛 / 博客]</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

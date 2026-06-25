@@ -1,0 +1,42 @@
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">它在整个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">Ultralytics / YOLO</span>
+          <span class="badge-desc">不是竞品，是「上游搭档」。YOLO 负责「识别出物体」，supervision 负责识别前后的处理。两者常一起用：YOLO 出结果，supervision 来画图、跟踪、计数。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">OpenCV</span>
+          <span class="badge-desc">视觉领域的「老牌全能瑞士军刀」，什么底层图像操作都能做，但偏底层、偏原始，做现代深度学习应用要写很多胶水代码。supervision 更上层、更聚焦，专攻「检测之后怎么用」，对接现代模型更顺手。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Roboflow 全家桶（inference / notebooks / autodistill）</span>
+          <span class="badge-desc">同一家公司（Roboflow）的兄弟项目，定位互补：supervision 管处理与可视化，inference 管模型推理，autodistill 管自动标注/蒸馏。它们是配合关系，不是竞争。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">FiftyOne</span>
+          <span class="badge-desc">同样是视觉工具，但更偏「数据集的可视化探索与质检」。和 supervision 在数据集处理上有部分重叠，但 supervision 更偏「实时应用 + 标注绘制」，FiftyOne 更偏「数据分析」。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>已经选好（或打算用现成的）视觉识别模型，需要快速把它变成「能看的应用」——画框标注、目标跟踪、区域计数测速、数据集格式转换的团队。尤其适合零售、安防、交通这类「检测 + 统计」场景，以及需要快出 demo 的原型阶段。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>① 不会写代码、想找「下载即用」成品的人——它是给开发者的库；② 核心诉求是「提升识别准确率」的——那要在模型那端下功夫，这个库帮不上；③ 只是偶尔处理一两张图的轻量需求，杀鸡用牛刀。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

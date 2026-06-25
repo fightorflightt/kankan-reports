@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>supervision · Kanxia 解读</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">supervision</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/roboflow/supervision" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">supervision</h1>
+      <p class="cover-repo">github.com/roboflow/supervision</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">44.9k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Python</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">MIT</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#计算机视觉</span>
+        <span class="cover-tag">#目标检测/跟踪</span>
+        <span class="cover-tag">#低代码工具库</span>
+        <span class="cover-tag">#开源</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>一句话说：它是一套「计算机视觉的乐高积木」。当你想让程序「看懂」一张图或一段视频里有什么——比如认出画面里有几个人、几辆车，给它们框出来、贴标签、统计「有多少人走进了这个区域」「这辆车开多快」——supervision 把这些反复要用、又特别繁琐的活儿，做成了现成的零件，让你直接拼起来用。</p>
+        <p>它本身<strong>不负责「识别」</strong>（识别交给各家的 AI 模型去做），它负责的是识别<strong>前后</strong>那一大堆脏活累活：把不同模型吐出来的结果统一成一种格式、把框和标签漂亮地画到画面上、做目标跟踪、按区域计数、整理和转换数据集格式。所以它的定位是「谁家的视觉模型我都能接，接完帮你把应用搭起来」。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">社区评价</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc">「出色的 Python 计算机视觉低代码工具，开发者仅需加载数据集和模型，就能轻松实现对图像和视频进行检测、统计某区域的被检测数量等操作。」—— 落痕的寒假《计算机视觉低代码工具 Supervision 库使用指北》（<a href="https://www.cnblogs.com/luohenyueji/p/18079658" target="_blank">博客园</a>）</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc">「模型无关、功能丰富、易于集成、开源免费……已在智能制造、安防监控、交通识别、零售等多个真实行业项目中落地。」—— 知乎《好用的计算机视觉 AI 工具库》（<a href="https://zhuanlan.zhihu.com/p/716262011" target="_blank">知乎</a>）</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc">被定位为「机器视觉的技术平权」——把原本需要专业团队才能搭起来的视觉能力，降到普通开发者也能用。（<a href="https://blog.csdn.net/shebao3333/article/details/137502945" target="_blank">CSDN</a>）</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么有人愿意花时间做这个项目？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">做计算机视觉的人，每个项目都在重复造同样的轮子</h2>
+        <p>做视觉应用的开发者会发现一个尴尬的事实：真正「认出物体」的那部分，现在有一堆现成的开源模型可以用（比如大名鼎鼎的 YOLO）。可一旦你想把它变成一个能交付的东西，麻烦才刚开始——而且这些麻烦，<strong>每做一个新项目就要从头再来一遍</strong>。</p>
+
+        <p><strong>痛点一：每家模型「说的话」都不一样。</strong>YOLO 吐出来的结果、Transformers 吐出来的结果、MMDetection 吐出来的结果，格式各不相同。你想换一个更准的模型，往往意味着后面一整套处理代码都得改。开发者被「绑死」在某一个模型上，换起来成本极高。supervision 做了一层「翻译插头」（connector），不管哪家模型，进来都给你统一成同一种格式，于是<strong>换模型像换电池一样简单</strong>。</p>
+
+        <p><strong>痛点二：把结果「画出来」看着简单，做好很烦。</strong>把检测框、标签、颜色、跟踪轨迹漂亮地叠加到画面上，听起来是小事，真自己写就会陷进无穷的细节：框的粗细、文字会不会被遮住、颜色怎么区分不同类别……这些视觉呈现的活儿，恰恰是产品 demo 好不好看的关键。supervision 把这些做成了高度可定制的「标注器」（annotator），拼一下就有专业效果。</p>
+
+        <p><strong>痛点三：从「识别到了」到「业务有用」之间有一道鸿沟。</strong>老板要的从来不是「画面里有 3 个人」，而是「今天有多少人进店」「这辆车超速没有」「这个人在货架前停留了多久」。这些「越线计数、区域停留时长、测速」的逻辑，业务价值最高，却也最容易写错。supervision 直接把这些常见场景做成了现成工具。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，专业名词保留英文原文；代码块保持原样不翻译</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>[supervision banner image]</p>
+          <p>[notebooks](https://github.com/roboflow/notebooks) | [inference](https://github.com/roboflow/inference) | [autodistill](https://github.com/autodistill/autodistill) | [maestro](https://github.com/roboflow/multimodal-maestro)</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>[supervision 项目横幅图]</p>
+          <p>相关项目导航：notebooks（教程笔记本） | inference（推理引擎） | autodistill（自动蒸馏） | maestro（多模态工具）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>[badges: version · downloads · license · python-version · codecov · snyk · colab · gradio/Hugging Face Spaces · discord · Trendshift]</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>[一排徽章：发布版本 · 下载量 · 开源协议 · 支持的 Python 版本 · 测试覆盖率 codecov · 安全评分 snyk · 在线试用 Colab · Hugging Face Spaces 演示 · Discord 社群 · Trendshift 榜单]</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>📑 Table of Contents</strong></p>
+          <p>- 👋 Hello<br>- 💻 Install<br>- 🔥 Quickstart（Models / Annotators / Datasets）<br>- 🎬 Tutorials<br>- 💜 Built with Supervision<br>- 📚 Documentation<br>- 🏆 Contribution</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>📑 目录</strong></p>
+          <p>- 👋 你好<br>- 💻 安装<br>- 🔥 快速上手（模型 / 标注器 / 数据集）<br>- 🎬 教程<br>- 💜 用 Supervision 做出来的作品<br>- 📚 文档<br>- 🏆 贡献</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 👋 Hello</strong></p>
+          <p><strong>We are your essential toolkit for computer vision.</strong> From data loading to real-time zone counting, we provide the building blocks so you can focus on building applications around your models. 🤝</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 👋 你好</strong></p>
+          <p><strong>我们是你做计算机视觉时不可或缺的工具箱。</strong>从数据加载，到实时的区域计数，我们提供各种「积木块」，让你能专注于围绕你自己的模型去构建应用。🤝</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 💻 Install</strong></p>
+          <p>Pip install the supervision package in a [<strong>Python&gt;=3.9</strong>] environment.</p>
+          <pre><code>pip install supervision</code></pre>
+          <p>Read more about conda, mamba, and installing from source in our [guide].</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 💻 安装</strong></p>
+          <p>在 <strong>Python&gt;=3.9</strong> 的环境里，用 pip 安装 supervision 这个包。</p>
+          <pre><code>pip install supervision</code></pre>
+          <p>关于用 conda、mamba 安装，以及从源码安装的更多说明，请看我们的安装指南。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 🔥 Quickstart — ### Models</strong></p>
+          <p>Supervision was designed to be model agnostic. Just plug in any classification, detection, or segmentation model. For your convenience, we have created [connectors] for the most popular libraries like Ultralytics, Transformers, MMDetection, or Inference. Other integrations, like <code>rfdetr</code>, already return <code>sv.Detections</code> directly.</p>
+          <p>Install the optional dependencies for this example with <code>pip install pillow rfdetr</code>.</p>
+          <pre><code>import supervision as sv
+from PIL import Image
+from rfdetr import RFDETRSmall
+
+image = Image.open("path/to/image.jpg")
+model = RFDETRSmall()
+detections = model.predict(image, threshold=0.5)
+
+len(detections)
+# 5</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 🔥 快速上手 — ### 模型</strong></p>
+          <p>Supervision 在设计上就做到了「模型无关」（model agnostic）。任何分类、检测或分割模型，直接插进来就能用。为了方便你，我们为最流行的几个库（如 Ultralytics、Transformers、MMDetection、Inference）做好了「连接器」（connector）。还有一些集成，比如 <code>rfdetr</code>，本身就会直接返回 <code>sv.Detections</code> 格式。</p>
+          <p>用 <code>pip install pillow rfdetr</code> 安装本例所需的可选依赖。</p>
+          <pre><code>import supervision as sv
+from PIL import Image
+from rfdetr import RFDETRSmall
+
+image = Image.open("path/to/image.jpg")
+model = RFDETRSmall()
+detections = model.predict(image, threshold=0.5)
+
+len(detections)
+# 5</code></pre>
+          <p><em>（代码大意：加载一张图、调用模型预测，最后得到一组检测结果，这里检测到 5 个目标。）</em></p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>👉 more model connectors — <strong>inference</strong></p>
+          <p>Running with [Inference] requires a [Roboflow API KEY].</p>
+          <pre><code>import supervision as sv
+from PIL import Image
+from inference import get_model
+
+image = Image.open("path/to/image.jpg")
+model = get_model(model_id="rfdetr-small", api_key="ROBOFLOW_API_KEY")
+result = model.infer(image)[0]
+detections = sv.Detections.from_inference(result)
+
+len(detections)
+# 5</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>👉 更多模型连接器 —— <strong>inference</strong></p>
+          <p>用 Inference 来运行，需要一个 Roboflow API KEY（接口密钥）。</p>
+          <pre><code>import supervision as sv
+from PIL import Image
+from inference import get_model
+
+image = Image.open("path/to/image.jpg")
+model = get_model(model_id="rfdetr-small", api_key="ROBOFLOW_API_KEY")
+result = model.infer(image)[0]
+detections = sv.Detections.from_inference(result)
+
+len(detections)
+# 5</code></pre>
+          <p><em>（代码大意：换成用 Roboflow 的云端推理，结果再用 <code>from_inference</code> 转成统一格式。）</em></p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>### Annotators</strong></p>
+          <p>Supervision offers a wide range of highly customizable [annotators], allowing you to compose the perfect visualization for your use case.</p>
+          <pre><code>import cv2
+import supervision as sv
+
+image = cv2.imread("path/to/image.jpg")
+# Assuming detections are obtained from a model
+detections = sv.Detections(...)
+
+box_annotator = sv.BoxAnnotator()
+annotated_frame = box_annotator.annotate(scene=image.copy(), detections=detections)</code></pre>
+          <p>[annotated video demo]</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>### 标注器</strong></p>
+          <p>Supervision 提供了大量高度可定制的「标注器」（annotator），让你能为自己的场景拼出最合适的可视化效果。</p>
+          <pre><code>import cv2
+import supervision as sv
+
+image = cv2.imread("path/to/image.jpg")
+# 假设检测结果已经从某个模型拿到
+detections = sv.Detections(...)
+
+box_annotator = sv.BoxAnnotator()
+annotated_frame = box_annotator.annotate(scene=image.copy(), detections=detections)</code></pre>
+          <p><em>（代码大意：用「画框标注器」把检测框画到原图上，得到一张标注好的图。）</em></p>
+          <p>[一段标注效果的演示视频]</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>### Datasets</strong></p>
+          <p>Supervision provides a set of [utils] that allow you to load, split, merge, and save datasets in one of the supported formats.</p>
+          <pre><code>import supervision as sv
+from roboflow import Roboflow
+
+project = Roboflow().workspace("WORKSPACE_ID").project("PROJECT_ID")
+dataset = project.version("PROJECT_VERSION").download("coco")
+
+ds = sv.DetectionDataset.from_coco(
+    images_directory_path=f"{dataset.location}/train",
+    annotations_path=f"{dataset.location}/train/_annotations.coco.json",
+)
+
+path, image, annotation = ds[0]
+# loads image on demand
+
+for path, image, annotation in ds:
+    # loads image on demand
+    pass</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>### 数据集</strong></p>
+          <p>Supervision 提供了一套工具函数（utils），让你能加载、拆分、合并、保存数据集，并在它支持的几种格式之间互转。</p>
+          <pre><code>import supervision as sv
+from roboflow import Roboflow
+
+project = Roboflow().workspace("WORKSPACE_ID").project("PROJECT_ID")
+dataset = project.version("PROJECT_VERSION").download("coco")
+
+ds = sv.DetectionDataset.from_coco(
+    images_directory_path=f"{dataset.location}/train",
+    annotations_path=f"{dataset.location}/train/_annotations.coco.json",
+)
+
+path, image, annotation = ds[0]
+# 用到时才加载图片
+
+for path, image, annotation in ds:
+    # 用到时才加载图片
+    pass</code></pre>
+          <p><em>（代码大意：下载一个 COCO 格式的数据集，加载进来，再逐张取出图片和标注；图片是「用到才加载」，省内存。）</em></p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>👉 more dataset utils — load / split / merge / save / convert</p>
+          <p>（分别演示：from_yolo、from_pascal_voc、from_coco 加载；split 按比例拆分训练/测试/验证集；merge 合并多个数据集并自动合并类别；as_yolo / as_pascal_voc / as_coco 保存；以及 from_yolo(...).as_pascal_voc(...) 这样的一行式格式转换。）</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>👉 更多数据集工具 —— 加载 / 拆分 / 合并 / 保存 / 转换</p>
+          <p>（分别演示：用 from_yolo、from_pascal_voc、from_coco 从三种主流格式加载；用 split 按比例把数据集拆成训练集/测试集/验证集；用 merge 把多个数据集合并、类别也自动合并去重；用 as_yolo / as_pascal_voc / as_coco 保存；以及像 from_yolo(...).as_pascal_voc(...) 这样一行代码就完成「从一种格式转成另一种格式」。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 🎬 Tutorials</strong></p>
+          <p>Want to learn how to use Supervision? Explore our [how-to guides], [end-to-end examples], [cheatsheet], and [cookbooks]!</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 🎬 教程</strong></p>
+          <p>想学怎么用 Supervision？去看看我们的「how-to 操作指南」「端到端完整示例」「速查表 cheatsheet」和「实战手册 cookbooks」吧！</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>Dwell Time Analysis with Computer Vision | Real-Time Stream Processing</strong> — Created: 5 Apr 2024</p>
+          <p>Learn how to use computer vision to analyze wait times and optimize processes. This tutorial covers object detection, tracking, and calculating time spent in designated zones. Use these techniques to improve customer experience in retail, traffic management, or other scenarios.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>用计算机视觉做停留时长分析 | 实时视频流处理</strong> —— 发布于 2024 年 4 月 5 日</p>
+          <p>学习如何用计算机视觉分析等待时间、优化流程。本教程涵盖目标检测、跟踪，以及计算「在指定区域内停留了多久」。这些技术可用来改善零售门店的顾客体验、做交通管理等场景。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>Speed Estimation &amp; Vehicle Tracking | Computer Vision | Open Source</strong> — Created: 11 Jan 2024</p>
+          <p>Learn how to track and estimate the speed of vehicles using YOLO, ByteTrack, and Roboflow Inference. This comprehensive tutorial covers object detection, multi-object tracking, filtering detections, perspective transformation, speed estimation, visualization improvements, and more.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>车速估计与车辆跟踪 | 计算机视觉 | 开源</strong> —— 发布于 2024 年 1 月 11 日</p>
+          <p>学习如何用 YOLO、ByteTrack 和 Roboflow Inference 来跟踪车辆并估算车速。这份全面的教程涵盖目标检测、多目标跟踪、过滤检测结果、透视变换（perspective transformation）、速度估计、可视化优化等内容。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 💜 Built with Supervision</strong></p>
+          <p>Did you build something cool using supervision? [Let us know!]</p>
+          <p>[three demo videos]</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 💜 用 Supervision 做出来的作品</strong></p>
+          <p>你用 supervision 做出了什么很酷的东西吗？[告诉我们！]</p>
+          <p>[三段作品演示视频]</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 📚 Documentation</strong></p>
+          <p>Visit our [documentation] page to learn how supervision can help you build computer vision applications faster and more reliably.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 📚 文档</strong></p>
+          <p>访问我们的文档页面，了解 supervision 如何帮你更快、更可靠地构建计算机视觉应用。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## 🏆 Contribution</strong></p>
+          <p>We love your input! Please see our [contributing guide] to get started. Thank you 🙏 to all our contributors!</p>
+          <p>[contributors image · social links: YouTube / Roboflow / LinkedIn / Docs / Forum / Blog]</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 🏆 贡献</strong></p>
+          <p>我们很欢迎你的参与！请查看我们的「贡献指南」来开始。🙏 感谢所有的贡献者！</p>
+          <p>[贡献者头像墙 · 社交链接：YouTube / Roboflow / LinkedIn / 文档 / 论坛 / 博客]</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">和同类方案比，它有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>supervision 最聪明的一点，是它<strong>没有去卷「谁的模型更准」</strong>——那是一片血海。它选了一个被所有人忽视、但又人人都要用的「中间地带」：模型识别<strong>前后</strong>的处理。它不跟模型竞争，反而成了所有模型的「公共配套」，谁火它都能接，于是天然站在了生态的中心位置。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔌</div>
+          <div class="pattern-title">「模型无关」的统一插头</div>
+          <p class="pattern-desc">最核心的创新。不管你用 YOLO、Transformers 还是 MMDetection，结果进来都被统一成同一种格式（sv.Detections）。带来的直接好处：换模型不用改后面一整套代码，今天用 A 模型、明天上了更强的 B 模型，几乎无缝切换。它把开发者从「被某个模型绑死」里解放了出来。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🧩</div>
+          <div class="pattern-title">「积木式」的可视化</div>
+          <p class="pattern-desc">把画框、贴标签、画轨迹、打马赛克等做成一个个可自由组合、可定制的「标注器」。你不用从零写绘图逻辑，像搭积木一样挑几块拼起来，就能得到专业、好看的输出效果——这对做 demo、做演示视频特别省事。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🎯</div>
+          <div class="pattern-title">直接给「业务场景」级的现成工具</div>
+          <p class="pattern-desc">别家工具大多停在「画个框」，supervision 往前多走了一步：越线计数、区域内停留时长、测速、切片推理（把大图切小块再检测，提升小目标准确率）、轨迹平滑……这些「离业务最近、最值钱」的能力都做成了开箱即用的工具。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📦</div>
+          <div class="pattern-title">数据集格式的「万能转换器」</div>
+          <p class="pattern-desc">YOLO、COCO、Pascal VOC 三种主流标注格式之间，加载、拆分、合并、互转都是现成函数，常常一行代码搞定。这解决了做视觉项目时一个又脏又烦、却绕不开的体力活。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">在红海里做「配套」，比抢「主角」更聪明</div>
+          <p class="inspo-card-desc">它不去卷「谁的模型更准」，而是去做所有模型都要用的前后处理。结果谁火它都受益，反而站到了生态中心。这是个普适的卡位思维：当核心赛道已经很挤，找到那个「人人都要、却没人愿意做」的配套环节，往往是更稳的位置。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">别只给「工具」，要给「场景化的成品」</div>
+          <p class="inspo-card-desc">同类只给「画个框」的零件，它却把「越线计数、停留时长、测速」这些离业务最近的场景直接做成开箱即用的成品。对照到给运营/代理的工具：与其丢一堆零散的素材功能让他们自己拼，不如按品类直接给「成品级做单模板」，他们填空就能用，门槛立刻降一个量级。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">「照着跑就行」胜过「讲一堆概念」</div>
+          <p class="inspo-card-desc">它的 README 几乎全是可直接复制运行的代码片段 + 教程视频，没有空洞说明。新人靠抄就能跑起来。这正是培训该有的样子：给代理的不是「功能讲解」，而是「第一步…第二步…」的可直接照做的步骤图/短视频，能跑通就有正反馈。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">「用到才加载」= 渐进式披露</div>
+          <p class="inspo-card-desc">它处理数据时「用到哪张图才加载哪张」，省内存也省心。搬到界面设计上就是「渐进披露」：默认只露最关键的信息，次要内容折叠起来、需要时再展开。信息少了，用户的认知负担就轻了，关键操作反而更突出。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">视觉识别本身，可以反哺「做单」</div>
+          <p class="inspo-card-desc">这是条能真落地的：做商品图时，最烦的是抠主体、批量套模板、统一加价格/水印。视觉识别正好能自动框出主体、自动抠图、批量处理。把「识别 + 标注」的能力接进做单工具，运营做图的体力活能被大幅自动化——这是从这个项目能直接拿走的能力，而不只是理念。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level hard">需要开发</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">这是给程序员用的 Python 代码库，不是能下载即用的 App。PM 自己没法直接「用」，必须有工程同学接入。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">本身免费开源（MIT，商用无忧）。但它只是「配套」，真要跑起来还得配一个识别模型（如 YOLO）、Python 环境，部分功能要 Roboflow 的 API KEY。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">较高</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">文档好、示例多、社区大，是 AI 编程的「优等生素材」。让工程同学拿 Claude 这类工具来搭原型，跑通一个 demo 会相当快。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要做，大概需要什么</h2>
+        <p>先把预期摆正：这<strong>不是你自己能上手的工具</strong>，而是一个「给工程团队的能力底座」。你的角色是出需求和场景，落地要靠开发。</p>
+        <p>典型配置：1 名懂 Python / 计算机视觉的工程师 + 一个能跑模型的环境（有 GPU 显卡会快很多，但做小原型用普通电脑也行）。做一个「跑通的概念验证」（比如：上传一段视频，自动框出商品、统计数量）大概是<strong>几天到一两周</strong>的活；要做成稳定、能上线的产品功能，则要按正经项目排期，成本主要在算力和工程，不在这个库本身。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意</strong>
+          <p>真正的成本和门槛在「识别模型」那一端，不在 supervision。模型要不要训练、准不准、跑得快不快、用 GPU 还是云端推理（持续按量付费），这些才是项目里花钱花时间的大头。supervision 只是把模型前后的脏活变简单了，它解决不了「识别本身准不准」的问题。所以评估时，别被「这个库免费又好用」误导，要把模型和算力的账一起算。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">它在整个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">Ultralytics / YOLO</span>
+          <span class="badge-desc">不是竞品，是「上游搭档」。YOLO 负责「识别出物体」，supervision 负责识别前后的处理。两者常一起用：YOLO 出结果，supervision 来画图、跟踪、计数。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">OpenCV</span>
+          <span class="badge-desc">视觉领域的「老牌全能瑞士军刀」，什么底层图像操作都能做，但偏底层、偏原始，做现代深度学习应用要写很多胶水代码。supervision 更上层、更聚焦，专攻「检测之后怎么用」，对接现代模型更顺手。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Roboflow 全家桶（inference / notebooks / autodistill）</span>
+          <span class="badge-desc">同一家公司（Roboflow）的兄弟项目，定位互补：supervision 管处理与可视化，inference 管模型推理，autodistill 管自动标注/蒸馏。它们是配合关系，不是竞争。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">FiftyOne</span>
+          <span class="badge-desc">同样是视觉工具，但更偏「数据集的可视化探索与质检」。和 supervision 在数据集处理上有部分重叠，但 supervision 更偏「实时应用 + 标注绘制」，FiftyOne 更偏「数据分析」。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>已经选好（或打算用现成的）视觉识别模型，需要快速把它变成「能看的应用」——画框标注、目标跟踪、区域计数测速、数据集格式转换的团队。尤其适合零售、安防、交通这类「检测 + 统计」场景，以及需要快出 demo 的原型阶段。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>① 不会写代码、想找「下载即用」成品的人——它是给开发者的库；② 核心诉求是「提升识别准确率」的——那要在模型那端下功夫，这个库帮不上；③ 只是偶尔处理一两张图的轻量需求，杀鸡用牛刀。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">接下来你可以做什么</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">先花 3 分钟看官方演示，建立直观感受：在线试用 Hugging Face Spaces 标注器演示 <a href="https://huggingface.co/spaces/Roboflow/Annotators" target="_blank">huggingface.co/spaces/Roboflow/Annotators</a></span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">看两个「业务感」最强的教程视频找场景灵感：<a href="https://youtu.be/hAWpsIuem10" target="_blank">停留时长分析（零售）</a> 和 <a href="https://youtu.be/uWP6UjDeZvY" target="_blank">车速估计与车辆跟踪</a></span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">浏览官方文档首页，感受它能做的能力边界：<a href="https://supervision.roboflow.com" target="_blank">supervision.roboflow.com</a></span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">想清楚一个「值得验证」的场景再找工程同学。建议从「做单提效」切入：能不能用视觉自动抠商品主体、批量套模板加价格水印？把这个需求描述清楚，让工程同学拿它做个最小 demo。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">评估时记得「算两笔账」：这个库免费，但识别模型 + 算力（GPU 或云端按量付费）才是真成本。让工程同学先估个量级，再决定要不要立项。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">把灵感卡片里「场景化成品模板」「照着跑就行的培训」这两条，单独拎出来，套用到现有的运营工具/代理培训上——这两个不依赖这个项目，可以马上做。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>
