@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Skills · Kanxia 解读</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">Agent Skills 解读</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/addyosmani/agent-skills" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">Agent Skills</h1>
+      <p class="cover-repo">github.com/addyosmani/agent-skills</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">66.5k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Shell</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">MIT</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#AI 编程</span>
+        <span class="cover-tag">#Agent Skill</span>
+        <span class="cover-tag">#工程规范</span>
+        <span class="cover-tag">#开源</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>这是一套给「AI 编程助手」用的<strong>工作规矩手册</strong>。它把资深工程师做软件时的那套纪律——先想清楚要做什么、拆成小步、写测试证明能跑、评审过关再上线——写成 24 份说明书，逼着 AI 一步步照做，而不是图快走捷径。</p>
+        <p>打个比方：AI 写代码像个手很快但没经验的实习生，给它一个需求它就埋头开干，跳过文档、跳过测试、跳过检查。这个项目相当于给实习生配了一本「公司标准作业流程」，每做一步都要交作业、留证据，过不了关就不让往下走。作者是 Google Chrome 团队知名工程师 Addy Osmani。</p>
+      </section>
+
+      <!-- 社区评价：只放在总览里，最多 3 条；找不到可靠评价就整段删掉 -->
+      <section class="screen animate-in">
+        <h2 class="screen-heading">社区评价</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>被多个中文「精选 Skills 合集」收录并给到高推荐等级</strong>——出现在 helloianneo 的「awesome-claude-code-skills（50+ 精选、按场景分类、带推荐等级）」里。来源：github.com/helloianneo/awesome-claude-code-skills</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>被当作 Agent Skills 入门「终极指南」的重点资源推荐</strong>。来源：github.com/libukai/awesome-agent-skills</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>有第三方做过对比实验</strong>：把它和另一套热门方案 Superpowers 放在一起做「谁出活更快、谁推理更稳」的 head-to-head 评测（README 中亦有引用）。来源：LinkedIn「Superpowers vs Agent Skills」实验文章</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么有人愿意花时间做这个项目？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">做这个项目的人，大概遇到了这些问题</h2>
+        <p>用 AI 写代码的人，几乎都撞上过同一件事：<strong>AI 默认走最短路径</strong>。你让它做个功能，它会直接给你一坨「看起来能跑」的代码，但需求没问清、测试没写、边界没考虑、文档更别提。表面交付飞快，回头维护要命。</p>
+        <p>第二个痛点是<strong>「全凭感觉，没有证据」</strong>。AI 经常说「应该没问题」「这样改就对了」，但它不会主动去跑一遍、留下日志或测试结果来证明。等你发现不对，往往已经埋进生产环境了。</p>
+        <p>第三个痛点是<strong>AI 太会给自己找借口</strong>。"测试我待会儿再补"、"这个先简化一下"——这些听上去合理的偷懒话术，会让它一步步绕开本该做的事。靠人盯着一条条纠正，太累也不可持续。</p>
+        <p>说白了，作者想解决的是：AI 是个手很快、却没有「工程纪律本能」的实习生。那些不体现在代码改动里、却决定软件好坏的功夫（问清假设、控制改动大小、写规格、留证据、不让没法评审的东西合并），正是 AI 会自动跳过的部分。这套技能要做的，就是把这些纪律变成「AI 没法自己说服自己跳过」的硬规矩。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，按原文结构与顺序、一段不漏；专业名词保留英文原文</p>
+    </header>
+    <div class="module-body">
+
+      <!-- 标题 + 标语 + 引言 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre># Agent Skills
+
+**Production-grade engineering skills for AI coding agents.**
+
+Skills encode the workflows, quality gates, and best practices that senior engineers use when building software. These ones are packaged so AI agents follow them consistently across every phase of development.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃ Agent Skills</strong></p>
+          <p><strong>给 AI 编程 agent 用的、生产级的工程技能。</strong></p>
+          <p>Skill（技能）把资深工程师做软件时所用的工作流、质量关卡和最佳实践编码下来。而这一套经过打包，好让 AI agent 在开发的每个阶段都能始终如一地遵循它们。</p>
+        </div>
+      </div>
+
+      <!-- 徽章与配图 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>&lt;a href="https://trendshift.io/repositories/25200"&gt;
+  &lt;img ... alt="addyosmani/agent-skills | Trendshift" /&gt;
+&lt;/a&gt;
+
+![Addy's Agent Skills](https://addyosmani.com/assets/images/addys-agent-skills.jpg)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>（一枚 Trendshift 徽章，链接到该项目在 Trendshift 上的页面；图片替代文字为「addyosmani/agent-skills | Trendshift」。）</p>
+          <p>（一张配图，替代文字为「Addy 的 Agent Skills」。）</p>
+        </div>
+      </div>
+
+      <!-- 生命周期流程图 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>  DEFINE     PLAN      BUILD     VERIFY    REVIEW    SHIP
+ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐
+ │ Idea │▶│ Spec │▶│ Code │▶│ Test │▶│  QA  │▶│  Go  │
+ │Refine│ │  PRD │ │ Impl │ │Debug │ │ Gate │ │ Live │
+ └──────┘ └──────┘ └──────┘ └──────┘ └──────┘ └──────┘
+  /spec    /plan    /build   /test    /review  /ship</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>（一张 ASCII 流程图，展示开发生命周期的六个阶段，从左到右依次推进：）</p>
+          <p><strong>DEFINE 定义</strong>（想法 Idea → 提炼 Refine）→ <strong>PLAN 计划</strong>（Spec 规格 → PRD 产品需求文档）→ <strong>BUILD 构建</strong>（Code 代码 → Impl 实现）→ <strong>VERIFY 验证</strong>（Test 测试 → Debug 调试）→ <strong>REVIEW 评审</strong>（QA 质检 → Gate 关卡）→ <strong>SHIP 发布</strong>（Go 上线 → Live 线上）。</p>
+          <p>各阶段对应的 slash 命令依次是：<code>/spec</code>、<code>/plan</code>、<code>/build</code>、<code>/test</code>、<code>/review</code>、<code>/ship</code>。</p>
+        </div>
+      </div>
+
+      <!-- Commands -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Commands
+
+8 slash commands that map to the development lifecycle. Each one activates the right skills automatically.
+
+| What you're doing | Command | Key principle |
+| Define what to build | /spec | Spec before code |
+| Plan how to build it | /plan | Small, atomic tasks |
+| Build incrementally | /build | One slice at a time |
+| Prove it works | /test | Tests are proof |
+| Review before merge | /review | Improve code health |
+| Audit web performance | /webperf | Measure before you optimize |
+| Simplify the code | /code-simplify | Clarity over cleverness |
+| Ship to production | /ship | Faster is safer |</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Commands（命令）</strong></p>
+          <p>8 个 slash 命令，对应到开发生命周期。每个命令都会自动激活对应的 skill。</p>
+          <p>表格（你在做什么 | 命令 | 关键原则）：</p>
+          <p>定义要做什么 | <code>/spec</code> | 先写规格再写代码<br>
+          计划怎么做 | <code>/plan</code> | 小而原子的任务<br>
+          增量地构建 | <code>/build</code> | 一次只做一小片<br>
+          证明它能跑 | <code>/test</code> | 测试即证据<br>
+          合并前评审 | <code>/review</code> | 改善代码健康度<br>
+          审计网页性能 | <code>/webperf</code> | 先测量再优化<br>
+          简化代码 | <code>/code-simplify</code> | 清晰胜于炫技<br>
+          发布到生产 | <code>/ship</code> | 越快越安全</p>
+        </div>
+      </div>
+
+      <!-- /build auto + 自动激活 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>Want fewer manual steps once the spec exists? **/build auto** generates the plan and implements every task in a single approved pass — you approve the plan once, then it runs autonomously. It removes the human stepping *between* tasks, not the verification: every task is still test-driven and committed individually, and it pauses on failures or risky steps.
+
+Skills also activate automatically based on what you're doing — designing an API triggers api-and-interface-design, building UI triggers frontend-ui-engineering, and so on.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>规格写好之后，想少点手动步骤？<strong>/build auto</strong> 会生成计划、并在一次获批的流程里实现每个任务——你只需批准计划一次，之后它就自主运行。它去掉的是任务<em>之间</em>需要人来推进的环节，而不是验证环节：每个任务依然是测试驱动、且各自单独提交，遇到失败或有风险的步骤会暂停。</p>
+          <p>Skill 也会根据你正在做的事情自动激活——设计 API 会触发 api-and-interface-design（API 与接口设计），构建 UI 会触发 frontend-ui-engineering（前端 UI 工程），以此类推。</p>
+        </div>
+      </div>
+
+      <!-- Quick Start 引导 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Quick Start
+
+&lt;details&gt;&lt;summary&gt;&lt;b&gt;Claude Code (recommended)&lt;/b&gt;&lt;/summary&gt;
+
+**Marketplace install:**
+/plugin marketplace add addyosmani/agent-skills
+/plugin install agent-skills@addy-agent-skills
+
+> **SSH errors?** The marketplace clones repos via SSH. If you don't have SSH keys set up on GitHub, either add your SSH key or use the full HTTPS URL to force HTTPS cloning:
+> /plugin marketplace add https://github.com/addyosmani/agent-skills.git
+> /plugin install agent-skills@addy-agent-skills
+
+**Local / development:**
+git clone https://github.com/addyosmani/agent-skills.git
+claude --plugin-dir /path/to/agent-skills</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Quick Start（快速开始）</strong></p>
+          <p>（可折叠区块）<strong>Claude Code（推荐）</strong></p>
+          <p><strong>从 Marketplace 安装：</strong>运行 <code>/plugin marketplace add addyosmani/agent-skills</code>，再运行 <code>/plugin install agent-skills@addy-agent-skills</code>。</p>
+          <p><strong>遇到 SSH 报错？</strong> marketplace 是通过 SSH 克隆仓库的。如果你没在 GitHub 上配置 SSH key，要么去添加你的 SSH key，要么改用完整的 HTTPS 地址来强制走 HTTPS 克隆：先 <code>/plugin marketplace add https://github.com/addyosmani/agent-skills.git</code>，再 <code>/plugin install agent-skills@addy-agent-skills</code>。</p>
+          <p><strong>本地 / 开发模式：</strong>用 <code>git clone https://github.com/addyosmani/agent-skills.git</code> 克隆，再用 <code>claude --plugin-dir /path/to/agent-skills</code> 启动。</p>
+        </div>
+      </div>
+
+      <!-- 其它工具安装 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>&lt;details&gt; Cursor &lt;/details&gt;
+Copy any SKILL.md into .cursor/rules/, or reference the full skills/ directory. See docs/cursor-setup.md.
+
+&lt;details&gt; Antigravity CLI &lt;/details&gt;
+Install as a native plugin for skills, subagents, and slash commands. See docs/antigravity-setup.md.
+agy plugin install https://github.com/addyosmani/agent-skills.git
+agy plugin install ./agent-skills
+
+&lt;details&gt; Gemini CLI &lt;/details&gt;
+Install as native skills for auto-discovery, or add to GEMINI.md for persistent context. See docs/gemini-cli-setup.md.
+gemini skills install https://github.com/addyosmani/agent-skills.git --path skills
+gemini skills install ./agent-skills/skills/</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>（可折叠）<strong>Cursor：</strong>把任意一个 SKILL.md 复制到 <code>.cursor/rules/</code> 目录，或者直接引用整个 <code>skills/</code> 目录。详见 docs/cursor-setup.md。</p>
+          <p>（可折叠）<strong>Antigravity CLI：</strong>作为原生插件安装，可获得 skills、subagent（子 agent）与 slash 命令。详见 docs/antigravity-setup.md。从仓库安装：<code>agy plugin install https://github.com/addyosmani/agent-skills.git</code>；从本地克隆安装：<code>agy plugin install ./agent-skills</code>。</p>
+          <p>（可折叠）<strong>Gemini CLI：</strong>作为原生 skills 安装以便自动发现，或加入 GEMINI.md 作为持久上下文。详见 docs/gemini-cli-setup.md。从仓库安装：<code>gemini skills install https://github.com/addyosmani/agent-skills.git --path skills</code>；从本地克隆安装：<code>gemini skills install ./agent-skills/skills/</code>。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>&lt;details&gt; Windsurf &lt;/details&gt;
+Add skill contents to your Windsurf rules configuration. See docs/windsurf-setup.md.
+
+&lt;details&gt; OpenCode &lt;/details&gt;
+Uses agent-driven skill execution via AGENTS.md and the skill tool. See docs/opencode-setup.md.
+
+&lt;details&gt; GitHub Copilot &lt;/details&gt;
+Use agent definitions from agents/ as Copilot personas and skill content in .github/copilot-instructions.md. See docs/copilot-setup.md.
+
+&lt;details&gt; Kiro IDE & CLI &lt;/details&gt;
+Skills for Kiro reside under ".kiro/skills/" and can be stored under Project or Global level. Kiro also supports Agents.md. See Kiro docs at https://kiro.dev/docs/skills/
+
+&lt;details&gt; Codex / Other Agents &lt;/details&gt;
+Skills are plain Markdown - they work with any agent that accepts system prompts or instruction files. See docs/getting-started.md.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>（可折叠）<strong>Windsurf：</strong>把 skill 内容加入你的 Windsurf rules 配置。详见 docs/windsurf-setup.md。</p>
+          <p>（可折叠）<strong>OpenCode：</strong>通过 AGENTS.md 和 <code>skill</code> 工具，采用 agent 驱动的 skill 执行方式。详见 docs/opencode-setup.md。</p>
+          <p>（可折叠）<strong>GitHub Copilot：</strong>把 agents/ 目录里的 agent 定义当作 Copilot 的 persona（角色），把 skill 内容放进 .github/copilot-instructions.md。详见 docs/copilot-setup.md。</p>
+          <p>（可折叠）<strong>Kiro IDE 与 CLI：</strong>给 Kiro 用的 skills 放在 ".kiro/skills/" 下，可存为 Project（项目级）或 Global（全局级）。Kiro 也支持 Agents.md。参见 Kiro 文档 https://kiro.dev/docs/skills/。</p>
+          <p>（可折叠）<strong>Codex / 其它 Agent：</strong>Skill 就是纯 Markdown——任何能接受 system prompt 或指令文件的 agent 都能用。详见 docs/getting-started.md。</p>
+        </div>
+      </div>
+
+      <!-- All 24 Skills 引导 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## All 24 Skills
+
+The commands above are entry points. The pack includes 24 skills total — 23 lifecycle skills plus the using-agent-skills meta-skill. Each skill is a structured workflow with steps, verification gates, and anti-rationalization tables. You can also reference any skill directly.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ All 24 Skills（全部 24 个技能）</strong></p>
+          <p>上面那些命令只是入口。整套合集一共 24 个 skill——23 个生命周期 skill，外加 using-agent-skills（如何使用本套技能）这个 meta-skill（元技能）。每个 skill 都是一套结构化的工作流，包含步骤、验证关卡，以及「反借口（anti-rationalization）」表格。你也可以直接引用任意一个 skill。</p>
+        </div>
+      </div>
+
+      <!-- Skills 分组表 1：Meta / Define / Plan -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Meta
+using-agent-skills — Maps incoming work to the right skill workflow and defines shared operating rules.
+
+### Define
+interview-me — One-question-at-a-time interview that extracts what the user actually wants, until ~95% confidence.
+idea-refine — Structured divergent/convergent thinking to turn vague ideas into concrete proposals.
+spec-driven-development — Write a PRD (objectives, commands, structure, code style, testing, boundaries) before any code.
+
+### Plan
+planning-and-task-breakdown — Decompose specs into small, verifiable tasks with acceptance criteria and dependency ordering.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Meta（元）——判断该用哪个 skill</strong></p>
+          <p><strong>using-agent-skills</strong>：把进来的活儿映射到正确的 skill 工作流，并定义共享的操作规则。适用于：开始一个会话、或要判断该用哪个 skill 时。</p>
+          <p><strong>＃＃＃ Define（定义）——把要做什么搞清楚</strong></p>
+          <p><strong>interview-me</strong>：一次只问一个问题的访谈，挖出用户「真正想要」的（而非他自以为该要的），直到约 95% 的把握。适用于：需求没说清，或用户喊「interview me / grill me（拷问我）」时。</p>
+          <p><strong>idea-refine</strong>：用结构化的发散/收敛思维，把模糊的想法变成具体的方案。适用于：你有个粗略概念、需要进一步探索时。</p>
+          <p><strong>spec-driven-development</strong>：在写任何代码之前，先写一份 PRD，覆盖目标、命令、结构、代码风格、测试与边界。适用于：开新项目、新功能或重大改动时。</p>
+          <p><strong>＃＃＃ Plan（计划）——拆解</strong></p>
+          <p><strong>planning-and-task-breakdown</strong>：把规格分解成一个个小而可验证的任务，带验收标准和依赖顺序。适用于：已有规格、需要拆成可落地单元时。</p>
+        </div>
+      </div>
+
+      <!-- Skills 分组表 2：Build -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Build
+incremental-implementation — Thin vertical slices: implement, test, verify, commit. Feature flags, safe defaults, rollback-friendly.
+test-driven-development — Red-Green-Refactor, test pyramid (80/15/5), DAMP over DRY, Beyonce Rule, browser testing.
+context-engineering — Feed agents the right information at the right time: rules files, context packing, MCP integrations.
+source-driven-development — Ground every framework decision in official docs; verify, cite sources, flag what's unverified.
+doubt-driven-development — Adversarial fresh-context review of every non-trivial decision in-flight (CLAIM → EXTRACT → DOUBT → RECONCILE → STOP).
+frontend-ui-engineering — Component architecture, design systems, state management, responsive design, WCAG 2.1 AA.
+api-and-interface-design — Contract-first design, Hyrum's Law, One-Version Rule, error semantics, boundary validation.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Build（构建）——写代码</strong></p>
+          <p><strong>incremental-implementation</strong>：薄薄的「垂直切片」——实现、测试、验证、提交。配合 feature flag（功能开关）、安全的默认值、便于回滚的改动。适用于：任何改动超过一个文件时。</p>
+          <p><strong>test-driven-development</strong>：红-绿-重构，测试金字塔（80/15/5），DAMP 优先于 DRY，Beyonce Rule（碧昂丝法则），浏览器测试。适用于：实现逻辑、修 bug 或改变行为时。</p>
+          <p><strong>context-engineering</strong>：在对的时间把对的信息喂给 agent——rules 文件、上下文打包、MCP 集成。适用于：开始会话、切换任务、或输出质量下降时。</p>
+          <p><strong>source-driven-development</strong>：每个框架决策都以官方文档为依据——核实、标注来源、把未经证实的内容标出来。适用于：你想要有出处、有权威依据的代码时。</p>
+          <p><strong>doubt-driven-development</strong>：对每个进行中的非琐碎决策，用「全新上下文」做对抗式复审（声明 → 提取 → 质疑 → 调和 → 停止），并可选地授权跨模型升级核查。适用于：风险高（生产、安全、不可逆）、在陌生代码里、或现在核实比日后调试更划算时。</p>
+          <p><strong>frontend-ui-engineering</strong>：组件架构、设计系统、状态管理、响应式设计、WCAG 2.1 AA 无障碍标准。适用于：构建或修改面向用户的界面时。</p>
+          <p><strong>api-and-interface-design</strong>：契约优先设计、Hyrum's Law（海勒姆定律）、One-Version Rule（单版本规则）、错误语义、边界校验。适用于：设计 API、模块边界或公开接口时。</p>
+        </div>
+      </div>
+
+      <!-- Skills 分组表 3：Verify / Review -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Verify
+browser-testing-with-devtools — Chrome DevTools MCP for live runtime data: DOM, console, network, performance profiling.
+debugging-and-error-recovery — Five-step triage: reproduce, localize, reduce, fix, guard. Stop-the-line rule.
+
+### Review
+code-review-and-quality — Five-axis review, change sizing (~100 lines), severity labels (Nit/Optional/FYI).
+code-simplification — Chesterton's Fence, Rule of 500, reduce complexity while preserving exact behavior.
+security-and-hardening — OWASP Top 10 prevention, auth patterns, secrets management, dependency auditing.
+performance-optimization — Measure-first: Core Web Vitals targets, profiling, bundle analysis, anti-pattern detection.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Verify（验证）——证明它能跑</strong></p>
+          <p><strong>browser-testing-with-devtools</strong>：用 Chrome DevTools MCP 获取实时运行数据——DOM 检查、控制台日志、网络追踪、性能剖析。适用于：构建或调试任何在浏览器里运行的东西时。</p>
+          <p><strong>debugging-and-error-recovery</strong>：五步排查法——复现、定位、收敛、修复、加固。配合「停线（Stop-the-line）」规则与安全兜底。适用于：测试失败、构建中断或行为异常时。</p>
+          <p><strong>＃＃＃ Review（评审）——合并前的质量关卡</strong></p>
+          <p><strong>code-review-and-quality</strong>：五维评审、改动控量（约 100 行）、严重度标签（Nit 小瑕疵 / Optional 可选 / FYI 知会）、评审速度规范、拆分策略。适用于：合并任何改动之前。</p>
+          <p><strong>code-simplification</strong>：Chesterton's Fence（切斯特顿栅栏）、Rule of 500（500 行规则），在保持行为完全不变的前提下降低复杂度。适用于：代码能跑，但比它该有的样子更难读、更难维护时。</p>
+          <p><strong>security-and-hardening</strong>：OWASP Top 10 防护、认证模式、密钥管理、依赖审计、三层边界体系。适用于：处理用户输入、认证、数据存储或外部集成时。</p>
+          <p><strong>performance-optimization</strong>：测量优先——Core Web Vitals 指标、剖析工作流、打包体积分析、反模式检测。适用于：存在性能要求、或你怀疑出现性能退化时。</p>
+        </div>
+      </div>
+
+      <!-- Skills 分组表 4：Ship -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Ship
+git-workflow-and-versioning — Trunk-based development, atomic commits, change sizing (~100 lines), commit-as-save-point.
+ci-cd-and-automation — Shift Left, Faster is Safer, feature flags, quality gate pipelines, failure feedback loops.
+deprecation-and-migration — Code-as-liability mindset, compulsory vs advisory deprecation, zombie code removal.
+documentation-and-adrs — Architecture Decision Records, API docs, inline docs standards — document the *why*.
+observability-and-instrumentation — Structured logging, RED metrics, OpenTelemetry tracing, symptom-based alerting.
+shipping-and-launch — Pre-launch checklists, feature flag lifecycle, staged rollouts, rollback procedures.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Ship（发布）——胸有成竹地部署</strong></p>
+          <p><strong>git-workflow-and-versioning</strong>：主干开发（trunk-based）、原子提交、改动控量（约 100 行）、把「提交」当作存档点的模式。适用于：做任何代码改动时（始终）。</p>
+          <p><strong>ci-cd-and-automation</strong>：Shift Left（左移）、Faster is Safer（越快越安全）、feature flag、质量关卡流水线、失败反馈回路。适用于：搭建或修改构建与部署流水线时。</p>
+          <p><strong>deprecation-and-migration</strong>：「代码即负债」心态、强制式 vs 建议式弃用、迁移模式、僵尸代码清除。适用于：移除旧系统、迁移用户或下线功能时。</p>
+          <p><strong>documentation-and-adrs</strong>：架构决策记录（ADR）、API 文档、内联文档规范——记录「为什么」。适用于：做架构决策、改 API 或交付功能时。</p>
+          <p><strong>observability-and-instrumentation</strong>：结构化日志、RED 指标、OpenTelemetry 链路追踪、基于症状的告警——边构建边埋点。适用于：加遥测，或发布任何要在生产环境运行的东西时。</p>
+          <p><strong>shipping-and-launch</strong>：上线前检查清单、feature flag 生命周期、分阶段灰度、回滚流程、监控搭建。适用于：准备部署到生产时。</p>
+        </div>
+      </div>
+
+      <!-- Agent Personas -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Agent Personas
+Pre-configured specialist personas for targeted reviews:
+
+code-reviewer — Senior Staff Engineer — Five-axis code review with "would a staff engineer approve this?" standard.
+test-engineer — QA Specialist — Test strategy, coverage analysis, and the Prove-It pattern.
+security-auditor — Security Engineer — Vulnerability detection, threat modeling, OWASP assessment.
+web-performance-auditor — Web Performance Engineer — Core Web Vitals audit with Quick/Deep modes; run via /webperf.
+
+See docs/agents.md for the decision matrix, orchestration rules, and how personas compose with skills and slash commands.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Agent Personas（agent 角色）</strong></p>
+          <p>为针对性评审预设的几位专家角色：</p>
+          <p><strong>code-reviewer</strong> — 资深 Staff 工程师 — 五维代码评审，标准是「一位 staff 工程师会批准这个吗？」</p>
+          <p><strong>test-engineer</strong> — QA 专家 — 测试策略、覆盖率分析、以及 Prove-It（拿出证据）模式。</p>
+          <p><strong>security-auditor</strong> — 安全工程师 — 漏洞检测、威胁建模、OWASP 评估。</p>
+          <p><strong>web-performance-auditor</strong> — 网页性能工程师 — Core Web Vitals 审计，分 Quick（快速）/ Deep（深度）两种模式，并有「指标诚实」规则；通过 <code>/webperf</code> 调用。</p>
+          <p>关于决策矩阵、编排规则，以及这些角色如何与 skill、slash 命令组合，详见 docs/agents.md。</p>
+        </div>
+      </div>
+
+      <!-- Reference Checklists -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Reference Checklists
+Quick-reference material that skills pull in when needed:
+
+definition-of-done.md — Project-wide standing bar every change clears.
+testing-patterns.md — Test structure, naming, mocking, React/API/E2E examples.
+security-checklist.md — Pre-commit checks, auth, input validation, headers, CORS, OWASP Top 10.
+performance-checklist.md — Core Web Vitals targets, frontend/backend checklists.
+accessibility-checklist.md — Keyboard nav, screen readers, visual design, ARIA, testing tools.
+observability-checklist.md — Structured logging, RED/USE metrics, tracing, symptom-based alerting.
+orchestration-patterns.md — Endorsed multi-persona orchestration patterns and anti-patterns.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Reference Checklists（参考清单）</strong></p>
+          <p>skill 在需要时会拉取的速查资料：</p>
+          <p><strong>definition-of-done.md</strong>——全项目通用的「完成标准」底线，每个改动都要达标（与「每个任务的验收标准」相对照）。</p>
+          <p><strong>testing-patterns.md</strong>——测试结构、命名、mock、React/API/E2E 示例、反模式。</p>
+          <p><strong>security-checklist.md</strong>——提交前检查、认证、输入校验、HTTP 头、CORS、OWASP Top 10。</p>
+          <p><strong>performance-checklist.md</strong>——Core Web Vitals 指标、前端/后端清单、测量命令。</p>
+          <p><strong>accessibility-checklist.md</strong>——键盘导航、屏幕阅读器、视觉设计、ARIA、测试工具。</p>
+          <p><strong>observability-checklist.md</strong>——值班该问的问题、结构化日志、RED/USE 指标、链路追踪、基于症状的告警、上线前关卡。</p>
+          <p><strong>orchestration-patterns.md</strong>——认可的多角色编排模式、反模式，以及「角色不调用角色」的规则。</p>
+        </div>
+      </div>
+
+      <!-- How Skills Work -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## How Skills Work
+Every skill follows a consistent anatomy:
+
+SKILL.md
+  Frontmatter (name, description: Guides agents through [task]. Use when…)
+  Overview         → What this skill does
+  When to Use      → Triggering conditions
+  Process          → Step-by-step workflow
+  Rationalizations → Excuses + rebuttals
+  Red Flags        → Signs something's wrong
+  Verification     → Evidence requirements
+
+**Key design choices:**
+- Process, not prose. Skills are workflows agents follow, not reference docs they read.
+- Anti-rationalization. Every skill includes a table of common excuses (e.g., "I'll add tests later") with counter-arguments.
+- Verification is non-negotiable. Every skill ends with evidence requirements. "Seems right" is never sufficient.
+- Progressive disclosure. The SKILL.md is the entry point. Supporting references load only when needed.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ How Skills Work（skill 是怎么运作的）</strong></p>
+          <p>每个 skill 都遵循一致的「解剖结构」：</p>
+          <p>一份 <strong>SKILL.md</strong> 包含：Frontmatter（开头的元信息：name 名称、description 描述——「引导 agent 完成〔某任务〕。在……时使用」）；Overview（概览）→ 这个 skill 做什么；When to Use（何时使用）→ 触发条件；Process（流程）→ 分步工作流；Rationalizations（借口）→ 常见借口及反驳；Red Flags（危险信号）→ 出问题的征兆；Verification（验证）→ 证据要求。</p>
+          <p><strong>关键设计取舍：</strong></p>
+          <p>· <strong>是流程，不是散文。</strong>skill 是 agent 要照做的工作流，而不是供阅读的参考文档。每个都有步骤、检查点和退出标准。</p>
+          <p>· <strong>反借口。</strong>每个 skill 都附一张表，列出 agent 用来跳过步骤的常见借口（例如「测试我待会儿再补」），并配上有据可依的反驳。</p>
+          <p>· <strong>验证不可商量。</strong>每个 skill 都以证据要求收尾——测试通过、构建产物、运行数据。「看起来对」永远不够。</p>
+          <p>· <strong>渐进式披露。</strong>SKILL.md 是入口；配套的参考资料只在需要时才加载，从而把 token 占用压到最低。</p>
+        </div>
+      </div>
+
+      <!-- Project Structure -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Project Structure
+
+agent-skills/
+├── skills/      # 24 skills (23 lifecycle + 1 meta)
+├── agents/      # 4 specialist personas
+├── references/  # 5 supplementary checklists
+├── hooks/       # Session lifecycle hooks
+├── .claude/commands/   # 8 slash commands (Claude Code)
+├── .gemini/commands/   # 8 slash commands (Gemini CLI)
+├── commands/    # 8 slash commands (Antigravity CLI)
+├── plugin.json  # Antigravity plugin manifest
+└── docs/        # Setup guides per tool</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Project Structure（项目结构）</strong></p>
+          <p>仓库目录大致如下：<code>skills/</code> 放 24 个 skill（23 个生命周期 + 1 个 meta，下面还按 Define/Plan/Build/Verify/Review/Ship 标注了每个 skill 属于哪个阶段）；<code>agents/</code> 放 4 位专家角色；<code>references/</code> 放 5 份补充清单；<code>hooks/</code> 放会话生命周期钩子；<code>.claude/commands/</code>、<code>.gemini/commands/</code>、<code>commands/</code> 各放 8 个 slash 命令（分别对应 Claude Code、Gemini CLI、Antigravity CLI）；<code>plugin.json</code> 是 Antigravity 插件清单；<code>docs/</code> 放各工具的安装指南。</p>
+        </div>
+      </div>
+
+      <!-- Why Agent Skills -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Why Agent Skills?
+AI coding agents default to the shortest path - which often means skipping specs, tests, security reviews, and the practices that make software reliable. Agent Skills gives agents structured workflows that enforce the same discipline senior engineers bring to production code.
+
+Each skill encodes hard-won engineering judgment: when to write a spec, what to test, how to review, and when to ship. These aren't generic prompts - they're opinionated, process-driven workflows that separate production-quality work from prototype-quality work.
+
+Skills bake in best practices from Google's engineering culture — including Software Engineering at Google and Google's engineering practices guide. You'll find Hyrum's Law in API design, the Beyonce Rule and test pyramid in testing, change sizing and review speed norms in code review, Chesterton's Fence in simplification, trunk-based development in git workflow, Shift Left and feature flags in CI/CD, and a dedicated deprecation skill treating code as a liability.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Why Agent Skills?（为什么要 Agent Skills）</strong></p>
+          <p>AI 编程 agent 默认走最短路径——这往往意味着跳过规格、测试、安全评审，以及那些让软件可靠的实践。Agent Skills 给 agent 提供结构化工作流，强制它们带着资深工程师对待生产代码的那种纪律。</p>
+          <p>每个 skill 都编码了来之不易的工程判断力：<em>何时</em>写规格、<em>测什么</em>、<em>怎么</em>评审、<em>何时</em>发布。这些不是泛泛的 prompt——而是有主张、流程驱动的工作流，正是它们把「生产级」的活儿和「原型级」的活儿区分开来。</p>
+          <p>这些 skill 内置了来自 Google 工程文化的最佳实践——包括《Software Engineering at Google》和 Google 的工程实践指南。你会在 API 设计里看到 Hyrum's Law，在测试里看到 Beyonce Rule 和测试金字塔，在代码评审里看到改动控量与评审速度规范，在简化里看到 Chesterton's Fence，在 git 工作流里看到主干开发，在 CI/CD 里看到 Shift Left 和 feature flag，还有一个专门把「代码视为负债」的弃用 skill。它们不是抽象原则——而是被直接嵌进 agent 照做的分步工作流里。</p>
+        </div>
+      </div>
+
+      <!-- How it compares + Contributing + License -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## How it compares
+Wondering how this stacks up against Superpowers or Matt Pocock's skills? See docs/comparison.md for an honest, side-by-side look at how the three are shaped differently and when to reach for each — including a link to a controlled head-to-head experiment.
+
+## Contributing
+Skills should be **specific** (actionable steps, not vague advice), **verifiable** (clear exit criteria), **battle-tested** (based on real workflows), and **minimal** (only what's needed). See docs/skill-anatomy.md and CONTRIBUTING.md.
+
+## License
+MIT - use these skills in your projects, teams, and tools.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ How it compares（横向对比）</strong></p>
+          <p>想知道它跟 Superpowers 或 Matt Pocock 的 skills 比起来如何？参见 docs/comparison.md，那里对三者的形态差异、以及各自该在什么时候用，做了一份诚实的并排对照——还附了一个受控的 head-to-head（正面对决）实验链接。</p>
+          <p><strong>＃＃ Contributing（贡献）</strong></p>
+          <p>好的 skill 应当：<strong>具体</strong>（可操作的步骤，而非含糊建议）、<strong>可验证</strong>（清晰的退出标准与证据要求）、<strong>久经实战</strong>（基于真实工作流）、<strong>精简</strong>（只保留引导 agent 所必需的）。详见 docs/skill-anatomy.md（格式规范）与 CONTRIBUTING.md（贡献指南）。</p>
+          <p><strong>＃＃ License（许可协议）</strong></p>
+          <p>MIT——可在你的项目、团队和工具里随意使用这些 skill。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">和同类方案比，它有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>市面上大多数「AI 提示词合集」给的是<strong>知识</strong>——告诉 AI「应该怎么做才对」。这个项目给的是<strong>流程和纪律</strong>——逼着 AI「必须按这个步骤做，做完还得交证据」。差别就像「发一本最佳实践手册」和「上一条带质检关卡的流水线」。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🚧</div>
+          <div class="pattern-title">把「偷懒借口」提前写死</div>
+          <p class="pattern-desc">每个技能都附一张「反借口表」：把 AI 最爱说的偷懒话（"测试待会儿补""先简化一下"）连同反驳一起列出来。等于提前堵死后路，让它没法自己说服自己跳步。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">✅</div>
+          <div class="pattern-title">「拿证据」而不是「凭感觉」</div>
+          <p class="pattern-desc">每个技能都以「证据要求」收尾——必须给出测试通过、构建产物、运行数据。"看起来没问题"一律不算数。这把 AI 从「嘴上说行」拉到「证明给你看」。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🧩</div>
+          <div class="pattern-title">用命令对应「研发全流程」</div>
+          <p class="pattern-desc">8 个命令（/spec→/plan→/build→/test→/review→/ship）正好串起从定义到上线的完整生命周期，而且会根据你在做什么自动激活对应技能——不用你记住该调哪个。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📦</div>
+          <div class="pattern-title">渐进式加载，省「内存」</div>
+          <p class="pattern-desc">入口只是一份精简说明书，配套的详细清单「用到才加载」。对 AI 来说就是省 token、少占上下文；对产品人来说，这是一种「按需展开、不一次性塞爆」的信息架构思路。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🌍</div>
+          <div class="pattern-title">一套内容，跨平台通用</div>
+          <p class="pattern-desc">技能本质是纯 Markdown 文本，所以能同时给 Claude Code、Cursor、Gemini、Copilot 等十来个工具用。一次编写，到处适配。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">给运营也配一套「反借口 SOP」</div>
+          <p class="inspo-card-desc">这个项目最妙的是「把常见偷懒话术连同反驳提前写死」。做单也一样：运营常说"图随便发一张就行""文案抄上次的"。可以做一份「做单标准动作 + 常见偷懒×正确做法」对照卡，直接发群里，比反复口头纠正有效得多。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">「交证据才算完成」用在质检上</div>
+          <p class="inspo-card-desc">它要求每步都留证据、不准"看起来没问题"。可以套到代理/运营的工作验收：发单不是"发了就行"，而是要交「商品图+下单步骤图+群文案」三件套截图才算一单完成，后台自动记录。把模糊的"做了"变成可核对的"做对了"。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">「按需展开」的帮助内容</div>
+          <p class="inspo-card-desc">它用「入口精简、细节用到才加载」省心。App 里的新人指引也该这样：首屏只放最关键的一句，"具体怎么做"折叠起来点了再看。别一上来甩一篇长教程，新代理根本读不完。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">把"全流程"拆成几个一键入口</div>
+          <p class="inspo-card-desc">它用 6 个命令把研发全流程串起来，每步只管一件事。做单流程也能这么拆：选品 → 转链 → 做图 → 写文案 → 发群，每步一个清晰入口、做完自动带到下一步，而不是让运营在好几个页面之间来回跳。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">一份内容、多端复用的内容策略</div>
+          <p class="inspo-card-desc">它"纯文本所以哪都能用"。我们的活动话术/做单模板也可以做成一份"源内容"，自动适配 App、H5、微信群不同场景的排版，而不是每个渠道各写一遍、还容易不一致。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">一行命令装好就能用；本身是给「让 AI 帮你写代码」的人用的，自己不用懂代码</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">需要先有一个 AI 编程工具（Claude Code / Cursor 等），多数免费或低价；装插件要会用命令行</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">高适配</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">天生为「跟 AI 对话做开发」设计——它就是用来规范这种协作的，越用越省心</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要用，大概需要什么</h2>
+        <p>对你（PM）来说，它不是拿来"集成进我们 App"的东西，而是<strong>你或团队里做小工具、小原型时的「研发纪律外挂」</strong>。前置条件很轻：装一个 AI 编程工具，跑一行安装命令。之后你用大白话提需求，它会逼着 AI 先帮你写清楚规格、再分步实现、每步留证据——相当于给你这个"非技术 owner"配了个会盯流程的资深工程师。</p>
+        <p>成本：时间上半天能上手；金钱上主要是 AI 工具本身的订阅费；人力上一个人就能跑。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意</strong>
+          <p>它带来"纪律"也带来"慢"——会强制写规格、写测试、留证据，所以不适合"我就想 5 分钟糊个小 demo"的场景。它的价值在你真要把东西做扎实、要反复维护时才显现。另外，它管的是"过程规范"，不替你保证"想法对不对"——方向还得你来定。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">它在整个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">Superpowers</span>
+          <span class="badge-desc">另一套热门的 AI 技能合集（obra/superpowers）。README 里专门做了对比，并附了「谁出活更快、谁推理更稳」的正面对决实验——是它最直接的对标对象。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Matt Pocock's skills</span>
+          <span class="badge-desc">另一位知名开发者整理的技能集（mattpocock/skills），形态不同。README 把三者放一起做了诚实的并排对照。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">官方 / 平台自带 Skills</span>
+          <span class="badge-desc">Claude、Gemini 等平台本身也支持 skill 机制。本项目是「内容层」，跑在这些平台之上，主打成体系的工程纪律，而非平台能力本身。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">各类 awesome 精选合集</span>
+          <span class="badge-desc">本项目被多个中文「精选 Skills 合集」收录推荐——这类合集是"导航站"，而本项目是被收录的"重点条目"，定位不同。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>想用 AI 认真做点东西、且在意质量和可维护性的人/小团队；尤其适合"非技术 owner + AI 写代码"的组合，用它来兜住工程流程。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>只想快速糊个一次性小 demo、或完全不接触任何 AI 编程工具的纯业务场景——那样这套"纪律"反而是负担。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">接下来你可以做什么</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">先读作者本人的介绍博客，建立整体印象：addyosmani.com/blog/agent-skills</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">在你已有的 AI 编程工具里装上试试：Claude Code 用 /plugin marketplace add addyosmani/agent-skills</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">挑一个你最想做的小工具/小原型，用 /spec 让它先帮你把需求写清楚，体会"先想清楚再动手"的感觉</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">把"反借口表 + 交证据才算完成"这两个思路，套到我们自己的「做单 SOP / 代理验收」上写个草案</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">想深入对比的话，读 README 提到的 Superpowers 对决实验，看不同思路的取舍</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>
