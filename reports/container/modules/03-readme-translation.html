@@ -1,0 +1,195 @@
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，专业名词保留英文原文。纯命令行代码块只保留、不翻译。</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><code>container</code> is a tool that you can use to create and run Linux containers as lightweight virtual machines on your Mac. It's written in Swift, and optimized for Apple silicon.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><code>container</code> 是一个工具，你可以用它在 Mac 上把 Linux container 当成轻量级的虚拟机（virtual machine）来创建和运行。它用 Swift 写成，并针对 Apple silicon（苹果自研芯片）做了优化。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>The tool consumes and produces <a href="https://github.com/opencontainers/image-spec">OCI-compatible container images</a>, so you can pull and run images from any standard container registry. You can push images that you build to those registries as well, and run the images in any other OCI-compatible application.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>这个工具能读取和生成 <a href="https://github.com/opencontainers/image-spec">OCI-compatible 的 container image</a>（符合 OCI 行业标准的容器镜像），所以你可以从任何标准的 container registry（镜像仓库）拉取并运行 image。你也可以把自己构建的 image 推送到那些仓库，并在任何其他兼容 OCI 的应用里运行这些 image。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><code>container</code> uses the <a href="https://github.com/apple/containerization">Containerization</a> Swift package for low-level container, image, and process management.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><code>container</code> 使用 <a href="https://github.com/apple/containerization">Containerization</a> 这个 Swift package（Swift 软件包），来做底层的 container、image 和进程管理。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## Get started</strong></p>
+          <p><strong>### Requirements</strong></p>
+          <p>You need a Mac with Apple silicon to run <code>container</code>. To build it, see the <a href="./BUILDING.md">BUILDING</a> document.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 开始上手</strong></p>
+          <p><strong>### 环境要求</strong></p>
+          <p>要运行 <code>container</code>，你需要一台搭载 Apple silicon 的 Mac。如果想自己构建它，请参阅 <a href="./BUILDING.md">BUILDING</a> 文档。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><code>container</code> is supported on macOS 26, since it takes advantage of new features and enhancements to virtualization and networking in this release. We do not support older versions of macOS and the <code>container</code> maintainers typically will not address issues that cannot be reproduced on macOS 26.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><code>container</code> 支持 macOS 26，因为它用到了这个版本在 virtualization（虚拟化）和 networking（网络）上的新功能与增强。我们不支持更老的 macOS 版本，而且 <code>container</code> 的维护者通常不会处理那些无法在 macOS 26 上复现的问题。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>### Initial install</strong></p>
+          <p>Download the latest signed installer package for <code>container</code> from the <a href="https://github.com/apple/container/releases">GitHub release page</a>.</p>
+          <p>To install the tool, double-click the package file and follow the instructions. Enter your administrator password when prompted, to give the installer permission to place the installed files under <code>/usr/local</code>.</p>
+          <p>Start the system service with:</p>
+          <pre><code>container system start</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>### 首次安装</strong></p>
+          <p>从 <a href="https://github.com/apple/container/releases">GitHub release 页面</a> 下载 <code>container</code> 最新的、带签名的安装包。</p>
+          <p>安装时，双击安装包文件并按提示操作。出现提示时输入你的管理员密码，以授权安装程序把文件放到 <code>/usr/local</code> 目录下。</p>
+          <p>用下面这条命令启动 system service（系统后台服务）：（命令保留原文 <code>container system start</code>）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>### Upgrade or downgrade</strong></p>
+          <p>For both upgrading and downgrading, you can manually download and install the signed installer package by following the steps from <a href="#initial-install">initial install</a> or use the <code>update-container.sh</code> script (installed to <code>/usr/local/bin</code>).</p>
+          <p>If you're upgrading or downgrading, you must stop your existing <code>container</code>:</p>
+          <pre><code>container system stop</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>### 升级或降级</strong></p>
+          <p>无论升级还是降级，你都可以按照 <a href="#initial-install">首次安装</a> 的步骤手动下载并安装带签名的安装包，或者使用 <code>update-container.sh</code> 脚本（安装在 <code>/usr/local/bin</code> 里）。</p>
+          <p>如果你要升级或降级，必须先停掉现有的 <code>container</code>：（命令保留原文 <code>container system stop</code>）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>To upgrade to the latest release, simply run the command below:</p>
+          <pre><code>/usr/local/bin/update-container.sh</code></pre>
+          <p>To downgrade, you must uninstall your existing <code>container</code> (the <code>-k</code> flag keeps your user data, while <code>-d</code> removes it):</p>
+          <pre><code>/usr/local/bin/uninstall-container.sh -k
+/usr/local/bin/update-container.sh -v 0.3.0</code></pre>
+          <p>Start the system service with:</p>
+          <pre><code>container system start</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>要升级到最新版本，只需运行下面这条命令（命令保留原文）。</p>
+          <p>要降级，你必须先卸载现有的 <code>container</code>（<code>-k</code> 参数会保留你的用户数据，而 <code>-d</code> 会删除它）：（卸载与指定版本安装命令保留原文）</p>
+          <p>然后再启动 system service。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>### Uninstall</strong></p>
+          <p>Use the <code>uninstall-container.sh</code> script (installed to <code>/usr/local/bin</code>) to remove <code>container</code> from your system. To remove your user data along with the tool, run:</p>
+          <pre><code>/usr/local/bin/uninstall-container.sh -d</code></pre>
+          <p>To retain your user data so that it is available should you reinstall later, run:</p>
+          <pre><code>/usr/local/bin/uninstall-container.sh -k</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>### 卸载</strong></p>
+          <p>使用 <code>uninstall-container.sh</code> 脚本（安装在 <code>/usr/local/bin</code> 里）把 <code>container</code> 从系统中移除。如果想连同用户数据一起删掉，运行带 <code>-d</code> 的命令。</p>
+          <p>如果想保留用户数据、方便以后重新安装时还能用上，运行带 <code>-k</code> 的命令。（两条命令均保留原文）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## Next steps</strong></p>
+          <ul>
+            <li>Take <a href="./docs/tutorials/start-here.md">a guided tour of <code>container</code></a> by building, running, and publishing a simple web server image.</li>
+            <li>Learn how to <a href="./docs/how-to.md">use various <code>container</code> features</a>.</li>
+            <li>Read a brief description and <a href="./docs/technical-overview.md">technical overview</a> of <code>container</code>.</li>
+            <li>Browse the <a href="./docs/command-reference.md">full command reference</a>.</li>
+            <li><a href="./BUILDING.md">Build and run</a> <code>container</code> on your own development system.</li>
+            <li>View the project <a href="https://apple.github.io/container/documentation/">API documentation</a>.</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 下一步</strong></p>
+          <ul>
+            <li>通过构建、运行并发布一个简单的 web 服务器 image，来 <a href="./docs/tutorials/start-here.md">跟着引导走一遍 <code>container</code> 的上手教程</a>。</li>
+            <li>学习如何 <a href="./docs/how-to.md">使用 <code>container</code> 的各种功能</a>。</li>
+            <li>阅读 <code>container</code> 的简要介绍和 <a href="./docs/technical-overview.md">技术总览</a>。</li>
+            <li>浏览 <a href="./docs/command-reference.md">完整的命令参考</a>。</li>
+            <li>在你自己的开发机上 <a href="./BUILDING.md">构建并运行</a> <code>container</code>。</li>
+            <li>查看项目的 <a href="https://apple.github.io/container/documentation/">API 文档</a>。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## Contributing</strong></p>
+          <p>Contributions to <code>container</code> are welcome and encouraged. Please see our <a href="https://github.com/apple/containerization/blob/main/CONTRIBUTING.md">main contributing guide</a> for more information.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 参与贡献</strong></p>
+          <p>欢迎并鼓励大家为 <code>container</code> 做贡献。更多信息请参阅我们的 <a href="https://github.com/apple/containerization/blob/main/CONTRIBUTING.md">主贡献指南</a>。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## Project Status</strong></p>
+          <p>The container project is currently under active development. Its stability, both for consuming the project as a Swift package and the <code>container</code> tool, is only guaranteed within patch versions, such as between 0.1.1 and 0.1.2. Minor version releases may include breaking changes until we reach a 1.0.0 release.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 项目状态</strong></p>
+          <p>container 项目目前正在活跃开发中。无论是作为 Swift package 使用，还是作为 <code>container</code> 工具使用，它的稳定性只在 patch 版本之间（比如 0.1.1 到 0.1.2 之间）有保证。在我们发布 1.0.0 之前，minor 版本（次版本）的更新可能包含破坏性变更。</p>
+          <p><em>（注：README 这段写于 1.0 之前；项目已于 2026 年 6 月 9 日发布 1.0.0 正式版。）</em></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

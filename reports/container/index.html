@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>container · Apple — Kankan 解读</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">Apple container</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/apple/container" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">container</h1>
+      <p class="cover-repo">github.com/apple/container</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">42.4k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Swift</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Apache-2.0</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#苹果官方</span>
+        <span class="cover-tag">#容器</span>
+        <span class="cover-tag">#Apple 芯片</span>
+        <span class="cover-tag">#开发工具</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>这是苹果官方出的一个 Mac 工具，让程序员能在自己的 Mac（M 系列芯片那种）上，又快又省电地跑起一个个互相隔离的「软件运行小盒子」。以前大家用一个叫 Docker 的工具干这事，但它在 Mac 上又占内存又慢；苹果这个是专门为自家芯片重写的「亲儿子版本」，开机快、不卡，而且完全免费开源。</p>
+        <p>对你的直接意义不大（这是给开发者用的底层工具），但它非常值得看——因为它是<strong>苹果亲自下场、用「重做一遍体验」的方式去抢一个老牌工具的地盘</strong>，这套打法对做产品的人很有启发。2026 年 6 月 9 日刚发布了正式 1.0 版本。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么苹果要亲自下场做这个？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">用 Mac 干开发的人，长期受这几样罪</h2>
+        <p>先打个比方：程序员开发软件时，需要一堆「标准化的运行环境」——你可以理解成一个个装好了水电煤、即插即用的「样板间」，软件在样板间里跑，换台电脑也能原样跑起来，不会出现「在我电脑上好好的，到你那就崩了」。这个「样板间」技术就叫容器（container）。行业里这事十年来基本被一个叫 Docker 的工具垄断。</p>
+        <p><strong>痛点一：Mac 上跑容器，又重又耗电。</strong>Mac 用的是苹果自研芯片，但 Docker 这类工具不是为它量身做的——它要先在你 Mac 里整个虚拟出「一台完整的电脑」，再把所有样板间都塞进这一台里。结果就是风扇狂转、内存被吃掉一大半、笔记本电池掉得飞快。开发者天天忍受这个。</p>
+        <p><strong>痛点二：所有样板间挤在一个房间里，不安全也不灵活。</strong>传统做法是几十个容器全共用同一台虚拟电脑，一个出问题可能连累一片，彼此之间的「隔墙」也不够厚。对安全敏感的团队来说，这是个隐患。</p>
+        <p><strong>痛点三：商业软件的费用和不确定性。</strong>最主流的 Docker Desktop 这几年对中大型公司开始收费，加上它是别人家的商业产品，政策说变就变。开发者和公司都想要一个「免费、开源、不被别人卡脖子」的替代品。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，专业名词保留英文原文。纯命令行代码块只保留、不翻译。</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><code>container</code> is a tool that you can use to create and run Linux containers as lightweight virtual machines on your Mac. It's written in Swift, and optimized for Apple silicon.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><code>container</code> 是一个工具，你可以用它在 Mac 上把 Linux container 当成轻量级的虚拟机（virtual machine）来创建和运行。它用 Swift 写成，并针对 Apple silicon（苹果自研芯片）做了优化。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>The tool consumes and produces <a href="https://github.com/opencontainers/image-spec">OCI-compatible container images</a>, so you can pull and run images from any standard container registry. You can push images that you build to those registries as well, and run the images in any other OCI-compatible application.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>这个工具能读取和生成 <a href="https://github.com/opencontainers/image-spec">OCI-compatible 的 container image</a>（符合 OCI 行业标准的容器镜像），所以你可以从任何标准的 container registry（镜像仓库）拉取并运行 image。你也可以把自己构建的 image 推送到那些仓库，并在任何其他兼容 OCI 的应用里运行这些 image。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><code>container</code> uses the <a href="https://github.com/apple/containerization">Containerization</a> Swift package for low-level container, image, and process management.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><code>container</code> 使用 <a href="https://github.com/apple/containerization">Containerization</a> 这个 Swift package（Swift 软件包），来做底层的 container、image 和进程管理。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## Get started</strong></p>
+          <p><strong>### Requirements</strong></p>
+          <p>You need a Mac with Apple silicon to run <code>container</code>. To build it, see the <a href="./BUILDING.md">BUILDING</a> document.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 开始上手</strong></p>
+          <p><strong>### 环境要求</strong></p>
+          <p>要运行 <code>container</code>，你需要一台搭载 Apple silicon 的 Mac。如果想自己构建它，请参阅 <a href="./BUILDING.md">BUILDING</a> 文档。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><code>container</code> is supported on macOS 26, since it takes advantage of new features and enhancements to virtualization and networking in this release. We do not support older versions of macOS and the <code>container</code> maintainers typically will not address issues that cannot be reproduced on macOS 26.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><code>container</code> 支持 macOS 26，因为它用到了这个版本在 virtualization（虚拟化）和 networking（网络）上的新功能与增强。我们不支持更老的 macOS 版本，而且 <code>container</code> 的维护者通常不会处理那些无法在 macOS 26 上复现的问题。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>### Initial install</strong></p>
+          <p>Download the latest signed installer package for <code>container</code> from the <a href="https://github.com/apple/container/releases">GitHub release page</a>.</p>
+          <p>To install the tool, double-click the package file and follow the instructions. Enter your administrator password when prompted, to give the installer permission to place the installed files under <code>/usr/local</code>.</p>
+          <p>Start the system service with:</p>
+          <pre><code>container system start</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>### 首次安装</strong></p>
+          <p>从 <a href="https://github.com/apple/container/releases">GitHub release 页面</a> 下载 <code>container</code> 最新的、带签名的安装包。</p>
+          <p>安装时，双击安装包文件并按提示操作。出现提示时输入你的管理员密码，以授权安装程序把文件放到 <code>/usr/local</code> 目录下。</p>
+          <p>用下面这条命令启动 system service（系统后台服务）：（命令保留原文 <code>container system start</code>）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>### Upgrade or downgrade</strong></p>
+          <p>For both upgrading and downgrading, you can manually download and install the signed installer package by following the steps from <a href="#initial-install">initial install</a> or use the <code>update-container.sh</code> script (installed to <code>/usr/local/bin</code>).</p>
+          <p>If you're upgrading or downgrading, you must stop your existing <code>container</code>:</p>
+          <pre><code>container system stop</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>### 升级或降级</strong></p>
+          <p>无论升级还是降级，你都可以按照 <a href="#initial-install">首次安装</a> 的步骤手动下载并安装带签名的安装包，或者使用 <code>update-container.sh</code> 脚本（安装在 <code>/usr/local/bin</code> 里）。</p>
+          <p>如果你要升级或降级，必须先停掉现有的 <code>container</code>：（命令保留原文 <code>container system stop</code>）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>To upgrade to the latest release, simply run the command below:</p>
+          <pre><code>/usr/local/bin/update-container.sh</code></pre>
+          <p>To downgrade, you must uninstall your existing <code>container</code> (the <code>-k</code> flag keeps your user data, while <code>-d</code> removes it):</p>
+          <pre><code>/usr/local/bin/uninstall-container.sh -k
+/usr/local/bin/update-container.sh -v 0.3.0</code></pre>
+          <p>Start the system service with:</p>
+          <pre><code>container system start</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>要升级到最新版本，只需运行下面这条命令（命令保留原文）。</p>
+          <p>要降级，你必须先卸载现有的 <code>container</code>（<code>-k</code> 参数会保留你的用户数据，而 <code>-d</code> 会删除它）：（卸载与指定版本安装命令保留原文）</p>
+          <p>然后再启动 system service。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>### Uninstall</strong></p>
+          <p>Use the <code>uninstall-container.sh</code> script (installed to <code>/usr/local/bin</code>) to remove <code>container</code> from your system. To remove your user data along with the tool, run:</p>
+          <pre><code>/usr/local/bin/uninstall-container.sh -d</code></pre>
+          <p>To retain your user data so that it is available should you reinstall later, run:</p>
+          <pre><code>/usr/local/bin/uninstall-container.sh -k</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>### 卸载</strong></p>
+          <p>使用 <code>uninstall-container.sh</code> 脚本（安装在 <code>/usr/local/bin</code> 里）把 <code>container</code> 从系统中移除。如果想连同用户数据一起删掉，运行带 <code>-d</code> 的命令。</p>
+          <p>如果想保留用户数据、方便以后重新安装时还能用上，运行带 <code>-k</code> 的命令。（两条命令均保留原文）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## Next steps</strong></p>
+          <ul>
+            <li>Take <a href="./docs/tutorials/start-here.md">a guided tour of <code>container</code></a> by building, running, and publishing a simple web server image.</li>
+            <li>Learn how to <a href="./docs/how-to.md">use various <code>container</code> features</a>.</li>
+            <li>Read a brief description and <a href="./docs/technical-overview.md">technical overview</a> of <code>container</code>.</li>
+            <li>Browse the <a href="./docs/command-reference.md">full command reference</a>.</li>
+            <li><a href="./BUILDING.md">Build and run</a> <code>container</code> on your own development system.</li>
+            <li>View the project <a href="https://apple.github.io/container/documentation/">API documentation</a>.</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 下一步</strong></p>
+          <ul>
+            <li>通过构建、运行并发布一个简单的 web 服务器 image，来 <a href="./docs/tutorials/start-here.md">跟着引导走一遍 <code>container</code> 的上手教程</a>。</li>
+            <li>学习如何 <a href="./docs/how-to.md">使用 <code>container</code> 的各种功能</a>。</li>
+            <li>阅读 <code>container</code> 的简要介绍和 <a href="./docs/technical-overview.md">技术总览</a>。</li>
+            <li>浏览 <a href="./docs/command-reference.md">完整的命令参考</a>。</li>
+            <li>在你自己的开发机上 <a href="./BUILDING.md">构建并运行</a> <code>container</code>。</li>
+            <li>查看项目的 <a href="https://apple.github.io/container/documentation/">API 文档</a>。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## Contributing</strong></p>
+          <p>Contributions to <code>container</code> are welcome and encouraged. Please see our <a href="https://github.com/apple/containerization/blob/main/CONTRIBUTING.md">main contributing guide</a> for more information.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 参与贡献</strong></p>
+          <p>欢迎并鼓励大家为 <code>container</code> 做贡献。更多信息请参阅我们的 <a href="https://github.com/apple/containerization/blob/main/CONTRIBUTING.md">主贡献指南</a>。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>## Project Status</strong></p>
+          <p>The container project is currently under active development. Its stability, both for consuming the project as a Swift package and the <code>container</code> tool, is only guaranteed within patch versions, such as between 0.1.1 and 0.1.2. Minor version releases may include breaking changes until we reach a 1.0.0 release.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>## 项目状态</strong></p>
+          <p>container 项目目前正在活跃开发中。无论是作为 Swift package 使用，还是作为 <code>container</code> 工具使用，它的稳定性只在 patch 版本之间（比如 0.1.1 到 0.1.2 之间）有保证。在我们发布 1.0.0 之前，minor 版本（次版本）的更新可能包含破坏性变更。</p>
+          <p><em>（注：README 这段写于 1.0 之前；项目已于 2026 年 6 月 9 日发布 1.0.0 正式版。）</em></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">和 Docker、OrbStack 这些同类比，它到底有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>最核心的一句话：<strong>别人是「一栋大楼里隔出很多房间」，苹果是「给每个住户单独盖一栋小别墅」</strong>。传统工具（如 Docker Desktop）先虚拟出一台大电脑，所有容器都挤在这一台里共用资源；苹果的做法是每个容器配一个自己的「微型虚拟机」（micro-VM），开机不到一秒、用完即走、互不干扰。这是它能又快又省电又安全的根本原因。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🏠</div>
+          <div class="pattern-title">一个容器，一台专属微型虚拟机</div>
+          <p class="pattern-desc">不再把几十个容器塞进同一台虚拟电脑，而是每个容器都住进自己独立的「小别墅」。隔离更彻底（安全性更高），一个出事不连累别人，资源也按需分配、不占满。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">⚡</div>
+          <div class="pattern-title">为自家芯片量身打造，秒级启动</div>
+          <p class="pattern-desc">用 Swift（苹果自己的编程语言）重写，深度贴合 Apple silicon 和 macOS 26 的底层能力。容器启动不到一秒，风扇不转、电池更耐用——这是「亲儿子」才有的优化。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔓</div>
+          <div class="pattern-title">完全开源、免费、守标准</div>
+          <p class="pattern-desc">Apache-2.0 协议，随便用、商用也免费，不像 Docker Desktop 对大公司收费。同时严格遵守 OCI 行业标准，做出来的「样板间」能和现有生态无缝互通，不搞封闭。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🍎</div>
+          <div class="pattern-title">平台方亲自下场，自带信任背书</div>
+          <p class="pattern-desc">这不是某个第三方做的工具，而是苹果官方出品。对企业来说意味着长期可靠、签名可信、和系统更新同步演进——这是任何独立开发者都给不了的安全感。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目，作为产品人我想到的几个点子——和你写不写代码无关</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">不抢功能，抢「体验」——后来者翻盘的经典姿势</div>
+          <p class="inspo-card-desc">Docker 功能更全、生态更大，但苹果根本不跟它拼功能多，只死磕「在 Mac 上又快又省电」这一个体验痛点，就撕开了口子。你的产品如果进的是已有巨头的市场，别想着功能全面超越，找一个老大哥「结构上做不好、你能做到极致」的体验点，单点击穿。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">「独栋别墅」思路：把共享的东西改成专属</div>
+          <p class="inspo-card-desc">它最大的创新就是把「大家共用一个」改成「每人一个独立的」。这个思路能迁移：比如运营做单时，与其让所有代理共用一套群文案模板，不如「每个代理一套按自己群调性预生成的专属文案」。专属感往往就是体验升级的开关。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">「平台亲儿子」碾压第三方——警惕也借鉴</div>
+          <p class="inspo-card-desc">苹果一下场，多少做 Mac 容器工具的小团队就慌了。提醒：你的产品如果是建在别人平台上（比如依赖微信、依赖某电商的接口），平台随时可能自己做。反过来对你自己的代理生态——你就是那个「平台方」，把基础工具做扎实，别让第三方插件比你官方还好用。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">「秒开、用完即走」是一种被低估的体验承诺</div>
+          <p class="inspo-card-desc">它把「启动慢」当成头号敌人来打。映射到你的 App：用户/代理最高频的那个动作（比如打开 App→转链→复制），每省一秒、每少一次等待，体感都是质的提升。值得专门立个「最快路径」的体验指标去抠。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">免费开源 = 用「不收费」换「占领心智」</div>
+          <p class="inspo-card-desc">苹果不靠这个工具赚钱，它要的是让所有 Mac 开发者默认用自家方案，巩固生态。这是「亏小钱、赚大盘」的打法。对你：某个功能（比如某个运营小工具）也可以不直接变现，而是免费撒出去，把代理牢牢黏在你的生态里，钱在后端的佣金里赚。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不写代码的 PM，能不能用上这个项目？说实话——基本用不上</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level hard">高门槛</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">面向程序员的命令行工具，没有图形界面，全靠敲命令。非技术背景基本无法直接使用。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level hard">高门槛</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">硬性要求：一台 Apple silicon 的 Mac + macOS 26 系统。还得懂容器、镜像这些开发概念才知道拿它干嘛。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level hard">高门槛</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">就算靠 AI 帮你敲命令，它产出的也是「开发环境」，不是能直接交付给用户的产品。对你没有落地场景。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你的技术团队要用，大概需要什么</h2>
+        <p>这是给<strong>你们公司后端/技术团队</strong>看的：如果他们用 Mac 做开发、还在被 Docker Desktop 拖慢或被授权费困扰，可以让他们评估换成这个——免费、更快、更省资源。迁移成本是「命令和脚本要小改」（因为它不是 Docker 那套命令的 100% 复刻）。对你这个产品负责人来说，这是一个「可以转给技术 leader 看一眼」的情报，而不是你要亲自动手的事。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">说句大实话</strong>
+          <p>这个项目本身你用不上，也不必用。它的价值对你不在「拿来即用」，而在前面第 5 块的<strong>产品思维启发</strong>——后来者怎么靠单点体验翻盘、平台方怎么用免费占心智。把它当成一个「优秀产品打法的活案例」来读，比纠结能不能上手有意义得多。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">它在 Mac 容器工具这个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">Docker Desktop</span>
+          <span class="badge-desc">行业老大、功能最全、生态最大，几乎人人都会用。但在 Mac 上偏重、吃内存，且对中大型公司收费。原始构建速度其实仍很快。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">OrbStack</span>
+          <span class="badge-desc">第三方做的 Mac 神器，主打「Docker 的完美平替」——命令完全兼容、又快又省资源、内存按需占用。目前仍是「想要 Docker 兼容又想要 Mac 流畅体验」的首选。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Colima</span>
+          <span class="badge-desc">开源、免费、命令行向的轻量方案，技术党喜欢。配置相对原始，体验打磨不如 OrbStack。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Apple container（本项目）</span>
+          <span class="badge-desc">42.4k stars、苹果官方、Apache-2.0 全免费。独栋微型虚拟机架构最独特、隔离最强、最省电。代价：只能 Mac+macOS 26，且不是 Docker 命令的 1:1 复刻，迁移要改脚本。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>用 Apple silicon Mac 做开发、追求极致性能与省电、看重安全隔离、且愿意为「苹果官方 + 免费开源」接受一些迁移成本的开发者和团队。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>非 Mac 用户、还没升 macOS 26 的人、强依赖现有 Docker 命令和脚本不想改的团队，以及——任何不写代码的人（包括你，作为产品经理直接用它没有场景）。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">这个项目你不用上手，但有几件事值得做</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">看一眼官方那段 30 秒演示动图，直观感受「秒开」是什么体感：<a href="https://github.com/apple/container" target="_blank">github.com/apple/container</a></span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">把第 5 块「灵感卡片」里的两条记下来——尤其是「不抢功能抢体验」和「专属感替代共享」，下次做功能取舍时拿出来对照。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">如果公司技术团队在用 Mac 开发，把这份报告的第 6 块转给技术 leader，让他评估是否值得从 Docker Desktop 迁移（省钱 + 省资源）。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">留个心眼：盘一盘自己产品里有哪些环节是「重度依赖某个外部平台」的，想想如果平台方亲自下场你怎么办——这是这个项目给运营/产品最值钱的警示。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">想深入了解容器到底是啥、为什么重要，下次可以让我用一个「外卖打包盒」的比方给你讲透，10 分钟搞懂。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>
