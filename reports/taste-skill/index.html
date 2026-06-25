@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taste Skill · Kanxia 解读</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">Taste Skill 解读</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/Leonxlnx/taste-skill" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">Taste Skill</h1>
+      <p class="cover-repo">github.com/Leonxlnx/taste-skill</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">50.5k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">JavaScript</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">MIT</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#AI 设计</span>
+        <span class="cover-tag">#前端审美</span>
+        <span class="cover-tag">#Agent Skill</span>
+        <span class="cover-tag">#反模板</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>一句话：<strong>给 AI 装上「审美」的一套规则包</strong>，专治 AI 做出来的界面又土又像模板。你让 AI 写前端，它默认产出的页面往往千篇一律、一眼假；这个项目把"资深设计师的审美经验"翻译成 AI 能照着执行的硬规则，让它做出排版、字体、动效、留白都更高级的界面。</p>
+        <p>它不是一个，而是<strong>一套</strong>技能：有管整体审美的、有专门做极简/工业风/高端柔和风的、还有"先生成参考图再照着写代码"的图片生成技能。你按需挑着装。作者 Leonxlnx，项目还拿到了 Vercel 开源计划和知名动效作者 Emil Kowalski 的赞助。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">社区评价</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>专门的英文测评：「日常使用很可靠，文档质量高于一般社区技能，规则够具体、真能产出不一样的代码」</strong>；也点了短板——三个「档位」缺少示例、不够直观。来源：andrew.ooo《Taste Skill Review: Anti-Slop Frontend Skill for AI》</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>中文实操评测：「把大量前端设计经验变成 agent 可执行的规则，很适合补上 Codex/Cursor/Claude Code『会写代码但容易掉质量』的短板」</strong>。来源：knightli.com《Taste Skill Guide》(2026-06)</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>获官方/业内背书</strong>：入选 Vercel 开源计划(Vercel OSS Program)，并由知名动效网站 animations.dev 作者 Emil Kowalski 赞助。来源：项目 README 赞助区</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么有人愿意花时间做这个项目？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">做这个项目的人，大概遇到了这些问题</h2>
+        <p>用过 AI 写界面的人都有同一个槽点：<strong>能跑，但丑、且雷同</strong>。AI 写代码很快，可做出来的页面总是一股"默认模板味"——居中、灰底、圆角卡片、千篇一律。作者把这种东西叫 "slop"（粗制滥造的流水货）。它能用，但拿不出手，更谈不上"高级感"。</p>
+        <p>第二个痛点是<strong>"审美没法靠运气"</strong>。你反复跟 AI 说"做得好看点""高级点"，它也听不懂——因为"好看"对它来说是模糊的感觉。作者的核心判断是：审美不是玄学，而是一个能被拆解、能写成规则的工程问题。把"什么叫好排版、好字体、好动效"变成具体条款，AI 才照得出来。</p>
+        <p>第三个痛点是<strong>"AI 爱偷懒、爱重复"</strong>。它会反复用同一套布局、同一种破折号、同一类动效。所以这个项目专门加了"反重复"规则、甚至明令禁用某些烂大街的写法，逼它每次都做出不一样的东西。</p>
+        <p>说白了：AI 是个手快但没品味的画师。这个项目不是教它新技术，而是给它一本"审美规范手册 + 几种明确风格模板"，让"做得好看"从碰运气变成可复现。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，按原文结构与顺序、一段不漏；专业名词保留英文原文</p>
+    </header>
+    <div class="module-body">
+
+      <!-- 横幅 + 标题 + 标语 + 站点按钮 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>(banner image: "Taste Skill - Anti-slop Agent Skills for premium frontends")
+
+# Taste Skill
+
+*The Anti-Slop Frontend Framework for AI Agents*
+
+[Visit tasteskill.dev]</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>（顶部横幅图，替代文字：「Taste Skill —— 给高级前端用的反流水货 Agent Skills」）</p>
+          <p><strong>＃ Taste Skill</strong></p>
+          <p><em>给 AI Agent 用的「反流水货（Anti-Slop）」前端框架</em></p>
+          <p>（一个按钮，链接到官网 tasteskill.dev：「访问 tasteskill.dev」）</p>
+        </div>
+      </div>
+
+      <!-- Sponsors 顶部 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Sponsors
+
+[animations.dev] **Emil Kowalski** · animations.dev
+[Vercel OSS Program]
+Become a sponsor</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Sponsors（赞助者）</strong></p>
+          <p>（赞助者标识）<strong>Emil Kowalski</strong> · animations.dev；以及 <strong>Vercel OSS Program</strong>（Vercel 开源计划）徽章。</p>
+          <p>（链接）成为赞助者。</p>
+        </div>
+      </div>
+
+      <!-- 引言段 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>Portable **Agent Skills** that upgrade AI-built interfaces: stronger layout, typography, motion, and spacing instead of boilerplate-looking UIs. This repo also includes **image-generation skills** for reference boards (web, mobile, brand kits). Pair them with **ChatGPT Images** or similar generators, then hand the frames to Codex, Cursor, or Claude Code for implementation.
+
+(buttons: MIT License · Agent Skills compatible · Codex, Cursor, Claude · Changelog)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>可移植的 <strong>Agent Skills</strong>，用来升级 AI 做出来的界面：更强的布局、字体排版、动效与间距，取代那种「一看就是套模板」的 UI。本仓库还包含<strong>图片生成类 skill</strong>，用于做参考板（网页、移动端、品牌套件）。把它们和 <strong>ChatGPT Images</strong> 之类的生成器搭配使用，再把生成的画面交给 Codex、Cursor 或 Claude Code 去实现。</p>
+          <p>（一排按钮：MIT 许可证 · 兼容 Agent Skills · Codex、Cursor、Claude · 更新日志）</p>
+        </div>
+      </div>
+
+      <!-- Disclaimer + 导航 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Disclaimer
+
+Taste Skill has no official token, coin, or crypto project. Any token using my name, image, or project is unaffiliated and not endorsed by me.
+
+(nav: Disclaimer · Install · Skills · Settings · Examples · Sponsors · Research · FAQ · License)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Disclaimer（免责声明）</strong></p>
+          <p>Taste Skill 没有任何官方的 token、币或加密项目。任何使用我的名字、形象或项目的代币都与我无关，也未经我背书。</p>
+          <p>（页内导航：免责声明 · 安装 · 技能 · 设置 · 示例 · 赞助者 · 研究 · FAQ · 许可证）</p>
+        </div>
+      </div>
+
+      <!-- Feedback & Contributions -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Feedback & Contributions
+
+We would love your feedback. Suggestions and bug reports:
+- Open a Pull Request or Issue on GitHub
+- DM @lexnlin or @blueemi99
+- Email us at hello@tasteskill.dev</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Feedback & Contributions（反馈与贡献）</strong></p>
+          <p>我们非常欢迎你的反馈。建议和 bug 报告途径：</p>
+          <p>· 在 GitHub 上提 Pull Request 或 Issue<br>· 私信 @lexnlin 或 @blueemi99（X/推特）<br>· 发邮件到 hello@tasteskill.dev</p>
+        </div>
+      </div>
+
+      <!-- Installing -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Installing
+
+The `npx skills add` CLI scans the skills/ folder in this repo, so **all skills below (code and image-generation) install the same way.**
+
+npx skills add https://github.com/Leonxlnx/taste-skill
+
+Install a single skill by its **install name** (the name: field inside the SKILL frontmatter, not the folder name):
+
+npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-frontend"
+
+You can also copy any SKILL.md into your project or paste it into ChatGPT / Codex conversations.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Installing（安装）</strong></p>
+          <p><code>npx skills add</code> 这个命令行工具会扫描本仓库里的 skills/ 文件夹，所以<strong>下面所有 skill（代码类和图片生成类）安装方式都一样。</strong></p>
+          <p>整包安装：<code>npx skills add https://github.com/Leonxlnx/taste-skill</code></p>
+          <p>也可以按某个 skill 的<strong>安装名（install name）</strong>单独装（这个名字是 SKILL 文件开头 frontmatter 里的 <code>name:</code> 字段，不是文件夹名）：<code>npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-frontend"</code></p>
+          <p>你也可以把任意一个 SKILL.md 复制进你的项目，或粘贴进 ChatGPT / Codex 的对话里。</p>
+        </div>
+      </div>
+
+      <!-- Updating from previous version -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Updating from the previous version
+
+The default taste-skill (install name design-taste-frontend) is now **v2 (experimental)**, a substantial rewrite of the original v1. If you already have v1 installed, just re-run the install command and you will be upgraded.
+
+The install name did not change, so no script updates are needed. The newer SKILL.md replaces the older one in place.
+
+If you depend on the exact behavior of v1 and want to pin to it explicitly:
+npx skills add ... --skill "design-taste-frontend-v1"
+
+See CHANGELOG.md for the full v1 to v2 diff and the rationale.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Updating from the previous version（从旧版本升级）</strong></p>
+          <p>默认的 taste-skill（安装名 design-taste-frontend）现在是 <strong>v2（实验版）</strong>，是对原 v1 的大幅重写。如果你已经装了 v1，重新跑一遍安装命令就会升级。</p>
+          <p>安装名没变，所以不需要改任何脚本。新的 SKILL.md 会就地替换掉旧的。</p>
+          <p>如果你依赖 v1 的确切行为、想明确锁定到它：<code>npx skills add ... --skill "design-taste-frontend-v1"</code>。</p>
+          <p>v1 到 v2 的完整差异和缘由见 CHANGELOG.md。</p>
+        </div>
+      </div>
+
+      <!-- Skills 引导 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Skills
+
+Each skill does one job; you do not need all of them at once. **Implementation skills** output code. **Image-generation skills** output reference images only.
+
+The Install name column is the exact value you pass to --skill.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Skills（技能）</strong></p>
+          <p>每个 skill 只干一件事；你不需要一次全装。<strong>实现类（Implementation）skill</strong> 输出代码；<strong>图片生成类（Image-generation）skill</strong> 只输出参考图。</p>
+          <p>表格里的「Install name（安装名）」列，就是你传给 <code>--skill</code> 的确切值。</p>
+        </div>
+      </div>
+
+      <!-- 主技能表 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>| Skill (folder) | Install name | Description |
+taste-skill | design-taste-frontend | 🆕 v2 (experimental). Reads the brief, infers design language, tunes three dials (VARIANCE / MOTION / DENSITY). Brief inference, design-system map, hard em-dash ban, canonical GSAP code skeletons, redesign-audit protocol, strict pre-flight check.
+taste-skill-v1 | design-taste-frontend-v1 | Original v1, preserved for projects depending on its exact behavior.
+gpt-tasteskill | gpt-taste | Stricter variant for GPT/Codex: higher layout variance, stronger GSAP direction, aggressive anti-slop.
+image-to-code-skill | image-to-code | Image-first pipeline: generate references, analyze them, then implement the frontend to match.
+redesign-skill | redesign-existing-projects | Existing projects: audit the UI first, then fix layout, spacing, hierarchy, styling.
+soft-skill | high-end-visual-design | Polished, calm, expensive UI: softer contrast, whitespace, premium fonts, spring motion.
+output-skill | full-output-enforcement | When the model ships half-finished work: full output, no placeholder comments.
+minimalist-skill | minimalist-ui | Editorial product UI (Notion/Linear vibes), restrained palette, crisp structure.
+brutalist-skill | industrial-brutalist-ui | Hard mechanical language: Swiss type, sharp contrast, experimental layout.
+stitch-skill | stitch-design-taste | Google Stitch-compatible rules, including optional DESIGN.md export format.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>表格（技能文件夹 | 安装名 | 说明）：</p>
+          <p><strong>taste-skill</strong>｜<code>design-taste-frontend</code>｜🆕 <strong>v2（实验版）</strong>——默认 skill 的大幅重写。会读取需求简报、推断设计语言、调三个「档位」（VARIANCE 变化度 / MOTION 动效 / DENSITY 密度）。包含：简报推断、设计系统映射、硬性禁用破折号（em-dash）、规范的 GSAP 代码骨架、改版审计流程、严格的预检（pre-flight）。正持续迭代向 v2.0.0 稳定版推进。</p>
+          <p><strong>taste-skill-v1</strong>｜<code>design-taste-frontend-v1</code>｜原始 v1，为依赖其确切行为的项目保留。仅当 v2 默认版破坏了你工作流里的某个特定环节时才用。</p>
+          <p><strong>gpt-tasteskill</strong>｜<code>gpt-taste</code>｜面向 GPT/Codex 的更严格变体：更高的布局变化度、更强的 GSAP 动效指引、更激进的反流水货。</p>
+          <p><strong>image-to-code-skill</strong>｜<code>image-to-code</code>｜图片优先流水线：先生成站点参考图、分析它们，再按图实现前端。</p>
+          <p><strong>redesign-skill</strong>｜<code>redesign-existing-projects</code>｜针对已有项目：先审计 UI，再修布局、间距、层级、样式。</p>
+          <p><strong>soft-skill</strong>｜<code>high-end-visual-design</code>｜精致、克制、有「贵气」的 UI：更柔的对比、留白、高级字体、弹簧（spring）动效。</p>
+          <p><strong>output-skill</strong>｜<code>full-output-enforcement</code>｜当模型只交付半成品时：强制完整输出，不留占位注释。</p>
+          <p><strong>minimalist-skill</strong>｜<code>minimalist-ui</code>｜编辑式产品 UI（Notion/Linear 那种气质），克制的配色，干净的结构。</p>
+          <p><strong>brutalist-skill</strong>｜<code>industrial-brutalist-ui</code>｜硬朗的机械语言：瑞士字体风、强烈对比、实验性布局。</p>
+          <p><strong>stitch-skill</strong>｜<code>stitch-design-taste</code>｜兼容 Google Stitch 的规则，含可选的 <code>DESIGN.md</code> 导出格式。</p>
+        </div>
+      </div>
+
+      <!-- 图片生成技能表 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Image generation skills
+
+These produce design images only (no code). Use with ChatGPT Images, Codex image mode, or any agent that generates images.
+
+imagegen-frontend-web | Website comps: hero, landing, multi-section, strong typography, anti-slop art direction.
+imagegen-frontend-mobile | Mobile screens and flows: iOS/Android/cross-platform mockups, readable type.
+brandkit | Brand-kit boards: logo directions, palettes, type, identity applications.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Image generation skills（图片生成类技能）</strong></p>
+          <p>这些只产出设计图（不出代码）。配合 ChatGPT Images、Codex 图片模式，或任何能生成图片的 agent 使用。</p>
+          <p><strong>imagegen-frontend-web</strong>｜<code>imagegen-frontend-web</code>｜网站效果图：hero 大图、落地页、多版块，强字体排版、间距、反流水货的美术指导。</p>
+          <p><strong>imagegen-frontend-mobile</strong>｜<code>imagegen-frontend-mobile</code>｜移动端屏幕与流程：iOS/Android/跨平台，原型图，易读字体，成套且风格一致。</p>
+          <p><strong>brandkit</strong>｜<code>brandkit</code>｜品牌套件板：logo 方向、配色、字体、跨品类的识别应用。</p>
+        </div>
+      </div>
+
+      <!-- 该用哪个 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Which one should I use?
+
+- Start with taste-skill for the safest general default (now v2 experimental).
+- If you depend on the original behavior, install taste-skill-v1.
+- Use gpt-taste for stricter GPT/Codex-oriented rules and motion/layout enforcement.
+- Use image-to-code-skill for image → analyze → code workflows.
+- Use redesign-skill to improve an existing codebase instead of greenfield styling.
+- Add soft / minimalist / brutalist when the visual direction is already chosen.
+- Add output-skill if the agent keeps truncating output.
+- Use imagegen-* or brandkit when the deliverable is images, then pass to your coding agent.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Which one should I use?（我该用哪个？）</strong></p>
+          <p>· 从 <strong>taste-skill</strong> 开始，这是最稳的通用默认（现为 v2 实验版，改了什么见 CHANGELOG）。<br>
+          · 如果你依赖原版 taste-skill 的确切行为，改装 <strong>taste-skill-v1</strong>。<br>
+          · 想要更严格、面向 GPT/Codex 的规则与动效/布局强约束，用 <strong>gpt-taste</strong>。<br>
+          · 做「图片 → 分析 → 代码」的建站流程，用 <strong>image-to-code-skill</strong>。<br>
+          · 想改进已有代码库（而非从零做样式），用 <strong>redesign-skill</strong>。<br>
+          · 视觉方向已经定了，就加 <strong>soft-skill</strong>、<strong>minimalist-skill</strong> 或 <strong>brutalist-skill</strong>。<br>
+          · agent 老是把输出截断，就加 <strong>output-skill</strong>。<br>
+          · 当交付物是<strong>图片</strong>（效果图、流程、识别板）时，用 <strong>imagegen-frontend-web / -mobile</strong> 或 <strong>brandkit</strong>，再把结果交给你的写码 agent。</p>
+        </div>
+      </div>
+
+      <!-- 图片优先 tip + ChatGPT/Codex -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Image-first tip
+For image-to-code-skill, state the pipeline in the prompt, e.g.: `follow the skill: generate images, then analyze, then code`.
+
+### ChatGPT Images and Codex
+Attach or paste imagegen-frontend-web, imagegen-frontend-mobile, or brandkit and ask for the frames you need, then feed the renders to Codex, Cursor, or Claude Code. Use image-to-code-skill when you want one workflow that both generates references and implements the site in code.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Image-first tip（图片优先小贴士）</strong></p>
+          <p>用 image-to-code-skill 时，在 prompt 里把流程说清楚，例如：<code>follow the skill: generate images, then analyze, then code</code>（按 skill 来：先生成图片，再分析，再写代码）。</p>
+          <p><strong>＃＃＃ ChatGPT Images and Codex</strong></p>
+          <p>把 imagegen-frontend-web、imagegen-frontend-mobile 或 brandkit 附上/粘贴进去，让它生成你要的画面，再把渲染图喂给 Codex、Cursor 或 Claude Code。如果你想要「既生成参考图、又用代码把站点实现出来」的一条龙流程，就用 image-to-code-skill。</p>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Settings (taste-skill only)
+
+Numbers at the top of the file are 1-10 dials:
+- DESIGN_VARIANCE: Layout experimentation (lower: centered/clean · higher: asymmetric/modern).
+- MOTION_INTENSITY: Animation depth (lower: hover · higher: scroll/magnetic).
+- VISUAL_DENSITY: Information per viewport (lower: spacious · higher: dense dashboards).</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Settings（设置，仅 taste-skill）</strong></p>
+          <p>文件顶部的数字是 1–10 的「档位」：</p>
+          <p>· <strong>DESIGN_VARIANCE（设计变化度）</strong>：布局实验程度（调低：居中/干净 · 调高：非对称/现代）。<br>
+          · <strong>MOTION_INTENSITY（动效强度）</strong>：动画深度（调低：悬停效果 · 调高：滚动/磁吸效果）。<br>
+          · <strong>VISUAL_DENSITY（视觉密度）</strong>：每屏信息量（调低：宽松 · 调高：密集仪表盘）。</p>
+        </div>
+      </div>
+
+      <!-- Examples + Support + sponsors -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Examples
+Created with taste-skill: (example images: floria-top / floria-bottom)
+
+## Support the project
+If Taste Skill helps you, consider sponsoring: [Sponsor on GitHub]
+
+### Current Sponsors
+(avatar row: Emil Kowalski, dnakov, AkramReshad, ajmalaksar25, krikkkk, navanchauhan, robinebers, JKc66, … and more)
+(Star History Rank badge)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Examples（示例）</strong></p>
+          <p>用 taste-skill 做出来的作品：（示例图，floria 项目的上半部分 / 下半部分截图）。</p>
+          <p><strong>＃＃ Support the project（支持本项目）</strong></p>
+          <p>如果 Taste Skill 帮到你，欢迎赞助：在 GitHub 上赞助（Sponsor on GitHub）。</p>
+          <p><strong>＃＃＃ Current Sponsors（当前赞助者）</strong></p>
+          <p>（一排赞助者头像与链接：Emil Kowalski、dnakov、AkramReshad、ajmalaksar25、krikkkk、navanchauhan、robinebers、JKc66、u2393696078-rgb、a-human-created-this、AtharvaJaiswal005、ghughes7、mccun934、techmedic5、bytewerk-dev 等。）（以及一枚 Star History 排名徽章。）</p>
+        </div>
+      </div>
+
+      <!-- Research + Star History + FAQ + License -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Research
+Background writing that shaped these skills lives in research/.
+
+## Star History
+(star history chart)
+
+## Common Questions
+**How is this different from other AI design skills?** Multiple specialized variants, adjustable dials in key skills, anti-repetition rules informed by dedicated research. All are framework agnostic across major coding agents.
+**Does it work with React, Vue, Svelte?** Yes. Rules target design intent, not a single framework API.
+**What is SKILL.md?** A portable instruction file agents can load automatically; install via npx skills add or by copying into a repo or conversation.
+**Do image-generation skills install with npx skills add?** Yes. They live under skills/ alongside the code skills so the same CLI discovers them.
+
+## License
+MIT License · Copyright (c) 2026 Leonxlnx</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Research（研究）</strong></p>
+          <p>塑造这些 skill 的背景文章放在 research/ 目录里。</p>
+          <p><strong>＃＃ Star History（星标历史）</strong></p>
+          <p>（一张星标增长曲线图。）</p>
+          <p><strong>＃＃ Common Questions（常见问题）</strong></p>
+          <p><strong>这和其它 AI 设计 skill 有什么不同？</strong> 多个专门化变体、关键 skill 里可调的档位、以及由专门研究支撑的反重复规则。所有规则在主流写码 agent 之间都是「框架无关」的。</p>
+          <p><strong>它支持 React、Vue、Svelte 吗？</strong> 支持。规则针对的是设计意图，而不是某一个框架的 API。</p>
+          <p><strong>SKILL.md 是什么？</strong> 一份可移植的指令文件，agent 能自动加载；通过 <code>npx skills add</code> 安装，或复制进仓库/对话即可。</p>
+          <p><strong>图片生成类 skill 也能用 npx skills add 装吗？</strong> 能。它们和代码类 skill 一起放在 skills/ 下，所以同一个命令行工具就能发现它们。</p>
+          <p><strong>＃＃ License（许可协议）</strong></p>
+          <p>MIT 许可证 · 版权所有 (c) 2026 Leonxlnx。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">和同类方案比，它有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>大多数人对付"AI 做得丑"，靠的是反复口头描述"高级点、好看点"。这个项目的根本不同在于：<strong>它把"审美"当成可拆解的工程问题，而不是玄学</strong>——把好布局、好字体、好动效写成 AI 能执行的硬规则和可调旋钮。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🎛️</div>
+          <div class="pattern-title">三个"旋钮"调风格</div>
+          <p class="pattern-desc">用 1-10 的档位调"变化度/动效强度/信息密度"。等于把抽象的"风格"变成几个能拧的旋钮——想干净就调低，想现代炫酷就调高，可复现、可微调。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🚫</div>
+          <div class="pattern-title">明令禁用"烂大街"写法</div>
+          <p class="pattern-desc">比如硬性禁用某种破折号、加"反重复"规则，专门防止 AI 翻来覆去用同一套套路。用"负面清单"逼出多样性，这个思路很巧。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🧩</div>
+          <div class="pattern-title">一套多款、按需取用</div>
+          <p class="pattern-desc">不是一个万能技能，而是拆成极简/工业/高端柔和等多种"风格人格"，外加图片生成、改版审计等专用件。风格已定就直接挑对应那款，精准不浪费。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🖼️</div>
+          <div class="pattern-title">"先出图、再写码"的流水线</div>
+          <p class="pattern-desc">提供图片生成技能：先让 AI 画参考效果图，确认满意了再照着图写代码。把"对着想象改代码"变成"对着图改代码"，沟通成本大降。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📐</div>
+          <div class="pattern-title">规则只管"设计意图"，不绑框架</div>
+          <p class="pattern-desc">规则针对的是审美意图而非某个框架 API，所以 React/Vue/Svelte 通吃，换工具也不用重写。这是它能广泛流行的关键设计取舍。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">把"好看的商品图"也变成可执行规则</div>
+          <p class="inspo-card-desc">这个项目把"审美"拆成硬规则。做单的商品图也一样——别再让运营靠感觉。把"主图怎么排、价格放哪、卖点几行字、对比色怎么用"写成一份具体到能照抄的"出图规范+模板"，新手也能出不土的图。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">几个"风格旋钮"让运营快速选风格</div>
+          <p class="inspo-card-desc">它用三个旋钮调风格。做商品图模板也能给运营几个简单档位：比如"促销力度(克制↔炸裂)""信息量(只放价↔卖点全堆)"。选一下就出对应风格的图，不用每张从零设计。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">"先出图确认、再批量做"的做单流程</div>
+          <p class="inspo-card-desc">它"先生成参考图、满意再写码"。做活动时也可以：先生成一版样图给你/群主确认风格，定稿后再批量套用到当天所有商品。避免做了一堆才发现风格不对、白干。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">一份"反流水货负面清单"管控质量</div>
+          <p class="inspo-card-desc">它靠"禁用烂大街写法"保证不重复。我们也能列一份"做单避雷清单"：禁用模糊截图、禁用满屏感叹号、禁用看不清的价格…… 当成发单前的硬性检查项，把质量下限托住。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">用"开源+赞助+官网"做个人项目品牌</div>
+          <p class="inspo-card-desc">这是给你做独立产品的启发：作者把一个 skill 做成了有官网、有赞助、有 changelog 的正经品牌，靠"解决一个具体痛点+持续迭代"两个月冲到几万星。验证了"小而锋利的工具"也能滚成品牌。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">一行命令装好；甚至可以把 SKILL.md 直接粘进 ChatGPT 对话用，零代码也能体验</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">要出成品得配一个 AI 写码工具(Codex/Cursor/Claude Code)；纯出图则配 ChatGPT Images 即可</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">高适配</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">就是为"跟 AI 对话做界面"而生，正是你做独立小产品时最该挂的一个</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要用，大概需要什么</h2>
+        <p>对你(PM、懂 UX/UI、做独立小产品)来说，这个<strong>特别对口</strong>。你本来就有审美判断、只是不写代码——这套 skill 正好补上"让 AI 把你脑子里的好设计落成代码/图"的一环。最轻的玩法：把某个 SKILL.md 粘进 ChatGPT，让它按规则帮你生成界面效果图，零门槛。要出真页面，就配 Claude Code 这类工具。</p>
+        <p>成本：金钱主要是 AI 工具订阅费；时间上半天能跑通；一个人即可。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意</strong>
+          <p>默认那款是 v2「实验版」，作者还在频繁迭代，行为可能变——求稳可锁 v1。另外测评也提到：三个"旋钮"缺少示例，不同档位到底长啥样不够直观，可能要自己多试几次找手感。它管"好看"，但不替你保证"这个产品该不该做"。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">它在整个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">frontend-design (官方)</span>
+          <span class="badge-desc">Anthropic 官方出的设计 skill(你刚装的那个)，给"有设计感、不像模板"的通用指导。Taste Skill 更"重"也更细分:多风格变体 + 可调旋钮 + 反重复研究，火力更猛。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">通用 AI 设计 skill</span>
+          <span class="badge-desc">市面多数只给一套笼统"设计建议"。Taste Skill 的差异点(README 自己也强调):多个专门化变体、关键技能可调档位、有专门研究支撑的反重复规则、且跨主流写码 agent 通用。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Google Stitch / 图片生成工具</span>
+          <span class="badge-desc">它没有跟这些对着干，而是做了兼容与衔接:有专门兼容 Google Stitch 的规则，也有自己的图片生成技能,主打"出图→写码"一条龙。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">各类 awesome / 技能市场</span>
+          <span class="badge-desc">被 explainx.ai、agentskills.so、skills.sh 等技能站收录展示——这类是"货架",Taste Skill 是货架上的热门单品。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>有审美要求、想用 AI 做出"拿得出手"界面的人；尤其是懂设计但不写代码、做独立小产品的人——和你高度契合。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>只要功能能跑、完全不在乎好不好看的内部工具；或完全不碰任何 AI 工具的纯业务场景。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">接下来你可以做什么</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">去官网看看实际效果和文档：tasteskill.dev</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">零门槛先试：把 design-taste-frontend 的 SKILL.md 粘进 ChatGPT，让它按规则给你出一版界面效果图</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">要装来正经用：npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-frontend"</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">把"出图规范+风格旋钮+避雷清单"的思路，套到我们「做单商品图模板」上写个草案</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">对比着用：它和你刚装的官方 frontend-design 各跑一次同一个设计需求，看哪种更合你口味</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>
