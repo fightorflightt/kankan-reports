@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Reach · Kanxia 解读</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">Agent Reach 解读</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/Panniantong/Agent-Reach" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">Agent Reach</h1>
+      <p class="cover-repo">github.com/Panniantong/Agent-Reach</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">40.5k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Python</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">MIT</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#给AI装眼睛</span>
+        <span class="cover-tag">#多平台抓取</span>
+        <span class="cover-tag">#零API费用</span>
+        <span class="cover-tag">#国产开源</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>一句话:<strong>给你的 AI 装上一双"能看整个互联网"的眼睛</strong>。装上它,你的 AI 助手就能去读推特、搜 Reddit、看 YouTube 字幕、刷小红书、扒 B站视频、读任意网页和 RSS——而且<strong>全程免费、不用付那些贵得离谱的平台 API 费</strong>。</p>
+        <p>它最聪明的地方是:不自己重写一堆抓取代码,而是当一个"<strong>总管</strong>"——帮你从一堆开源小工具里选出当下最稳的那个、自动装好、还定期体检。平台一改反爬规则、某个工具失效了,它替你换成能用的下一个,你完全无感。对你来说,这正好补上了你那个"定时收集关注的人内容"项目里<strong>最难啃的"怎么合规拿到数据"那一环</strong>。作者是国内开发者,README 全中文。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">社区评价</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>登上 Trendshift「当日 GitHub 趋势榜第 1」</strong>(README 徽章可查),40.5k stars、被多个 Agent 工具生态收录,热度很高。来源:项目 README / Trendshift</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>被腾讯云 OpenClaw 等列为"一键接入互联网能力"的推荐方案</strong>(README 友情链接区互相引用)。来源:项目 README 友情链接</span>
+          </div>
+        </div>
+        <!-- 注:未检索到足够多的独立第三方深度评测,故仅列可核实的客观口碑 2 条,不硬凑 -->
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么有人愿意花时间做这个项目？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">做这个项目的人，大概遇到了这些问题</h2>
+        <p>这个痛点你最近刚亲身体会过:<strong>AI 能帮你干很多活,但你让它"上网帮我看看",它就抓瞎</strong>。让它看 YouTube 教程→拿不到字幕;搜推特→API 要付费;上 Reddit→IP 被封 403;看小红书→必须登录打不开;扒 B站→被风控拦死;读网页→抓回一堆乱码标签。每个平台都有自己的门槛。</p>
+        <p>第二个痛点是<strong>"不是做不到,是每个都要自己折腾"</strong>。要付费的 API、要绕过的封锁、要登录的账号、要清洗的数据——你得一个平台一个平台去踩坑、装工具、调配置,光让 AI 能读个推特就得折腾半天。这正是你那个"四平台收集"项目卡住的地方。</p>
+        <p>第三个痛点更隐蔽:<strong>"平台规则一直在变,今天能用明天就挂"</strong>。某个抓取小工具停更了、某个平台升级了反爬,你辛苦配好的链路说断就断,又得重新找替代。普通人根本盯不过来。</p>
+        <p>所以作者做的不是"又一个抓取工具",而是一个"<strong>能力总管</strong>":把"当下最稳的接入方式"替你选好、装好、体检好,平台变了他来修、有新渠道他来加,你只管用。一句话给 AI 就装好,这就是它的全部价值。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 原文导读</h1>
+      <p class="module-subtitle">本项目 README 本身就是中文，无需翻译——以下按原文结构与顺序完整呈现作者原话（代码/命令保留原样）</p>
+    </header>
+    <div class="module-body">
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">ℹ️</div>
+        <div class="callout-content">
+          <strong class="callout-title">说明</strong>
+          <p>「逐句英中翻译」这一步在这里不适用，因为原文即中文。为忠实于作者的原始表达和构思逻辑，下面按 README 的原始章节顺序，呈现原文要点，不做意译、不加工。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">👁️ Agent Reach（标题与标语）</h2>
+        <p><strong>给你的 AI Agent 一键装上互联网能力。</strong></p>
+        <p>当下最稳的接入方式，替你选好、装好、体检好——接入方式会换代，你不用操心。</p>
+        <p>（徽章：MIT License · Python 3.10+ · GitHub Stars · Trendshift「当日 GitHub 趋势榜第 1」。导航：快速开始 · English · 日本語 · 한국어 · 支持平台 · 设计理念。）</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">为什么需要 Agent Reach？</h2>
+        <p>AI Agent 已经能帮你写代码、改文档、管项目——但你让它去网上找点东西，它就抓瞎了：</p>
+        <p>📺「帮我看看这个 YouTube 教程讲了什么」→ <strong>看不了</strong>，拿不到字幕<br>
+        🐦「帮我搜一下推特上大家怎么评价这个产品」→ <strong>搜不了</strong>，Twitter API 要付费<br>
+        📖「去 Reddit 上看看有没有人遇到过同样的 bug」→ <strong>403 被封</strong>，服务器 IP 被拒<br>
+        📕「帮我看看小红书上这个品的口碑」→ <strong>打不开</strong>，必须登录才能看<br>
+        📺「B站上有个技术视频，帮我总结一下」→ <strong>拿不到</strong>，通用下载工具被 B站风控全面拦截<br>
+        🔍「帮我在网上搜一下最新的 LLM 框架对比」→ <strong>没有好用的搜索</strong>，要么付费要么质量差<br>
+        🌐「帮我看看这个网页写了啥」→ <strong>抓回来一堆 HTML 标签</strong>，根本没法读<br>
+        📦「这个 GitHub 仓库是干嘛的？Issue 里说了什么？」→ 能用，但认证配置很麻烦<br>
+        📡「帮我订阅这几个 RSS 源，有更新告诉我」→ 要自己装库写代码</p>
+        <p><strong>这些不难实现，但是需要自己折腾配置。</strong>每个平台都有自己的门槛——要付费的 API、要绕过的封锁、要登录的账号、要清洗的数据。</p>
+        <p>Agent Reach 把这件事变成一句话：把安装文档链接复制给你的 Agent，几分钟后它就能读推特、搜 Reddit、看 YouTube、刷小红书了。已经装过了？更新也是一句话。</p>
+        <p>作者注：⭐ Star 这个项目，会持续追踪各平台的变化、接入新的渠道。平台封了我们修，有新渠道我们加。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">✅ 在你用之前，你可能想知道</h2>
+        <p>💰 <strong>完全免费</strong>：所有工具开源、所有 API 免费。唯一可能花钱的是服务器代理（$1/月），本地电脑不需要。<br>
+        🔒 <strong>隐私安全</strong>：Cookie 只存在你本地，不上传不外传。代码完全开源，随时可审查。<br>
+        🔄 <strong>持续换代</strong>：每个平台都是「首选 + 备选」多后端路由。某个接入方式失效了就换下一个，你无感（2026-06 实例：yt-dlp 被 B站风控封死 → 已切换 bili-cli，用户零操作）。<br>
+        🤖 <strong>兼容所有 Agent</strong>：Claude Code、OpenClaw、Cursor、Windsurf……任何能跑命令行的 Agent 都能用。<br>
+        🩺 <strong>自带诊断</strong>：<code>agent-reach doctor</code> 一条命令告诉你哪个通、哪个不通、怎么修。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">支持的平台</h2>
+        <p>（表格：平台 ｜ 装好即用 ｜ 配置后解锁 ｜ 怎么配）</p>
+        <p>🌐 <strong>网页</strong>：阅读任意网页 ｜ 无需配置<br>
+        📺 <strong>YouTube</strong>：字幕提取 + 视频搜索 ｜ 无需配置<br>
+        📡 <strong>RSS</strong>：阅读任意 RSS/Atom 源 ｜ 无需配置<br>
+        🔍 <strong>全网搜索</strong>：全网语义搜索 ｜ 自动配置（MCP 接入，免费无需 Key）<br>
+        📦 <strong>GitHub</strong>：读公开仓库+搜索；配置后解锁私有仓库、提 Issue/PR、Fork ｜ 告诉 Agent「帮我登录 GitHub」<br>
+        🐦 <strong>Twitter/X</strong>：读单条推文；解锁搜索推文、浏览时间线、读长文 ｜「帮我配 Twitter」<br>
+        📺 <strong>B站</strong>：搜索+视频详情（bili-cli，无需登录）；解锁字幕（OpenCLI）｜「帮我配 B站」<br>
+        📖 <strong>Reddit</strong>：无零配置路径（匿名接口已被封）；解锁搜索+读帖和评论 ｜ 桌面装 OpenCLI 用浏览器登录态，或 rdt-cli + Cookie<br>
+        📕 <strong>小红书</strong>：解锁搜索、阅读、评论 ｜ 桌面装 OpenCLI（刷过小红书即可用）；服务器用 xiaohongshu-mcp 扫码<br>
+        💼 <strong>LinkedIn</strong>：Jina Reader 读公开页；解锁 Profile/公司页/职位搜索 ｜「帮我配 LinkedIn」<br>
+        💻 <strong>V2EX</strong>：热门帖、节点帖、帖子详情+回复、用户信息 ｜ 无需配置<br>
+        📈 <strong>雪球</strong>：股票行情、搜索股票、热门帖、热门股票排行 ｜「帮我配雪球」<br>
+        🎙️ <strong>小宇宙播客</strong>：播客音频转文字（Whisper 转录，免费 Key）｜「帮我配小宇宙播客」</p>
+        <p>作者注：不知道怎么配？不用查文档，直接告诉 Agent「帮我配 XXX」，它会一步步引导。需要 Cookie 的平台（Twitter、小红书等）优先用 Chrome 插件 Cookie-Editor 导出 Cookie 发给 Agent。Cookie 只存本地。本地电脑不需要代理，代理只在部署到服务器时才需要（~$1/月）。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">快速上手</h2>
+        <p>⚠️ OpenClaw 用户请先确认 exec 权限已开启（Agent Reach 依赖 Agent 执行 shell 命令）：<code>openclaw config set tools.profile "coding"</code>，重启 Gateway 后开新对话。其他平台（Claude Code、Cursor、Windsurf 等）不受此限制。</p>
+        <p>复制这句话给你的 AI Agent：<code>帮我安装 Agent Reach：https://raw.githubusercontent.com/Panniantong/agent-reach/main/docs/install.md</code>。就这一步，Agent 会自己完成剩下所有事情。已安装过？更新也是一句话。担心安全？可用安全模式（加 <code>--safe</code> 参数，不自动装系统包，只告诉你需要什么）。</p>
+        <p><strong>它会做什么（原文折叠区）：</strong>① <code>pip install</code> 装好 agent-reach 命令行（自带 yt-dlp、feedparser）；② 自动检测并安装 Node.js、gh CLI、mcporter；③ 通过 MCP 接入 Exa 搜索（免费无需 Key）；④ 判断本地还是服务器并给配置建议；⑤ 在 Agent 的 skills 目录注册 SKILL.md，以后遇到「全网调研/搜推特/看视频」会自动知道调哪个工具；⑥ 默认只激活 6 个零配置渠道，小红书/Twitter/Reddit 这些需登录的会列菜单问你、点名才装。装完 <code>agent-reach doctor</code> 报告每个渠道状态。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">装好就能用</h2>
+        <p>不需要任何配置，告诉 Agent 就行：「帮我看看这个链接」→ <code>curl https://r.jina.ai/URL</code>；「这个 GitHub 仓库做什么」→ <code>gh repo view</code>；「这个 YouTube 视频讲了什么」→ <code>yt-dlp</code> 提取字幕；「B站搜一下 AI 教程」→ <code>bili search</code>（无需登录）；「全网搜 LLM 框架对比」→ Exa 语义搜索；「订阅这个 RSS」→ <code>feedparser</code> 解析。</p>
+        <p><strong>不需要记命令。</strong>Agent 读了 SKILL.md 之后自己知道该调什么。需要登录的平台（小红书、Twitter、Reddit），告诉 Agent「帮我配 XXX」即可解锁。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">能力边界：读内容 vs 操作网页</h2>
+        <p>有些任务超出「读」的范围：登录后的网页操作、表单提交、多账号隔离、并行浏览器会话、自动化流程中的登录/验证/风控提示等高摩擦环节的人工接手。这类「动手」场景，可以配合 BrowserAct 这类浏览器自动化工具（30+ 预制平台技能，支持 Claude Code / OpenClaw / Cursor 等）。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">设计理念</h2>
+        <p><strong>Agent Reach 是一个能力层（capability layer），不是又一个工具。</strong>它比任何具体实现高一层——负责<strong>选型、安装、体检、路由</strong>，不负责底层读取本身。读取由 Agent 直接调用上游工具完成，没有包装层。</p>
+        <p>你给新 Agent 装环境时，总要花时间找工具、装依赖、调配置——Twitter 用什么读？Reddit 怎么登录？小红书的 CLI 停更了换什么？Agent Reach 做的事很简单：当下最稳的接入方式，替你选好、装好、体检好。接入方式会换代（2026 年 3 月一批单平台 CLI 集体停更，作者换了路由），你不用操心。</p>
+        <p><strong>🔌 每个平台 = 首选 + 备选的有序后端列表。</strong>换接入方式 = 调整列表顺序，不是重写代码。<code>agent-reach doctor</code> 会告诉你每个平台当前在用哪个后端。（原文给了 channels/ 目录结构，如 twitter.py → twitter-cli ▸ OpenCLI ▸ bird；bilibili.py → bili-cli ▸ OpenCLI ▸ 搜索 API 等。）每个渠道文件按序真实探测各候选后端，第一个完整可用的当选，坏掉的会给修复处方。</p>
+        <p><strong>当前选型（部分）：</strong>读网页→Jina Reader；读推特→twitter-cli（备选 OpenCLI）；Reddit→OpenCLI（备选 rdt-cli）；YouTube 字幕+搜索→yt-dlp（已不再用于 B站）；B站→bili-cli（yt-dlp 被 B站风控 412 封死）；搜全网→Exa via mcporter；GitHub→gh CLI；RSS→feedparser；小红书→OpenCLI（备选 xiaohongshu-mcp ▸ xhs-cli）；LinkedIn→linkedin-scraper-mcp（备选 Jina Reader）。作者注：这些都是「当前选型」，基于真机实测定期复核。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">安全性</h2>
+        <p>🔒 <strong>凭据本地存储</strong>：Cookie、Token 只存本机 <code>~/.agent-reach/config.yaml</code>，文件权限 600，不上传不外传。<br>
+        🛡️ <strong>安全模式</strong>：<code>install --safe</code> 不自动改系统，只列需要什么。<br>
+        👀 <strong>完全开源</strong>：代码透明可审查，依赖工具也都开源。<br>
+        🔍 <strong>Dry Run</strong>：<code>install --dry-run</code> 预览所有操作不做改动。<br>
+        🧩 <strong>可插拔架构</strong>：不信任某组件？换掉对应 channel 文件即可。</p>
+        <p>🍪 <strong>封号风险提醒：</strong>使用 Cookie 登录的平台（Twitter、小红书等），通过脚本/API 调用<strong>存在被平台检测并封号的风险</strong>。请务必使用<strong>专用小号</strong>，不要用主账号——一是封号风险，二是 Cookie 等同完整登录权限、小号能在泄露时限制影响范围。</p>
+        <p>安装方式：一键全自动 <code>install --env=auto</code>（个人电脑）；安全模式加 <code>--safe</code>（生产/共用机）；仅预览加 <code>--dry-run</code>。卸载：<code>agent-reach uninstall</code>（清除配置、skill 文件、MCP 配置；可 <code>--keep-config</code> 保留 token）。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">贡献 · 为什么值得 Star</h2>
+        <p>作者原话：这个项目是纯 vibe coding 出来的 🎸 可能有不完美的地方，遇到问题多包涵。有 bug 尽管提 Issue，会尽快修。想要新渠道？提 Issue 或自己 PR。想在本地加？让 Agent clone 下来改就行，每个渠道就是一个独立文件。</p>
+        <p>⭐ 为什么值得 Star：作者自己每天在用，所以会一直维护——有新需求/渠道会陆续加；每个渠道尽量保证「能用、好用、免费」；平台改了反爬或 API 变了，会想办法解决。「为 Web 4.0 基建贡献一份力量。Star 一下，下次需要的时候能找到。」</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">常见问题 / FAQ（节选）</h2>
+        <p><strong>AI Agent 怎么免费搜索 Twitter/X？</strong>用 twitter-cli 通过 Cookie 认证访问，完全免费：<code>pipx install twitter-cli</code>，确保浏览器已登录 x.com，即可 <code>twitter search "关键词"</code>。</p>
+        <p><strong>Reddit 返回 403 怎么办？</strong>Reddit 所有访问都需登录态。桌面首选 OpenCLI（登录过 reddit.com 即可 <code>opencli reddit search</code>）；备选 rdt-cli。中国大陆访问 Reddit 需代理。</p>
+        <p><strong>怎么让 AI 读小红书？</strong>桌面首选 OpenCLI——复用浏览器登录态，平时刷过就能用、零配置；之后 <code>opencli xiaohongshu search/note</code>。服务器用 xiaohongshu-mcp（无头浏览器扫码）。</p>
+        <p><strong>免费吗？有 API 成本吗？</strong>100% 免费，所有后端都是开源工具、不需付费 Key。唯一可选成本是住宅代理（~$1/月），仅当你的网络封锁 Reddit/Twitter（如中国大陆）时才需要。</p>
+        <p><strong>兼容 Claude Code/Cursor/OpenClaw/Windsurf 吗？</strong>是的，任何能跑 shell 命令的 AI 编程 agent 都能用。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">致谢 · 联系 · License · 友情链接</h2>
+        <p><strong>致谢</strong>（上游开源项目）：OpenCLI、twitter-cli、rdt-cli、xiaohongshu-mcp、xhs-cli、bili-cli、yt-dlp、Jina Reader、Exa、mcporter、feedparser、linkedin-scraper-mcp。</p>
+        <p><strong>联系：</strong>Email pnt01@foxmail.com；Twitter/X @Neo_Reidlab；可加微信拉交流群（README 内含二维码图）。Bug/功能请求走 GitHub Issues。</p>
+        <p><strong>License：</strong>MIT。<strong>友情链接：</strong>方舟 Agent Plan 模型订阅、腾讯云 OpenClaw、AtomGit 镜像（便于国内访问）。文末附 Star History 增长曲线图。</p>
+      </section>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">和同类方案比，它有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>别人做抓取,是自己写一套去抠每个平台的数据;它的思路完全不同——<strong>"我不自己抓,我帮你管"</strong>。它当一个"能力总管/中间层",从一堆现成开源小工具里选当下最稳的、装好、体检、出问题自动换路。这个"高一层"的定位,是它能扛住"平台天天变反爬"的关键。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔀</div>
+          <div class="pattern-title">"首选+备选"多后端路由</div>
+          <p class="pattern-desc">每个平台都配一串"能用的工具列表",当前这个被封了就自动切下一个(B站 yt-dlp 被封→秒切 bili-cli,用户零操作)。换路=调顺序,不用重写。这是它最硬的创新。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">💸</div>
+          <div class="pattern-title">零 API 费用</div>
+          <p class="pattern-desc">全靠开源工具 + Cookie 登录态,绕开了各平台动辄上千的官方 API 费。对要长期、批量抓内容的人,这是真金白银的省。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🗣️</div>
+          <div class="pattern-title">"一句话"安装与配置</div>
+          <p class="pattern-desc">不用你看文档:把一个链接发给 AI 就自动装好;要配某平台就说"帮我配 XXX",AI 一步步引导。把技术门槛压到了"会聊天就会用"。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🩺</div>
+          <div class="pattern-title">自带"体检"诊断</div>
+          <p class="pattern-desc">一条 doctor 命令告诉你每个平台通不通、现在走哪条路、坏了怎么修。把"黑箱抓取"变成"看得见状态",这点对非技术人特别友好。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🌏</div>
+          <div class="pattern-title">国产平台覆盖齐</div>
+          <p class="pattern-desc">小红书、B站、雪球、V2EX、小宇宙播客都覆盖——这是国外同类工具几乎不碰的。对你做中文内容收集,这点非常稀缺、非常对路。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1 ⭐</div>
+          <div class="inspo-card-title">它就是你"四平台收集"项目缺的那块拼图</div>
+          <p class="inspo-card-desc">你之前卡在"怎么合规拿到 X/YouTube/小红书/B站的内容"——这个项目正好把这一层做了,还免费、四个平台全覆盖。建议直接拿它当你那个项目的"抓取层",你只要在它之上做"定时+整理成给代理看的日报"就行。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">"首选+备选自动切换"的容错思路</div>
+          <p class="inspo-card-desc">它每个平台配一串备选、坏了自动切。你们做转链也可以借鉴:某个平台转链接口抽风时,自动切到备用通道,别让运营卡在"转不出来"。把"单点会挂"变成"多路兜底"。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">"一句话给AI就装好"的极简交付</div>
+          <p class="inspo-card-desc">它把复杂安装压缩成"发个链接给 AI"。你们给代理的工具/教程也能学:别让代理读长文档,做成"把这句话发给助手,它带你一步步配好",门槛越低留存越高。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">"体检诊断"做成代理工具的标配</div>
+          <p class="inspo-card-desc">它用 doctor 一键告诉你哪通哪不通。你们 App 也可以给代理一个"一键自检":微信授权有没有过期、转链通不通、素材同步没——主动暴露问题,比等代理来报障好。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">"能力总管"的产品定位思路</div>
+          <p class="inspo-card-desc">它不抢着做底层,而是做"帮你选好、管好"的中间层。这给独立开发的你一个定位启发:在一个变化快、工具多的领域,"帮人选型+兜底维护"本身就是高价值产品,不一定要自己造轮子。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">"一句话给 AI 就装好"，专门为不想折腾的人设计；你这台是 Claude Code，发条链接就能装</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">免费；需要一个能跑命令行的 AI（你已有）；登录类平台要用 Cookie/小号；国内访问推特/Reddit 要代理</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">高适配</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">天生为"让 AI 帮你上网"设计，跟你的工作方式完全契合</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要用，大概需要什么</h2>
+        <p>对你来说门槛很低:你这台已经是 Claude Code,把它的安装链接发给我,我就能帮你装好,然后你说"帮我看看这个 YouTube/小红书链接"它就能读。<strong>对你那个"定时收集"项目,它能直接当抓取层用</strong>:我在它之上加一个"每天定时跑 + 把抓到的内容整理成给代理看的日报"就行。</p>
+        <p>成本:工具免费;唯一可能花钱的是服务器代理(约 $1/月,只在你要 7×24 自动跑、或要抓推特/Reddit 且网络受限时才需要)。登录类平台(小红书、推特)要准备专用小号。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意（重要）</strong>
+          <p>① <strong>封号风险</strong>:作者明确警告——用 Cookie 登录的平台(小红书、推特)通过脚本调用<strong>可能被检测封号,务必用专用小号、别用主号</strong>。② <strong>合规/稳定性</strong>:本质是绕过平台限制抓取,平台随时可能升级反爬,链路会波动(作者靠"自动换路"兜底,但不保证 100% 不断)。③ 作者自述"纯 vibe coding 出来的",可能有不完美。④ 它只负责"读到内容",定时调度和"整理成日报"还需要在它之上再搭一层(正好我能帮你做)。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">它在整个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">各平台官方 API</span>
+          <span class="badge-desc">最"正规"的路,但贵(推特 API 尤其)、且审批严。Agent Reach 的差异化就是"免费绕开它们"——但相应地要承担合规与封号风险。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">单平台 CLI / 爬虫工具</span>
+          <span class="badge-desc">如 yt-dlp、twitter-cli、小红书各种 cli。它们是"零件",Agent Reach 是"把这些零件选好装好管好的总管"——它其实就建立在这些工具之上(见致谢)。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">MarkItDown（你刚看过）</span>
+          <span class="badge-desc">互补不竞争:MarkItDown 负责"把拿到的文件/页面转成干净 md",Agent Reach 负责"先从各平台把内容拿到手"。两者一前一后能串成完整链路。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">BrowserAct 等浏览器自动化</span>
+          <span class="badge-desc">README 自己点名的"互补品":Agent Reach 管"读内容",登录后的网页操作/表单提交这类"动手"交给 BrowserAct。分工清晰。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>想让 AI 免费、多平台(尤其含国内平台)读取/搜索内容的人;做内容收集、舆情监控、调研聚合的个人和小团队——高度契合你的"四平台收集"项目。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>对合规/稳定性要求极高、不能接受任何封号或断链风险的正式商业场景;或需要"登录后操作网页"(那是 BrowserAct 的活)。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">接下来你可以做什么</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">让我现在就帮你装上(你这台是 Claude Code，一句话的事)，先拿一个 YouTube 链接当场试"提取字幕"</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">把它定为你那个"四平台收集"项目的抓取层，我在它之上帮你搭"定时 + 整理成代理日报"</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">准备好专用小号(小红书、推特各一个)，用 Cookie-Editor 导出 Cookie 备用——别用主号</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">先验证质量:挑你关注的 1-2 个 YouTube 频道 + 几个小红书博主，试抓一轮，看内容拿得全不全</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">想长期自动跑再考虑买个 ~$1/月 的服务器代理；纯本地手动跑则先不用</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>

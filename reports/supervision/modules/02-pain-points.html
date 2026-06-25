@@ -1,0 +1,21 @@
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么有人愿意花时间做这个项目？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">做计算机视觉的人，每个项目都在重复造同样的轮子</h2>
+        <p>做视觉应用的开发者会发现一个尴尬的事实：真正「认出物体」的那部分，现在有一堆现成的开源模型可以用（比如大名鼎鼎的 YOLO）。可一旦你想把它变成一个能交付的东西，麻烦才刚开始——而且这些麻烦，<strong>每做一个新项目就要从头再来一遍</strong>。</p>
+
+        <p><strong>痛点一：每家模型「说的话」都不一样。</strong>YOLO 吐出来的结果、Transformers 吐出来的结果、MMDetection 吐出来的结果，格式各不相同。你想换一个更准的模型，往往意味着后面一整套处理代码都得改。开发者被「绑死」在某一个模型上，换起来成本极高。supervision 做了一层「翻译插头」（connector），不管哪家模型，进来都给你统一成同一种格式，于是<strong>换模型像换电池一样简单</strong>。</p>
+
+        <p><strong>痛点二：把结果「画出来」看着简单，做好很烦。</strong>把检测框、标签、颜色、跟踪轨迹漂亮地叠加到画面上，听起来是小事，真自己写就会陷进无穷的细节：框的粗细、文字会不会被遮住、颜色怎么区分不同类别……这些视觉呈现的活儿，恰恰是产品 demo 好不好看的关键。supervision 把这些做成了高度可定制的「标注器」（annotator），拼一下就有专业效果。</p>
+
+        <p><strong>痛点三：从「识别到了」到「业务有用」之间有一道鸿沟。</strong>老板要的从来不是「画面里有 3 个人」，而是「今天有多少人进店」「这辆车超速没有」「这个人在货架前停留了多久」。这些「越线计数、区域停留时长、测速」的逻辑，业务价值最高，却也最容易写错。supervision 直接把这些常见场景做成了现成工具。</p>
+      </section>
+    </div>
+  </div>
+</section>
