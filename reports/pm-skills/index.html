@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PM Skills · Kanxia 解读</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">PM Skills 解读</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/phuryn/pm-skills" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">PM Skills Marketplace</h1>
+      <p class="cover-repo">github.com/phuryn/pm-skills</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">21k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Markdown</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">MIT</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#产品经理</span>
+        <span class="cover-tag">#PM 框架</span>
+        <span class="cover-tag">#Agent Skill</span>
+        <span class="cover-tag">#工作流</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>一句话:<strong>一整套"产品经理专用"的 AI 技能包</strong>——把资深产品人那套方法论(怎么做用户发现、怎么定策略、怎么写 PRD、怎么定价、怎么规划上线、怎么做增长)拆成 68 个 AI 技能、串成 42 个工作流,装进你的 AI 助手里,带着你一步步做。</p>
+        <p>说人话:平时你问通用 AI "帮我写个 PRD",它给你一段干巴巴的文字;装上这套后,它会按真正的产品方法论<strong>带着你走流程</strong>——先理清假设、再排优先级、再设计实验。等于把 Teresa Torres、Marty Cagan 这些产品大神的书,变成你每天能直接用的工具。作者是 13 万+订阅的头部 PM Newsletter「The Product Compass」主理人 Paweł Huryn。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">社区评价</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>出自权威之手:</strong>由「The Product Compass」主理人 Paweł Huryn 策划——该 Newsletter 自称 #1 的 AI & PM 通讯,订阅数 13.1 万+。技能取材自 Teresa Torres、Marty Cagan、Alberto Savoia 等产品名家的著作。来源:productcompass.pm</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>上线即火:</strong>作者公开晒数据——72 小时内涨 1,300+ stars,势头很猛。来源:Paweł Huryn 的 Substack/X 动态</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>用户高口碑:</strong>有用户评价"这是我见过最好的 PM 知识库……完全是另一个级别,做得太棒了"。来源:项目社区反馈</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么有人愿意花时间做这个项目？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">做这个项目的人，大概遇到了这些问题</h2>
+        <p>做产品的人用 AI,都会遇到一个憋屈的事:<strong>通用 AI 只给你"文字",不给你"方法"</strong>。你让它写 PRD、做竞品分析,它能哗啦啦吐一大段,看着挺像那么回事,但其实没章法——该问的假设没问、该排的优先级没排,本质是"快速生成了一份平庸文档",而不是"帮你做出更好的产品决策"。</p>
+        <p>第二个痛点是<strong>"方法论都在书架上,用不起来"</strong>。Teresa Torres 的持续发现、Marty Cagan 的产品方法、各种画布和优先级框架——道理大家都懂,但真到每天干活时,很少有人能一步步严格走完整套流程。知识和日常工作之间,隔着一条没人帮你跨的沟。</p>
+        <p>第三个痛点是<strong>"PM 的活儿太杂,工具太散"</strong>。从最早的想法发散,到策略、PRD、OKR、用户研究、数据分析、定价、上线、增长……每个环节你都得自己找模板、找方法。东一个西一个,没有一套连贯、能互相衔接的体系。</p>
+        <p>说白了,作者想做的是给产品经理的"<strong>AI 操作系统</strong>":把验证过的产品方法论变成 AI 能带你执行的标准流程,让你不只是更快出文档,而是真的做出更好的产品决策。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，按原文结构与顺序、一段不漏；专业名词保留英文原文</p>
+    </header>
+    <div class="module-body">
+
+      <!-- 徽章 + 标题 + 标语 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>(badges: GitHub stars · License: MIT · PRs Welcome · Companion: pm-brain · Companion: burnstop · Companion: claude-usage)
+
+# PM Skills Marketplace: The AI Operating System for Better Product Decisions
+
+&gt; 68 PM skills and 42 chained workflows across 9 plugins. Claude Code, Cowork, and more. From discovery to strategy, execution, launch, growth, and shipping AI-built code.
+
+(image: all 9 plugins at a glance)
+
+Designed for Claude Code and Cowork. Skills compatible with other AI assistants.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>（一排徽章：GitHub 星数 · MIT 许可证 · 欢迎 PR · 配套项目 pm-brain · 配套项目 burnstop · 配套项目 claude-usage）</p>
+          <p><strong>＃ PM Skills Marketplace：通向更好产品决策的 AI 操作系统</strong></p>
+          <p>&gt; 横跨 9 个插件的 68 个 PM 技能和 42 个链式工作流。支持 Claude Code、Cowork 等。从发现到策略、执行、上线、增长，以及交付 AI 写的代码。</p>
+          <p>（配图：9 个插件一览）</p>
+          <p>为 Claude Code 和 Cowork 设计。技能也兼容其它 AI 助手。</p>
+        </div>
+      </div>
+
+      <!-- Start Here -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Start Here
+
+New idea? → /discover
+Need strategic clarity? → /strategy
+Writing a PRD? → /write-prd
+Planning a launch? → /plan-launch
+Defining metrics? → /north-star
+
+If this project helps you, ⭐ the repo.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Start Here（从这里开始）</strong></p>
+          <p>有新点子？→ <code>/discover</code><br>
+          需要厘清策略？→ <code>/strategy</code><br>
+          要写 PRD？→ <code>/write-prd</code><br>
+          要规划一次上线？→ <code>/plan-launch</code><br>
+          要定义指标？→ <code>/north-star</code></p>
+          <p>如果这个项目帮到你，给仓库点个 ⭐。</p>
+        </div>
+      </div>
+
+      <!-- Why -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Why PM Skills Marketplace?
+
+Generic AI gives you text. PM Skills Marketplace gives you structure.
+
+Each skill encodes a proven PM framework — discovery, assumption mapping, prioritization, strategy — and walks you through it step by step. You get the rigor of Teresa Torres, Marty Cagan, and Alberto Savoia built into your daily workflow, not sitting on a bookshelf.
+
+The result: better product decisions, not just faster documents.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Why PM Skills Marketplace?（为什么用它）</strong></p>
+          <p>通用 AI 给你的是文字。PM Skills Marketplace 给你的是结构（章法）。</p>
+          <p>每个技能都编码了一套经过验证的 PM 框架——发现、假设梳理、优先级排序、策略——并一步步带你走完。你能把 Teresa Torres、Marty Cagan、Alberto Savoia 的那种严谨，直接嵌进日常工作流里，而不是让它躺在书架上。</p>
+          <p>结果是：更好的产品决策，而不只是更快的文档。</p>
+        </div>
+      </div>
+
+      <!-- How It Works -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## How It Works (Skills, Commands, Plugins)
+
+**Skills** are the building blocks... give Claude domain knowledge, analytical frameworks, or a guided workflow. Loaded automatically when relevant — no explicit invocation needed. Force loading with /plugin-name:skill-name or /skill-name.
+
+**Commands** are user-triggered workflows invoked with /command-name. They chain one or more skills. E.g., /discover chains four skills: brainstorm-ideas → identify-assumptions → prioritize-assumptions → brainstorm-experiments.
+
+**Plugins** group related skills and commands into installable packages. Each covers a PM domain. Installing the marketplace gives you all 9 plugins.
+
+Commands use skills. Some skills serve multiple commands. Some (like prioritization-frameworks) are standalone references. After any command completes, it suggests relevant next commands.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ How It Works（它怎么运作：技能、命令、插件）</strong></p>
+          <p><strong>Skills（技能）</strong>是这个市场的基本积木。每个技能给 Claude 提供领域知识、分析框架，或针对某个具体 PM 任务的引导式工作流。有些技能还能作为可复用的基础，被多个命令共享。技能会在与对话相关时自动加载——无需显式调用。如有需要（例如想让技能优先于通用知识），可用 <code>/插件名:技能名</code> 或 <code>/技能名</code> 强制加载（Claude 会自动补上前缀）。</p>
+          <p><strong>Commands（命令）</strong>是用户触发的工作流，用 <code>/命令名</code> 调用。它们把一个或多个技能串成端到端流程。例如 <code>/discover</code> 把四个技能串起来：brainstorm-ideas（头脑风暴点子）→ identify-assumptions（识别假设）→ prioritize-assumptions（假设排序）→ brainstorm-experiments（设计实验）。</p>
+          <p><strong>Plugins（插件）</strong>把相关的技能和命令打包成可安装的包。每个插件覆盖一个 PM 领域——发现、策略、执行等等。安装整个市场，一次就得到全部 9 个插件。</p>
+          <p>命令使用技能；有些技能服务于多个命令；有些技能（如 <code>prioritization-frameworks</code> 或 <code>opportunity-solution-tree</code>）是独立的参考资料，Claude 在相关时随时取用，无需命令。命令被设计成可以相互衔接，贴合 PM 的工作流：任一命令完成后，会建议接下来相关的命令——跟着提示走即可。</p>
+        </div>
+      </div>
+
+      <!-- Installation -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Installation
+
+### Claude Cowork (recommended for non-developers)
+1. Open Customize (bottom-left)
+2. Browse plugins → Personal → +
+3. Add marketplace from GitHub
+4. Enter: phuryn/pm-skills
+All 9 plugins install automatically.
+
+### Claude Code (CLI)
+claude plugin marketplace add phuryn/pm-skills
+claude plugin install pm-toolkit@pm-skills
+... (9 plugins)
+
+### Codex CLI (OpenAI)
+codex plugin marketplace add phuryn/pm-skills
+codex plugin add pm-toolkit@pm-skills ...</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Installation（安装）</strong></p>
+          <p><strong>＃＃＃ Claude Cowork（推荐给非开发者）</strong>：① 打开左下角的 Customize；② 进入 Browse plugins → Personal → ＋；③ 选 Add marketplace from GitHub；④ 输入 <code>phuryn/pm-skills</code>。9 个插件会自动装好，你同时得到命令（<code>/discover</code>、<code>/strategy</code> 等）和技能。</p>
+          <p><strong>＃＃＃ Claude Code（命令行）</strong>：先 <code>claude plugin marketplace add phuryn/pm-skills</code> 添加市场，再逐个 <code>claude plugin install 插件名@pm-skills</code> 安装 9 个插件（原文列了全部 9 条命令，代码保留原样）。</p>
+          <p><strong>＃＃＃ Codex CLI（OpenAI）</strong>：Codex 读取的是同一个插件市场文件，所以可原生安装、无需转换或拷文件。先 <code>codex plugin marketplace add phuryn/pm-skills</code>，再 <code>codex plugin add 插件名@pm-skills</code>。</p>
+        </div>
+      </div>
+
+      <!-- Codex 差异 + 其它助手 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>What you get: every skill, available to Codex and invocable by name. Install whole plugins rather than cherry-picking.
+
+What's different from Claude Code: the /slash commands install but don't run as Codex slash commands. To run a workflow, describe the steps in plain language.
+
+Optional — let Codex turn the workflows into skills (best-effort, model-driven conversion).
+
+### Other AI assistants (skills only)
+The skills/*/SKILL.md files follow the universal skill format. Commands are Claude-specific.
+| Gemini CLI | copy to .gemini/skills/ | Skills only |
+| OpenCode | copy to .opencode/skills/ | Skills only |
+| Cursor | copy to .cursor/skills/ | Skills only |
+| Kiro | copy to .kiro/skills/ | Skills only |</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>你得到什么：</strong>每一个技能（即那些 PM 框架）都对 Codex 可用、可按名调用。建议整插件安装，而不是单挑某几个技能——一个工作流通常依赖一起发布的好几个技能。</p>
+          <p><strong>和 Claude Code 的不同：</strong><code>/斜杠</code>命令能装上，但在 Codex 里不会作为斜杠命令运行（Codex 插件不暴露命令）。要跑某个工作流，用大白话把步骤描述出来即可（原文举例：对你的点子做产品发现——头脑风暴、映射假设、给风险假设排序、设计实验，每步之间暂停）。</p>
+          <p><strong>可选——让 Codex 把工作流转成技能：</strong>因为命令文件就随插件一起装了，你可以让 Codex 把你最常用的几个转换过来。这是「尽力而为、由模型驱动」的转换（部分 Claude 专属语法不会被转），但能在不离开 CLI 的情况下快速把引导式工作流搬到 Codex。</p>
+          <p><strong>＃＃＃ 其它 AI 助手（仅技能）</strong>：<code>skills/*/SKILL.md</code> 文件遵循通用技能格式，任何能读它的工具都能用；命令（<code>/斜杠命令</code>）则是 Claude 专属。表格：Gemini CLI → 拷到 <code>.gemini/skills/</code>，仅技能；OpenCode → <code>.opencode/skills/</code>，仅技能；Cursor → <code>.cursor/skills/</code>，仅技能；Kiro → <code>.kiro/skills/</code>，仅技能。原文还给了用 for 循环批量拷贝技能的示例脚本（代码保留原样）。</p>
+        </div>
+      </div>
+
+      <!-- 插件 1 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Available Plugins
+
+1. pm-product-discovery — Ideation, experiments, assumption testing, OSTs, interviews (13 skills, 5 commands)
+
+Skills (13): brainstorm-ideas-existing / brainstorm-ideas-new / brainstorm-experiments-existing / brainstorm-experiments-new / identify-assumptions-existing / identify-assumptions-new / prioritize-assumptions / prioritize-features / analyze-feature-requests / opportunity-solution-tree / interview-script / summarize-interview / metrics-dashboard
+
+Commands (5): /discover / /brainstorm / /triage-requests / /interview / /setup-metrics</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Available Plugins（可用插件）</strong></p>
+          <p><strong>1. pm-product-discovery（产品发现）</strong>——构思、实验、假设验证、机会方案树（OST）、用户访谈（13 个技能，5 个命令）。</p>
+          <p><strong>技能（13）：</strong>为现有产品做多视角构思 / 为新产品做构思 / 为现有产品设计验证实验 / 为新产品设计精益创业「预演原型」（Alberto Savoia）/ 跨「价值·可用·商业·可行」识别风险假设（现有产品）/ 跨 8 类风险（含 GTM、策略、团队）识别假设（新产品）/ 用「影响 × 风险」矩阵给假设排序并给实验建议 / 按影响·成本·风险·战略契合度给功能 backlog 排序 / 按主题和战略契合度归类客户功能请求 / 搭建机会方案树（Teresa Torres：成果→机会→方案→实验）/ 写带 JTBD 追问的结构化访谈脚本 / 把访谈记录总结成 JTBD、满意度信号和行动项 / 设计含北极星、输入指标和告警阈值的产品指标仪表盘。</p>
+          <p><strong>命令（5）：</strong><code>/discover</code> 完整发现循环（构思→假设映射→排序→实验设计）/ <code>/brainstorm</code> 多视角构思 / <code>/triage-requests</code> 批量分析并排序功能请求 / <code>/interview</code> 准备访谈脚本或总结记录 / <code>/setup-metrics</code> 设计产品指标仪表盘。</p>
+          <p><strong>示例：</strong>「我们这个 AI 写作助手点子，最大的风险假设是什么？」「帮我为提升用户激活搭一棵机会方案树」「给这 12 条企业客户的功能请求排序」；命令如 <code>/discover 面向远程团队的 AI 会议纪要工具</code>。</p>
+        </div>
+      </div>
+
+      <!-- 插件 2 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>2. pm-product-strategy — Vision, business models, pricing, competitive landscape (12 skills, 5 commands)
+
+Skills (12): product-strategy / startup-canvas / product-vision / value-proposition / lean-canvas / business-model / monetization-strategy / pricing-strategy / swot-analysis / pestle-analysis / porters-five-forces / ansoff-matrix
+
+Commands (5): /strategy / /business-model / /value-proposition / /market-scan / /pricing</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>2. pm-product-strategy（产品策略）</strong>——愿景、商业模式、定价、竞争格局（12 技能，5 命令）。覆盖从愿景打磨到竞争格局扫描的完整战略工具箱。</p>
+          <p><strong>技能（12）：</strong>9 段式产品策略画布（愿景→护城河）/ 创业画布（产品策略 9 段 + 商业模式，是 BMC 和精益画布之外的新选择）/ 打磨鼓舞人心又可达成的产品愿景 / 6 段式 JTBD 价值主张 / 精益画布 / 商业模式画布（9 大模块）/ 头脑风暴 3-5 种变现策略并带验证实验 / 定价模型、竞争分析、支付意愿与价格弹性 / SWOT 分析 / PESTLE 宏观环境分析 / 波特五力 / 安索夫矩阵（增长战略）。</p>
+          <p><strong>命令（5）：</strong><code>/strategy</code> 完整 9 段产品策略画布 / <code>/business-model</code> 探索商业模式 / <code>/value-proposition</code> 用 6 段 JTBD 模板设计价值主张 / <code>/market-scan</code> 宏观环境分析（SWOT+PESTLE+波特+安索夫）/ <code>/pricing</code> 设计定价策略。</p>
+          <p><strong>示例：</strong>「为我的市场型创业项目对比精益画布 vs 商业模式画布 vs 创业画布」「为面向非英语母语者的 AI 写作助手设计价值主张」；命令如 <code>/strategy 面向代理机构的 B2B 项目管理工具</code>。</p>
+        </div>
+      </div>
+
+      <!-- 插件 3 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>3. pm-execution — PRDs, OKRs, roadmaps, sprints, retros, release notes, stakeholder management (16 skills, 11 commands)
+
+Skills (16): create-prd / brainstorm-okrs / outcome-roadmap / sprint-plan / retro / release-notes / pre-mortem / stakeholder-map / summarize-meeting / user-stories / job-stories / wwas / test-scenarios / dummy-dataset / prioritization-frameworks / strategy-red-team
+
+Commands (11): /write-prd / /plan-okrs / /transform-roadmap / /sprint / /pre-mortem / /red-team-prd / /meeting-notes / /stakeholder-map / /write-stories / /test-scenarios / /generate-data</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>3. pm-execution（执行）</strong>——PRD、OKR、路线图、冲刺、复盘、发版说明、利益相关方管理（16 技能，11 命令）。日常产品管理全覆盖。</p>
+          <p><strong>技能（16）：</strong>8 段式 PRD 模板 / 与公司目标对齐的团队级 OKR / 把功能清单转成「以成果为中心」的路线图 / 含产能估算、故事选择、风险识别的冲刺规划 / 结构化冲刺复盘引导 / 从工单/PRD/changelog 生成面向用户的发版说明 / 用「老虎/纸老虎/大象」分类的事前验尸风险分析 / 「权力×兴趣」网格 + 定制沟通计划的利益相关方地图 / 会议记录→决策+行动项 / 遵循 3C 与 INVEST 的用户故事 / 工作故事（当［情境］，我想［动机］，以便［成果］）/ Why-What-Acceptance 格式的 backlog 条目 / 测试场景（顺利路径、边界、错误处理）/ 真实感的假数据集（CSV/JSON/SQL/Python）/ 9 种优先级框架参考（机会得分、ICE、RICE、MoSCoW、Kano 等）/ 对计划做对抗式压力测试（找出承重假设、指出各自的失败条件、按最便宜的验证方式排序）。</p>
+          <p><strong>命令（11）：</strong><code>/write-prd</code> / <code>/plan-okrs</code> / <code>/transform-roadmap</code> 把功能型路线图转成成果型 / <code>/sprint</code> 冲刺生命周期（plan|retro|release）/ <code>/pre-mortem</code> / <code>/red-team-prd</code> 对抗式压测 PRD/路线图/策略并按最便宜验证排序 / <code>/meeting-notes</code> / <code>/stakeholder-map</code> / <code>/write-stories</code> 拆成 backlog（user|job|wwa）/ <code>/test-scenarios</code> / <code>/generate-data</code>。</p>
+          <p><strong>示例：</strong>「50 条 backlog 我该用哪个优先级框架？」「Opportunity Score、ICE、RICE 有什么区别？」；命令如 <code>/write-prd 减少告警疲劳的智能通知系统</code>。</p>
+        </div>
+      </div>
+
+      <!-- 插件 4 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>4. pm-market-research — Personas, segmentation, journey maps, market sizing, competitor analysis (7 skills, 3 commands)
+
+Skills (7): user-personas / market-segments / user-segmentation / customer-journey-map / market-sizing / competitor-analysis / sentiment-analysis
+Commands (3): /research-users / /competitive-analysis / /analyze-feedback</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>4. pm-market-research（市场研究）</strong>——用户画像、细分、旅程图、市场规模测算、竞品分析（7 技能，3 命令）。用户研究与竞争分析。</p>
+          <p><strong>技能（7）：</strong>从研究数据提炼用户画像 / 识别 3-5 个客户细分（人口属性、JTBD、产品契合）/ 从反馈数据按行为/JTBD/需求做用户细分 / 端到端客户旅程图（阶段、触点、情绪、痛点）/ TAM/SAM/SOM 市场测算（自上而下 + 自下而上）/ 竞品的优劣势与差异化机会 / 用户反馈的情感分析与主题提取。</p>
+          <p><strong>命令（3）：</strong><code>/research-users</code> 建画像、分群、画旅程 / <code>/competitive-analysis</code> 竞争格局分析 / <code>/analyze-feedback</code> 反馈的情感与分群洞察。</p>
+          <p><strong>示例：</strong>「估算美国市场 AI 代码审查工具的 TAM/SAM/SOM」「为我们的电商结账流程画客户旅程图」；命令如 <code>/analyze-feedback 这是 Q4 的 200 条 NPS 回复</code>。</p>
+        </div>
+      </div>
+
+      <!-- 插件 5 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>5. pm-data-analytics — SQL generation, cohort analysis, A/B test analysis (3 skills, 3 commands)
+
+Skills (3): sql-queries / cohort-analysis / ab-test-analysis
+Commands (3): /write-query / /analyze-cohorts / /analyze-test</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>5. pm-data-analytics（数据分析）</strong>——SQL 生成、同期群分析、A/B 测试分析（3 技能，3 命令）。给 PM 用的数据分析。</p>
+          <p><strong>技能（3）：</strong>从自然语言生成 SQL（BigQuery、PostgreSQL、MySQL）/ 同期群分析（留存曲线、功能采用、按群分的参与趋势）/ A/B 测试分析（统计显著性、样本量校验，给出「上线/继续/停止」建议）。</p>
+          <p><strong>命令（3）：</strong><code>/write-query</code> 自然语言生成 SQL / <code>/analyze-cohorts</code> 同期群分析 / <code>/analyze-test</code> 分析 A/B 测试结果。</p>
+          <p><strong>示例：</strong>「95% 置信度、2% 最小可检测效应，需要多大样本？」；命令如 <code>/write-query 给我 Q4 各国月活（BigQuery）</code>。</p>
+        </div>
+      </div>
+
+      <!-- 插件 6 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>6. pm-go-to-market — Beachhead segments, ICPs, messaging, growth loops, GTM motions, battlecards (6 skills, 3 commands)
+
+Skills (6): gtm-strategy / beachhead-segment / ideal-customer-profile / growth-loops / gtm-motions / competitive-battlecard
+Commands (3): /plan-launch / /growth-strategy / /battlecard</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>6. pm-go-to-market（进入市场 GTM）</strong>——滩头细分市场、理想客户画像、信息传达、增长循环、GTM 打法、竞争对战卡（6 技能，3 命令）。</p>
+          <p><strong>技能（6）：</strong>完整 GTM 策略（渠道、信息、成功指标、上线计划）/ 找到第一个滩头市场细分 / ICP 理想客户画像（人口属性、行为、JTBD、需求）/ 设计可持续的增长循环（飞轮）/ 评估 GTM 打法与工具（产品驱动、销售驱动等）/ 含异议处理与制胜策略、可直接给销售用的对战卡。</p>
+          <p><strong>命令（3）：</strong><code>/plan-launch</code> 从滩头到上线的完整 GTM 策略 / <code>/growth-strategy</code> 设计增长循环并评估 GTM 打法 / <code>/battlecard</code> 制作竞争对战卡。</p>
+          <p><strong>示例：</strong>「开发者效率工具最好的滩头细分是什么？」「为带免费档的 B2B SaaS 设计增长循环」；命令如 <code>/battlecard 我们的 CRM vs Salesforce（面向 SMB 市场）</code>。</p>
+        </div>
+      </div>
+
+      <!-- 插件 7 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>7. pm-marketing-growth — Marketing ideas, positioning, value props, naming, North Star metrics (5 skills, 2 commands)
+
+Skills (5): marketing-ideas / positioning-ideas / value-prop-statements / product-name / north-star-metric
+Commands (2): /market-product / /north-star</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>7. pm-marketing-growth（营销与增长）</strong>——营销创意、定位、价值主张文案、产品命名、北极星指标（5 技能，2 命令）。</p>
+          <p><strong>技能（5）：</strong>有创意、低成本的营销点子（含渠道与信息）/ 区别于竞品的产品定位 / 给营销、销售、上手引导用的价值主张文案 / 契合品牌价值与受众的产品命名头脑风暴 / 北极星指标 + 输入指标（含「商业游戏」分类）。</p>
+          <p><strong>命令（2）：</strong><code>/market-product</code> 头脑风暴营销点子、定位、价值主张和产品名 / <code>/north-star</code> 定义你的北极星指标及支撑性输入指标。</p>
+          <p><strong>示例：</strong>「头脑风暴 5 个区别于 Notion 的定位角度」「双边市场好的北极星指标是什么？」；命令如 <code>/north-star 连接自由职业者与客户的双边市场</code>。</p>
+        </div>
+      </div>
+
+      <!-- 插件 8 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>8. pm-toolkit — Resume review, legal documents, proofreading (4 skills, 5 commands)
+
+Skills (4): review-resume / draft-nda / privacy-policy / grammar-check
+Commands (5): /review-resume / /tailor-resume / /draft-nda / /privacy-policy / /proofread</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>8. pm-toolkit（PM 工具箱）</strong>——简历评审、法律文档、校对（4 技能，5 命令）。核心产品工作之外的 PM 实用件。</p>
+          <p><strong>技能（4）：</strong>对照 10 条最佳实践做 PM 简历评审与优化（XYZ+S 公式、关键词、结构）/ 起草带适配辖区条款的保密协议（NDA）/ 覆盖 GDPR/CCPA 合规的隐私政策 / 语法、逻辑、流畅度检查与针对性修改。</p>
+          <p><strong>命令（5）：</strong><code>/review-resume</code> 全面 PM 简历评审 / <code>/tailor-resume</code> 按某个 JD 定制简历 / <code>/draft-nda</code> / <code>/privacy-policy</code> / <code>/proofread</code> 检查语法逻辑与流畅度。</p>
+          <p><strong>示例：</strong>「对照最佳实践评审我的 PM 简历［附 PDF］」；命令如 <code>/tailor-resume ［附简历 + 粘贴 JD］</code>。</p>
+        </div>
+      </div>
+
+      <!-- 插件 9 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>9. pm-ai-shipping — AI Shipping Kit: document a vibe-coded app, audit security and performance, map test coverage, compile a shipping packet (2 skills, 5 commands)
+
+For PMs and founders accountable for AI-built code. AI agents write code fast but leave no record of intent. This kit restores reviewability.
+
+Skills (2): shipping-artifacts / intended-vs-implemented
+Commands (5): /ship-check / /document-app / /derive-tests / /security-audit-static / /performance-audit-static</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>9. pm-ai-shipping（AI 交付工具箱）</strong>——给「vibe 编码」出来的应用补文档、审计安全与性能、梳理测试覆盖、打包成可交付包（2 技能，5 命令）。</p>
+          <p>面向那些要为「AI 写的代码」负责的 PM 和创始人。AI 写代码很快，但不留下「意图」的记录——系统该做什么、谁能做什么、密钥放哪、哪些规则真正被验证过。这个工具箱恢复「可评审性」：先给系统补文档，再审计「文档说的」和「代码实际做的」之间的差距——这正是通用扫描器会漏掉的那类 bug。</p>
+          <p><strong>技能（2）：</strong>shipping-artifacts——让 AI 应用变得可评审的那套耐用文档（架构、用户/权限流、权限、变量/密钥、测试覆盖图，外加按需补的邮件/定时任务/SEO/内嵌 agent 等条件文档）/ intended-vs-implemented——找出「文档声称要做的」与「代码实际做的」之间差距的方法，两边都附有出处证据。</p>
+          <p><strong>命令（5）：</strong><code>/ship-check</code> 把 vibe 编码的仓库变成「评审就绪」的交付包 / <code>/document-app</code> 把代码库逆向成评审/审计所需的系统文档 / <code>/derive-tests</code> 把记录下来的意图转成测试覆盖图、建议「合并前必须全绿」的 CI 关卡 / <code>/security-audit-static</code> 静态安全审计（映射信任边界、对照意图、自我反驳每条发现、只报有证据支撑的风险）/ <code>/performance-audit-static</code> 静态性能审计（找过度取数、缺索引、缓存机会，按投入产出排序）。</p>
+          <p><strong>示例：</strong>「我的 Supabase 应用在别人评审前需要哪些文档？」「这段代码做的和文档说的，哪里对不上？」；命令如 <code>/ship-check the payments service</code>。</p>
+        </div>
+      </div>
+
+      <!-- About + 致谢书单 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## About
+This marketplace evolves with product practice and AI capabilities.
+
+Selected skills based on the work of: Teresa Torres (Continuous Discovery Habits) · Marty Cagan (INSPIRED, TRANSFORMED) · Alberto Savoia (The Right It) · Dan Olsen (The Lean Product Playbook) · Roger L. Martin (Playing to Win) · Ash Maurya (Running Lean) · Strategyzer (Business Model Generation, Value Proposition Design) · Christina Wodtke (Radical Focus) · Anthony W. Ulwick (Jobs to Be Done) · Alistair Croll & Benjamin Yoskovitz (Lean Analytics) · Sean Ellis (Hacking Growth) · Maja Voje (Go-To-Market Strategist)
+
+Curated by Paweł Huryn from The Product Compass Newsletter.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ About（关于）</strong></p>
+          <p>这个市场会随着产品实践和 AI 能力的发展而演进。</p>
+          <p>部分技能取材自以下人物的著作：Teresa Torres（《持续发现习惯》）、Marty Cagan（《启示录 INSPIRED》《转型 TRANSFORMED》）、Alberto Savoia（《The Right It》）、Dan Olsen（《精益产品手册》）、Roger L. Martin（《Playing to Win》）、Ash Maurya（《Running Lean》）、Strategyzer（《商业模式新生代》《价值主张设计》）、Christina Wodtke（《Radical Focus》）、Anthony W. Ulwick（《Jobs to Be Done》）、Alistair Croll & Benjamin Yoskovitz（《精益数据分析》）、Sean Ellis（《增长黑客》）、Maja Voje（《Go-To-Market Strategist》）。</p>
+          <p>由 The Product Compass Newsletter 的 Paweł Huryn 策划。</p>
+        </div>
+      </div>
+
+      <!-- Compose with PM Brain + Contributing + Windows + License -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Compose with PM Brain
+PM Brain — a second brain for product managers. Plain markdown files in a folder on your laptop. Claude reads them before answering, writes to them after, sweeps them every Friday. No vector DB. No cloud. No agent memory tricks.
+
+## Contributing
+See CONTRIBUTING.md.
+
+## Known Issue on Windows
+If your Cowork is unstable and can't start a VM, try (PowerShell scheduled task script). It solves 90% of the issues on Windows. The remaining 10%: open services.msc and start "Claude" service manually.
+
+## License
+MIT — see LICENSE.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Compose with PM Brain（与 PM Brain 搭配）</strong></p>
+          <p>PM Brain——产品经理的「第二大脑」。就是你笔记本上某个文件夹里的纯 markdown 文件。Claude 回答前先读它们、回答后写回去、每周五帮你梳理一遍。不用向量数据库，不上云，不靠 agent 记忆的奇技淫巧。</p>
+          <p><strong>＃＃ Contributing（贡献）</strong></p>
+          <p>见 CONTRIBUTING.md。</p>
+          <p><strong>＃＃ Known Issue on Windows（Windows 已知问题）</strong></p>
+          <p>如果你的 Cowork 不稳定、起不了虚拟机，可试试原文给的 PowerShell 定时任务脚本（代码保留原样）。它能解决 Windows 上 90% 的问题；剩下 10%：打开 services.msc，手动启动「Claude」服务。</p>
+          <p><strong>＃＃ License（许可协议）</strong></p>
+          <p>MIT——见 LICENSE。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">和同类方案比，它有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>网上"PM 提示词合集"一抓一大把，但大多是零散的 prompt——你还得自己拼。这个项目的不同在于:<strong>它把方法论"流程化、体系化"了</strong>——不是给你一句咒语，而是给你一条会自己往下走、还能互相衔接的工作流;而且全部建立在真正的产品经典(Cagan、Torres 等)之上,不是凭空编的套话。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔗</div>
+          <div class="pattern-title">命令会"串成流水线"</div>
+          <p class="pattern-desc">比如 /discover 一条命令,自动把"构思→识别假设→排优先级→设计实验"四步串起来跑。你不用记每一步,它带着你走完整套发现流程——这是"工作流"而非"单个提示词"的本质区别。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📚</div>
+          <div class="pattern-title">把大神的书"装进"日常工具</div>
+          <p class="pattern-desc">每个技能背后都有出处:Teresa Torres 的机会方案树、Cagan 的产品方法、各种画布。等于把书架上的方法论,变成你随手能调的执行步骤,知识终于"用得起来"了。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🧭</div>
+          <div class="pattern-title">做完一步,自动建议下一步</div>
+          <p class="pattern-desc">每个命令跑完会推荐"接下来该做什么",顺着 PM 真实工作流走。相当于内置了一位 PM 导师在旁边提点,新手不会卡在"然后呢"。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🛡️</div>
+          <div class="pattern-title">有"对抗式自检"机制</div>
+          <p class="pattern-desc">特别的是它有"红队/事前验尸/自我反驳"类技能:专门挑你方案的毛病、找承重假设、按"最便宜验证"排序。不只帮你写,还帮你怀疑自己写得对不对——这点很反套路。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🚢</div>
+          <div class="pattern-title">管到了"AI 写的代码怎么交付"</div>
+          <p class="pattern-desc">最新加的 AI Shipping 板块,专治"AI 飞速写代码但没人说得清它到底干了啥"。给 vibe 编码补文档、查"文档说的 vs 代码做的"差距——这是别家 PM 工具几乎没覆盖的新地带。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">这套你可以直接拿来用</div>
+          <p class="inspo-card-desc">和别的项目不同,这个不是"借鉴启发",是你本职工作的趁手工具。装上后,写返利产品的 PRD、做竞品分析、给功能 backlog 排优先级、做用户访谈脚本……都能让 AI 按真方法论带着你走。强烈建议先拿一个你手头真实需求试一把。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">"命令串工作流"正是 /kanxia 的进化方向</div>
+          <p class="inspo-card-desc">它用一条命令串起多步骤、还自动建议下一步。你的 /kanxia 现在是"一条命令出报告",未来也能学这招:做成"看完项目→自动建议要不要顺手生成竞品对比/灵感落地清单",让一个命令延伸出一条链。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">给运营/代理也做一套"技能市场"</div>
+          <p class="inspo-card-desc">它把 PM 工作拆成一个个带流程的技能。你们的"做单"也能这么拆:选品技能、转链技能、做图技能、写群文案技能……每个带标准步骤,新代理照着选着用。把"老带新的经验"变成"人人可调的技能包"。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">"做完自动建议下一步"用在 App 引导里</div>
+          <p class="inspo-card-desc">它每步完成后推荐下一步,消除"然后呢"。你们 App 里代理做完一个动作(比如转完链),也可以自动提示"下一步:生成商品图 / 配群文案",把零散功能串成顺手的流程,降低新人上手门槛。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">"纯 markdown 第二大脑"做个人知识库</div>
+          <p class="inspo-card-desc">它的配套项目 PM Brain 思路很妙:就是本地一个文件夹的 markdown,AI 答前先读、答后写回、每周梳理,不搞复杂数据库。你做独立产品/攒资料时可借鉴——轻量、可控、不锁定平台。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">专为非开发者设计:Claude Cowork 里点几下就装好,纯界面操作、不碰命令行</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">免费(MIT);只需一个 Claude 账号(Cowork/Claude Code),装上即用</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">高适配</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">本身就是给"跟 AI 对话做产品工作"用的,和你的工作方式天生契合</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要用，大概需要什么</h2>
+        <p>这是这一系列项目里<strong>对你门槛最低、最该立刻上手</strong>的一个。作者专门为"非开发者"做了 Claude Cowork 的图形化安装:打开 Customize → Browse plugins → 输入 <code>phuryn/pm-skills</code>,9 个插件自动装好,然后就能用 /discover、/write-prd 这些命令了。全程不需要写一行代码、不碰命令行。</p>
+        <p>成本:工具本身免费,只需要你已有的 Claude 订阅。时间上 10 分钟装好,剩下就是在真实工作里用起来。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意</strong>
+          <p>① 它产出的是"高质量草稿和思考框架",不是替你拍板——最终判断还得你来,尤其涉及你们返利业务的具体细节,它不懂行情。② 技能用英文写的方法论,跑出来你可以要求用中文,但部分专业框架名仍是英文。③ 它最适合"正经做产品决策"的场景;如果只是临时糊个东西,可能觉得流程偏重。整体瑕不掩瑜,是难得能直接用的工具。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">它在整个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">PM Brain (同作者)</span>
+          <span class="badge-desc">作者自己的配套项目:纯 markdown 的"PM 第二大脑"。和本项目互补——本项目给"方法和流程",PM Brain 给"记忆和知识沉淀",建议搭配用。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">通用 PM 提示词合集</span>
+          <span class="badge-desc">网上大量"100 个 PM Prompt"类资源。区别:那些是零散咒语、要自己拼;本项目是成体系、能串流程、有大神方法论背书的"工作流"。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">通用工程类 Skills(如 Anthropic agent-skills)</span>
+          <span class="badge-desc">你之前看的那些多是给"工程/写代码"的纪律。这个是垂直到"产品经理岗"的,覆盖发现→策略→增长全链路,受众完全不同。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">PM SaaS 工具(Productboard 等)</span>
+          <span class="badge-desc">传统 PM 软件是"独立平台、要付费、要搬数据"。本项目是"长在你 AI 助手里、免费、跟着对话走",形态更轻、更贴日常。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>任何用 AI 干活的产品经理(就是你)、产品创始人、想系统提升产品方法论的人。免费、低门槛、即装即用。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>完全不用 AI 助手的人;或只想要一键成品、不愿走任何思考流程的场景。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">接下来你可以做什么</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">直接装(这个最值得装):Claude Code 里 claude plugin marketplace add phuryn/pm-skills,或 Cowork 里图形化添加 phuryn/pm-skills</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">拿真实需求试一把:用 /write-prd 写一份你们某个真实功能的 PRD,对比平时随手让 AI 写的差别</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">用 /discover 跑一遍你最近在想的某个产品点子,体会"被方法论带着走"的感觉</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">读作者的 Product Compass Newsletter(productcompass.pm),长期跟一个靠谱的 AI×PM 信息源</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">借它的"命令串工作流"思路,想想我们的 /kanxia 和"做单流程"能不能也串起来</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>
