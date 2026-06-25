@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tolaria · Kanxia 解读</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">Tolaria 解读</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/refactoringhq/tolaria" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">💧 Tolaria</h1>
+      <p class="cover-repo">github.com/refactoringhq/tolaria</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">16.9k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">TypeScript</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">AGPL-3.0</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#知识库</span>
+        <span class="cover-tag">#Markdown 笔记</span>
+        <span class="cover-tag">#本地优先</span>
+        <span class="cover-tag">#AI 友好</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>一句话:<strong>一个管理 Markdown 笔记的桌面 App,类似 Obsidian/Notion 的"第二大脑"工具</strong>。支持 Mac/Windows/Linux。你的所有笔记都是普通的 .md 文本文件,存在你自己电脑上,不锁在任何平台里。</p>
+        <p>它最核心的三个主张:<strong>文件优先</strong>(笔记就是纯文本,随时能用别的工具打开、想走就走)、<strong>本地优先</strong>(不用注册、不用订阅、不联网也能用)、<strong>AI 友好</strong>(因为是一堆纯文本文件,AI 助手能直接读写,可以拿来当"喂给 AI 的公司知识库"或"AI 助手的记忆")。作者是知名工程类 Newsletter「Refactoring」的主理人 Luca Rossi,他自己用它管着 1 万多条笔记、"用它来运营整个人生"。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">社区评价</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>被评为"融合了 Obsidian 和 Notion 优点的本地优先开源笔记 App":</strong>既有 Obsidian 的本地文件自由,又有 Notion 的结构化体验。来源:Medium《Tolaria: The Local-First, Open-Source Note App...》(2026-04)</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>评测称其为"异常精致的后来者",展示了"后发优势"</strong>——虽是同类里的迟到者,但打磨得很完整。来源:Dashen Tech《Tolaria Complete Guide 2026》</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>上线即有热度:</strong>登上 Hacker News(Show HN),作者也在 Refactoring 撰文称"数据涨得很猛"。来源:Hacker News、refactoring.fm</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么有人愿意花时间做这个项目？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">做这个项目的人，大概遇到了这些问题</h2>
+        <p>用笔记软件攒知识的人,心里都有个隐忧:<strong>"我的东西到底是不是我的?"</strong> 很多笔记 App 把你的内容存成它自家的私有格式、锁在它的云上。一旦它涨价、关停、或者你想换工具,几千条笔记可能就搬不走、或者搬出来一团乱。你越用得深,越被它绑架。</p>
+        <p>第二个痛点是<strong>"AI 时代,老笔记软件不好喂给 AI"</strong>。现在大家想让 AI 帮忙整理、问答自己的知识库,但传统笔记的私有格式 AI 读起来很别扭。而纯文本文件,AI 助手能直接读写——可惜很多老牌工具不是这么设计的。</p>
+        <p>第三个痛点很个人:<strong>作者自己有 1 万多条笔记要管</strong>,现有工具没一个完全顺手。与其将就,不如自己造一个——而且每个功能都来自他真实使用中遇到的问题,不是拍脑袋加的。</p>
+        <p>所以他做的是一个"<strong>你的数据真正属于你</strong>"的知识库:笔记是纯文本、存本地、用 git 管版本、不依赖任何服务器,既给人用得顺手,又天生适合 AI 来读写。停用它你也不损失任何东西。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，按原文结构与顺序、一段不漏；代码块保留原样、专业名词保留英文</p>
+    </header>
+    <div class="module-body">
+
+      <!-- 徽章 + 标题 + 引言 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>(badges: Latest stable · CI · Codecov · CodeScene Hotspot Code Health)
+
+# 💧 Tolaria
+
+Tolaria is a desktop app for macOS, Windows, and Linux for managing **markdown knowledge bases**. People use it for a variety of use cases:
+
+* Operate second brains and personal knowledge
+* Organize company docs as context for AI
+* Store OpenClaw/assistants memory and procedures
+
+Personally, I use it to **run my life** (hey 👋 Luca here). I have a massive workspace of 10,000+ notes, which are the result of my Refactoring work + a ton of personal journaling and *second braining*.
+
+(app screenshot)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>（徽章：最新稳定版 · CI 持续集成 · Codecov 覆盖率 · CodeScene 热点代码健康度）</p>
+          <p><strong>＃ 💧 Tolaria</strong></p>
+          <p>Tolaria 是一个用于 macOS、Windows 和 Linux 的桌面 app，用来管理 <strong>markdown 知识库</strong>。人们把它用在各种场景：</p>
+          <p>· 运营「第二大脑」和个人知识<br>
+          · 把公司文档组织成给 AI 用的上下文（context）<br>
+          · 存放 OpenClaw / 助手的记忆和操作流程</p>
+          <p>就我个人而言，我用它来<strong>运营我的人生</strong>（嘿 👋 我是 Luca）。我有一个庞大的工作区，超过 10,000 条笔记——它们是我做 Refactoring（newsletter）的成果，加上大量个人日志和「第二大脑」式记录的产物。</p>
+          <p>（一张 app 截图）</p>
+        </div>
+      </div>
+
+      <!-- Walkthroughs -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Walkthroughs
+
+You can find some Loom walkthroughs below — they are short and to the point:
+- How I Organize My Own Tolaria Workspace
+- My Inbox Workflow
+- How I Save Web Resources to Tolaria</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Walkthroughs（演示导览）</strong></p>
+          <p>下面有几个 Loom 录屏导览——简短、直奔主题：</p>
+          <p>· 我是怎么组织自己的 Tolaria 工作区的<br>
+          · 我的「收件箱（Inbox）」工作流<br>
+          · 我如何把网上的资源保存到 Tolaria</p>
+        </div>
+      </div>
+
+      <!-- Principles -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Principles
+
+- 📑 **Files-first** — Your notes are plain markdown files. They're portable, work with any editor, and require no export step. Your data belongs to you, not to any app.
+- 🔌 **Git-first** — Every vault is a git repository. You get full version history, the ability to use any git remote, and zero dependency on Tolaria servers.
+- 🛜 **Offline-first, zero lock-in** — No accounts, no subscriptions, no cloud dependencies. Your vault works completely offline and always will. If you stop using Tolaria, you lose nothing.
+- 🔬 **Open source** — Tolaria is free and open source. I built this for myself and for sharing it with others.
+- 📋 **Standards-based** — Notes are markdown files with YAML frontmatter. No proprietary formats, no locked-in data.
+- 🔍 **Types as lenses, not schemas** — Types in Tolaria are navigation aids, not enforcement mechanisms. No required fields, no validation, just helpful categories for finding notes.
+- 🪄 **AI-first but not AI-only** — A vault of files works very well with AI agents, but you are free to use whatever you want. We support Claude Code, Codex CLI, and Gemini CLI setup paths. We provide an AGENTS file for your agents.
+- ⌨️ **Keyboard-first** — Tolaria is designed for power-users who want to use keyboard as much as possible.
+- 💪 **Built from real use** — Tolaria was created to manage my personal vault of 10,000+ notes, and I use it every day. Every feature exists because it solved a real problem.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Principles（设计原则）</strong></p>
+          <p>📑 <strong>Files-first（文件优先）</strong>——你的笔记就是普通的 markdown 文件。它们可移植、能用任何编辑器打开、不需要「导出」这一步。你的数据属于你，而不属于任何 app。</p>
+          <p>🔌 <strong>Git-first（Git 优先）</strong>——每个 vault（知识库）都是一个 git 仓库。你能获得完整的版本历史、可以用任意 git 远程仓库、且完全不依赖 Tolaria 的服务器。</p>
+          <p>🛜 <strong>Offline-first, zero lock-in（离线优先，零锁定）</strong>——没有账号、没有订阅、不依赖云。你的 vault 完全离线可用，并且永远如此。如果你不再用 Tolaria，你不会损失任何东西。</p>
+          <p>🔬 <strong>Open source（开源）</strong>——Tolaria 免费且开源。我为自己而做，也拿来分享给别人。</p>
+          <p>📋 <strong>Standards-based（基于标准）</strong>——笔记是带 YAML frontmatter 的 markdown 文件。没有私有格式、没有被锁住的数据。如果你决定离开 Tolaria，一切都能用标准工具继续使用。</p>
+          <p>🔍 <strong>Types as lenses, not schemas（类型是「镜头」，不是「模式约束」）</strong>——Tolaria 里的「类型」是导航辅助，不是强制机制。没有必填字段、没有校验，只是帮你找笔记的有用分类。</p>
+          <p>🪄 <strong>AI-first but not AI-only（AI 优先，但不唯 AI）</strong>——一个由文件组成的 vault 和 AI agent 配合得非常好，但你也完全自由用任何你想用的东西。我们支持 Claude Code、Codex CLI、Gemini CLI 的配置路径，但你可以用任何 AI 编辑这个 vault。我们提供一个 AGENTS 文件供你的 agent 理解。</p>
+          <p>⌨️ <strong>Keyboard-first（键盘优先）</strong>——Tolaria 是为「尽可能多用键盘」的高级用户设计的。编辑器和命令面板（Command Palette）的很多设计都基于这一点。</p>
+          <p>💪 <strong>Built from real use（源于真实使用）</strong>——Tolaria 是为了管理我个人那个 1 万多条笔记的 vault 而创建的，我每天都用它。每个功能的存在，都是因为它解决了一个真实问题。</p>
+        </div>
+      </div>
+
+      <!-- Installation -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Installation
+
+### Homebrew
+brew install --cask tolaria
+
+### Download from releases
+Download the latest release here for macOS, Windows, or Linux. Windows installers are Authenticode-signed; company-managed devices may still require IT approval of the Tolaria publisher before first install.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Installation（安装）</strong></p>
+          <p><strong>＃＃＃ Homebrew</strong>：在 macOS 上用 Homebrew 安装：<code>brew install --cask tolaria</code>。</p>
+          <p><strong>＃＃＃ 从 releases 下载</strong>：在「latest release」页面下载 macOS、Windows 或 Linux 版本。Windows 安装包做了 Authenticode 签名；由公司统一管理的设备，首次安装前可能仍需 IT 批准 Tolaria 这个发布者。</p>
+        </div>
+      </div>
+
+      <!-- Getting started -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Getting started
+
+When you open Tolaria for the first time you get the chance of cloning the getting started vault — which gives you a walkthrough of the whole app.
+
+The public user docs live in `site/` and are published to GitHub Pages. Start with Install Tolaria, then First Launch.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Getting started（开始使用）</strong></p>
+          <p>第一次打开 Tolaria 时，你会有机会克隆「getting started vault（入门知识库）」——它会带你把整个 app 走一遍。</p>
+          <p>面向用户的公开文档放在 <code>site/</code> 目录，并发布到 GitHub Pages。从「Install Tolaria（安装）」开始，然后是「First Launch（首次启动）」。</p>
+        </div>
+      </div>
+
+      <!-- Open source and local setup -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Open source and local setup
+
+Tolaria is open source and built with Tauri, React, and TypeScript. If you want to run or contribute to the app locally, here is how to get started. You can also find the gist below 👇
+
+### Prerequisites
+- Node.js 20+
+- pnpm 8+
+- Rust stable
+- macOS or Linux for development
+
+#### Linux system dependencies
+Tauri 2 on Linux requires WebKit2GTK 4.1 and GTK 3:
+(Arch / Debian-Ubuntu / Fedora 的 apt/pacman/dnf 安装命令)
+
+The bundled MCP server still spawns the system `node` binary at runtime on Linux, so install Node from your distro package manager if you want the external AI tooling flow.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Open source and local setup（开源与本地搭建）</strong></p>
+          <p>Tolaria 是开源的，用 Tauri、React 和 TypeScript 构建。如果你想在本地运行或为 app 做贡献，这里有上手指南。下面也给了精简版 👇</p>
+          <p><strong>＃＃＃ Prerequisites（前置条件）</strong>：Node.js 20+；pnpm 8+；Rust stable（稳定版）；开发用 macOS 或 Linux。</p>
+          <p><strong>＃＃＃＃ Linux 系统依赖</strong>：Linux 上的 Tauri 2 需要 WebKit2GTK 4.1 和 GTK 3。（原文给了 Arch/Manjaro、Debian/Ubuntu、Fedora 三套系统的安装命令，分别用 pacman/apt/dnf，代码保留原样。）</p>
+          <p>在 Linux 上，内置的 MCP server 在运行时仍会调用系统的 <code>node</code> 二进制文件，所以如果你想用「外部 AI 工具」这条流程，请从你发行版的包管理器安装 Node。</p>
+        </div>
+      </div>
+
+      <!-- Quick start -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Quick start
+pnpm install
+pnpm dev
+
+Open http://localhost:5173 for the browser-based mock mode, or run the native desktop app with:
+pnpm tauri dev</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Quick start（快速开始）</strong></p>
+          <p>运行 <code>pnpm install</code> 安装依赖，再 <code>pnpm dev</code> 启动（代码保留原样）。</p>
+          <p>打开 <code>http://localhost:5173</code> 进入基于浏览器的 mock（模拟）模式；或用 <code>pnpm tauri dev</code> 运行原生桌面 app。</p>
+        </div>
+      </div>
+
+      <!-- Tech Docs / Security / License -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Tech Docs
+- 📐 ARCHITECTURE.md — System design, tech stack, data flow
+- 🧩 ABSTRACTIONS.md — Core abstractions and models
+- 🚀 GETTING-STARTED.md — How to navigate the codebase
+- 📚 ADRs — Architecture Decision Records
+
+## Security
+If you believe you have found a security issue, please report it privately as described in SECURITY.md.
+
+## License
+Tolaria is licensed under AGPL-3.0-or-later. The Tolaria name and logo remain covered by the project's trademark policy.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ Tech Docs（技术文档）</strong></p>
+          <p>📐 ARCHITECTURE.md——系统设计、技术栈、数据流<br>
+          🧩 ABSTRACTIONS.md——核心抽象与模型<br>
+          🚀 GETTING-STARTED.md——如何在代码库里导航<br>
+          📚 ADRs——架构决策记录（Architecture Decision Records）</p>
+          <p><strong>＃＃ Security（安全）</strong></p>
+          <p>如果你认为自己发现了一个安全问题，请按 SECURITY.md 的说明私下报告。</p>
+          <p><strong>＃＃ License（许可协议）</strong></p>
+          <p>Tolaria 采用 AGPL-3.0-or-later 许可。Tolaria 的名称和 logo 仍受项目的商标政策保护。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">和同类方案比，它有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>笔记软件不是新东西(Obsidian、Notion 都在)。Tolaria 的差异不在"又一个笔记 App",而在它把"<strong>数据彻底归你 + 为 AI 时代而生</strong>"这两件事做到了极致——笔记是纯文本、用 git 管、不依赖任何服务器,同时天生最适合让 AI 来读写。它是"后发者",但正因为后发,把这些原则想得更透。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📑</div>
+          <div class="pattern-title">文件优先,零锁定</div>
+          <p class="pattern-desc">笔记就是纯 .md 文本,不存私有格式、不锁云端。想换工具直接拿文件走,什么都不丢。把"数据主权"还给用户,直击笔记软件最大的信任焦虑。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔌</div>
+          <div class="pattern-title">每个知识库都是 git 仓库</div>
+          <p class="pattern-desc">天生带完整版本历史、能用任意 git 远程备份/同步,不依赖它家服务器。把程序员的"版本管理"能力,直接变成普通笔记的底层能力。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🪄</div>
+          <div class="pattern-title">为 AI 而生,但不唯 AI</div>
+          <p class="pattern-desc">一堆纯文本最适合 AI agent 读写——可以当"喂给 AI 的知识库"或"AI 助手的长期记忆"。支持 Claude Code/Codex/Gemini,但你用啥 AI 都行,不绑定。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔍</div>
+          <div class="pattern-title">"类型是镜头,不是枷锁"</div>
+          <p class="pattern-desc">很多工具的"类型/字段"是强制约束,填错就报错。它反过来:类型只是帮你找笔记的视角,没有必填、没有校验。降低记录负担,这点设计哲学很克制。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">💪</div>
+          <div class="pattern-title">"挠自己的痒"做出来的</div>
+          <p class="pattern-desc">作者自己有 1 万多条笔记、每天在用,每个功能都来自真实痛点。这种"自用打磨"出来的产品,往往比"为市场设计"的更顺手、更没废功能。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">它正好能当你的"AI 知识库底座"</div>
+          <p class="inspo-card-desc">你前面想做"把关注的人的内容收集成 md""给团队沉淀资料"。Tolaria 正好是放这些 md 的好地方:本地、git 备份、AI 能直接读写。可以把它当你个人/团队知识库的容器,Agent Reach 抓内容→存进 Tolaria→AI 在里面问答整理,一条线串起来。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">"数据归你、零锁定"是最强的信任卖点</div>
+          <p class="inspo-card-desc">它把"你的数据属于你"当头号原则。你们做返利产品也一样:代理最怕"换平台粉丝/数据带不走"。把"数据可导出、可迁移、归你所有"明确承诺出来,是建立代理信任、降低流失的有力卖点。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">"类型是镜头不是枷锁"的低负担设计</div>
+          <p class="inspo-card-desc">它不强制填字段,只把分类当辅助。你们让代理录入素材/做单信息时也可借鉴:别一上来一堆必填项吓退人,先让他随手记,分类只做"帮你找"的辅助。降低录入门槛=提高使用率。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">"挠自己痒+真实使用"的产品方法论</div>
+          <p class="inspo-card-desc">给独立开发的你:作者先自用 1 万条笔记、每个功能都来自真痛点,才做成产品。最好的小产品往往先解决自己的问题。你做工具时,先问"我自己天天会用吗"。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">"内容创作者→做工具"的个人品牌打法</div>
+          <p class="inspo-card-desc">作者是知名 newsletter 主理人,顺势把"自己的工作方法"做成工具,用已有读者群冷启动。这给做个人品牌的思路:你的方法论/工作流本身,可以沉淀成一个产品,用内容反哺产品。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">它是个现成桌面 App，Mac 上 brew 一行或官网下载就能装，纯用的话零代码</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">免费、本地、不用注册不用订阅；想用 git 同步/AI 读写需要一点学习</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">作为"AI 的知识库底座"很适合；但想拿它源码改造成自己的产品，受 AGPL 协议限制</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要用，大概需要什么</h2>
+        <p>对你来说有两种用法,门槛差很大:<strong>① 当工具直接用</strong>(强烈推荐):装上当你的个人/团队知识库,零代码,Mac 上一行命令装好。配合 AI 助手读写你的笔记,正好接上你之前"收集内容、沉淀资料"的需求。<strong>② 想抄它的代码做自己的产品</strong>:技术上可行(Tauri+React+TS),但要先过协议这关(见下方注意)。</p>
+        <p>成本:工具本身免费、本地跑不花钱。时间上当工具用 10 分钟上手;要发挥"git 同步 + AI 读写"的威力需要一点学习。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意（重要：协议这关）</strong>
+          <p>它用的是 <strong>AGPL-3.0</strong> 协议——这是个"传染性"很强的开源协议。<strong>当工具自己用,完全没问题、免费随便用</strong>。但如果你想拿它的源码改一改、做成自己对外提供的产品(尤其是网络服务),AGPL 会要求你<strong>把你的整个产品代码也开源</strong>。所以"自用"放心用,"基于它的代码搞商业闭源产品"要非常谨慎、最好先咨询。另外它名字和 logo 受商标保护,不能直接拿来用。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">它在整个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">Obsidian</span>
+          <span class="badge-desc">最直接对标。同样本地 markdown，但 Obsidian 闭源、强在双向链接和庞大插件生态。Tolaria 更强在原生 git 集成、AI 友好、开源。你甚至能拿 Tolaria 直接打开已有的 Obsidian 笔记库并行用。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Notion</span>
+          <span class="badge-desc">强在结构化数据库和团队协作，但数据存在它云上、是私有格式。Tolaria 主打"本地、纯文本、归你"，被评测说成"融合了 Obsidian 与 Notion 优点"。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">PM Brain（你之前看过）</span>
+          <span class="badge-desc">思路同源:都是"本地 markdown 文件夹 + AI 读写"的第二大脑。区别是 PM Brain 是给 AI 用的轻量约定，Tolaria 是个有完整界面的桌面 App。可理解为同一理念的不同形态。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Logseq / 各类本地笔记</span>
+          <span class="badge-desc">同属"本地优先、开源"阵营。Tolaria 的差异化卖点是 git-first + AI-first + 后发把体验打磨得更精致。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>在意"数据归自己"的重度笔记用户;想给 AI 配一个本地知识库/长期记忆的人;喜欢键盘操作的效率党;以及做个人知识管理的独立开发者。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>需要多人实时协作、网页端随处可用的团队(那是 Notion 的强项);完全不想碰 git/本地文件、只要开箱即用云笔记的轻度用户。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">接下来你可以做什么</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">直接装来用:Mac 上 brew install --cask tolaria，或去官网下载，先建一个知识库试试</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">看作者的 3 个 Loom 短演示(组织工作区/收件箱工作流/保存网页资源)，最快理解它怎么用</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">把它当"AI 知识库底座":试着让 Claude Code 读写你的 Tolaria 笔记，体会"文件即记忆"</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">和你的"内容收集"项目串起来想:Agent Reach 抓内容 → 存进 Tolaria → AI 在里面整理成日报</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">记住协议红线:自用随意；若想基于它代码做商业产品，先搞清 AGPL 的开源要求</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>
