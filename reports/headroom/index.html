@@ -74,6 +74,15 @@
         <p>想象一下：你每次用 AI agent 干活，它都要把大量的工具输出、日志、文件、RAG 检索结果发给 LLM。这些数据里有很多冗余——但 AI 调用按 token 收费。Headroom 做的事情很直接：<strong>在数据送到 LLM 之前，先给它"瘦身"——压缩掉 60-95% 的 token，但答案质量不变。</strong></p>
         <p>它像一个聪明的"信息过滤器"，架在 AI agent 和 LLM 之间，自动识别内容类型（JSON？代码？文本？），用最合适的方式压缩，不影响 LLM 理解。而且支持五种使用模式——你可以直接写代码调用，也可以一行代码不改，通过代理模式拦截所有请求自动压缩。</p>
       </section>
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用场景</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in"><span class="badge-desc"><strong>给 AI agent 省钱</strong>：跑 AI agent 时把工具输出/日志先压缩 60-95% token，调用成本大降</span></div>
+          <div class="badge-item animate-in"><span class="badge-desc"><strong>RAG / 长文档</strong>：把检索结果、长文档先瘦身再喂给 LLM，省钱又不丢答案质量</span></div>
+          <div class="badge-item animate-in"><span class="badge-desc"><strong>零改造接入</strong>：用代理模式一行代码不改，自动拦截并压缩所有 LLM 请求</span></div>
+        </div>
+      </section>
+
     </div>
   </div>
 </section>
