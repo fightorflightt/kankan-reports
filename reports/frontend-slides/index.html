@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Slides — Kanxia 解读</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">Frontend Slides</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/zarazhangrui/frontend-slides" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">Frontend Slides</h1>
+      <p class="cover-repo">github.com/zarazhangrui/frontend-slides</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">23.1k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">JavaScript</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">MIT</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#用AI做幻灯片</span>
+        <span class="cover-tag">#看图选风格</span>
+        <span class="cover-tag">#零依赖单文件</span>
+        <span class="cover-tag">#Claude Skill</span>
+        <span class="cover-tag">#反AI塑料感</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>一句话：<strong>一个让"不会写代码、也讲不清自己想要什么风格"的人，靠"看图选一选"就能做出一套高级网页幻灯片的 AI 技能。</strong></p>
+        <p>它不是又一个 PPT 模板库。你打开 AI 编程助手（比如 Claude Code），跟它说"我要做一份 AI 创业的融资路演 PPT"，它会先问你内容，然后<strong>当场生成 3 个不同风格的封面让你挑</strong>——你不用懂设计、也不用形容"我想要简约高级风"，看哪张顺眼点哪张，它就照着那个风格把整套幻灯片做出来，最后直接在浏览器里打开。</p>
+        <p>做出来的东西是一个<strong>单独的网页文件</strong>（HTML），不依赖任何软件、不怕版本过期、手机电脑都能开，还能一键发成网址分享、或导成 PDF。作者是 Zara Zhang（<a href="https://github.com/zarazhangrui" target="_blank">@zarazhangrui</a>），项目本身这份介绍页，就是用它自己做出来的。</p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用场景</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>创业者赶融资路演</strong>：手里只有一堆零散想法和数据，没时间也没设计师，让 AI 当晚就出一版不像"模板货"的 pitch deck。</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>要上台做技术/产品分享</strong>：写惯了文档但不会排版，把要讲的要点丢给它，挑个风格就拿到一套能投屏、带动画的演示。</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>救一份丑 PPT</strong>：手上有个老旧的 PowerPoint（.pptx），让它把里面的文字和图片全抽出来，换成一套好看的网页版重做。</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>讲不清自己要什么风格的人</strong>：脑子里没有"想要什么样"，但一看就知道"喜不喜欢"——靠它生成的预览图来回挑，挑出自己的审美。</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">社区评价</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>短时间冲到 23k+ stars</strong>，是近期 Claude Skill（AI 技能插件）里热度最高的项目之一，被多个 Claude 技能聚合站收录。来源：<a href="https://github.com/zarazhangrui/frontend-slides" target="_blank">项目 GitHub 主页</a></span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>通过了 SkillsLLM 的自动安全扫描</strong>（依赖漏洞审计 + prompt 注入风险检测），无高危问题——对"装别人写的 AI 技能"这件事来说是个加分项。来源：<a href="https://skillsllm.com/skill/frontend-slides" target="_blank">SkillsLLM</a></span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc">作者公开复盘了做法：<strong>"让 Claude Code 反复做一个像幻灯片的网站、迭代几十次到满意，再把这套流程沉淀成技能"</strong>——很多人把它当成"怎么把自己的工作流变成 AI 技能"的范例。来源：<a href="https://x.com/zarazhangrui/status/2028152141072994717" target="_blank">作者 X / Twitter</a></span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么一个人愿意花时间反复迭代几十次、把它做成一个技能？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">做幻灯片的人，其实卡在这三件事上</h2>
+        <p><strong>第一，"我知道丑，但我说不出想要什么样的好。"</strong> 大多数人不是设计师，让你形容"我想要的风格"，你只能憋出"高级一点、简约一点、别太花"这种没法落地的词。市面上的 AI 做 PPT 工具偏偏都要你先用文字描述需求——这等于把最难的一步甩回给了不会描述的人。这个项目反过来：<strong>它不问你想要什么，直接做几个样子给你看，你只需要回答"喜欢哪个"。</strong>看图选择，比凭空描述容易一百倍。</p>
+        <p><strong>第二，"AI 做出来的东西，一眼就是 AI 做的。"</strong> 现在用 AI 生成的页面有种通病——紫色渐变、白底、圆角卡片，千篇一律的"科技塑料感"（作者原话叫 <em>AI slop</em>，AI 流水货）。投出去大家一看就知道你是随手生成的，不走心。这个项目专门跟这种"通用感"对着干，内置了一批精心调过的、各有强烈个性的设计风格，就是为了让你的东西看起来像"专门做的"，而不是"批量生成的"。</p>
+        <p><strong>第三，"今天能打开的文件，过两年就打不开了。"</strong> 用各种花哨框架做的东西，往往过一阵子环境一变就跑不起来，沦为技术债。作者的信念很朴素：<strong>一个单独的 HTML 网页文件，十年后照样能打开</strong>——不挑软件、不挑设备、不用安装任何东西，手机点开就能放映。这让"做出来的成果"真正属于你，而不是绑死在某个工具里。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，按原文结构与顺序、一段不漏；代码/命令保留原样，专业名词保留英文</p>
+    </header>
+    <div class="module-body">
+
+      <!-- 标题 + 一句话 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre># Frontend Slides
+
+A coding-agent skill for creating stunning HTML presentations — from scratch or by converting PowerPoint files. It is packaged as a Claude Code plugin, and the core `SKILL.md` can also be read by other coding agents with filesystem and shell access.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃ Frontend Slides</strong></p>
+          <p>一个用于创建惊艳 HTML 演示文稿的 coding-agent（编程智能体）skill（技能）——既能从零开始做，也能由 PowerPoint 文件转换而来。它被打包成一个 Claude Code 插件，而它的核心文件 <code>SKILL.md</code> 也可以被其他拥有文件系统和 shell 访问权限的 coding agent 读取使用。</p>
+        </div>
+      </div>
+
+      <!-- 视频教程 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 📺 Watch the Walkthrough &amp; Tutorial
+
+New here? This beginner-friendly video walks you through the whole thing, start to finish.
+
+[YouTube 视频封面图]
+
+&gt; ▶️ **[Watch on YouTube →](https://www.youtube.com/watch?v=372Iksaz8b0)** (beginner-friendly walkthrough and tutorial)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 📺 观看完整演示与教程</strong></p>
+          <p>新手？这个对新人友好的视频会从头到尾带你走一遍整个流程。</p>
+          <p>（嵌入一张 YouTube 视频封面图，链接到该视频。）</p>
+          <p>＞ ▶️ <strong><a href="https://www.youtube.com/watch?v=372Iksaz8b0" target="_blank">在 YouTube 上观看 →</a></strong>（对新手友好的演示与教程）</p>
+        </div>
+      </div>
+
+      <!-- What This Does -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## What This Does
+
+**Frontend Slides** helps non-designers create beautiful web presentations without knowing CSS or JavaScript. It uses a "show, don't tell" approach: instead of asking you to describe your aesthetic preferences in words, it generates visual previews and lets you pick what you like.
+
+Here is a deck about the skill, made through the skill:
+
+[内嵌演示视频]</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 它能做什么</strong></p>
+          <p><strong>Frontend Slides</strong> 帮助非设计师在不懂 CSS 或 JavaScript 的情况下，创建漂亮的网页演示文稿。它采用一种 "show, don't tell"（"给你看，而不是让你说"）的方式：它不要求你用文字描述你的审美偏好，而是生成视觉预览，让你挑选你喜欢的。</p>
+          <p>下面这份关于本 skill 的演示文稿，本身就是用这个 skill 做出来的：</p>
+          <p>（此处内嵌一段演示视频。）</p>
+        </div>
+      </div>
+
+      <!-- Key Features -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Key Features
+
+- **Zero Dependencies** — Single HTML files with inline CSS/JS. No npm, no build tools, no frameworks.
+- **Visual Style Discovery** — Can't articulate design preferences? No problem. Pick from generated visual previews.
+- **PPT Conversion** — Convert existing PowerPoint files to web, preserving all images and content.
+- **Anti-AI-Slop** — Curated distinctive styles that avoid generic AI aesthetics (bye-bye, purple gradients on white).
+- **Bold Template Pack** — Optional design-forward templates from `beautiful-html-templates`, loaded progressively so safe presets still work as the default fallback.
+- **Production Quality** — Accessible, fixed 16:9, well-commented code you can customize.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ 核心特性</strong></p>
+          <ul>
+            <li><strong>Zero Dependencies（零依赖）</strong> —— 单个 HTML 文件，CSS/JS 都内联其中。不需要 npm、不需要构建工具、不需要框架。</li>
+            <li><strong>Visual Style Discovery（视觉化的风格探索）</strong> —— 讲不清自己的设计偏好？没关系。从生成的视觉预览里挑就行。</li>
+            <li><strong>PPT Conversion（PPT 转换）</strong> —— 把已有的 PowerPoint 文件转换成网页，保留所有图片和内容。</li>
+            <li><strong>Anti-AI-Slop（反"AI 流水货"）</strong> —— 精选的、有辨识度的风格，避开千篇一律的 AI 审美（白底紫渐变，再见了您嘞）。</li>
+            <li><strong>Bold Template Pack（大胆模板包）</strong> —— 来自 <code>beautiful-html-templates</code> 的、可选的设计感更强的模板，按需渐进加载，因此"安全预设"始终能作为默认兜底方案使用。</li>
+            <li><strong>Production Quality（生产级质量）</strong> —— 无障碍可访问、固定 16:9 画幅、注释完善、你可以自行定制的代码。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Installation 标题 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Installation
+
+### Via Claude Code Custom Marketplace Source
+
+Install directly from this public GitHub repo. Run these as two separate Claude Code messages; do not paste both lines into the prompt at once.
+
+```text
+/plugin marketplace add https://github.com/zarazhangrui/frontend-slides
+```
+
+After that finishes, run:
+
+```text
+/plugin install frontend-slides@frontend-slides
+```
+
+Use the HTTPS URL. The shorter `zarazhangrui/frontend-slides` form may make Claude Code try SSH, which can fail if GitHub is not already in your `known_hosts` file.
+
+Then use it by typing `/frontend-slides:frontend-slides` in Claude Code. Claude Code namespaces plugin-installed skills as `/plugin-name:skill-name`.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 安装</strong></p>
+          <p><strong>＃＃＃ 方式一：通过 Claude Code 自定义 Marketplace 源安装</strong></p>
+          <p>直接从这个公开的 GitHub 仓库安装。请把下面两条作为两条独立的 Claude Code 消息分别发送；不要把两行一次性粘进对话框。</p>
+          <pre><code>/plugin marketplace add https://github.com/zarazhangrui/frontend-slides</code></pre>
+          <p>等它执行完，再运行：</p>
+          <pre><code>/plugin install frontend-slides@frontend-slides</code></pre>
+          <p>请使用 HTTPS 网址。更短的 <code>zarazhangrui/frontend-slides</code> 写法可能会让 Claude Code 尝试用 SSH，而如果你的 <code>known_hosts</code> 文件里还没有 GitHub，这会失败。</p>
+          <p>之后在 Claude Code 里输入 <code>/frontend-slides:frontend-slides</code> 即可使用。Claude Code 会把通过插件安装的 skill 命名为 <code>/插件名:技能名</code> 这种带命名空间的形式。</p>
+        </div>
+      </div>
+
+      <!-- Manual Installation -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Claude Code Manual Installation
+
+Copy the skill files to your Claude Code skills directory:
+
+```bash
+# Create the skill directory
+mkdir -p ~/.claude/skills/frontend-slides/scripts
+
+# Copy the user-facing skill files
+cp SKILL.md STYLE_PRESETS.md viewport-base.css html-template.md animation-patterns.md ~/.claude/skills/frontend-slides/
+cp -R bold-template-pack ~/.claude/skills/frontend-slides/
+cp scripts/extract-pptx.py scripts/deploy.sh scripts/export-pdf.sh ~/.claude/skills/frontend-slides/scripts/
+```
+
+Or clone directly:
+
+```bash
+git clone https://github.com/zarazhangrui/frontend-slides.git ~/.claude/skills/frontend-slides
+```
+
+Then use it by typing `/frontend-slides` in Claude Code. Standalone skills are not namespaced.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ 方式二：Claude Code 手动安装</strong></p>
+          <p>把 skill 的文件拷贝到你的 Claude Code 技能目录下：</p>
+          <pre><code># 创建 skill 目录
+mkdir -p ~/.claude/skills/frontend-slides/scripts
+
+# 拷贝面向用户的 skill 文件
+cp SKILL.md STYLE_PRESETS.md viewport-base.css html-template.md animation-patterns.md ~/.claude/skills/frontend-slides/
+cp -R bold-template-pack ~/.claude/skills/frontend-slides/
+cp scripts/extract-pptx.py scripts/deploy.sh scripts/export-pdf.sh ~/.claude/skills/frontend-slides/scripts/</code></pre>
+          <p>或者直接 clone（克隆）下来：</p>
+          <pre><code>git clone https://github.com/zarazhangrui/frontend-slides.git ~/.claude/skills/frontend-slides</code></pre>
+          <p>然后在 Claude Code 里输入 <code>/frontend-slides</code> 使用。独立安装（非插件）的 skill 不带命名空间。</p>
+        </div>
+      </div>
+
+      <!-- Other Coding Agents -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Other Coding Agents
+
+Agents such as Codex, Kimi Code, OpenCode, Gemini CLI, or other local coding assistants can use the same core skill. The simplest path is to send the agent this GitHub repo link and ask it to use the Frontend Slides skill:
+
+```text
+https://github.com/zarazhangrui/frontend-slides
+```
+
+If the agent can read GitHub repos or browse files, it should start from `SKILL.md` and load only the referenced support files it needs:
+
+- `STYLE_PRESETS.md`
+- `viewport-base.css`
+- `html-template.md`
+- `animation-patterns.md`
+- `bold-template-pack/`
+- `scripts/`
+
+Some agents can also install the skill for you if they have filesystem access and a known local skills directory. If not, they can still follow `SKILL.md` directly for the current session.
+
+The Claude Code plugin gives Claude Code a custom marketplace-source install flow and `/frontend-slides:frontend-slides` command. Other agents usually do not use that command surface.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ 其他 coding agent（编程智能体）</strong></p>
+          <p>诸如 Codex、Kimi Code、OpenCode、Gemini CLI，或其他本地编程助手，都可以使用同一套核心 skill。最简单的办法是把这个 GitHub 仓库链接发给该 agent，让它使用 Frontend Slides skill：</p>
+          <pre><code>https://github.com/zarazhangrui/frontend-slides</code></pre>
+          <p>如果该 agent 能读取 GitHub 仓库或浏览文件，它应该从 <code>SKILL.md</code> 开始，并只加载它实际需要的、被引用到的支持文件：</p>
+          <ul>
+            <li><code>STYLE_PRESETS.md</code></li>
+            <li><code>viewport-base.css</code></li>
+            <li><code>html-template.md</code></li>
+            <li><code>animation-patterns.md</code></li>
+            <li><code>bold-template-pack/</code></li>
+            <li><code>scripts/</code></li>
+          </ul>
+          <p>有些 agent 如果拥有文件系统访问权限、并且知道本地的技能目录在哪，也可以帮你把 skill 安装好。如果做不到，它们仍然可以在当前会话里直接照着 <code>SKILL.md</code> 来执行。</p>
+          <p>Claude Code 插件给 Claude Code 提供了一套自定义 marketplace 源的安装流程和 <code>/frontend-slides:frontend-slides</code> 命令。其他 agent 通常用不到这个命令入口。</p>
+        </div>
+      </div>
+
+      <!-- Usage: Create -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Usage
+
+### Create a New Presentation
+
+```text
+/frontend-slides:frontend-slides
+
+> "I want to create a pitch deck for my AI startup"
+```
+
+If installed manually as a standalone Claude Code skill, use `/frontend-slides` instead.
+
+In non-Claude agents, ask the agent to use the Frontend Slides skill and point it at this repo or `SKILL.md`.
+
+The skill will:
+
+1. Ask about your content (slides, messages, images)
+2. Generate 3 visual style previews for you to compare, inferring the vibe from your brief unless you already named one
+3. Let you pick the visual direction
+4. Create the full presentation in your chosen style
+5. Open it in your browser</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 使用方法</strong></p>
+          <p><strong>＃＃＃ 创建一份新的演示文稿</strong></p>
+          <pre><code>/frontend-slides:frontend-slides
+
+> "我想为我的 AI 创业公司做一份 pitch deck（融资路演 PPT）"</code></pre>
+          <p>如果你是作为独立 Claude Code skill 手动安装的，请改用 <code>/frontend-slides</code>。</p>
+          <p>在非 Claude 的 agent 里，让该 agent 使用 Frontend Slides skill，并把它指向这个仓库或 <code>SKILL.md</code>。</p>
+          <p>这个 skill 会：</p>
+          <ol>
+            <li>询问你的内容（有哪些幻灯片、要传达的信息、图片）</li>
+            <li>生成 3 个视觉风格预览供你比较——除非你已经指定了某种风格，否则它会从你的简要描述里推断出"调性（vibe）"</li>
+            <li>让你挑选视觉方向</li>
+            <li>用你选中的风格创建完整的演示文稿</li>
+            <li>在你的浏览器里打开它</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Usage: Convert -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Convert a PowerPoint
+
+```text
+/frontend-slides:frontend-slides
+
+> "Convert my presentation.pptx to a web slideshow"
+```
+
+The skill will:
+
+1. Extract all text, images, and notes from your PPT
+2. Show you the extracted content for confirmation
+3. Let you pick a visual style
+4. Generate an HTML presentation with all your original assets</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ 转换一个 PowerPoint</strong></p>
+          <pre><code>/frontend-slides:frontend-slides
+
+> "把我的 presentation.pptx 转成一个网页幻灯片"</code></pre>
+          <p>这个 skill 会：</p>
+          <ol>
+            <li>从你的 PPT 里提取出所有文字、图片和备注（notes）</li>
+            <li>把提取出来的内容展示给你确认</li>
+            <li>让你挑选一种视觉风格</li>
+            <li>生成一份带有你全部原始素材的 HTML 演示文稿</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Included Styles -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Included Styles
+
+### Dark Themes
+
+- **Bold Signal** — Confident, high-impact, vibrant card on dark
+- **Electric Studio** — Clean, professional, split-panel
+- **Creative Voltage** — Energetic, retro-modern, electric blue + neon
+- **Dark Botanical** — Elegant, sophisticated, warm accents
+
+### Light Themes
+
+- **Notebook Tabs** — Editorial, organized, paper with colorful tabs
+- **Pastel Geometry** — Friendly, approachable, vertical pills
+- **Split Pastel** — Playful, modern, two-color vertical split
+- **Vintage Editorial** — Witty, personality-driven, geometric shapes
+
+### Specialty
+
+- **Neon Cyber** — Futuristic, particle backgrounds, neon glow
+- **Terminal Green** — Developer-focused, hacker aesthetic
+- **Swiss Modern** — Minimal, Bauhaus-inspired, geometric
+- **Paper & Ink** — Literary, drop caps, pull quotes</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 内置风格</strong></p>
+          <p><strong>＃＃＃ 暗色主题（Dark Themes）</strong></p>
+          <ul>
+            <li><strong>Bold Signal</strong> —— 自信、高冲击力，暗底上的鲜艳卡片</li>
+            <li><strong>Electric Studio</strong> —— 干净、专业，左右分栏</li>
+            <li><strong>Creative Voltage</strong> —— 充满能量、复古又现代，电光蓝 + 霓虹</li>
+            <li><strong>Dark Botanical</strong> —— 优雅、精致，暖色点缀</li>
+          </ul>
+          <p><strong>＃＃＃ 亮色主题（Light Themes）</strong></p>
+          <ul>
+            <li><strong>Notebook Tabs</strong> —— 编辑设计感、井井有条，纸张配彩色标签页</li>
+            <li><strong>Pastel Geometry</strong> —— 友好、亲和，竖向胶囊形</li>
+            <li><strong>Split Pastel</strong> —— 俏皮、现代，双色竖向分割</li>
+            <li><strong>Vintage Editorial</strong> —— 机智、个性鲜明，几何形状</li>
+          </ul>
+          <p><strong>＃＃＃ 特色风格（Specialty）</strong></p>
+          <ul>
+            <li><strong>Neon Cyber</strong> —— 未来感、粒子背景、霓虹辉光</li>
+            <li><strong>Terminal Green</strong> —— 面向开发者、黑客美学</li>
+            <li><strong>Swiss Modern</strong> —— 极简、包豪斯风、几何化</li>
+            <li><strong>Paper &amp; Ink</strong> —— 文学气质，首字下沉（drop caps）、引文摘录（pull quotes）</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bold Template Pack 说明 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Bold Template Pack
+
+The skill also includes 34 optional bold design systems from `beautiful-html-templates`, such as **Neo-Grid Bold**, **Editorial Tri-Tone**, **Creative Mode**, **Broadside**, **Signal**, and **Vellum**.
+
+During style discovery, the preview set is:
+
+- 1 safe preset from `STYLE_PRESETS.md`
+- at least 1 bold template option from `bold-template-pack/selection-index.json`
+- 1 wildcard option, either another bold template or a self-generated custom design
+
+The agent reads the compact bold template index first, then loads only the shortlisted candidates' small `preview.md` cards for title-slide previews. It loads the full `design.md` for exactly one bold template only after the user picks that template for the final deck. If the user picks a custom wildcard, the agent expands that preview's own CSS and layout system into the full deck.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Bold Template Pack（大胆模板包）</strong></p>
+          <p>这个 skill 还包含来自 <code>beautiful-html-templates</code> 的 34 个可选的"大胆"设计系统，例如 <strong>Neo-Grid Bold</strong>、<strong>Editorial Tri-Tone</strong>、<strong>Creative Mode</strong>、<strong>Broadside</strong>、<strong>Signal</strong> 和 <strong>Vellum</strong>。</p>
+          <p>在风格探索阶段，给你的预览组合是：</p>
+          <ul>
+            <li>来自 <code>STYLE_PRESETS.md</code> 的 1 个"安全预设"</li>
+            <li>来自 <code>bold-template-pack/selection-index.json</code> 的至少 1 个"大胆模板"选项</li>
+            <li>1 个"百搭/不按套路（wildcard）"选项，要么是另一个大胆模板，要么是它自己生成的定制设计</li>
+          </ul>
+          <p>这个 agent 会先读取那份紧凑的"大胆模板索引"，然后只为入围的候选项加载它们小小的 <code>preview.md</code> 卡片，用来做标题页（title-slide）预览。只有在用户为最终成稿选定了某个大胆模板之后，它才会去加载那一个模板完整的 <code>design.md</code>。如果用户选的是自定义的 wildcard，agent 就会把那个预览自带的 CSS 和排版系统扩展成完整的演示稿。</p>
+        </div>
+      </div>
+
+      <!-- Bold Template Gallery 引言 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Bold Template Gallery
+
+Frontend Slides can now draw from the 34 bold design systems in [`beautiful-html-templates`](https://github.com/zarazhangrui/beautiful-html-templates). Three screenshots per template show how each visual system handles different slide layouts. Click any template name to inspect the source template library.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 大胆模板画廊（Bold Template Gallery）</strong></p>
+          <p>Frontend Slides 现在可以从 <a href="https://github.com/zarazhangrui/beautiful-html-templates" target="_blank"><code>beautiful-html-templates</code></a> 里的 34 个大胆设计系统中取材。每个模板配 3 张截图，展示该视觉系统如何处理不同的幻灯片版式。点击任意模板名称即可查看其源模板库。</p>
+          <p>（下面是 34 个模板逐一列出，每个附 3 张幻灯片截图和一句风格说明。为忠实于原文，以下完整保留每个模板的名称与那句风格描述。）</p>
+        </div>
+      </div>
+
+      <!-- Gallery 34 模板 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文（模板名 + 一句风格描述）</span>
+          <pre>Soft Editorial — Cormorant Garamond serif on warm paper with sage, blush, and lemon accents.
+
+Editorial Forest — Forest green, dusty pink, and warm cream in Source Serif 4 — quiet, intentional quarterly-review aesthetic.
+
+Pin & Paper — Yellow paper with safety-pin illustrations, ink-blue handwritten Caveat, paper-grain texture.
+
+Sakura Chroma — Vintage Japanese cassette-package aesthetic: cream paper, diagonal rainbow ribbons, condensed bold type, JIS-style spec checkboxes.
+
+Stencil & Tablet — Bone paper with stencil-cut headlines and a six-color earth palette: archaeology meets brand.
+
+Cobalt Grid — Electric cobalt italic serifs on a graph-paper canvas, anchored by stair-stepped pixel-glitch decorations and slim hairline rules.
+
+Vellum — Deep navy canvas with warm-yellow italic Cormorant serifs and a single dusty teal accent. A quiet, scholarly aesthetic.
+
+Emerald Editorial — Magazine-cover business deck: emerald + navy + paper with double-rule masthead ornaments and a heavy Bodoni-style display serif.
+
+Neo-Grid Bold — Editorial neo-brutalism with a single neon yellow accent on off-white paper.
+
+Editorial Tri-Tone — Three-color editorial system: dusty pink, mustard cream, and deep burgundy, set in Bricolage + Instrument Serif.
+
+Creative Mode — Cream paper canvas with confident multi-color (green, pink, orange, yellow) accents and Archivo Black display.
+
+Monochrome — Ivory ledger paper with all-black type; Lora serif headlines, Jost body, no color at all.
+
+People's Platform (Block & Bold) — Activist poster energy: blue, orange, red on cream, with Alfa Slab + Caveat Brush.
+
+Pink Script — After Hours — Black canvas, hot pink accent, pearl-cream paper, Instrument Serif headlines: late-night editorial luxury.
+
+8-Bit Orbit — Pixel-art neon arcade aesthetic on a deep navy void.
+
+BlockFrame — Neobrutalist deck with pastel-neon color blocks and chunky black borders.
+
+Blue Professional — Cream paper background with electric cobalt blue accents; clean modern professional.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文（前 17 个）</span>
+          <ul>
+            <li><strong>Soft Editorial</strong> —— 暖色纸张上的 Cormorant Garamond 衬线字，配鼠尾草绿、腮红粉和柠檬黄点缀。</li>
+            <li><strong>Editorial Forest</strong> —— 森林绿、灰玫粉、暖奶油色，用 Source Serif 4 排版——安静、克制的"季度复盘"美学。</li>
+            <li><strong>Pin &amp; Paper</strong> —— 黄色纸张配安全别针插画、墨蓝色手写体 Caveat、纸纹质感。</li>
+            <li><strong>Sakura Chroma</strong> —— 复古日式磁带包装美学：奶油纸、斜向彩虹色带、紧凑粗体字、JIS 风格的规格勾选框。</li>
+            <li><strong>Stencil &amp; Tablet</strong> —— 骨白色纸张配镂空模板（stencil）切割的标题和六色大地色调：考古学遇见品牌设计。</li>
+            <li><strong>Cobalt Grid</strong> —— 方格纸画布上的电光钴蓝斜体衬线字，以阶梯状像素故障装饰和纤细发丝线收束。</li>
+            <li><strong>Vellum</strong> —— 深藏青画布配暖黄色 Cormorant 斜体衬线字和一抹灰蓝绿点缀。安静、学者气质的美学。</li>
+            <li><strong>Emerald Editorial</strong> —— 杂志封面式商务演示稿：祖母绿 + 藏青 + 纸张，配双线刊头装饰和厚重的 Bodoni 风格展示衬线字。</li>
+            <li><strong>Neo-Grid Bold</strong> —— 编辑式新粗野主义（neo-brutalism），灰白纸上一抹霓虹黄点缀。</li>
+            <li><strong>Editorial Tri-Tone</strong> —— 三色编辑系统：灰玫粉、芥末奶油、深酒红，用 Bricolage + Instrument Serif 排版。</li>
+            <li><strong>Creative Mode</strong> —— 奶油纸画布配自信的多色（绿、粉、橙、黄）点缀和 Archivo Black 展示字体。</li>
+            <li><strong>Monochrome</strong> —— 象牙色账本纸配纯黑字；Lora 衬线标题、Jost 正文，完全不用颜色。</li>
+            <li><strong>People's Platform（Block &amp; Bold）</strong> —— 行动主义海报的能量：奶油底上的蓝、橙、红，配 Alfa Slab + Caveat Brush。</li>
+            <li><strong>Pink Script — After Hours</strong> —— 黑色画布、亮粉点缀、珍珠奶油纸、Instrument Serif 标题：深夜编辑式奢华感。</li>
+            <li><strong>8-Bit Orbit</strong> —— 深藏青虚空之上的像素艺术霓虹街机美学。</li>
+            <li><strong>BlockFrame</strong> —— 新粗野主义演示稿，配粉彩霓虹色块和粗壮黑边框。</li>
+            <li><strong>Blue Professional</strong> —— 奶油纸背景配电光钴蓝点缀；干净、现代、专业。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Gallery 后 17 个 -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文（模板名 + 一句风格描述，续）</span>
+          <pre>Bold Poster — Editorial poster aesthetic with massive Shrikhand display and a single fire-engine red accent.
+
+Broadside — Dark editorial canvas with a single fire orange accent and bilingual Latin/Chinese type stack.
+
+Capsule — Modular pill-shaped cards on warm bone with a full pastel-pop palette.
+
+Cartesian — Quiet warm-neutral palette with classical Playfair serifs; tasteful and unhurried.
+
+Coral — Cream and coral on near-black, set in oversized Bebas Neue.
+
+Daisy Days — Cheerful pastel deck with hand-drawn daisies, stars, and rainbows. Friendly, soft, and warm.
+
+Grove — Forest-green canvas with cream type, classical Playfair serifs, and a single rust accent.
+
+Mat — Dark sage canvas with bone paper and burnt-orange accent; mid-century modern with wood undertones.
+
+Playful — Sun-warm peach background with Syne display: a friendly indie launch deck.
+
+Raw Grid — Neo-brutalist deck with thick borders, offset shadows, and a pink/sage/ink palette.
+
+Retro Windows — Windows 95 chrome: gray title bars, MS Sans Serif, pixel typography, full nostalgia.
+
+Retro Zine — Beige paper with green accent and Bebas Neue + Caveat: a riso-printed zine in HTML form.
+
+Scatterbrain — Post-it inspired: pastel sticky notes, Caveat handwriting, Shrikhand and Zilla Slab type stack.
+
+Signal — Deep navy canvas with bone paper and a single muted-gold accent; institutional with quiet weight.
+
+Studio — Black canvas with electric-yellow type; high-voltage design studio aesthetic.
+
+Biennale Yellow — Solar yellow on warm parchment with deep indigo serif and atmospheric sun-glow gradients. Dutch-editorial poster energy.
+
+Long Table — Warm cream and rust-red supper-club aesthetic with bold uppercase grotesk headlines, italic Fraunces, and pill-shaped outlined buttons.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文（后 17 个）</span>
+          <ul>
+            <li><strong>Bold Poster</strong> —— 编辑式海报美学，配巨大的 Shrikhand 展示字和一抹消防车红点缀。</li>
+            <li><strong>Broadside</strong> —— 暗色编辑画布，一抹火橙点缀，拉丁文/中文双语字体混排。</li>
+            <li><strong>Capsule</strong> —— 暖骨白底上的模块化胶囊形卡片，配一整套粉彩流行色。</li>
+            <li><strong>Cartesian</strong> —— 安静的暖中性色调配经典 Playfair 衬线字；有品位、不慌不忙。</li>
+            <li><strong>Coral</strong> —— 近黑底上的奶油色与珊瑚色，用超大号 Bebas Neue 排版。</li>
+            <li><strong>Daisy Days</strong> —— 欢快的粉彩演示稿，配手绘雏菊、星星和彩虹。友好、柔软、温暖。</li>
+            <li><strong>Grove</strong> —— 森林绿画布配奶油色字、经典 Playfair 衬线字和一抹铁锈色点缀。</li>
+            <li><strong>Mat</strong> —— 深鼠尾草绿画布配骨白纸和焦橙点缀；带木质底色的中世纪现代风。</li>
+            <li><strong>Playful</strong> —— 阳光般温暖的桃色背景配 Syne 展示字：一份友好的独立产品发布演示稿。</li>
+            <li><strong>Raw Grid</strong> —— 新粗野主义演示稿，配粗边框、偏移投影和粉/鼠尾草绿/墨色配色。</li>
+            <li><strong>Retro Windows</strong> —— Windows 95 的界面外观：灰色标题栏、MS Sans Serif 字体、像素排版，满满怀旧感。</li>
+            <li><strong>Retro Zine</strong> —— 米色纸张配绿色点缀和 Bebas Neue + Caveat：HTML 形态的"孔版印刷（riso）独立小刊"。</li>
+            <li><strong>Scatterbrain</strong> —— 便利贴风格：粉彩便签、Caveat 手写体、Shrikhand 和 Zilla Slab 混排。</li>
+            <li><strong>Signal</strong> —— 深藏青画布配骨白纸和一抹柔和金色点缀；机构气质、安静而有分量。</li>
+            <li><strong>Studio</strong> —— 黑色画布配电光黄字；高电压的设计工作室美学。</li>
+            <li><strong>Biennale Yellow</strong> —— 暖羊皮纸上的太阳黄配深靛蓝衬线字和富有氛围感的阳光辉光渐变。荷兰编辑式海报的能量。</li>
+            <li><strong>Long Table</strong> —— 暖奶油色与铁锈红的"晚餐俱乐部"美学，配粗体大写无衬线标题、Fraunces 斜体和胶囊形描边按钮。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Architecture -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Architecture
+
+This skill uses **progressive disclosure** — the main `SKILL.md` is a workflow map, with supporting files loaded on-demand only when needed:
+
+| File | Purpose | Loaded When |
+| ---- | ------- | ----------- |
+| `SKILL.md` | Core workflow and rules | Always (skill invocation) |
+| `STYLE_PRESETS.md` | 12 curated visual presets | Phase 2 (style selection) |
+| `bold-template-pack/selection-index.json` | Compact bold template metadata for candidate selection | Phase 2 (style selection) |
+| `bold-template-pack/templates/*/preview.md` | Tiny style cards for shortlisted bold previews | Phase 2 after shortlisting |
+| `bold-template-pack/templates/*/design.md` | Full design system for the selected bold template | Phase 3 after user selection |
+| `viewport-base.css` | Mandatory fixed-stage CSS | Phase 3 (generation) |
+| `html-template.md` | HTML structure and JS features | Phase 3 (generation) |
+| `animation-patterns.md` | CSS/JS animation reference | Phase 3 (generation) |
+| `scripts/extract-pptx.py` | PPT content extraction | Phase 4 (conversion) |
+| `scripts/deploy.sh` | Deploy to Vercel | Phase 6 (sharing) |
+| `scripts/export-pdf.sh` | Export slides to PDF | Phase 6 (sharing) |
+
+Maintenance-only source metadata and regeneration helpers live outside the user-facing skill package. Normal users do not need them.
+
+This design follows agent-skill best practices: give the agent a map first, then reveal only the specific files needed for the current choice.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 架构（Architecture）</strong></p>
+          <p>这个 skill 采用 <strong>progressive disclosure（渐进式披露）</strong>——主文件 <code>SKILL.md</code> 是一张"工作流地图"，其余支持文件只在需要时才按需加载：</p>
+          <ul>
+            <li><code>SKILL.md</code>｜核心工作流与规则｜始终加载（一调用 skill 就加载）</li>
+            <li><code>STYLE_PRESETS.md</code>｜12 个精选视觉预设｜第 2 阶段（选风格）</li>
+            <li><code>bold-template-pack/selection-index.json</code>｜用于挑候选项的紧凑大胆模板元数据｜第 2 阶段（选风格）</li>
+            <li><code>bold-template-pack/templates/*/preview.md</code>｜入围大胆预览的迷你风格卡片｜第 2 阶段，入围之后</li>
+            <li><code>bold-template-pack/templates/*/design.md</code>｜选中那个大胆模板的完整设计系统｜第 3 阶段，用户选定之后</li>
+            <li><code>viewport-base.css</code>｜强制使用的固定舞台（fixed-stage）CSS｜第 3 阶段（生成）</li>
+            <li><code>html-template.md</code>｜HTML 结构与 JS 功能｜第 3 阶段（生成）</li>
+            <li><code>animation-patterns.md</code>｜CSS/JS 动画参考｜第 3 阶段（生成）</li>
+            <li><code>scripts/extract-pptx.py</code>｜PPT 内容提取｜第 4 阶段（转换）</li>
+            <li><code>scripts/deploy.sh</code>｜部署到 Vercel｜第 6 阶段（分享）</li>
+            <li><code>scripts/export-pdf.sh</code>｜把幻灯片导出为 PDF｜第 6 阶段（分享）</li>
+          </ul>
+          <p>仅供维护用的源数据（metadata）和重新生成的辅助工具放在面向用户的 skill 包之外。普通用户用不到它们。</p>
+          <p>这个设计遵循 agent-skill（智能体技能）的最佳实践：先给 agent 一张地图，然后只为当前的选择揭示那些真正需要的具体文件。</p>
+        </div>
+      </div>
+
+      <!-- Philosophy -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Philosophy
+
+This skill was born from the belief that:
+
+1. **You don't need to be a designer to make beautiful things.** You just need to react to what you see.
+
+2. **Dependencies are debt.** A single HTML file will work in 10 years. A React project from 2019? Good luck.
+
+3. **Generic is forgettable.** Every presentation should feel custom-crafted, not template-generated.
+
+4. **Comments are kindness.** Code should explain itself to future-you (or anyone else who opens it).</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 理念（Philosophy）</strong></p>
+          <p>这个 skill 诞生于以下这些信念：</p>
+          <ol>
+            <li><strong>你不需要是个设计师才能做出漂亮的东西。</strong> 你只需要对你看到的东西做出反应。</li>
+            <li><strong>依赖即债务（Dependencies are debt）。</strong> 一个单独的 HTML 文件十年后还能用。而一个 2019 年的 React 项目？祝你好运。</li>
+            <li><strong>通用 = 易被遗忘（Generic is forgettable）。</strong> 每一份演示文稿都应该让人感觉是量身定制的，而不是模板生成的。</li>
+            <li><strong>注释是一种善意（Comments are kindness）。</strong> 代码应该向"未来的你"（或任何打开它的人）解释清楚自己。</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Sharing -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Sharing Your Presentations
+
+After creating a presentation, the skill offers two ways to share it:
+
+### Deploy to a Live URL
+
+One command deploys your slides to a permanent, shareable URL that works on any device — phones, tablets, laptops:
+
+```bash
+bash scripts/deploy.sh ./my-deck/
+# or
+bash scripts/deploy.sh ./presentation.html
+```
+
+Uses [Vercel](https://vercel.com) (free tier). The skill walks you through signup and login if it's your first time.
+
+### Export to PDF
+
+Convert your slides to a PDF for email, Slack, Notion, or printing:
+
+```bash
+bash scripts/export-pdf.sh ./my-deck/index.html
+bash scripts/export-pdf.sh ./presentation.html ./output.pdf
+```
+
+Uses [Playwright](https://playwright.dev) to screenshot each slide at 1920×1080 and combine into a PDF. Installs automatically if needed. Animations are not preserved (it's a static snapshot).</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 分享你的演示文稿</strong></p>
+          <p>创建好演示文稿之后，这个 skill 提供两种分享方式：</p>
+          <p><strong>＃＃＃ 部署成一个在线网址（Live URL）</strong></p>
+          <p>一条命令就能把你的幻灯片部署到一个永久的、可分享的网址，任何设备都能打开——手机、平板、笔记本：</p>
+          <pre><code>bash scripts/deploy.sh ./my-deck/
+# 或者
+bash scripts/deploy.sh ./presentation.html</code></pre>
+          <p>它使用 <a href="https://vercel.com" target="_blank">Vercel</a>（免费档）。如果是你第一次用，这个 skill 会一步步带你注册和登录。</p>
+          <p><strong>＃＃＃ 导出为 PDF</strong></p>
+          <p>把你的幻灯片转成 PDF，方便用邮件、Slack、Notion 发送或打印：</p>
+          <pre><code>bash scripts/export-pdf.sh ./my-deck/index.html
+bash scripts/export-pdf.sh ./presentation.html ./output.pdf</code></pre>
+          <p>它使用 <a href="https://playwright.dev" target="_blank">Playwright</a> 把每一页幻灯片以 1920×1080 截图，再合并成一个 PDF。需要的话会自动安装。动画不会被保留（这是一张静态快照）。</p>
+        </div>
+      </div>
+
+      <!-- Requirements -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Requirements
+
+- A local coding agent with filesystem access and the ability to run shell commands
+- Claude Code is required only for the custom marketplace-source install and `/frontend-slides:frontend-slides` command
+- For PPT conversion: Python with `python-pptx` library
+- For URL deployment: Node.js + Vercel account (free)
+- For PDF export: Node.js (Playwright installs automatically)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 运行要求（Requirements）</strong></p>
+          <ul>
+            <li>一个本地的 coding agent，具备文件系统访问权限、并能运行 shell 命令</li>
+            <li>只有"自定义 marketplace 源安装"和 <code>/frontend-slides:frontend-slides</code> 命令才需要用到 Claude Code</li>
+            <li>PPT 转换：需要装了 <code>python-pptx</code> 库的 Python</li>
+            <li>网址部署：Node.js + 一个 Vercel 账号（免费）</li>
+            <li>PDF 导出：Node.js（Playwright 会自动安装）</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Credits + License -->
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Credits
+
+Created by [@zarazhangrui](https://github.com/zarazhangrui).
+
+## License
+
+MIT — Use it, modify it, share it.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 致谢（Credits）</strong></p>
+          <p>由 <a href="https://github.com/zarazhangrui" target="_blank">@zarazhangrui</a> 创建。</p>
+          <p><strong>＃＃ 许可协议（License）</strong></p>
+          <p>MIT —— 随便用、随便改、随便分享。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">和别的"AI 做 PPT"工具比，它真正不一样的地方在哪</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>市面上"AI 生成 PPT"的工具一大把，但它们大多是"你描述需求 → AI 套模板填内容"。Frontend Slides 的不同，不在于"AI 会做 PPT"这件事，而在于它<strong>重新设计了"人和 AI 一起定风格"的交互方式</strong>，以及它对"成果应该是什么形态"的坚持。下面几点是它真正的创新。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">👁️</div>
+          <div class="pattern-title">把"描述风格"换成"看图选择"</div>
+          <p class="pattern-desc">这是它最核心的产品洞察。它不再逼你说清"我想要什么风格"（这恰恰是普通人做不到的），而是当场做 3 张不同风格的封面让你挑。对应到你熟悉的语言：这是把一个"开放式问答"改成了"选择题"——决策门槛瞬间降到地板。做单时给运营选商品图风格、给用户选样式，这套"少说、多给样子挑"的思路完全可以借鉴。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🧩</div>
+          <div class="pattern-title">"渐进式披露"：先给地图，再按需翻页</div>
+          <p class="pattern-desc">它没有把所有模板、规则、动画代码一股脑塞给 AI，而是让 AI 先看一张"流程地图"，只有当你选了某个风格，才去加载那一个风格的完整细节。好处是 AI 不会被海量信息淹没、出错率更低、反应更快。这是"少即是多"在 AI 工具设计上的体现，也是为什么它能稳定产出而不跑偏。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🚫</div>
+          <div class="pattern-title">把"反 AI 塑料感"做成产品卖点</div>
+          <p class="pattern-desc">大多数 AI 工具追求"能用就行"，它却专门跟"一眼假的 AI 通用感"较劲——内置 12 个精选预设 + 34 个个性强烈的模板，每个都有独立审美。它把"高级感/不像批量货"本身当成了核心价值。对靠内容和视觉抓人的私域运营来说，这种"反流水货"的取向特别有共鸣。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📦</div>
+          <div class="pattern-title">成果是"一个能传十年的单文件"</div>
+          <p class="pattern-desc">它坚持产出单个 HTML 网页文件，不绑定任何软件、不依赖任何在线服务。这意味着你的成果是真正"拿在自己手里"的资产：发微信、发网址、导 PDF、十年后再打开都行。这跟那些"做完只能锁在某个 App 里"的工具是根本性的区别。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🛠️</div>
+          <div class="pattern-title">它本身就是"把工作流变成技能"的范例</div>
+          <p class="pattern-desc">作者公开讲过做法：先让 AI 反复打磨一个像幻灯片的网页、迭代几十次到满意，再把这套"什么算好幻灯片"的经验和流程，固化成一个可复用的 skill。这其实给了所有人一个模板——你自己反复在做的某件事，也可以这样"沉淀成一个 AI 技能"，下次一键复用。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目，我想到的几个能用在咱们产品/运营上的点子——不一定要用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">做单"选风格"也改成看图挑，别让运营描述</div>
+          <p class="inspo-card-desc">运营做商品图时，最难的就是"这次想要什么调性"说不清。可以借它的思路：在做单工具里预置几套商品图模板风格（喜庆促销、简约高级、母婴温馨…），运营只需点封面挑一个，系统就把这套风格套到当前商品上。把"开放式审美决策"变成"三选一"，新手运营也能出稳定好看的图。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">用它给代理/运营做"招商培训"演示稿</div>
+          <p class="inspo-card-desc">咱们经常要给新代理讲"怎么做单、怎么赚佣金"。与其发一堆文字，不如用这个 skill 快速生成一份好看的网页版讲解稿，发个网址链接到微信群，手机点开就能划。比 PPT 更轻、比文档更好看，还能随时改完重发。低成本、立刻能试。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">"把反复做的事沉淀成一个技能"——值得我们自己干</div>
+          <p class="inspo-card-desc">这个项目最大的启发其实是方法论：作者把"我反复在做的一件事"固化成了一键可复用的 AI 技能。咱们运营里有很多重复动作（写群文案、做下单步骤图）。可以挑一个最高频的，照这个套路沉淀成内部小工具，让全团队一键复用、质量统一。这跟你已经在做的 /kanxia、凑价引导这类"自己造工具"的路子是一脉相承的。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">"成果是个能传的单文件网址"这件事本身很香</div>
+          <p class="inspo-card-desc">它产出的不是锁在 App 里的东西，而是一个能直接发微信、手机秒开的网址。咱们很多要发给用户/代理的东西（活动说明、爆品榜单、玩法介绍）都可以走这条路：做成轻量网页，一个链接甩群里，比图片清晰、比长文好看、还能随时更新内容而链接不变。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">"反流水货"是私域内容的隐形竞争力</div>
+          <p class="inspo-card-desc">它把"别让人一眼看出是 AI 批量生成的"当成核心价值。私域运营同理：群里千篇一律的模板图会让用户疲劳、信任感下降。值得我们在做单素材上刻意追求一点"专属感、用心感"——哪怕只是换几套有辨识度的视觉模板轮着用，也比天天同一个套路更抓人。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的产品经理，能不能直接把它用起来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">装好之后纯靠"对话 + 看图挑"就能用，全程不用写代码。门槛真正卡在"第一次安装"那一步。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">需要先有一个 AI 编程助手（推荐 Claude Code）。基础做幻灯片够用；想"导 PDF/发网址"还要装 Node.js、注册 Vercel；想转 PPT 还要 Python 环境。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">极高。它天生就是为"跟 AI 对话把事办了"设计的——你只管说内容、挑风格，剩下全交给 AI，正是你最舒服的协作方式。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要用，大概需要什么</h2>
+        <p><strong>时间</strong>：第一次把环境装好（Claude Code + 这个插件）大概半小时到一小时；之后做一份幻灯片，从开口到出成品，十几分钟级别。</p>
+        <p><strong>钱</strong>：工具本身免费（MIT 协议，随便用）。真正的成本是你用的那个 AI 助手的订阅费/调用费。部署网址用的 Vercel 有免费档，导 PDF 也免费。</p>
+        <p><strong>前置知识</strong>：核心使用不需要任何代码知识。唯一会卡住非技术用户的，是"安装"那一关——要在电脑上装 Claude Code、跑两条命令。这一步建议拉一个懂技术的人帮你配一次，配好之后你自己用完全没问题。</p>
+        <p><strong>人</strong>：你一个人就能用起来，不需要开发团队。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意几个隐性成本/坑</strong>
+          <p>① <strong>它不是一个 App、也不是网站，没有图形界面</strong>——你得通过命令行工具（Claude Code 这类）来用，对纯产品/运营同学，第一次接触会有点劝退，建议找人带一次。<br><br>② <strong>它做的是"网页式幻灯片"，不是真正的 .pptx 文件</strong>。如果对方非要可编辑的 PowerPoint 源文件，它给不了（只能导出静态 PDF，且导出后动画会丢失）。<br><br>③ <strong>"转 PPT"功能对环境要求更高</strong>（要 Python 环境），比"从零做"更容易卡住。<br><br>④ <strong>装的是别人写的 AI 技能</strong>，本质是让 AI 按一份脚本在你电脑上跑命令。虽然它通过了第三方安全扫描，但养成习惯：来路不明的 skill 别乱装。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">"用代码/AI 做演示"这条赛道上，它处在什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">Gamma / 闪击 PPT 等 AI PPT 工具</span>
+          <span class="badge-desc">最直接的竞品方向：在线网站，输入主题就生成 PPT，有图形界面、上手最简单。但本质是"套模板"，做出来的东西更容易"撞脸"，且成果绑在它们平台里。Frontend Slides 反过来——更个性化、成果是你自己的单文件，但门槛高（要会用命令行 AI 助手）。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Slidev · 30k+ stars</span>
+          <span class="badge-desc">面向程序员的"用 Markdown 写 PPT"框架。功能强、生态成熟，但要自己写代码和配置，纯小白用不了。Frontend Slides 把"写"换成了"跟 AI 说 + 看图挑"，对非技术用户友好得多。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">reveal.js · 67k+ stars</span>
+          <span class="badge-desc">元老级的"纯网页做幻灯片"框架，最久最成熟。同样需要手写 HTML，是给开发者用的底层工具。Frontend Slides 某种意义上是"给这类底层能力套了一层 AI 交互"，让不写代码的人也能享受到网页幻灯片的好处。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">PowerPoint / Keynote / 各类在线模板站</span>
+          <span class="badge-desc">传统主力。胜在所见即所得、可精细手调、生态无敌。但要好看就得有设计功底或花钱买模板，且做出来还是"模板感"。Frontend Slides 主打的正是"不用设计功底也能不像模板货"。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>已经在用（或愿意上手）Claude Code 这类 AI 编程助手的人；看重"成果好看、不撞脸、能长期保存和自由分享"的个人或小团队；讲不清自己审美、但"一看就知道喜不喜欢"的非设计师。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>完全不想碰命令行、只想打开一个网站点几下的纯小白（除非有人帮你配好环境）；必须交付可编辑 .pptx 源文件的场景；需要在演示里做超复杂图表/精细动效逐帧打磨的专业设计需求。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">如果你感兴趣，接下来可以这么做</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">先花 8 分钟看作者的官方教程视频，直观感受它怎么用：<a href="https://www.youtube.com/watch?v=372Iksaz8b0" target="_blank">YouTube 演示</a></span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">看一眼它的"模板画廊"，挑出你喜欢的几套风格心里有数：<a href="https://github.com/zarazhangrui/frontend-slides#bold-template-gallery" target="_blank">Bold Template Gallery</a></span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">让我帮你在你这台 Mac 上装一次（你已经有 Claude Code），跑通"装插件 → 做一份测试幻灯片"全流程——你只用在旁边挑风格</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">用一个真实小需求试水：比如做一份"给新代理的做单培训"演示稿，挑个风格生成，发到群里看反馈</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">体会"看图选风格"这套交互后，回头想想能不能搬到做单工具里——把运营选商品图风格也改成"三选一"</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">去仓库主页随手 Star 收藏，方便以后回看更新：<a href="https://github.com/zarazhangrui/frontend-slides" target="_blank">github.com/zarazhangrui/frontend-slides</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>
