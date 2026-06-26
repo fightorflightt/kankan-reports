@@ -1,0 +1,43 @@
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">它是给开发者用的 Python 库，得写代码。但作者贴心地做了"命令行直接抓"——不写一行代码、在终端敲一句就能把网页存成 Markdown/文本，这部分非技术人也能照葫芦画瓢用。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">需要先装 Python 3.10+，再 pip 装包；要用反爬/浏览器功能还得下载浏览器依赖。本身免费开源，但大规模绕反爬通常要配代理 IP（那是要花钱的第三方服务）。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">非常适合"跟 AI 对话把它用起来"。它 API 简洁、文档全，还专门做了给 AI agent 用的 Skill 和 MCP——让 Claude Code 帮你写抓取脚本，是这个库最现实的打开方式。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要做，大概需要什么</h2>
+        <p><strong>最低成本试一把：</strong>装好 Python 和 Scrapling 后，用它的命令行 <code>scrapling extract</code> 直接把某个网页抓成 Markdown——几乎零代码，先感受它能抓什么。</p>
+        <p><strong>做成真正能用的采集工具：</strong>让 Claude Code 这类 AI 帮你写脚本，你描述"抓哪个网站、要哪些字段、多久抓一次"。时间上小项目一两天能跑通；钱主要花在代理 IP（按流量/IP 付费）；前置知识需要一点点"网页结构"的概念（哪块是商品、哪块是价格），但不用真懂编程。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意：这是把"双刃剑"，合规是头号坑</strong>
+          <p>它能绕过 Cloudflare、抓别人不想被抓的内容，已经因此被 WIRED 等媒体盯上、让安全圈紧张。作者自己也在免责声明里强调：仅供学习研究、要遵守当地法律、尊重网站服务条款和 robots.txt。<strong>抓公开数据、尊重对方规则、别抓个人隐私和受版权保护的内容</strong>——尤其你是做商业产品的，这条红线必须先想清楚，否则技术再强也是风险。另外项目较年轻、文档偶有滞后、可能踩到小 bug。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

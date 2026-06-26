@@ -1,0 +1,17 @@
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么有人愿意花一年多时间做这个项目？它在替谁解气？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">做爬虫的人，每天大概在受这三种气</h2>
+        <p><strong>第一种气：网站一改版，脚本全报废。</strong>做爬虫的人最怕的不是写，是"维护"。今天写好的抓取规则——比如"抓 class 叫 product 的那块"——明天网站前端一动，规则就全部失效，数据断流，得回去一条条重写。Scrapling 的作者明显是被这件事折磨够了，所以做了"自适应"：网站结构变了，它能凭"长得像、位置像"自动把你原来要的元素重新找回来，让脚本别一碰就碎。</p>
+        <p><strong>第二种气：好不容易写完，被反爬墙挡在门外。</strong>现在越来越多网站套了 Cloudflare 这种"防机器人"系统，会弹出"证明你是真人"的验证。传统工具（BeautifulSoup、Scrapy）面对这堵墙基本束手无策，要么抓不到、要么得自己拼一堆复杂的伪装。Scrapling 把"伪装成真实浏览器、自动过 Cloudflare 验证"做成了开箱即用，省掉一大堆脏活。</p>
+        <p><strong>第三种气：工具要么太简单、要么太重。</strong>市面上 BeautifulSoup 简单但只能解析、不能抓也不能扛反爬；Scrapy 功能全但像个庞然大物，学习成本高、配置繁琐。很多人想要的是中间那档——既能像 BeautifulSoup 那样几行代码上手，又能像 Scrapy 那样并发爬整站、还自带反爬和代理轮换。Scrapling 想填的就是这个"中间地带"：一个库，从一次请求到全站爬取全包，不用东拼西凑好几个工具。</p>
+      </section>
+    </div>
+  </div>
+</section>

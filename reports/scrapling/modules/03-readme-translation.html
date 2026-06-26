@@ -1,0 +1,481 @@
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句对照翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话、保留原文顺序与结构；专业名词保留英文。徽章 / 赞助商广告区按原位如实标注，不逐条翻译广告语。</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>&lt;h1&gt;Scrapling Poster&lt;/h1&gt;
+&lt;small&gt;Effortless Web Scraping for the Modern Web&lt;/small&gt;</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>Scrapling</strong>（顶部为项目海报图）</p>
+          <p><small>面向现代网络的「省力网页抓取」</small></p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>[Trendshift badge]
+العربيه | Español | Português (Brasil) | Français | Deutsch | 简体中文 | 日本語 | Русский | 한국어
+[badges: Tests · PyPI version · PyPI downloads · Agent Skill · OpenClaw · Discord · X · Supported Python versions]</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>（Trendshift 榜单徽章。）</p>
+          <p>（多语言 README 链接：阿拉伯语、西班牙语、葡萄牙语（巴西）、法语、德语、简体中文、日语、俄语、韩语。）</p>
+          <p>（一排状态徽章：测试通过状态、PyPI 版本号、PyPI 每月下载量、Agent Skill 目录、OpenClaw Skill、Discord 社群、X（推特）、支持的 Python 版本。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>Selection methods · Fetchers · Spiders · Proxy Rotation · CLI · MCP</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>（一行文档快捷导航：Selection methods（选择方法）· Fetchers（抓取器）· Spiders（爬虫框架）· Proxy Rotation（代理轮换）· CLI（命令行）· MCP（给 AI 用的接口）。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>Scrapling is an adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl.
+
+Its parser learns from website changes and automatically relocates your elements when pages update. Its fetchers bypass anti-bot systems like Cloudflare Turnstile out of the box. And its spider framework lets you scale up to concurrent, multi-session crawls with pause/resume and automatic proxy rotation - all in a few lines of Python. One library, zero compromises.
+
+Blazing fast crawls with real-time stats and streaming. Built by Web Scrapers for Web Scrapers and regular users, there's something for everyone.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>Scrapling 是一个自适应（adaptive）的网页抓取框架，从一次单独的请求到全规模的爬取，全都能处理。</p>
+          <p>它的 parser（解析器）会从网站的变化中学习，当页面更新时自动重新定位你要的元素。它的 fetchers（抓取器）开箱即用地绕过像 Cloudflare Turnstile 这样的反机器人（anti-bot）系统。而它的 spider（爬虫）框架让你能扩展到并发的、多会话（multi-session）的爬取，带有暂停/恢复和自动代理轮换——全部只需几行 Python。一个库，零妥协。</p>
+          <p>极快的爬取速度，带实时统计和流式输出（streaming）。由网页抓取者为网页抓取者和普通用户打造，人人都能找到适合自己的东西。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>from scrapling.fetchers import Fetcher, AsyncFetcher, StealthyFetcher, DynamicFetcher
+StealthyFetcher.adaptive = True
+p = StealthyFetcher.fetch('https://example.com', headless=True, network_idle=True)  # Fetch website under the radar!
+products = p.css('.product', auto_save=True)
+products = p.css('.product', adaptive=True)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>（代码示例，保留原样不翻译。大意：用"隐身抓取器"悄悄抓下网页，然后抓取页面上的商品元素；并开启"自适应"——以后网站结构变了，加一句 <code>adaptive=True</code> 就能重新找回这些元素。代码里的注释意思是"在雷达下抓取网站！"）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>Or scale up to full crawls
+
+from scrapling.spiders import Spider, Response
+
+class MySpider(Spider):
+  name = "demo"
+  start_urls = ["https://example.com/"]
+  async def parse(self, response: Response):
+      for item in response.css('.product'):
+          yield {"title": item.css('h2::text').get()}
+
+MySpider().start()</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>或者扩展成完整的爬取：</strong></p>
+          <p>（代码示例，保留原样不翻译。大意：定义一个爬虫，给它起始网址，让它自动遍历页面、把每个商品的标题抓出来，然后启动。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>[DataImpulse banner ad]
+
+# Platinum Sponsors
+[table: Proxidize, ColdProxy, Hyper Solutions, BirdProxies, Evomi, TikHub.io, PetroSky, The Web Scraping Club, Swiftproxy, 9Proxy, NodeMaven]
+Do you want to show your ad here? Click here
+
+# Sponsors
+[logos: SerpApi, Decodo, HasData, ProxyEmpire, Webshare, Proxiware, TalorData]
+Do you want to show your ad here? Click here and choose the tier that suits you!</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>（DataImpulse 横幅广告。）</p>
+          <p><strong>＃ 白金赞助商（Platinum Sponsors）</strong></p>
+          <p>（一张赞助商表格，按顺序排了 11 家——基本都是代理 IP / 反爬绕过 / 数据服务商：Proxidize、ColdProxy、Hyper Solutions、BirdProxies、Evomi、TikHub.io、PetroSky、The Web Scraping Club、Swiftproxy、9Proxy、NodeMaven。每家配一句广告语和优惠码。这部分是商业赞助、与产品本身无关，故不逐条翻译广告语。）</p>
+          <p>结尾一句：「想在这里放你的广告吗？点这里。」</p>
+          <p><strong>＃ 赞助商（Sponsors）</strong></p>
+          <p>（一排赞助商 logo：SerpApi、Decodo、HasData、ProxyEmpire、Webshare、Proxiware、TalorData。同样是商业赞助。）</p>
+          <p>结尾一句：「想在这里放你的广告吗？点这里，选一个适合你的档位！」</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Key Features
+
+### Spiders - A Full Crawling Framework
+- 🕷️ Scrapy-like Spider API: Define spiders with start_urls, async parse callbacks, and Request/Response objects.
+- ⚡ Concurrent Crawling: Configurable concurrency limits, per-domain throttling, and download delays.
+- 🔄 Multi-Session Support: Unified interface for HTTP requests, and stealthy headless browsers in a single spider - route requests to different sessions by ID.
+- 💾 Pause &amp; Resume: Checkpoint-based crawl persistence. Press Ctrl+C for a graceful shutdown; restart to resume from where you left off.
+- 📡 Streaming Mode: Stream scraped items as they arrive via `async for item in spider.stream()` with real-time stats - ideal for UI, pipelines, and long-running crawls.
+- 🛡️ Blocked Request Detection: Automatic detection and retry of blocked requests with customizable logic.
+- 🤖 Robots.txt Compliance: Optional robots_txt_obey flag that respects Disallow, Crawl-delay, and Request-rate directives with per-domain caching.
+- 🧪 Development Mode: Cache responses to disk on the first run and replay them on subsequent runs - iterate on your parse() logic without re-hitting the target servers.
+- 📦 Built-in Export: Export results through hooks and your own pipeline or the built-in JSON/JSONL with result.items.to_json() / result.items.to_jsonl() respectively.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 核心功能（Key Features）</strong></p>
+          <p><strong>＃＃＃ Spiders —— 一个完整的爬取框架</strong></p>
+          <p>🕷️ <strong>类 Scrapy 的 Spider API</strong>：用 start_urls（起始网址）、异步的 parse 回调、以及 Request/Response 对象来定义爬虫。</p>
+          <p>⚡ <strong>并发爬取</strong>：可配置并发上限、对每个域名分别限速、以及下载延迟。</p>
+          <p>🔄 <strong>多会话支持（Multi-Session）</strong>：在同一个爬虫里，用统一的接口同时使用 HTTP 请求和隐身无头浏览器——按 ID 把请求路由到不同的会话。</p>
+          <p>💾 <strong>暂停与恢复</strong>：基于检查点（checkpoint）的爬取持久化。按 Ctrl+C 优雅地关闭；重新启动时从你上次停下的地方继续。</p>
+          <p>📡 <strong>流式模式（Streaming Mode）</strong>：通过 <code>async for item in spider.stream()</code> 在抓到的条目到达时就实时流式输出，并带实时统计——非常适合做界面（UI）、数据管线（pipeline）和长时间运行的爬取。</p>
+          <p>🛡️ <strong>被拦截请求检测</strong>：自动检测被拦截的请求并重试，逻辑可自定义。</p>
+          <p>🤖 <strong>遵守 Robots.txt</strong>：可选的 robots_txt_obey 开关，会遵守 Disallow、Crawl-delay、Request-rate 这些指令，并按域名缓存。</p>
+          <p>🧪 <strong>开发模式（Development Mode）</strong>：首次运行时把响应缓存到磁盘，后续运行时回放它们——让你能反复打磨 parse() 逻辑，而不用一次次去打目标服务器。</p>
+          <p>📦 <strong>内置导出</strong>：通过钩子（hooks）和你自己的管线导出结果，或者用内置的 JSON/JSONL 导出，分别对应 result.items.to_json() / result.items.to_jsonl()。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Advanced Websites Fetching with Session Support
+- HTTP Requests: Fast and stealthy HTTP requests with the Fetcher class. Can impersonate browsers' TLS fingerprint, headers, and use HTTP/3.
+- Dynamic Loading: Fetch dynamic websites with full browser automation through the DynamicFetcher class supporting Playwright's Chromium and Google's Chrome.
+- Anti-bot Bypass: Advanced stealth capabilities with StealthyFetcher and fingerprint spoofing. Can easily bypass all types of Cloudflare's Turnstile/Interstitial with automation.
+- Session Management: Persistent session support with FetcherSession, StealthySession, and DynamicSession classes for cookie and state management across requests.
+- Proxy Rotation: Built-in ProxyRotator with cyclic or custom rotation strategies across all session types, plus per-request proxy overrides.
+- Domain &amp; Ad Blocking: Block requests to specific domains (and their subdomains) or enable built-in ad blocking (~3,500 known ad/tracker domains) in browser-based fetchers.
+- DNS Leak Prevention: Optional DNS-over-HTTPS support to route DNS queries through Cloudflare's DoH, preventing DNS leaks when using proxies.
+- Async Support: Complete async support across all fetchers and dedicated async session classes.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ 带会话支持的高级网站抓取</strong></p>
+          <p><strong>HTTP 请求</strong>：用 Fetcher 类发起又快又隐身的 HTTP 请求。可以模仿浏览器的 TLS 指纹、请求头，并使用 HTTP/3。</p>
+          <p><strong>动态加载</strong>：通过 DynamicFetcher 类用完整的浏览器自动化来抓取动态网站，支持 Playwright 的 Chromium 和 Google 的 Chrome。</p>
+          <p><strong>反机器人绕过</strong>：用 StealthyFetcher 和指纹伪造（fingerprint spoofing）实现高级隐身能力。可以靠自动化轻松绕过各种类型的 Cloudflare Turnstile / Interstitial（拦截页）。</p>
+          <p><strong>会话管理</strong>：用 FetcherSession、StealthySession、DynamicSession 这些类提供持久会话支持，跨多个请求管理 cookie 和状态。</p>
+          <p><strong>代理轮换</strong>：内置 ProxyRotator，在所有会话类型上支持循环或自定义的轮换策略，还能对单个请求单独指定代理。</p>
+          <p><strong>域名与广告拦截</strong>：在基于浏览器的抓取器中，可以拦截对特定域名（及其子域名）的请求，或开启内置的广告拦截（约 3,500 个已知的广告/追踪域名）。</p>
+          <p><strong>DNS 泄漏防护</strong>：可选的 DNS-over-HTTPS 支持，把 DNS 查询通过 Cloudflare 的 DoH 走，使用代理时防止 DNS 泄漏。</p>
+          <p><strong>异步支持</strong>：所有抓取器都完整支持异步，并有专门的异步会话类。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Adaptive Scraping &amp; AI Integration
+- 🔄 Smart Element Tracking: Relocate elements after website changes using intelligent similarity algorithms.
+- 🎯 Smart Flexible Selection: CSS selectors, XPath selectors, filter-based search, text search, regex search, and more.
+- 🔍 Find Similar Elements: Automatically locate elements similar to found elements.
+- 🤖 MCP Server to be used with AI: Built-in MCP server for AI-assisted Web Scraping and data extraction. The MCP server features powerful, custom capabilities that leverage Scrapling to extract targeted content before passing it to the AI (Claude/Cursor/etc), thereby speeding up operations and reducing costs by minimizing token usage. (demo video)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ 自适应抓取与 AI 集成</strong></p>
+          <p>🔄 <strong>智能元素追踪</strong>：用智能的相似度算法，在网站变化后重新定位元素。</p>
+          <p>🎯 <strong>智能灵活的选择</strong>：CSS 选择器、XPath 选择器、基于过滤条件的查找、文本查找、正则（regex）查找等等。</p>
+          <p>🔍 <strong>查找相似元素</strong>：自动定位与已找到元素相似的其他元素。</p>
+          <p>🤖 <strong>可配合 AI 使用的 MCP Server</strong>：内置 MCP server，用于 AI 辅助的网页抓取和数据提取。这个 MCP server 具备强大的自定义能力，会先用 Scrapling 把目标内容提取出来，再交给 AI（Claude/Cursor 等），从而加快操作、并通过减少 token 用量来降低成本。（附演示视频）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### High-Performance &amp; battle-tested Architecture
+- 🚀 Lightning Fast: Optimized performance outperforming most Python scraping libraries.
+- 🔋 Memory Efficient: Optimized data structures and lazy loading for a minimal memory footprint.
+- ⚡ Fast JSON Serialization: 10x faster than the standard library.
+- 🏗️ Battle tested: Not only does Scrapling have 92% test coverage and full type hints coverage, but it has been used daily by hundreds of Web Scrapers over the past year.
+
+### Developer/Web Scraper Friendly Experience
+- 🎯 Interactive Web Scraping Shell ... - 🔋 Ready Docker image ...</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ 高性能、经过实战检验的架构</strong></p>
+          <p>🚀 <strong>极速</strong>：经过优化的性能，超过大多数 Python 抓取库。</p>
+          <p>🔋 <strong>内存高效</strong>：优化的数据结构和惰性加载（lazy loading），内存占用极小。</p>
+          <p>⚡ <strong>快速 JSON 序列化</strong>：比标准库快 10 倍。</p>
+          <p>🏗️ <strong>经过实战检验</strong>：Scrapling 不仅有 92% 的测试覆盖率和完整的类型提示（type hints）覆盖，过去一年里还被数百名网页抓取者每天使用。</p>
+          <p><strong>＃＃＃ 对开发者 / 网页抓取者友好的体验</strong></p>
+          <p>🎯 <strong>交互式抓取 Shell</strong>：可选的内置 IPython shell，集成了 Scrapling、快捷方式和新工具，加速脚本开发，比如把 curl 请求转成 Scrapling 请求、在浏览器里查看请求结果。</p>
+          <p>🚀 <strong>直接从终端使用</strong>：可选地，不写一行代码就能用 Scrapling 抓取一个网址！</p>
+          <p>🛠️ <strong>丰富的导航 API</strong>：高级的 DOM 遍历，带父节点、兄弟节点、子节点导航方法。</p>
+          <p>🧬 <strong>增强的文本处理</strong>：内置正则、清洗方法和优化的字符串操作。</p>
+          <p>📝 <strong>自动生成选择器</strong>：为任意元素生成稳健的 CSS/XPath 选择器。</p>
+          <p>🔌 <strong>熟悉的 API</strong>：与 Scrapy/BeautifulSoup 类似，使用和 Scrapy/Parsel 相同的伪元素。</p>
+          <p>📘 <strong>完整的类型覆盖</strong>：完整的类型提示，带来出色的 IDE 支持和代码补全。整个代码库每次改动都会用 PyRight 和 MyPy 自动扫描。</p>
+          <p>🔋 <strong>现成的 Docker 镜像</strong>：每次发布都会自动构建并推送一个包含所有浏览器的 Docker 镜像。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Getting Started
+Let's give you a quick glimpse of what Scrapling can do without deep diving.
+
+### Basic Usage
+[code: HTTP requests with session support / Advanced stealth mode / Full browser automation]</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 快速上手（Getting Started）</strong></p>
+          <p>先不深入，给你快速瞥一眼 Scrapling 能做什么。</p>
+          <p><strong>＃＃＃ 基础用法</strong></p>
+          <p>（三段代码示例，保留原样不翻译，分别演示：① 带会话支持的 HTTP 请求——模仿 Chrome 的 TLS 指纹去抓"名言"测试站；② 高级隐身模式——用 StealthySession 自动解 Cloudflare 验证；③ 完整浏览器自动化——用 DynamicFetcher 跑真实浏览器抓动态页面。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Spiders
+Build full crawlers with concurrent requests, multiple session types, and pause/resume:
+[code: QuotesSpider]
+Use multiple session types in a single spider:
+[code: MultiSessionSpider]
+Pause and resume long crawls with checkpoints by running the spider like this:
+QuotesSpider(crawldir="./crawl_data").start()
+Press Ctrl+C to pause gracefully - progress is saved automatically. Later, when you start the spider again, pass the same crawldir, and it will resume from where it stopped.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Spiders（爬虫）</strong></p>
+          <p>用并发请求、多种会话类型、以及暂停/恢复来构建完整的爬虫：</p>
+          <p>（代码示例：QuotesSpider——设置并发数 10，遍历页面抓"名言+作者"，自动翻下一页，最后把结果存成 JSON。）</p>
+          <p>在同一个爬虫里使用多种会话类型：</p>
+          <p>（代码示例：MultiSessionSpider——配置一个"快速"会话和一个"隐身"会话，把受保护的页面走隐身会话、其余走快速会话。）</p>
+          <p>像这样运行爬虫，就能用检查点暂停和恢复长时间的爬取：<br><code>QuotesSpider(crawldir="./crawl_data").start()</code></p>
+          <p>按 Ctrl+C 优雅地暂停——进度会自动保存。之后再次启动爬虫时，传入相同的 crawldir，它就会从停下的地方继续。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Advanced Parsing &amp; Navigation
+[code: rich element selection / navigation / similarity]
+You can use the parser right away if you don't want to fetch websites like below:
+from scrapling.parser import Selector
+page = Selector("&lt;html&gt;...&lt;/html&gt;")
+And it works precisely the same way!
+
+### Async Session Management Examples
+[code: FetcherSession http3 / AsyncStealthySession gather]</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ 高级解析与导航</strong></p>
+          <p>（代码示例：展示丰富的元素选择与导航——CSS、XPath、BeautifulSoup 风格的 find_all、按文本查找、链式选择器、取兄弟/父节点、以及"查找相似元素"。）</p>
+          <p>如果你不想抓取网站、只想解析现成的 HTML，可以直接用解析器，如下：</p>
+          <p>（代码：从 scrapling.parser 导入 Selector，直接传入一段 HTML。）</p>
+          <p>它的用法完全一样！</p>
+          <p><strong>＃＃＃ 异步会话管理示例</strong></p>
+          <p>（代码示例：演示 FetcherSession 既能同步也能异步使用、以及用 AsyncStealthySession 并发抓多个页面、查看浏览器标签页池的状态。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## CLI &amp; Interactive Shell
+Scrapling includes a powerful command-line interface:
+[asciicast demo]
+Launch the interactive Web Scraping shell
+scrapling shell
+Extract pages to a file directly without programming (Extracts the content inside the body tag by default). If the output file ends with .txt, then the text content of the target will be extracted. If it ends in .md, it will be a Markdown representation of the HTML content; if it ends in .html, it will be the HTML content itself.
+[code: scrapling extract get/fetch/stealthy-fetch ...]
+
+&gt; [!NOTE]
+&gt; There are many additional features, but we want to keep this page concise, including the MCP server and the interactive Web Scraping Shell. Check out the full documentation here</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ CLI 与交互式 Shell</strong></p>
+          <p>Scrapling 包含一个强大的命令行界面（CLI）：</p>
+          <p>（一段 asciicast 终端演示动画。）</p>
+          <p>启动交互式网页抓取 shell：<br><code>scrapling shell</code></p>
+          <p>不用编程就能把页面直接导出到文件（默认提取 body 标签内的内容）。如果输出文件以 .txt 结尾，就提取目标的纯文本内容；以 .md 结尾，就是 HTML 内容的 Markdown 表示；以 .html 结尾，就是 HTML 内容本身。</p>
+          <p>（代码示例：scrapling extract get / fetch / stealthy-fetch 几条命令，演示直接把网页抓成 .md / .txt / .html，可带 CSS 选择器、模仿浏览器、解 Cloudflare 等参数。）</p>
+          <p><strong>&gt; ［注意］</strong></p>
+          <p>还有很多额外功能，但我们想让这个页面保持简洁，包括 MCP server 和交互式网页抓取 Shell。完整文档请看这里。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Performance Benchmarks
+Scrapling isn't just powerful-it's also blazing fast. The following benchmarks compare Scrapling's parser with the latest versions of other popular libraries.
+
+### Text Extraction Speed Test (5000 nested elements)
+| # | Library | Time (ms) | vs Scrapling |
+| 1 | Scrapling | 2.02 | 1.0x |
+| 2 | Parsel/Scrapy | 2.04 | 1.01 |
+| 3 | Raw Lxml | 2.54 | 1.257 |
+| 4 | PyQuery | 24.17 | ~12x |
+| 5 | Selectolax | 82.63 | ~41x |
+| 6 | MechanicalSoup | 1549.71 | ~767.1x |
+| 7 | BS4 with Lxml | 1584.31 | ~784.3x |
+| 8 | BS4 with html5lib | 3391.91 | ~1679.1x |
+
+### Element Similarity &amp; Text Search Performance
+| Library | Time (ms) | vs Scrapling |
+| Scrapling | 2.39 | 1.0x |
+| AutoScraper | 12.45 | 5.209x |
+
+&gt; All benchmarks represent averages of 100+ runs. See benchmarks.py for methodology.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 性能基准测试（Benchmarks）</strong></p>
+          <p>Scrapling 不只是强大——它还快得惊人。下面的基准测试把 Scrapling 的 parser 与其他热门库的最新版本做了对比。</p>
+          <p><strong>＃＃＃ 文本提取速度测试（5000 个嵌套元素）</strong></p>
+          <p>（耗时越短越快，"vs Scrapling"是相对 Scrapling 的倍数。）</p>
+          <p>① Scrapling：2.02 ms（1.0x，基准）<br>② Parsel/Scrapy：2.04 ms（1.01）<br>③ Raw Lxml：2.54 ms（1.257）<br>④ PyQuery：24.17 ms（约 12 倍慢）<br>⑤ Selectolax：82.63 ms（约 41 倍慢）<br>⑥ MechanicalSoup：1549.71 ms（约 767 倍慢）<br>⑦ BS4 + Lxml：1584.31 ms（约 784 倍慢）<br>⑧ BS4 + html5lib：3391.91 ms（约 1679 倍慢）</p>
+          <p><strong>＃＃＃ 元素相似度与文本查找性能</strong></p>
+          <p>Scrapling 的自适应元素查找能力显著优于其他方案：</p>
+          <p>Scrapling：2.39 ms（1.0x）<br>AutoScraper：12.45 ms（5.209 倍慢）</p>
+          <p>&gt; 所有基准测试都是 100 次以上运行的平均值。方法详见 benchmarks.py。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Installation
+Scrapling requires Python 3.10 or higher:
+pip install scrapling
+
+&gt; [!IMPORTANT]
+&gt; This installation only includes the parser engine and its dependencies, without any fetchers or commandline dependencies. So importing anything from scrapling.fetchers or scrapling.spiders, like in the examples above, will raise ModuleNotFoundError with this installation alone. If you are going to use any of the fetchers or spiders, install the fetchers' dependencies first as shown below.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 安装（Installation）</strong></p>
+          <p>Scrapling 需要 Python 3.10 或更高版本：<br><code>pip install scrapling</code></p>
+          <p><strong>&gt; ［重要］</strong></p>
+          <p>这种安装只包含解析器引擎和它的依赖，不含任何抓取器（fetchers）或命令行依赖。所以仅凭这种安装，像上面例子那样从 scrapling.fetchers 或 scrapling.spiders 导入任何东西，都会报 ModuleNotFoundError。如果你要用任何抓取器或爬虫，请先按下面的方式安装抓取器的依赖。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Optional Dependencies
+1. ... pip install "scrapling[fetchers]" / scrapling install [--force]
+   This downloads all browsers, along with their system dependencies and fingerprint manipulation dependencies.
+   Or you can install them from the code instead of running a command like this: [code: from scrapling.cli import install]
+2. Extra features:
+   - MCP server feature: pip install "scrapling[ai]"
+   - shell features: pip install "scrapling[shell]"
+   - everything: pip install "scrapling[all]"
+   Remember that you need to install the browser dependencies with scrapling install after any of these extras (if you didn't already)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ 可选依赖</strong></p>
+          <p>1. 如果你要用下面的额外功能、抓取器或它们的类，需要先安装抓取器的依赖和浏览器依赖：<br><code>pip install "scrapling[fetchers]"</code>，然后 <code>scrapling install</code>（普通安装）或 <code>scrapling install --force</code>（强制重装）。</p>
+          <p>这会下载所有浏览器，连同它们的系统依赖和指纹操控依赖。</p>
+          <p>你也可以在代码里安装、而不是运行命令（示例：从 scrapling.cli 导入 install）。</p>
+          <p>2. 额外功能：<br>— 安装 MCP server 功能：<code>pip install "scrapling[ai]"</code><br>— 安装 shell 功能（抓取 shell 和 extract 命令）：<code>pip install "scrapling[shell]"</code><br>— 全部安装：<code>pip install "scrapling[all]"</code></p>
+          <p>记住，在装完任意一个额外功能后，你还需要用 <code>scrapling install</code> 安装浏览器依赖（如果之前还没装的话）。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Docker
+You can also install a Docker image with all extras and browsers ...
+docker pull pyd4vinci/scrapling
+docker pull ghcr.io/d4vinci/scrapling:latest
+This image is automatically built and pushed using GitHub Actions and the repository's main branch.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ Docker</strong></p>
+          <p>你也可以安装一个包含所有额外功能和浏览器的 Docker 镜像，从 DockerHub：<code>docker pull pyd4vinci/scrapling</code>；或从 GitHub 镜像仓库下载：<code>docker pull ghcr.io/d4vinci/scrapling:latest</code>。</p>
+          <p>这个镜像是用 GitHub Actions 基于仓库的 main 分支自动构建并推送的。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Contributing
+We welcome contributions! Please read our contributing guidelines before getting started.
+
+## Disclaimer
+&gt; [!CAUTION]
+&gt; This library is provided for educational and research purposes only. By using this library, you agree to comply with local and international data scraping and privacy laws. The authors and contributors are not responsible for any misuse of this software. Always respect the terms of service of websites and robots.txt files.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 贡献（Contributing）</strong></p>
+          <p>我们欢迎贡献！开始之前，请阅读我们的贡献指南。</p>
+          <p><strong>＃＃ 免责声明（Disclaimer）</strong></p>
+          <p><strong>&gt; ［警告］</strong></p>
+          <p>本库仅供教育和研究用途。使用本库即表示你同意遵守本地及国际的数据抓取和隐私法律。作者和贡献者对本软件的任何滥用不承担责任。请始终尊重网站的服务条款（terms of service）和 robots.txt 文件。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 🎓 Citations
+If you have used our library for research purposes please quote us with the following reference:
+[bibtex: @misc{scrapling, author = {Karim Shoair}, title = {Scrapling}, year = {2024}, ...}]
+
+## License
+This work is licensed under the BSD-3-Clause License.
+
+## Acknowledgments
+This project includes code adapted from:
+- Parsel (BSD License)-Used for translator submodule
+
+Designed &amp; crafted with ❤️ by Karim Shoair.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 🎓 引用（Citations）</strong></p>
+          <p>如果你把我们的库用于研究目的，请用下面的参考文献引用我们：</p>
+          <p>（一段 BibTeX 引用条目，保留原样：作者 Karim Shoair，标题 Scrapling，年份 2024，附项目网址。）</p>
+          <p><strong>＃＃ 许可证（License）</strong></p>
+          <p>本作品基于 BSD-3-Clause 许可证授权。</p>
+          <p><strong>＃＃ 致谢（Acknowledgments）</strong></p>
+          <p>本项目包含改编自以下项目的代码：<br>— Parsel（BSD 许可证）——用于 translator（翻译器）子模块。</p>
+          <p>由 Karim Shoair 用 ❤️ 设计并打造。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

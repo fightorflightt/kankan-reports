@@ -1,0 +1,43 @@
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">和 BeautifulSoup、Scrapy 这些老牌工具比，它新在哪？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>过去做爬虫，"抓取""解析""反爬""并发"往往要拼好几个工具。Scrapling 的思路是<strong>"一个库全包，但保持轻量"</strong>——既不像 BeautifulSoup 那样只能解析、也不像 Scrapy 那样重得吓人。它真正的杀手锏不是功能多，而是把行业里最磨人的两件脏活——"网站改版导致脚本失效"和"反爬墙拦门"——做成了默认就能用。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔄</div>
+          <div class="pattern-title">自适应：网站改版也能自动找回元素</div>
+          <p class="pattern-desc">这是它最独特的地方。传统爬虫靠"死规则"定位数据，网站一改版规则就废。Scrapling 会记住元素的"长相和位置特征"，改版后用相似度算法自动重新找回——把爬虫从"三天两头修脚本"里解放出来。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🛡️</div>
+          <div class="pattern-title">开箱即过 Cloudflare 反爬墙</div>
+          <p class="pattern-desc">能自动伪装成真实浏览器（伪造指纹、TLS、请求头），默认就能绕过 Cloudflare 的"证明你是真人"拦截。别的工具要么过不去、要么得自己拼一大堆伪装代码——它把这块变成了"开箱即用"。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">⚡</div>
+          <div class="pattern-title">又快又省，性能数据敢摆出来</div>
+          <p class="pattern-desc">README 里直接放了基准测试：解析速度和最快的 Lxml/Parsel 同档，却比 BeautifulSoup 快几百到上千倍；自适应查找比同类的 AutoScraper 快 5 倍。敢把竞品数字逐行列出来对比，是种底气。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🤖</div>
+          <div class="pattern-title">为 AI 时代专门留了接口（MCP）</div>
+          <p class="pattern-desc">自带一个给 AI 用的 MCP server：先用 Scrapling 把网页里你要的内容精准抽出来，再喂给 Claude/Cursor 这类 AI。好处是 AI 不用读整个杂乱网页，省 token、降成本、还更快——这是很多老爬虫库没跟上的新趋势。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">💾</div>
+          <div class="pattern-title">长任务能暂停 / 断点续跑</div>
+          <p class="pattern-desc">爬大站动辄几小时，中途断了要从头来是噩梦。它支持检查点：Ctrl+C 优雅暂停、进度自动存盘，下次带上同一个目录就接着跑。还有"开发模式"——首次抓的结果存本地，反复调试时不用一次次去打人家服务器。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
