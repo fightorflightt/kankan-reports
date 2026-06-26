@@ -1,0 +1,43 @@
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">它本身就是"用大白话提问"的产品。装好后你就用中文/英文说需求,它干活。对会用命令行的人几乎零代码;真正的门槛在"装"那一步,不在"用"那一步。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">需要 Python 3.11+ 或 Docker,再加一个大模型的 API key(或本地 Ollama)。行情数据有免费源、零配置;想接券商实盘则要额外授权配置。整体免费开源。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">天生就是为"跟 AI 对话用工具"设计的,还自带 MCP 接口能挂到 Claude Desktop。让 Claude Code 帮你装、帮你跑,是最顺的打开方式。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要用，大概需要什么</h2>
+        <p><strong>最省事试一把：</strong>用 Docker 路径,一条命令起服务,浏览器打开就有 Web 界面,2 分钟能跑起来——这是对非技术人最友好的方式。然后准备一个大模型 key(它推荐 DeepSeek 等性价比模型,成本很低)。</p>
+        <p><strong>真正用起来：</strong>时间上当天就能体验;钱主要是大模型的调用费(用性价比模型很便宜,行情数据免费);前置知识需要一点点交易常识(什么是回测、夏普、回撤),但完全不用懂编程。让 AI 帮你装环境能省掉绝大部分麻烦。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意：它是"研究工具"，不是"印钞机"</strong>
+          <p>作者在 README 顶部和免责声明里反复强调:<strong>它只用于研究、模拟、回测,不是投资建议</strong>。历史回测跑得好看 ≠ 真金白银能赚——这是量化最大的坑(过拟合、幸存者偏差)。它虽能接券商实盘,但作者明说"实验性、没用真账户验证过、风险自负"。<strong>把它当学习和验证想法的工具,别把回测曲线当未来收益保证</strong>。另外:模型一定要选能可靠调用工具的(别用小模型),否则它会"凭记忆瞎编"而不是真去跑数据。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

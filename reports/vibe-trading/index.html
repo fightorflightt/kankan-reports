@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe-Trading — Kanxia 解读</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">Vibe-Trading</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/HKUDS/Vibe-Trading" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">Vibe-Trading</h1>
+      <p class="cover-repo">github.com/HKUDS/Vibe-Trading</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">13.3k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Python</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">MIT</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#AI 量化</span>
+        <span class="cover-tag">#交易 Agent</span>
+        <span class="cover-tag">#策略回测</span>
+        <span class="cover-tag">#开源</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>Vibe-Trading 是香港大学数据智能实验室（HKUDS）开源的<strong>"个人交易研究工作台"</strong>——你用大白话提问，AI 帮你把整条"做交易研究"的流水线跑完：找行情数据 → 生成策略 → 回测验证 → 出报告。一句话提问、一条命令就能动起来。</p>
+        <p>说人话就是：以前散户想验证一个交易想法（比如"某只股票用某种买卖规则,过去两年能赚多少"），得自己懂编程、懂量化、搭一堆数据和回测系统。Vibe-Trading 把这套"机构级"的活儿,变成了"你说想法、AI 干活"。它覆盖 A股/港股/美股/加密/期货/外汇,还能复盘你自己真实的交易记录。<strong>注意:它定位是研究、模拟、回测工具,不是荐股、也不替你保管钱。</strong></p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用场景</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>散户验证交易想法</strong>：脑子里有个买卖规则，想知道"过去这么做到底赚不赚"，用一句话让 AI 跑回测、出夏普比率和最大回撤，不用自己写代码。</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>复盘自己的真实交易</strong>：把券商导出的交易流水（同花顺/东财/富途）传进去，AI 分析你的交易习惯和坏毛病（追涨、过早止盈），还告诉你"严格按你自己的规则本来能多赚多少"。</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>量化学习 / 教学</strong>：自带 456 个现成的量化因子和 79 个金融技能，新手能直接拿来学、跑、对比，是低门槛入门量化的好教材。</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>多智能体投研团队</strong>：让一组 AI 扮演"投资委员会/量化台/风控会"互相辩论，给一只股票做多空对辩再出结论——一个人也能开"投研团队会"。</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">社区评价</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>新浪财经</strong>：「港大实验室 30 天做出 4k star 的交易 Agent：散户第一次有了机构级工具。」点出了它的核心意义——把原本只有机构玩得起的量化研究能力,下放给了个人。<a href="https://finance.sina.com.cn/wm/2026-05-02/doc-inhwmrev0208067.shtml" target="_blank">（来源）</a></span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>果比AI 深度分享</strong>：「一句话写量化策略……把『数据→策略→回测→报告』流水线压进一条命令,对个人玩家和教学场景非常友好,门槛低到 pip install 就能跑。」<a href="https://www.guobi.ai/howto/2026-05-02/960-hkuds-vibe-trading-natural-language-quant-agent" target="_blank">（来源）</a></span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>Text Matrix 完全指南</strong>：评价它是「AI Agent + 量化研究工作流 + 受限实盘」三位一体,「如果你想自己写交易想法、Agent 帮你跑,这是目前最完整的开源方案」。<a href="https://txtmix.com/posts/tech/vibe-trading-hkuds-personal-trading-agent-guide/" target="_blank">（来源）</a></span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么港大实验室要做这个？它替散户解了什么气？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">想认真做交易研究的普通人，通常卡在这三关</h2>
+        <p><strong>第一关：想验证一个交易想法，门槛高得吓人。</strong>普通人脑子里常有念头——"如果某只股票跌破某条线就买、涨上去就卖,这么操作到底行不行?"可要真验证它,你得会写代码、懂量化、还要自己接行情数据、搭回测系统。这一整套"基础设施"把绝大多数有想法的人挡在了门外。Vibe-Trading 的核心动机就是:让你用大白话说出想法,AI 把后面又脏又累的活全包了。</p>
+        <p><strong>第二关：数据源又贵又乱、还经常被封。</strong>做量化最头疼的之一是搞数据——A股、港股、美股、加密各有各的接口,免费的容易被限流封 IP,好用的要付费。Vibe-Trading 接了 18 个数据源,还做了"智能兜底":一个源挂了自动换下一个,优先用永远不封的免费源,让你"零配置、不用管"就能拿到多市场行情。</p>
+        <p><strong>第三关：自己交易亏在哪，说不清也改不掉。</strong>很多人炒股年年亏,却讲不清到底是规则不行、还是自己手贱（追涨杀跌、过早止盈）。它的"影子账户"功能直接戳这个痛点:把你的真实交易流水导进去,AI 帮你提炼出你"本来想执行的规则",再用这套规则跑一遍回测——对比之下,你一眼能看到"如果我老老实实按规则做,本来能多赚多少钱",哪些钱是被自己的坏习惯亏掉的。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句对照翻译</h1>
+      <p class="module-subtitle">按原文章节顺序逐节对照、散文逐句翻译。这份 README 极长（含 80+ 条更新日志、密集的参数/接口/工具清单）——这类纯枚举/日志段落按原位如实标注并译代表性内容，不逐条翻译数十行清单；产品思路类章节完整翻译，不省略。</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>[logo] Vibe-Trading: Your Personal Trading Agent
+One Command to Empower Your Agent with Comprehensive Trading Capabilities
+[langs: English | 中文 | 日本語 | 한국어 | العربية]
+[badges: Trendshift · Python 3.11+ · FastAPI · React 19 · PyPI · MIT · Feishu · WeChat · Discord]
+[nav: Website · Docs · News · Features · Shadow Account · Demo · Quick Start · Examples · API/MCP · Roadmap · Contributing]
+[pip install vibe-trading-ai]</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>Vibe-Trading：你的个人交易 Agent</strong></p>
+          <p><strong>一条命令，赋予你的 Agent 全面的交易能力</strong></p>
+          <p>（顶部：项目 logo；多语言 README 链接：英文、中文、日文、韩文、阿拉伯文；一排徽章：Trendshift 榜单、Python 3.11+、后端 FastAPI、前端 React 19、PyPI 版本、MIT 协议、飞书群、微信群、Discord；一行文档导航：官网 · 文档 · 更新 · 功能 · 影子账户 · 演示 · 快速开始 · 示例 · API/MCP · 路线图 · 贡献；以及一个 <code>pip install vibe-trading-ai</code> 安装按钮。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 📰 News
+- 2026-06-25 🧪 Strict validation JSON + calmer agent context …
+- 2026-06-24 🎯 Shadow Account price context + reactive Chinese UI …
+- 2026-06-23 🛡️ Local API CSRF hardening …
+&lt;details&gt;Earlier news&lt;/details&gt;
+（2026-04-08 至 2026-06-25，共 80+ 条按日期排列的更新条目）</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 📰 更新动态（News）</strong></p>
+          <p>（这是一份从 2026-04-08 到 2026-06-25、共 80 多条按日期排列的更新日志，记录了每天的功能新增、安全加固、bug 修复和版本发布，并大量致谢社区贡献者。条目极密集、属于 changelog 性质，这里如实标注、不逐条翻译。最近几条的主题是：严格 JSON 校验与更省 token 的上下文管理、影子账户的价格上下文+中文界面、本地 API 的 CSRF 安全加固。)</p>
+          <p>从日志能读出作者的迭代节奏：从 4 月开源起几乎每天发版,主线沿着"数据源越接越多 → 回测引擎越来越全 → 多智能体 swarm → 券商连接器 → 安全加固 → Alpha 因子库 → 研究自动驾驶"一路推进,迭代极快。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## ✨ Key Features
+🔍 Self-Improving Trading Agent — Natural-language market research; Strategy drafts and file/web analysis; Memory-backed workflows
+🐝 Multi-Agent Trading Teams — Investment, quant, crypto, and risk teams; Streaming progress and persisted reports; Workers grounded with fetched market data
+📊 Cross-Market Data & Backtesting — A/HK/US equities, crypto, futures, and forex; Data fallback and composite backtests; PIT data, validation, and run cards
+👥 Shadow Account — Broker-journal behavior diagnostics; Rule-based Shadow Account comparisons; Exportable audit reports and strategy code</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ ✨ 核心功能（Key Features）</strong>（原文是一张配图的 2×2 表格）</p>
+          <p>🔍 <strong>自我进化的交易 Agent</strong>——自然语言做市场研究；起草策略、分析文件/网页；带记忆的工作流。</p>
+          <p>🐝 <strong>多智能体交易团队</strong>——投资、量化、加密、风控等团队；流式进度展示、报告持久保存；每个 worker（工作智能体）都用实拉的行情数据来"落地"。</p>
+          <p>📊 <strong>跨市场数据与回测</strong>——A股/港股/美股、加密、期货、外汇；数据自动兜底、跨市场组合回测；PIT（point-in-time，即"按当时真实可得"的）数据、校验、run card（运行卡）。</p>
+          <p>👥 <strong>影子账户（Shadow Account）</strong>——基于券商流水的行为诊断；基于规则的影子账户对比；可导出的审计报告和策略代码。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 💡 What Is Vibe-Trading?
+Vibe-Trading is an open-source research workspace for turning finance questions into runnable analysis. It connects natural-language prompts to market-data loaders, strategy generation, backtest engines, reports, exports, and persistent research memory.
+It is designed for research, simulation, and backtesting — and, when you choose, autonomous trading through a broker you authorize yourself (e.g. Robinhood Agentic Trading). It holds no funds and never trades outside the limits you set, and you can halt it instantly.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 💡 什么是 Vibe-Trading？</strong></p>
+          <p>Vibe-Trading 是一个开源的研究工作台，把金融问题变成可运行的分析。它把自然语言提示词连接到市场数据加载器、策略生成、回测引擎、报告、导出，以及持久的研究记忆。</p>
+          <p>它的设计用途是研究、模拟和回测——并且，当你选择时，可以通过一个你自己授权的券商进行自主交易（例如 Robinhood Agentic Trading）。它不持有任何资金，绝不会在你设定的限制之外交易，而且你可以立即让它停止。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## ✨ What You Can Do (table)
+Ask a trading question → Market research with tools, data, documents, reusable session context.
+Backtest a strategy idea → Strategy code, metrics, benchmark context, validation artifacts, run cards.
+Review your own trades → Broker-journal parsing, behavior diagnostics, rule extraction, Shadow Account comparisons.
+Improve repeated research → Persistent memory and editable skills turn useful routines into reusable workflows.
+Run analyst teams → Multi-agent research reviews for investment, quant, crypto, macro, risk.
+Ship usable artifacts → Reports, TradingView Pine Script, TDX, MetaTrader 5, MCP tools, later sessions.
+Bench a pre-built alpha zoo → One-line IC + alive/reversed/dead categorisation across 456 alphas on your universe.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ ✨ 你能用它做什么</strong>（原文为"任务 → 产出"对照表）</p>
+          <p><strong>问一个交易问题</strong> → 借助工具、数据、文档和可复用的会话上下文做市场研究。</p>
+          <p><strong>回测一个策略想法</strong> → 策略代码、各项指标、基准对比、校验产物、运行卡。</p>
+          <p><strong>复盘你自己的交易</strong> → 解析券商流水、行为诊断、规则提取、影子账户对比。</p>
+          <p><strong>让重复的研究更高效</strong> → 持久记忆和可编辑的 skills，把有用的套路变成可复用的工作流。</p>
+          <p><strong>运行分析师团队</strong> → 针对投资、量化、加密、宏观、风控的多智能体研究评审。</p>
+          <p><strong>交付可用的产物</strong> → 报告、TradingView Pine Script、通达信（TDX）、MetaTrader 5、MCP 工具，以及供后续会话使用。</p>
+          <p><strong>对一个预置的 alpha 动物园（zoo）跑基准</strong> → 一行命令，在你的股票池上对 456 个 alpha 做 IC 计算 + "有效/反转/失效"分类。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## ⚡ Quick Example
+pip install vibe-trading-ai
+vibe-trading run -p "Backtest a BTC-USDT 20/50 moving-average strategy for 2024, summarize return and drawdown, then export the report"
+vibe-trading alpha bench --zoo gtja191 --universe csi300 --period 2018-2025 --top 20
+vibe-trading --upload trades_export.csv
+vibe-trading run -p "Analyze my trading behavior, extract my shadow strategy, and compare it with my actual trades"</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ ⚡ 快速示例</strong></p>
+          <p>（代码示例，保留原样不翻译。大意：装好后，用一句话让它"回测 BTC-USDT 的 20/50 均线策略、总结收益和回撤、再导出报告"；或一行命令对 gtja191 因子库在沪深 300 上跑 2018–2025 的基准；或上传交易流水，让它"分析我的交易行为、提取我的影子策略、和我的真实交易对比"。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 👥 Shadow Account
+Shadow Account starts from your own trading records instead of a generic strategy template.
+Upload a broker export, let the agent summarize your behavior, then compare the actual trading path with a rule-based shadow strategy.
+1. Read your journal → Parses broker exports from 同花顺, 东方财富, 富途, generic CSV.
+2. Profile your behavior → Holding days, win rate, PnL ratio, drawdown, disposition effect, overtrading, momentum chasing, anchoring.
+3. Extract your rules → Turns recurring entries/exits into an explicit strategy profile.
+4. Run the shadow → Backtests the rules, highlights rule breaks, early exits, missed signals, alternative trade paths.
+5. Deliver the report → HTML/PDF report to inspect, archive, or refine later.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 👥 影子账户（Shadow Account）</strong></p>
+          <p>影子账户从你自己的交易记录出发，而不是一个通用的策略模板。</p>
+          <p>上传一份券商导出文件，让 agent 总结你的行为，然后把你真实的交易路径和一个基于规则的影子策略做对比。</p>
+          <p><strong>1. 读取你的流水</strong> → 解析来自同花顺、东方财富、富途以及通用 CSV 格式的券商导出。</p>
+          <p><strong>2. 给你的行为画像</strong> → 持仓天数、胜率、盈亏比、回撤，以及处置效应、过度交易、追涨、锚定等检查。</p>
+          <p><strong>3. 提取你的规则</strong> → 把反复出现的买入/卖出动作，变成一份明确的策略画像，而不是含糊的总结。</p>
+          <p><strong>4. 运行影子策略</strong> → 回测这套提取出的规则，并高亮出违反规则之处、过早离场、错过的信号和其他可能的交易路径。</p>
+          <p><strong>5. 交付报告</strong> → 产出一份可查看、可存档、可在后续会话里继续打磨的 HTML/PDF 报告。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 🧪 Research Workflow
+Most runs follow the same evidence path: route the request, load the right market context, execute tools, validate outputs, and keep the artifacts inspectable.
+Plan → selects relevant finance skills, tools, data sources, swarm preset.
+Ground → pulls A-shares, HK/US equities, crypto, futures, forex, documents, web context.
+Execute → generates testable strategy code, runs tools, uses the matching backtest engine.
+Validate → metrics, benchmark, Monte Carlo, Bootstrap, Walk-Forward, run cards, warnings.
+Deliver → reports, artifacts, tool traces, exports for TradingView/TDX/MT5/MCP/later sessions.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 🧪 研究工作流（Research Workflow）</strong></p>
+          <p>大多数运行都遵循同一条"证据路径"：给请求选路、加载正确的市场上下文、执行工具、校验输出，并让产物可被检查。</p>
+          <p><strong>规划（Plan）</strong> → 选出相关的金融 skills、工具、数据源，以及合适时的 swarm 预设。</p>
+          <p><strong>落地（Ground）</strong> → 通过可用的加载器拉取 A股、港股/美股、加密、期货、外汇、文档或网页上下文。</p>
+          <p><strong>执行（Execute）</strong> → 生成可测试的策略代码、运行工具、使用匹配的回测引擎或分析工作流。</p>
+          <p><strong>校验（Validate）</strong> → 在适用时加上各项指标、基准对比、蒙特卡洛、Bootstrap、Walk-Forward（步进式）验证、运行卡和警告。</p>
+          <p><strong>交付（Deliver）</strong> → 返回报告、产物、工具调用轨迹，以及面向 TradingView、TDX、MetaTrader 5、MCP 客户端或后续会话的导出。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 📡 Data Sources &amp; Smart Fallback
+One get_market_data call, 18 market-data sources. Set source: "auto" — the loader picks by symbol, then walks a per-market chain ordered by IP-ban risk: never-banned public sources first, throttled / key-gated ones last. Zero config, no single point of failure.
+(table of 18 sources across A/US/HK/crypto/futures/fx + fallback chains)
+Beyond OHLCV, 18 read-only data tools reach into fundamentals &amp; flow — fund flow, dragon-tiger, northbound, margin, block trades, … SEC filings, financial statements, options chains, … macro — all over MCP.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 📡 数据源与智能兜底</strong></p>
+          <p>一个 <code>get_market_data</code> 调用，背后是 18 个行情数据源。把 source 设成 "auto"——加载器会按标的自动选源，然后沿着一条"按 IP 封禁风险排序"的链条逐个尝试：永不被封的公共源排在最前，会限流的、需要密钥的排在最后。零配置，没有单点故障。</p>
+          <p>（原文附一张 18 个数据源的对照表，覆盖 A股/美股/港股/加密/期货/外汇，并列出每个市场的兜底链条。例如 A股链条：tencent · mootdx · eastmoney · baostock · akshare · tushare · local。这部分是数据源清单，按原位标注，不逐行翻译。）</p>
+          <p>除了 OHLCV（开高低收量）行情，还有 18 个只读数据工具能伸进基本面和资金流——资金流向、龙虎榜、北向资金、融资融券、大宗交易……SEC 备案、财务报表、期权链……宏观数据，全部通过 MCP 暴露。一个显式的 <code>local:</code> 标的永远不会被悄悄回退到网络源。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 🔩 Detailed Capabilities (folded details)
+- Finance Skill Library — 79 skills across 8 categories (Data Source / Strategy / Analysis / Asset Class / Crypto / Flow / Tool / Risk)
+- Custom Data Source — register your own historical OHLCV loader (code steps)
+- Preset Trading Teams — 29 swarm presets (investment_committee, quant_strategy_desk, risk_committee, …)
+- Alpha Zoo — 456 pre-built quant alphas across 4 zoos (qlib158 154 / alpha101 101 / gtja191 191 / academic 10)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 🔩 详细能力清单</strong>（原文这几块都折叠收起，保持主 README 简洁）</p>
+          <p>这一节用了多个可展开的折叠块，逐一列出可用的"积木"。属于清单型内容，这里如实概述、不逐条翻译：</p>
+          <p>— <strong>金融技能库</strong>：79 个专门的金融 skills，分 8 类（数据源 / 策略 / 分析 / 资产类别 / 加密 / 资金流 / 工具 / 风险分析）。</p>
+          <p>— <strong>自定义数据源</strong>：教你注册自己的历史 OHLCV 加载器（附代码步骤），并提示"实时逐笔/盘口深度不在加载器范围内,实时数据走券商连接器"。</p>
+          <p>— <strong>预置交易团队</strong>：29 个开箱即用的 swarm 团队预设（投资委员会、量化策略台、风控委员会、加密交易台、宏观利率外汇台等）。</p>
+          <p>— <strong>Alpha 动物园</strong>：456 个预置量化因子，分 4 个库——qlib158（微软 Qlib，154 个）、alpha101（Kakushadze 2015 论文，101 个）、gtja191（国泰君安 2014 研报，191 个）、academic（学术因子，10 个）；带 AST 纯度门禁、防未来函数测试、断网开关、逐库 LICENSE。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 🎬 Demo
+(two embedded videos: natural-language backtest & multi-agent swarm debate — Web UI + CLI)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 🎬 演示（Demo）</strong></p>
+          <p>（两段内嵌视频：自然语言回测、以及多智能体 swarm 辩论——分别展示 Web 界面和命令行 CLI。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 🚀 Quick Start
+### One-line install (PyPI): pip install vibe-trading-ai
+vibe-trading init ; vibe-trading run -p "..."
+Package name vs commands: vibe-trading (CLI/TUI) · vibe-trading serve (web) · vibe-trading-mcp (MCP server)
+### Or choose a path: A. Docker (2 min) · B. Local install (5 min) · C. MCP plugin (3 min) · D. ClawHub (1 min)
+### Prerequisites: LLM API key (or Ollama, no key) · Python 3.11+ (Path B) · Docker (Path A) · OpenAI Codex via ChatGPT OAuth
+Supported providers: OpenRouter, OpenAI, DeepSeek, Gemini, Groq, DashScope/Qwen, Zhipu, Moonshot/Kimi, MiniMax, Xiaomi MIMO, Z.ai, Ollama
+Tip: All markets work without any API keys thanks to automatic fallback.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 🚀 快速开始（Quick Start）</strong></p>
+          <p><strong>＃＃＃ 一行安装（PyPI）</strong>：<code>pip install vibe-trading-ai</code>，然后 <code>vibe-trading init</code>（交互式配置）、<code>vibe-trading run -p "..."</code>（跑第一个研究任务）。</p>
+          <p><strong>包名 vs 命令</strong>：PyPI 包名是 vibe-trading-ai；装完得到三个命令——<code>vibe-trading</code>（交互式命令行）、<code>vibe-trading serve</code>（启动 Web 服务）、<code>vibe-trading-mcp</code>（启动 MCP server，供 Claude Desktop / OpenClaw / Cursor 等用）。</p>
+          <p><strong>＃＃＃ 或者选一条路径</strong>：A. Docker（立刻试、零本地配置，2 分钟）· B. 本地安装（开发、完整 CLI，5 分钟）· C. MCP 插件（接进你现有的 agent，3 分钟）· D. ClawHub（一条命令、无需 clone，1 分钟）。</p>
+          <p><strong>＃＃＃ 前置条件</strong>：任一支持的服务商的 LLM API key——或用本地 Ollama（不需要 key）；走 Docker 需要 Docker；走本地安装需要 Python 3.11+；也支持 OpenAI Codex 走 ChatGPT OAuth 登录。</p>
+          <p><strong>支持的 LLM 服务商</strong>：OpenRouter、OpenAI、DeepSeek、Gemini、Groq、DashScope/通义千问、智谱、Moonshot/Kimi、MiniMax、小米 MIMO、Z.ai、Ollama（本地）。</p>
+          <p><strong>提示</strong>：得益于自动兜底，所有市场不需要任何 API key 就能用——yfinance（港股/美股）、OKX（加密）、mootdx（A股，TCP 直连、不限流）、AKShare（A股/美股/港股/期货/外汇）全免费；Tushare token 可选。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>### Path A: Docker (zero setup)
+git clone … ; cp agent/.env.example agent/.env ; docker compose up --build
+Open http://localhost:8899. Backend + frontend in one container. Published on 127.0.0.1:8899 by default, runs as non-root user. Your data survives updates (named Docker volumes).
+### Path B: Local install
+git clone … ; python -m venv .venv ; pip install -e . ; cp agent/.env.example agent/.env ; vibe-trading
+(optional web UI via vibe-trading serve + frontend npm run dev)
+### Path C: MCP plugin (see below)
+### Path D: ClawHub: npx clawhub@latest install vibe-trading --force</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃＃ 路径 A：Docker（零配置）</strong>：git clone 仓库 → 复制 .env 模板并填上你的 LLM 服务商和 key → <code>docker compose up --build</code>。打开 http://localhost:8899，前后端在同一个容器里。默认只绑定本机 127.0.0.1:8899、以非 root 用户运行；如果你有意对外暴露 API，要设强密码 <code>API_AUTH_KEY</code>。你的数据（记忆、会话、技能、影子账户、券商配置、回测记录等）存在命名 Docker 卷里，更新不丢失。</p>
+          <p><strong>＃＃＃ 路径 B：本地安装</strong>：git clone → 建虚拟环境 → <code>pip install -e .</code> → 复制并编辑 .env → <code>vibe-trading</code> 启动交互式界面。（可选：另起两个终端跑 <code>vibe-trading serve</code> 和前端 <code>npm run dev</code> 开 Web 界面。）</p>
+          <p><strong>＃＃＃ 路径 C：MCP 插件</strong>：见下文 MCP 章节。</p>
+          <p><strong>＃＃＃ 路径 D：ClawHub（一条命令）</strong>：<code>npx clawhub@latest install vibe-trading --force</code>，技能和 MCP 配置会下载进你 agent 的 skills 目录，无需 clone。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 🧠 Environment Variables
+(table: LANGCHAIN_PROVIDER, &lt;PROVIDER&gt;_API_KEY, &lt;PROVIDER&gt;_BASE_URL, LANGCHAIN_MODEL_NAME, TUSHARE_TOKEN, TIMEOUT_SECONDS, API_AUTH_KEY, VIBE_TRADING_ENABLE_SHELL_TOOLS, VIBE_TRADING_ALLOWED_FILE_ROOTS, VIBE_TRADING_ALLOWED_RUN_ROOTS)
+Free data (no key needed): A-shares via AKShare, HK/US via yfinance, crypto via OKX/CCXT.
+### 🎯 Recommended Models
+Best: claude-opus-4.7 / sonnet-4.6 / gpt-5.5-pro / gemini-3.5-flash
+Sweet spot (default): deepseek-v4-pro / grok-4.20 / glm-5.1 / kimi-k2.6 / qwen3-max-thinking
+Avoid for agent use: *-nano / *-flash-lite / small / distilled variants (unreliable tool-calling)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 🧠 环境变量</strong></p>
+          <p>把 .env 模板复制一份，取消注释你想用的服务商块，每个服务商需要 3–4 个变量。（原文附一张变量表：服务商名、API key、接口地址、模型名为必填；Tushare token、超时、对外访问的 <code>API_AUTH_KEY</code>、shell 工具开关、允许的文件/运行目录为可选。属于配置清单，按原位标注。）免费数据（不需要 key）：A股走 AKShare、港股/美股走 yfinance、加密走 OKX/CCXT，系统会自动为每个市场选最佳可用源。</p>
+          <p><strong>＃＃＃ 🎯 推荐模型</strong>：作者强调 Vibe-Trading 是"重度依赖工具调用"的 agent，模型选得好不好,直接决定它是真的去"用工具"、还是凭训练记忆瞎编。<strong>最佳档</strong>：claude-opus-4.7 / sonnet-4.6 / gpt-5.5-pro / gemini-3.5-flash（适合复杂 swarm、长研究、论文级分析）。<strong>性价比甜点档（默认）</strong>：deepseek-v4-pro / grok-4.20 / glm-5.1 / kimi-k2.6 / qwen3-max-thinking（日常用，约 1/10 成本下可靠调工具）。<strong>不要用</strong>：各种 nano / flash-lite / 蒸馏小模型（工具调用不可靠，会"凭记忆作答"而不是真去跑回测）。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 🖥 CLI Reference
+vibe-trading (TUI) · run -p "..." · serve · alpha list · provider doctor
+Slash commands inside TUI: /help /skills /swarm /list /show /code /pine /trace /continue /sessions /settings /clear /quit
+Single run &amp; flags: run -p / -f / --json / --skills / --swarm-presets / --swarm-run / --upload / alpha list|show|bench …</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 🖥 命令行参考（CLI Reference）</strong></p>
+          <p>交互式界面（<code>vibe-trading</code>）现在是终端原生的"对话记录"风格：启动横幅、上一轮回顾、实时活动栏、Markdown/表格渲染、运行计时。非交互式调用（<code>run</code>、管道、<code>--json</code>）仍然适合脚本。</p>
+          <p>（原文随后用折叠块详列了界面内的斜杠命令——/help、/skills、/swarm、/list、/show、/code、/pine、/trace、/continue、/sessions、/settings 等——以及单次运行的各种参数和 alpha 子命令。属于命令清单，按原位标注、不逐条翻译。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 💡 Examples
+Strategy &amp; Backtesting (MA crossover / RSI mean-reversion / multi-factor / pine export / alpha bench / compose multi-factor signal)
+Market Research (equity deep-dive / macro / crypto on-chain)
+Swarm Workflows (bull-bear debate / quant desk / crypto desk / macro allocation)
+Cross-Session Memory (save preferences once → recalled automatically)
+Upload &amp; Analyze Documents (broker export / earnings PDF)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 💡 示例（Examples）</strong></p>
+          <p>原文给了一大批可直接复制的命令示例，按主题分组（均为代码示例，保留原样不翻译，这里概述各组用途）：</p>
+          <p>— <strong>策略与回测</strong>：均线交叉、RSI 均值回归、多因子策略、回测后一键导出到 TradingView/TDX/MT5、对因子库跑基准、用多个因子组合出一个信号。</p>
+          <p>— <strong>市场研究</strong>：个股深挖（财报趋势、分析师一致预期、期权流、风险）、宏观分析、加密链上数据。</p>
+          <p>— <strong>Swarm 工作流</strong>：对某只股票做多空辩论、量化台从选股到回测、加密台、全球宏观资产配置。</p>
+          <p>— <strong>跨会话记忆</strong>：先告诉它一次你的偏好（如"我喜欢 RSI 策略、回撤≤10%"），以后它在新会话里自动记起。</p>
+          <p>— <strong>上传并分析文档</strong>：上传券商流水或财报 PDF，让它分析你的交易偏差、或总结财报要点。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 🌐 API Server
+vibe-trading serve --port 8899
+(REST table: /runs, /sessions, /upload, /swarm, /alpha, /settings, /scheduled-runs …) Interactive docs: /docs
+### Security defaults — non-local clients require API_AUTH_KEY; shell tools gated; readers limited to upload roots.
+### Web UI Settings — update provider/model/credentials; reads side-effect free; writes require auth.
+### Scheduled research — off by default (VIBE_TRADING_ENABLE_SCHEDULER=1); create jobs via REST (interval-ms or cron).</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 🌐 API 服务器</strong></p>
+          <p><code>vibe-trading serve --port 8899</code> 启动。（原文附一张 REST 接口表：列出运行、会话、上传、swarm、alpha、设置、定时任务等端点；交互式文档在 /docs。属于接口清单，按原位标注。）</p>
+          <p><strong>＃＃＃ 安全默认值</strong>：本机开发免配置；任何非本机客户端访问敏感端点都要带 <code>API_AUTH_KEY</code>；可执行 shell 的工具默认不对远程开放，要显式开启；文档/流水读取默认限制在上传目录内。</p>
+          <p><strong>＃＃＃ Web 界面设置</strong>：本地用户可在设置页改 LLM 服务商/模型/接口/参数/数据源凭证，写入 .env；读取设置无副作用、写入需鉴权。</p>
+          <p><strong>＃＃＃ 定时研究</strong>：后台执行器默认关闭，用 <code>VIBE_TRADING_ENABLE_SCHEDULER=1</code> 开启；然后通过 REST 创建任务，schedule 可以是毫秒间隔或 5 段 cron 表达式（如"每 6 小时扫一次沪深 300 的动量突破并回测前 5"）。任务持久化、重启不丢。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 🔌 MCP Plugin
+Vibe-Trading exposes 54 MCP tools for any MCP-compatible client. Runs as a stdio subprocess — no server setup. Core research tools work with zero API keys for HK/US/crypto; trading connector tools use the selected connector profile; run_swarm needs an LLM key.
+(Claude Desktop / OpenClaw / Cursor config snippets)
+MCP tools exposed (54): list_skills, backtest, factor_analysis, read_url, web_search, trading_account, run_swarm, get_market_data, get_fund_flow, … (full 54-tool list)
+### SWARM external MCP tools — workers can call operator-approved external MCP tools.
+ClawHub install: npx clawhub@latest install vibe-trading --force
+OpenSpace — all 79 skills evolve autonomously.</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 🔌 MCP 插件</strong></p>
+          <p>Vibe-Trading 向任何兼容 MCP 的客户端暴露 54 个 MCP 工具。它以 stdio 子进程方式运行——不用搭服务器。核心研究工具对港股/美股/加密零 key 可用；交易连接器工具用你选定的连接器配置；run_swarm 需要 LLM key。</p>
+          <p>（原文给了 Claude Desktop、OpenClaw、Cursor/Windsurf 的配置片段，并完整列出了 54 个 MCP 工具名——从 list_skills、backtest、web_search 到 get_market_data、各种资金流/财报/期权数据工具、影子账户工具等。属于配置和工具清单，按原位标注、不逐条翻译。）</p>
+          <p>还说明了：swarm 的 worker 可以调用运营者批准的外部 MCP 工具；可通过 ClawHub 一条命令安装（<code>--force</code> 是因为引用了外部 API 会触发 VirusTotal 自动扫描，代码全开源可审查）；79 个金融 skills 也发布在 OpenSpace 上、可自主进化。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 🔌 Loading Tools from External MCP Servers (MCP Client Mode)
+This is the opposite direction: lets the built-in Vibe-Trading agent call tools from your external MCP servers. Create ~/.vibe-trading/agent.json with mcpServers.
+### Official IBKR MCP read-only probe (OAuth, mcp.read scope)
+### Trading connectors: fastest path — local TWS / IB Gateway, credentials stay in IBKR's app, Vibe-Trading only connects to 127.0.0.1.
+(connector commands · default ports · config reference table · per-session overrides · tool naming · v1 limits)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 🔌 从外部 MCP 服务器加载工具（MCP 客户端模式）</strong></p>
+          <p>这是和上一节相反的方向：上一节是让别的 agent 调用 Vibe-Trading 的工具；这一节是让 Vibe-Trading 内置的 agent 去调用你自己外部 MCP 服务器的工具。做法是建一个 <code>~/.vibe-trading/agent.json</code> 配置文件。</p>
+          <p>原文随后详述了：连接盈透证券（IBKR）官方远程 MCP 的只读探针（走 OAuth、只读权限）；以及对等不及 OAuth 审批的人，怎么连本地 TWS / IB Gateway——凭证留在 IBKR 桌面应用里，Vibe-Trading 只连本机 127.0.0.1。还附了连接器命令、默认端口表、配置字段参考表、按会话覆盖配置、工具命名规则、v1 版本的限制。这些属于券商接入的技术配置清单，按原位标注、不逐条翻译。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 📁 Project Structure (folded tree)
+Vibe-Trading/ ├── agent/ (Python backend: cli, api_server, mcp_server, src/agent ReAct core, memory, 68 tools, factors/456 alphas, skills/79, swarm/29 presets, backtest/7 engines + 18 loaders) ├── frontend/ (React 19 + Vite + TS) ├── Dockerfile ├── docker-compose.yml └── LICENSE (MIT)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 📁 项目结构</strong>（原文为可展开的目录树）</p>
+          <p>（一张项目目录树，展示后端 agent/（Python：命令行、FastAPI 服务、MCP 服务、ReAct agent 核心带 5 层上下文压缩、跨会话记忆、68 个工具、456 个 alpha 因子、79 个 skills、29 个 swarm 预设、7 个回测引擎 + 18 个数据加载器）、前端 frontend/（React 19 + Vite + TypeScript）、Dockerfile、docker-compose、MIT 协议。属于目录清单，按原位标注。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## 🏛 Ecosystem
+Vibe-Trading is part of the HKUDS agent ecosystem: NanoBot · AI-Trader · CLI-Anything · OpenSpace · ClawTeam
+
+## 🗺 Roadmap (phases & status)
+Trust Layer (v0 Shipped) · Hypothesis Registry (Backend MVP) · Research Autopilot (Phase 1–3 Shipped) · Data Bridge (Local loader Shipped) · Options Lab (Planned) · Portfolio Studio (Planned) · Alpha Zoo (Shipped 0.1.8) · Research Delivery (Scheduler Shipped) · Community (Exploring)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 🏛 生态（Ecosystem）</strong></p>
+          <p>Vibe-Trading 是 HKUDS agent 生态的一部分：NanoBot（超轻量个人 AI 助手）、AI-Trader（agent 原生的信号与跟单平台）、CLI-Anything（让所有软件 agent 化）、OpenSpace（自进化的 AI agent 技能）、ClawTeam（agent 群体智能）。</p>
+          <p><strong>＃＃ 🗺 路线图（Roadmap）</strong>：分阶段交付，开工的条目会进 Issues。信任层（v0 已交付）· 假设登记册（后端 MVP 已交付）· 研究自动驾驶（1–3 阶段已交付）· 数据桥（本地加载器已交付）· 期权实验室（计划中）· 组合工作室（计划中）· Alpha 动物园（0.1.8 已交付）· 研究投递到 Slack/Telegram/邮件（调度器已交付）· 社区分享（探索中）。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Contributing
+We welcome contributions! See CONTRIBUTING.md. Good first issues tagged. Open an issue to discuss bigger work.
+
+## Contributors
+Thanks to everyone … Recent v0.1.10 cycle contributors and credits: @Hinotoi-agent, @mvanhorn, @gyx09212214-prog, @BillDin, @Robin1987China, @LemonCANDY42, @zwrong, … @warren618 / Haozhe Wu (global data layer, 10 broker connectors, alpha-compare, provider-reliability overhaul, …)</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 贡献（Contributing）</strong></p>
+          <p>我们欢迎贡献！详见 CONTRIBUTING.md。适合新手的 issue 都打了 "good first issue" 标签，挑一个就能开始；想做更大的改动，先看上面的路线图、开个 issue 讨论再动手。</p>
+          <p><strong>＃＃ 贡献者（Contributors）</strong></p>
+          <p>感谢所有为 Vibe-Trading 做过贡献的人。（原文逐一致谢了 v0.1.10 周期的十几位贡献者及其具体 PR——安全加固、本地数据缓存、Gemini 工具调用修复、swarm 状态 UI、研究自动驾驶、中文本地化等。属于致谢名单，按原位标注、不逐条翻译。）</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre>## Disclaimer
+Vibe-Trading is research and trading software. It is not investment advice, holds no funds, and runs no execution venue. Trading through a broker channel you explicitly authorize (e.g. Robinhood Agentic Trading) happens only within the limits you set and which you can halt at any time. This broker-trading capability is experimental and not verified by us against a real broker account — use it at your own risk. Past performance does not guarantee future results.
+
+## License
+MIT License — see LICENSE
+
+## Star History … ⭐ If Vibe-Trading helps your research, a star helps more people find it.
+Thanks for visiting Vibe-Trading ✨</pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><strong>＃＃ 免责声明（Disclaimer）</strong></p>
+          <p>Vibe-Trading 是研究和交易软件。它不是投资建议，不持有任何资金，也不运营任何撮合/交易场所。通过你明确授权的券商通道（例如 Robinhood Agentic Trading）进行的交易，只在你设定的限制内发生，而且你随时可以叫停。这个券商交易能力是实验性的，我们没有用真实券商账户验证过——使用风险自负。过往表现不保证未来结果。</p>
+          <p><strong>＃＃ 许可证（License）</strong>：MIT 协议——见 LICENSE 文件。</p>
+          <p><strong>＃＃ Star 历史</strong>：（一张 star 增长曲线图。）⭐ 如果 Vibe-Trading 对你的研究有帮助，点个 star 能帮更多人发现它。</p>
+          <p>感谢造访 Vibe-Trading ✨</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">市面上量化工具一堆，它凭什么 30 天涨到几千 star？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>过去的量化工具（如 Qlib、Backtrader）是给"会写代码的量化工程师"用的——你得自己编程、配数据、调框架。Vibe-Trading 的根本不同是<strong>"把整条研究流水线交给 AI agent，用户只管说话"</strong>。它不是又一个回测库,而是一个"会用一堆专业工具的 AI 研究员":你提需求,它自己选技能、拉数据、写策略、跑回测、出报告。这把量化的门槛从"程序员"直接降到了"会提问的人"。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🗣️</div>
+          <div class="pattern-title">"一句话 → 完整研究"的范式</div>
+          <p class="pattern-desc">最核心的创新：自然语言进、可交付的报告/策略/回测出。它把"数据→策略→回测→报告"压进一条命令。别的工具给你"零件",它直接给你"装好的成品流程"。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">👥</div>
+          <div class="pattern-title">影子账户：拿你自己的交易当镜子</div>
+          <p class="pattern-desc">这是很少见的角度。不教你一个"通用好策略",而是从你真实流水里提炼出"你本来想做的规则",再回测对比——精准告诉你"哪些钱是被你自己的坏习惯亏掉的"。把抽象的"反思"变成了可量化的对照。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🐝</div>
+          <div class="pattern-title">多智能体投研团队（Swarm）</div>
+          <p class="pattern-desc">29 个预置"团队":投资委员会做多空辩论、量化台从选股到回测、风控会签字。一个人也能开一场"机构式投研会议",让不同角色的 AI 互相质疑后再出结论,比单个 AI 更可靠。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📡</div>
+          <div class="pattern-title">18 源智能兜底，零配置抓全球行情</div>
+          <p class="pattern-desc">把"搞数据"这个量化最大的脏活做成了开箱即用:18 个数据源按"封禁风险"排队,一个挂了自动换下一个,免费源优先。覆盖 A股/港股/美股/加密/期货/外汇,不用 key 就能跑。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🧬</div>
+          <div class="pattern-title">456 个现成因子 + 一行命令跑基准</div>
+          <p class="pattern-desc">内置了学术界和业界经典的 456 个 alpha 因子(微软 Qlib、Kakushadze 101、国君 191 等),一行命令就能在你的股票池上批量评测、自动标出"还有效/已反转/已失效"。等于把量化研究的"弹药库"也配齐了。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔒</div>
+          <div class="pattern-title">把"实盘"关进笼子里的克制设计</div>
+          <p class="pattern-desc">它能接券商实盘,但处处设防:默认只读、要你亲自授权、只在你设的额度内交易、有一键急停、不持有你的钱。这种"能力强但主动给自己上锁"的设计,在交易类项目里是难得的负责任态度。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">"拿你自己的数据当镜子"是个万能产品母题</div>
+          <p class="inspo-card-desc">影子账户最妙的不是量化,是"从你的真实记录里提炼出你本来的意图,再对比理想执行,告诉你差在哪"。这个套路能套到任何"用户想变好却说不清问题在哪"的场景——健身、学习、时间管理、内容创作。把模糊的"反思"变成可量化的对照,是很强的产品钩子。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">"一句话 → 成品流程"是 AI 产品的高级形态</div>
+          <p class="inspo-card-desc">它不给零件、直接给装好的流程:自然语言进,完整报告出。这对你做独立小工具特别有启发——凡是"多步骤、用户嫌麻烦"的事,别给一堆按钮让用户自己拼,试着让用户一句话说需求、AI 把整条流水线跑完直接交付成品。这是从"工具"升级到"代办"的关键一跳。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">"多角色 AI 互相辩论"提升结论质量</div>
+          <p class="inspo-card-desc">它让投资委员会多空对辩再出结论。任何"AI 给建议"的功能,与其让一个 AI 直接拍板,不如让"正方/反方/挑刺者"几个角色先互怼一轮——结论更稳、更经得起推敲,用户也更敢信。这是个可以直接复用的产品设计模式。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">"智能兜底链"=用户零感知的稳定性</div>
+          <p class="inspo-card-desc">18 个数据源按风险排队、一个挂了自动换下一个、用户完全无感。任何依赖外部接口的产品都该学这招:别让上游抽风直接糊用户一脸报错,准备好备用源、优雅降级。稳定到"用户从不知道你救过场",才是真功夫。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">用更新日志把"我们一直在进步"讲给用户听</div>
+          <p class="inspo-card-desc">它 README 顶部是一长串每日更新日志,30 天天天发版,营造出极强的"团队很拼、产品在飞速进化"的信任感。任何产品的更新页/动态,都可以把"我们改了什么"持续、显眼地晒出来——让用户真切感到产品在被认真打磨,这本身就是留存。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 6</div>
+          <div class="inspo-card-title">"能力强但主动上锁"反而赢得信任</div>
+          <p class="inspo-card-desc">它能接实盘,却处处设防:默认只读、要你亲自授权、一键急停、不碰你的钱。在涉及钱或敏感操作的功能上,把"安全护栏"做得显眼,不但不减分,反而是最强的信任牌。克制,有时比强大更打动人。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">它本身就是"用大白话提问"的产品。装好后你就用中文/英文说需求,它干活。对会用命令行的人几乎零代码;真正的门槛在"装"那一步,不在"用"那一步。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">需要 Python 3.11+ 或 Docker,再加一个大模型的 API key(或本地 Ollama)。行情数据有免费源、零配置;想接券商实盘则要额外授权配置。整体免费开源。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">天生就是为"跟 AI 对话用工具"设计的,还自带 MCP 接口能挂到 Claude Desktop。让 Claude Code 帮你装、帮你跑,是最顺的打开方式。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要用，大概需要什么</h2>
+        <p><strong>最省事试一把：</strong>用 Docker 路径,一条命令起服务,浏览器打开就有 Web 界面,2 分钟能跑起来——这是对非技术人最友好的方式。然后准备一个大模型 key(它推荐 DeepSeek 等性价比模型,成本很低)。</p>
+        <p><strong>真正用起来：</strong>时间上当天就能体验;钱主要是大模型的调用费(用性价比模型很便宜,行情数据免费);前置知识需要一点点交易常识(什么是回测、夏普、回撤),但完全不用懂编程。让 AI 帮你装环境能省掉绝大部分麻烦。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意：它是"研究工具"，不是"印钞机"</strong>
+          <p>作者在 README 顶部和免责声明里反复强调:<strong>它只用于研究、模拟、回测,不是投资建议</strong>。历史回测跑得好看 ≠ 真金白银能赚——这是量化最大的坑(过拟合、幸存者偏差)。它虽能接券商实盘,但作者明说"实验性、没用真账户验证过、风险自负"。<strong>把它当学习和验证想法的工具,别把回测曲线当未来收益保证</strong>。另外:模型一定要选能可靠调用工具的(别用小模型),否则它会"凭记忆瞎编"而不是真去跑数据。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">它在"量化 / 交易工具"生态里站什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">Qlib（微软）</span>
+          <span class="badge-desc">最有名的开源 AI 量化平台，功能强、偏机构和研究员，要会写 Python。Vibe-Trading 反而把 Qlib 的 158 因子收进了自己的因子库——它定位是"上层的 AI 操盘手"，让你不写代码也能用上这类能力。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Backtrader / vnpy</span>
+          <span class="badge-desc">经典的 Python 回测/交易框架，灵活但纯代码、学习曲线陡。Vibe-Trading 不跟它们拼底层引擎，而是用"自然语言 + AI 自动写策略"把这层门槛抹掉（还能把策略导出成 vnpy 格式）。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">TradingView</span>
+          <span class="badge-desc">看图、画线、写 Pine Script 策略的主流平台，可视化强但要自己写脚本。Vibe-Trading 能一键把策略导出成 Pine Script/通达信/MT5，更像是它的"上游策略生成器"。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">HKUDS/AI-Trader（同门）</span>
+          <span class="badge-desc">同一个港大实验室的另一个项目，主打"100% 全自动 agent 原生交易"。和 Vibe-Trading 是互补关系：Vibe-Trading 偏"研究+受限实盘"，AI-Trader 偏"全自动交易/跟单"。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">付费量化平台（聚宽/优矿/米筐等）</span>
+          <span class="badge-desc">国内成熟的在线量化平台，数据全、有社区，但要订阅付费、且策略困在平台里。Vibe-Trading 是免费开源、本地自建，数据自己接、策略自己留。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>有交易想法但不会编程、想低成本验证的个人；想入门量化的学习者/教学场景；以及想让 AI 帮自己跑投研流程、复盘真实交易的散户。一句 pip install 就能起步，是目前"自然语言量化"里最完整的开源方案。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>想要"开箱即赚"的人——它是研究工具，不保证收益；追求超低延迟、高频实盘撮合的专业交易团队（它的实盘能力还是实验性的、偏研究）；以及完全不想碰命令行/部署的纯小白（虽然用着简单，但"装起来"仍需要一点动手或让 AI 帮忙）。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">接下来你可以做什么</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">先看官网和两段演示视频，感受"一句话跑回测/多智能体辩论"长啥样：<a href="https://vibetrading.wiki/" target="_blank">vibetrading.wiki</a></span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">最省事试一把：用 Docker 路径一条命令起服务，浏览器开 localhost:8899 就能用（让 Claude Code 帮你装最省心）</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">第一个任务别贪大：用一句话让它回测一个简单策略（如某股 20/50 均线），看看产出的报告、指标长什么样</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">体验"影子账户"：如果你有自己的真实交易流水，传进去让它复盘——这是它最独特、最有"照镜子"感的功能</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">模型别用小的：选 DeepSeek/Kimi 这类能可靠调工具的性价比模型，否则它会"凭记忆瞎编"而不是真跑数据</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">守住心态红线：把它当"学习和验证想法"的研究工具，别把好看的回测曲线当成未来一定能赚的钱</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>
