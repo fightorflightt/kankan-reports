@@ -1,0 +1,252 @@
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐段对照</h1>
+      <p class="module-subtitle">这个项目的 README 本身就是中文写的，所以左边照搬作者原话（一段不漏），右边用大白话把里面的技术名词解释给你听</p>
+    </header>
+    <div class="module-body">
+
+      <div class="callout callout-info animate-in" style="margin-bottom:32px;">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">说明</strong>
+          <p>常规的 README 翻译是"英文→中文"。但这本书的 README 原文就是中文，不需要翻译。所以这里改成<strong>对照解读</strong>：左栏是作者一字不改的原话（含所有章节、声明、致谢），右栏是给非技术读者的大白话注解。专业名词（agent、token、harness 等）保留英文。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>御舆：解码 Agent Harness</strong><br>Claude Code 架构深度剖析</p>
+          <p><em>"一器而工聚焉者，车为多。"</em> ——《考工记》</p>
+          <p>两千年前，造一辆马车是最复杂的系统工程：<strong>舆</strong>承载乘者，辕定方向，辐传动力，軎辖为约束——每个构件各司其职，合而为一，车方能行。</p>
+          <p>今天，构建一个 AI Agent 亦是如此：对话循环为<strong>辕</strong>，工具系统为<strong>辐</strong>，权限管线为<strong>軎辖</strong>，而将这一切承载于其上、使智能体真正运转的运行时框架—— Agent Harness——正是那个<strong>舆</strong>。</p>
+          <p>古人御舆，驾驭的是天地之间最精密的机械；今人御舆，驾驭的是硅基时代最复杂的智能体系统。本书因此得名 <strong>舆书</strong>。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>书名叫"御舆"，配了句《考工记》（古代工艺典籍）的话，意思是：一件东西上汇集的工种最多的，就是车。</p>
+          <p>作者拿"造马车"作比喻：马车里"舆"是车厢（承重）、"辕"是车把（定方向）、"辐"是车轮条（传力）、"軎辖"是固定轮子的销子（约束）。零件各管一摊，合起来车才能跑。</p>
+          <p>做 AI Agent 同理：对话循环管方向、工具系统管出力、权限管线管约束；而把这一切托起来、让 AI 真正转起来的"运行时骨架"，就叫 <strong>Agent Harness</strong>。它就是那个最关键的"车厢"。书名由此而来。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>当所有人都在教你怎么 <strong>用</strong> AI Agent——<strong>这本书带你拆开它。</strong></p>
+          <p>[徽章：在线阅读 lintsinghua.github.io · GitHub Stars · Forks · License CC BY-NC-SA 4.0 · 中文 / English · Last Commit]</p>
+          <p>[封面图：御舆：解码 Agent Harness — Claude Code 架构深度剖析]</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>一句话立场：别人教你"怎么用"，我带你"拆开看"。</p>
+          <p>下面一排是 GitHub 上常见的小图标（徽章）：在线阅读入口、收藏数、转发数、开源协议、语言切换、最后更新时间。这些是给读者快速判断"这项目活跃不活跃"的。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>对话循环如何驱动？工具权限为何是四阶段管线？上下文压缩怎样在 token 预算内运转？子智能体如何通过 Fork 继承父级上下文？</p>
+          <p>读懂 Claude Code 的设计决策，你就拥有了一套<strong>可迁移到任何 Agent 框架</strong>的心智模型。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>这是全书要回答的四个核心问题，翻译一下：<br>①AI 怎么一轮轮自己驱动自己干活？<br>②为什么拦权限要分四道关卡？<br>③AI 的"工作记忆"（token 就是 AI 读写文字的计量单位，有上限）快满时怎么自动瘦身？<br>④"分身助手"（子 agent，把一个大任务拆给另一个 AI 实例做）怎么继承主助手的上下文（Fork=复制一份现场）？</p>
+          <p>结论：搞懂这些，你这套思路换到任何 Agent 框架都通用。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>这本书有什么不同</strong></p>
+          <p>不做使用教程，不列 Prompt 技巧。</p>
+          <p>市面上充斥着"如何写好 Prompt"和"如何调用 Agent API"的指南。但如果你想知道一个生产级 Agent 系统的<strong>骨架</strong>是怎么搭的——几乎没有资料可查。这本书填补了这个空白。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>作者明确划清边界：这不是一本教你"怎么用"的书，不教写提示词技巧（Prompt = 你给 AI 下的指令）。</p>
+          <p>市面上"怎么写指令""怎么调接口"的教程太多了，但"一个能上线、扛得住真实使用的 AI 系统底层怎么搭"几乎没人写。这本书补的就是这块空白。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>【表格 · 三个特色】</p>
+          <p><strong>架构分析而非 API 文档</strong>：不讲"怎么调用"，讲"为什么这样设计"——追溯动机、分析权衡、指出反模式。</p>
+          <p><strong>设计哲学而非使用教程</strong>：从异步生成器到断路器模式，每章提炼可迁移的设计原则。</p>
+          <p><strong>可迁移的认知模型</strong>：无论你用 LangChain、AutoGen、CrewAI 还是从零构建，书中 139 张架构图直接复用。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>三个卖点：</p>
+          <p>① 讲"为什么这么设计"，而不是"怎么调用"——会分析动机、取舍、还有"反面教材"（反模式 = 大家常踩的错误做法）。</p>
+          <p>② 讲设计思想，不是操作步骤。"异步生成器""断路器模式"是两种编程套路，这里你只需知道：作者会从这些技术细节里提炼出能复用的设计原则。</p>
+          <p>③ 给你一套通用脑图。不管你用哪个 Agent 框架，书里 139 张架构图（用图把系统结构画出来）都能直接拿去用。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>书中的数据一览</strong>（可折叠表格）</p>
+          <p>全书字数 42 万字（中文）/ 75K+ words（English）；正文 15 章 + 4 篇附录；Mermaid 架构图/流程图/状态机 139 张；覆盖核心子系统：工具系统、权限管线、上下文压缩、记忆系统、钩子系统、子智能体调度、MCP 集成、技能插件、流式架构、Plan 模式；分析的设计决策 50+ 个；术语条目（中英对照）100 条；功能标志 89 个；注册工具 50+ 个。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>一张"家底清单"，体现书的体量：42 万字、15 章正文 + 4 篇附录、139 张图。覆盖的"子系统"就是 Claude Code 内部的各个功能模块。</p>
+          <p>几个名词：<strong>Mermaid</strong> 是一种用文字画流程图的工具；<strong>MCP</strong> 是一套让 AI 接外部工具/数据的标准协议；<strong>钩子（hook）</strong> 是"在某个时机自动触发一段动作"的扩展点；<strong>功能标志（flag）</strong> 是产品里的开关，控制某功能开不开。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>声明：</strong>本书基于对 Claude Code 公开文档和产品行为的架构分析编写，未引用、未使用任何未公开或未授权的源码。Claude Code 为 Anthropic PBC 产品，本书不隶属于、未获授权于、也不代表 Anthropic。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>一段免责声明，挺重要：作者强调这本书是靠"看公开文档 + 观察产品行为"反推出来的，<strong>没有用任何泄露或未授权的源码</strong>。而且和 Anthropic（Claude Code 的厂商）没有任何官方关系。——这是在跟 4 月那次源码泄露事件撇清，规避法律风险。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>快速导航</strong></p>
+          <p>时间紧张？ 01 → 02 → 04 → 15，拿到核心认知和动手能力就够用。</p>
+          <p>有经验？ 直接读 Part 2 + Part 3，遇到概念缺口回溯 Part 1。</p>
+          <p>系统学习？ 从头到尾，每章做练习，最后 Ch15 构建自己的 Harness（约 2–3 周）。</p>
+          <p>查资料？ 直接翻附录 A（模块定位）/ B（工具）/ C（功能标志）/ D（术语）。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>贴心的"看书路线图"，按你的情况选：<br>· 没空 → 只读第 1、2、4、15 章。<br>· 有底子 → 直接跳到第二、三部分，缺概念再回头。<br>· 想系统学 → 从头读，做练习，最后照着第 15 章亲手搭一个，预计 2–3 周。<br>· 只想查 → 直接翻附录当工具手册。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>目录 · Part 1 基础篇 — 建立心智模型</strong></p>
+          <p>01 智能体编程的新范式：Copilot → Claude Code 演进；Agent Harness 五大设计原则；Bun + React/Ink + Zod v4 技术栈。</p>
+          <p>02 对话循环 — Agent 的心跳：while(true) 异步生成器主循环；五种 yield 事件；十种终止原因；QueryDeps 依赖注入。</p>
+          <p>03 工具系统 — Agent 的双手：Tool&lt;I,O,P&gt; 五要素协议；buildTool 故障安全工厂；45+ 工具 × 12 类；并发分区贪心算法。</p>
+          <p>04 权限管线 — Agent 的护栏：四阶段管线；五种权限模式谱系；Bash 规则匹配；推测性分类器 2 秒 Promise.race。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>第一部分"打地基"，4 章。每章名字都用了身体比喻：对话循环=心跳、工具系统=双手、权限管线=护栏。</p>
+          <p>后面那串英文是技术名词，你不用懂细节，知道它在讲"AI 怎么一轮轮跑、怎么调工具、怎么拦危险操作"就行。<strong>Bun/React/Ink/Zod</strong> 是搭这套东西用的几样编程工具，类似盖楼用的某品牌钢材水泥，记不住没关系。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>Part 2 核心系统篇 — 深入子系统</strong>（配置、记忆、上下文、钩子）</p>
+          <p>05 设置与配置 — Agent 的基因：六层配置优先级链；合并规则；安全边界与供应链攻击防御；双层功能门控。</p>
+          <p>06 记忆系统 — Agent 的长期记忆：四种封闭式记忆类型；"只保存无法推导的信息"；MEMORY.md 索引；Fork 记忆机制。</p>
+          <p>07 上下文管理 — Agent 的工作记忆：有效窗口公式；四级渐进压缩（Snip→MicroCompact→Collapse→AutoCompact）；断路器模式。</p>
+          <p>08 钩子系统 — Agent 的生命周期扩展点：五种 Hook 类型；26 个生命周期事件；JSON 响应协议；六层优先级；三层安全机制。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>第二部分讲 4 个核心模块：</p>
+          <p>· <strong>配置</strong>（基因）：各种设置怎么层层覆盖、怎么防别人塞坏东西进来。<br>· <strong>记忆</strong>（长期记忆）：AI 怎么记住跨对话该记的事，原则是"只记推不出来的"。<br>· <strong>上下文</strong>（工作记忆）：当前对话的"短期记忆"快满了，怎么分四档逐步压缩省空间。<br>· <strong>钩子</strong>：让你在 AI 干活的各个时机插入自定义动作的扩展口。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>Part 3 高级模式篇 — Agent 的组合与扩展</strong></p>
+          <p>09 子智能体与 Fork 模式：三种 Agent 来源；四种内置 Agent；Fork 字节级上下文继承；递归 Fork 防护。</p>
+          <p>10 协调器模式 — 多智能体编排：Coordinator-Worker 双重门控；"只编排不执行"约束；四种寻址模式；四阶段工作流。</p>
+          <p>11 技能系统与插件架构：11 个核心技能；SKILL.md frontmatter；三级参数替换；分层加载；插件缓存。</p>
+          <p>12 MCP 集成与外部协议：8 种传输协议；五态连接管理；三段式工具命名；Bridge 双向通信系统。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>第三部分讲"怎么把多个 AI 拼起来、怎么扩展能力"：</p>
+          <p>· <strong>子智能体 / Fork</strong>：主 AI 派分身去干子任务，分身能继承现场。<br>· <strong>协调器</strong>：一个"包工头" AI 只负责派活、不亲自动手，指挥多个"工人" AI。<br>· <strong>技能系统/插件</strong>：像给 AI 装 App，按需加载新能力（你刚才用的 /kanxia 就是一个技能）。<br>· <strong>MCP 集成</strong>：让 AI 连外部工具和数据源的标准接口。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>Part 4 工程实践篇 — 从原理到构建</strong></p>
+          <p>13 流式架构与性能优化：QueryEngine 生命周期管理；并发控制；启动优化 160ms→65ms（-59%）；惰性加载策略。</p>
+          <p>14 Plan 模式与结构化工作流："先想后做"哲学；计划文件三层恢复策略；本地调度与远程触发。</p>
+          <p>15 构建你自己的 Agent Harness：六步实现路线图；循环依赖解决方案；四层可观测性体系；安全威胁模型。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>第四部分从"懂原理"走到"自己造"：</p>
+          <p>· <strong>流式架构 & 性能</strong>：怎么让 AI 边想边吐字、怎么把启动从 160 毫秒压到 65 毫秒。（流式 = 像打字机一样逐字蹦出来，而不是憋半天一次性给）<br>· <strong>Plan 模式</strong>："先想清楚计划再动手"的工作流。<br>· <strong>第 15 章是高潮</strong>：手把手六步教你从零搭一个自己的 Agent Harness。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>附录 — 参考资料速查</strong></p>
+          <p>A 架构导航地图 — 16 个核心模块、依赖树、6 条数据流路径、四层架构、10 种设计模式。</p>
+          <p>B 工具完整清单 — 50+ 工具 × 12 类，readOnly/destructive/concurrencySafe 属性。</p>
+          <p>C 功能标志速查表 — 89 个 Flag × 13 类，编译时/运行时类型，依赖关系图。</p>
+          <p>D 术语表 — 100 条中英对照术语，含交叉引用和章节定位。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>四份"工具手册"式的附录，方便随时查：系统结构地图、全部工具清单（标注哪些只读、哪些有破坏性、哪些能并行）、所有功能开关清单、中英术语对照表。对查资料的人很实用。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>适合谁</strong>（表格）</p>
+          <p><strong>架构师</strong> → 完整的 Agent 设计空间地图和工程权衡分析。<br><strong>高级工程师</strong> → 工具调用、流式处理、权限管控的底层机制。<br><strong>研究者</strong> → 可发表论文级别的 Agent 系统实现分析。<br><strong>Claude Code 用户</strong> → 理解设计意图，最大化利用其能力。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>作者列了四类目标读者及各自的收获。注意：四类全是技术/研究人群，<strong>没有"纯产品经理 / 无技术背景"这一档</strong>——这对你判断"我该不该读、能读懂多少"是个重要信号（详见后面"可行性"一节）。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>背景</strong></p>
+          <p>2026 年 3 月 31 日，安全研究员 Chaofan Shou (@Fried_rice) 发现 npm registry 中的 @anthropic-ai/claude-code 包存在构建配置失误。披露推文获得超 1700 万次浏览，引发了技术社区对 Agent 架构的空前讨论。</p>
+          <p>这本书的诞生正是受到这场讨论的启发——当 Agent 架构成为热门话题，我们意识到需要一本系统性的书来讲解 Agent Harness 的设计原理。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>讲书是怎么来的：2026 年 3 月底，一位安全研究员发现 Claude Code 的官方安装包（发布在 npm 这个代码仓库上）打包时配置出错，等于把内部代码暴露了。这条爆料被看了 1700 多万次，技术圈炸开了锅，大家开始疯狂讨论"Agent 到底怎么搭的"。</p>
+          <p>作者趁这股热度，决定写一本系统讲清楚原理的书。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>贡献</strong>：欢迎 Issue 和 PR — 修正技术错误、补充实战案例、改进章节结构。</p>
+          <p><strong>致谢</strong>：Linux.Do 社区。</p>
+          <p><strong>Star History</strong>：[收藏增长曲线图]</p>
+          <p><strong>License</strong>：CC BY-NC-SA 4.0 — 可自由分享和改编，但须署名、非商业使用、并以相同协议共享。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>收尾几块：<br>· 欢迎大家提意见、改错、补案例（Issue=提问题，PR=提交修改）。<br>· 感谢国内技术社区 Linux.Do。<br>· 一张收藏数增长曲线图。<br>· <strong>开源协议很关键</strong>：你可以自由转发和改编，但必须①署名②不能商用③改完还得用同样的协议开源。也就是说——<strong>想拿它去做收费产品/课程是不允许的</strong>。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

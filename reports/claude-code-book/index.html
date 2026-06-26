@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>御舆：解码 Agent Harness · 看下报告</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">御舆：解码 Agent Harness</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/lintsinghua/claude-code-book" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">御舆：解码 Agent Harness</h1>
+      <p class="cover-repo">github.com/lintsinghua/claude-code-book</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">3.8k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Markdown</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">CC BY-NC-SA</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#AI Agent</span>
+        <span class="cover-tag">#Claude Code</span>
+        <span class="cover-tag">#开源技术书</span>
+        <span class="cover-tag">#架构剖析</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>这不是一个软件，而是一本 <strong>42 万字的免费在线技术书</strong>。它干的事只有一件：把 Claude Code（Anthropic 官方的 AI 编程助手）这个"AI 干活机器"彻底拆开，告诉你它内部是怎么搭起来的——AI 怎么一轮轮自己跟自己对话把活干完、怎么管权限不乱来、怎么在"记忆有限"的情况下还能记住该记的事。</p>
+        <p>书名"御舆"取自古代造马车的典故：马车里有承载乘客的车厢（舆）、定方向的辕、传力的辐……每个零件各司其职合起来车才能跑。作者用这个比喻说：搭一个 AI Agent 也一样，那个把所有零件托起来、让 AI 真正转起来的"运行时骨架"，就叫 <strong>Agent Harness</strong>（可以理解成 AI 助手的"底盘 + 神经系统"）。<strong>市面上都在教你怎么"用"AI，这本书带你拆开它看里面。</strong></p>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">应用场景</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>想自己做一个 AI Agent 产品的人</strong>：你不想只会调 API，想知道一个"生产级"的 AI 助手底层骨架长什么样、有哪些坑，把它当设计参考蓝图。</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>重度用 Claude Code / Cursor 这类工具的人</strong>：搞懂它为什么这么设计，从而把工具用得更狠——知道它什么时候会"压缩记忆"、权限为什么要拦你。</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>技术管理者 / 架构师</strong>：想给团队选型或自研 Agent 框架时，手里有一张"设计决策地图"，知道每个选择的取舍在哪。</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc"><strong>研究者 / 想写文章的人</strong>：拿它当一份系统性的二手资料，书里有 139 张架构图可以直接引用。</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">社区评价</h2>
+        <div class="badge-list stagger-children">
+          <div class="badge-item animate-in">
+            <span class="badge-desc">起源于国内技术社区 Linux.Do，被以"开源千星"专帖收录推荐，定位是"系统性讲 Agent Harness 设计原理"的文档共建项目。（<a href="https://linux.do/t/topic/1870593" target="_blank">linux.do 讨论帖</a>）</span>
+          </div>
+          <div class="badge-item animate-in">
+            <span class="badge-desc">书的诞生契机是 2026 年 4 月 Claude Code 源码因 npm 打包失误外泄、引爆技术圈讨论这一事件；相关背景分析可见李博杰的博客《一场泄露看懂 Claude Code》。（<a href="https://01.me/2026/04/blog-claude-code/" target="_blank">01.me 博客</a>）</span>
+          </div>
+        </div>
+        <p style="margin-top:16px;font-size:0.92em;opacity:0.75;">说明：这本书较新、且偏小众技术圈，公开的第三方深度评测不多。以上两条是可查到的相对可靠的来源，不代表对内容质量的背书——真要判断还得自己翻两章看看。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么有人愿意花时间写 42 万字？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">想自己做 AI Agent 的人，普遍卡在这几件事上</h2>
+        <p><strong>第一个痛点：网上全是"怎么用"，没人讲"怎么搭"。</strong>你搜 AI Agent，铺天盖地都是"如何写好 Prompt""如何调用 Agent API"这类使用教程。但当你真想自己做一个能干活、能上线的 AI 助手时，你会发现一个尴尬的事实——一个生产级 Agent 系统的"骨架"到底是怎么搭的，几乎查不到任何系统性资料。大家都停在"会用"，没人带你进"会造"。这本书就是冲着这个空白来的。</p>
+        <p><strong>第二个痛点：自己摸索的 Agent 一到真实场景就散架。</strong>很多人照着教程拼出一个 demo，单次对话挺好，可一旦任务变长、要调好几个工具、要管权限、要处理"AI 记忆塞满了怎么办"，整个系统就开始各种崩。问题在于缺少对底层机制的理解：AI 怎么一轮轮自我驱动（对话循环）、权限怎么分阶段拦截、上下文（AI 的"工作记忆"）满了怎么自动压缩。这些都是"魔鬼藏在细节里"的地方，而这本书恰恰逐个拆给你看。</p>
+        <p><strong>第三个痛点：学到的东西换个框架就白学。</strong>市面上 Agent 框架一大堆——LangChain、AutoGen、CrewAI——你深扎一个，换工具就得重学。作者的主张是：与其学某个框架的 API，不如吃透 Claude Code 这个"标杆产品"背后的设计原理，提炼出一套<strong>可以迁移到任何框架</strong>的心智模型。看懂它"为什么这样设计"，你手里就有了一张不会过期的地图。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐段对照</h1>
+      <p class="module-subtitle">这个项目的 README 本身就是中文写的，所以左边照搬作者原话（一段不漏），右边用大白话把里面的技术名词解释给你听</p>
+    </header>
+    <div class="module-body">
+
+      <div class="callout callout-info animate-in" style="margin-bottom:32px;">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">说明</strong>
+          <p>常规的 README 翻译是"英文→中文"。但这本书的 README 原文就是中文，不需要翻译。所以这里改成<strong>对照解读</strong>：左栏是作者一字不改的原话（含所有章节、声明、致谢），右栏是给非技术读者的大白话注解。专业名词（agent、token、harness 等）保留英文。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>御舆：解码 Agent Harness</strong><br>Claude Code 架构深度剖析</p>
+          <p><em>"一器而工聚焉者，车为多。"</em> ——《考工记》</p>
+          <p>两千年前，造一辆马车是最复杂的系统工程：<strong>舆</strong>承载乘者，辕定方向，辐传动力，軎辖为约束——每个构件各司其职，合而为一，车方能行。</p>
+          <p>今天，构建一个 AI Agent 亦是如此：对话循环为<strong>辕</strong>，工具系统为<strong>辐</strong>，权限管线为<strong>軎辖</strong>，而将这一切承载于其上、使智能体真正运转的运行时框架—— Agent Harness——正是那个<strong>舆</strong>。</p>
+          <p>古人御舆，驾驭的是天地之间最精密的机械；今人御舆，驾驭的是硅基时代最复杂的智能体系统。本书因此得名 <strong>舆书</strong>。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>书名叫"御舆"，配了句《考工记》（古代工艺典籍）的话，意思是：一件东西上汇集的工种最多的，就是车。</p>
+          <p>作者拿"造马车"作比喻：马车里"舆"是车厢（承重）、"辕"是车把（定方向）、"辐"是车轮条（传力）、"軎辖"是固定轮子的销子（约束）。零件各管一摊，合起来车才能跑。</p>
+          <p>做 AI Agent 同理：对话循环管方向、工具系统管出力、权限管线管约束；而把这一切托起来、让 AI 真正转起来的"运行时骨架"，就叫 <strong>Agent Harness</strong>。它就是那个最关键的"车厢"。书名由此而来。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>当所有人都在教你怎么 <strong>用</strong> AI Agent——<strong>这本书带你拆开它。</strong></p>
+          <p>[徽章：在线阅读 lintsinghua.github.io · GitHub Stars · Forks · License CC BY-NC-SA 4.0 · 中文 / English · Last Commit]</p>
+          <p>[封面图：御舆：解码 Agent Harness — Claude Code 架构深度剖析]</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>一句话立场：别人教你"怎么用"，我带你"拆开看"。</p>
+          <p>下面一排是 GitHub 上常见的小图标（徽章）：在线阅读入口、收藏数、转发数、开源协议、语言切换、最后更新时间。这些是给读者快速判断"这项目活跃不活跃"的。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>对话循环如何驱动？工具权限为何是四阶段管线？上下文压缩怎样在 token 预算内运转？子智能体如何通过 Fork 继承父级上下文？</p>
+          <p>读懂 Claude Code 的设计决策，你就拥有了一套<strong>可迁移到任何 Agent 框架</strong>的心智模型。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>这是全书要回答的四个核心问题，翻译一下：<br>①AI 怎么一轮轮自己驱动自己干活？<br>②为什么拦权限要分四道关卡？<br>③AI 的"工作记忆"（token 就是 AI 读写文字的计量单位，有上限）快满时怎么自动瘦身？<br>④"分身助手"（子 agent，把一个大任务拆给另一个 AI 实例做）怎么继承主助手的上下文（Fork=复制一份现场）？</p>
+          <p>结论：搞懂这些，你这套思路换到任何 Agent 框架都通用。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>这本书有什么不同</strong></p>
+          <p>不做使用教程，不列 Prompt 技巧。</p>
+          <p>市面上充斥着"如何写好 Prompt"和"如何调用 Agent API"的指南。但如果你想知道一个生产级 Agent 系统的<strong>骨架</strong>是怎么搭的——几乎没有资料可查。这本书填补了这个空白。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>作者明确划清边界：这不是一本教你"怎么用"的书，不教写提示词技巧（Prompt = 你给 AI 下的指令）。</p>
+          <p>市面上"怎么写指令""怎么调接口"的教程太多了，但"一个能上线、扛得住真实使用的 AI 系统底层怎么搭"几乎没人写。这本书补的就是这块空白。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>【表格 · 三个特色】</p>
+          <p><strong>架构分析而非 API 文档</strong>：不讲"怎么调用"，讲"为什么这样设计"——追溯动机、分析权衡、指出反模式。</p>
+          <p><strong>设计哲学而非使用教程</strong>：从异步生成器到断路器模式，每章提炼可迁移的设计原则。</p>
+          <p><strong>可迁移的认知模型</strong>：无论你用 LangChain、AutoGen、CrewAI 还是从零构建，书中 139 张架构图直接复用。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>三个卖点：</p>
+          <p>① 讲"为什么这么设计"，而不是"怎么调用"——会分析动机、取舍、还有"反面教材"（反模式 = 大家常踩的错误做法）。</p>
+          <p>② 讲设计思想，不是操作步骤。"异步生成器""断路器模式"是两种编程套路，这里你只需知道：作者会从这些技术细节里提炼出能复用的设计原则。</p>
+          <p>③ 给你一套通用脑图。不管你用哪个 Agent 框架，书里 139 张架构图（用图把系统结构画出来）都能直接拿去用。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>书中的数据一览</strong>（可折叠表格）</p>
+          <p>全书字数 42 万字（中文）/ 75K+ words（English）；正文 15 章 + 4 篇附录；Mermaid 架构图/流程图/状态机 139 张；覆盖核心子系统：工具系统、权限管线、上下文压缩、记忆系统、钩子系统、子智能体调度、MCP 集成、技能插件、流式架构、Plan 模式；分析的设计决策 50+ 个；术语条目（中英对照）100 条；功能标志 89 个；注册工具 50+ 个。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>一张"家底清单"，体现书的体量：42 万字、15 章正文 + 4 篇附录、139 张图。覆盖的"子系统"就是 Claude Code 内部的各个功能模块。</p>
+          <p>几个名词：<strong>Mermaid</strong> 是一种用文字画流程图的工具；<strong>MCP</strong> 是一套让 AI 接外部工具/数据的标准协议；<strong>钩子（hook）</strong> 是"在某个时机自动触发一段动作"的扩展点；<strong>功能标志（flag）</strong> 是产品里的开关，控制某功能开不开。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>声明：</strong>本书基于对 Claude Code 公开文档和产品行为的架构分析编写，未引用、未使用任何未公开或未授权的源码。Claude Code 为 Anthropic PBC 产品，本书不隶属于、未获授权于、也不代表 Anthropic。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>一段免责声明，挺重要：作者强调这本书是靠"看公开文档 + 观察产品行为"反推出来的，<strong>没有用任何泄露或未授权的源码</strong>。而且和 Anthropic（Claude Code 的厂商）没有任何官方关系。——这是在跟 4 月那次源码泄露事件撇清，规避法律风险。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>快速导航</strong></p>
+          <p>时间紧张？ 01 → 02 → 04 → 15，拿到核心认知和动手能力就够用。</p>
+          <p>有经验？ 直接读 Part 2 + Part 3，遇到概念缺口回溯 Part 1。</p>
+          <p>系统学习？ 从头到尾，每章做练习，最后 Ch15 构建自己的 Harness（约 2–3 周）。</p>
+          <p>查资料？ 直接翻附录 A（模块定位）/ B（工具）/ C（功能标志）/ D（术语）。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>贴心的"看书路线图"，按你的情况选：<br>· 没空 → 只读第 1、2、4、15 章。<br>· 有底子 → 直接跳到第二、三部分，缺概念再回头。<br>· 想系统学 → 从头读，做练习，最后照着第 15 章亲手搭一个，预计 2–3 周。<br>· 只想查 → 直接翻附录当工具手册。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>目录 · Part 1 基础篇 — 建立心智模型</strong></p>
+          <p>01 智能体编程的新范式：Copilot → Claude Code 演进；Agent Harness 五大设计原则；Bun + React/Ink + Zod v4 技术栈。</p>
+          <p>02 对话循环 — Agent 的心跳：while(true) 异步生成器主循环；五种 yield 事件；十种终止原因；QueryDeps 依赖注入。</p>
+          <p>03 工具系统 — Agent 的双手：Tool&lt;I,O,P&gt; 五要素协议；buildTool 故障安全工厂；45+ 工具 × 12 类；并发分区贪心算法。</p>
+          <p>04 权限管线 — Agent 的护栏：四阶段管线；五种权限模式谱系；Bash 规则匹配；推测性分类器 2 秒 Promise.race。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>第一部分"打地基"，4 章。每章名字都用了身体比喻：对话循环=心跳、工具系统=双手、权限管线=护栏。</p>
+          <p>后面那串英文是技术名词，你不用懂细节，知道它在讲"AI 怎么一轮轮跑、怎么调工具、怎么拦危险操作"就行。<strong>Bun/React/Ink/Zod</strong> 是搭这套东西用的几样编程工具，类似盖楼用的某品牌钢材水泥，记不住没关系。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>Part 2 核心系统篇 — 深入子系统</strong>（配置、记忆、上下文、钩子）</p>
+          <p>05 设置与配置 — Agent 的基因：六层配置优先级链；合并规则；安全边界与供应链攻击防御；双层功能门控。</p>
+          <p>06 记忆系统 — Agent 的长期记忆：四种封闭式记忆类型；"只保存无法推导的信息"；MEMORY.md 索引；Fork 记忆机制。</p>
+          <p>07 上下文管理 — Agent 的工作记忆：有效窗口公式；四级渐进压缩（Snip→MicroCompact→Collapse→AutoCompact）；断路器模式。</p>
+          <p>08 钩子系统 — Agent 的生命周期扩展点：五种 Hook 类型；26 个生命周期事件；JSON 响应协议；六层优先级；三层安全机制。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>第二部分讲 4 个核心模块：</p>
+          <p>· <strong>配置</strong>（基因）：各种设置怎么层层覆盖、怎么防别人塞坏东西进来。<br>· <strong>记忆</strong>（长期记忆）：AI 怎么记住跨对话该记的事，原则是"只记推不出来的"。<br>· <strong>上下文</strong>（工作记忆）：当前对话的"短期记忆"快满了，怎么分四档逐步压缩省空间。<br>· <strong>钩子</strong>：让你在 AI 干活的各个时机插入自定义动作的扩展口。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>Part 3 高级模式篇 — Agent 的组合与扩展</strong></p>
+          <p>09 子智能体与 Fork 模式：三种 Agent 来源；四种内置 Agent；Fork 字节级上下文继承；递归 Fork 防护。</p>
+          <p>10 协调器模式 — 多智能体编排：Coordinator-Worker 双重门控；"只编排不执行"约束；四种寻址模式；四阶段工作流。</p>
+          <p>11 技能系统与插件架构：11 个核心技能；SKILL.md frontmatter；三级参数替换；分层加载；插件缓存。</p>
+          <p>12 MCP 集成与外部协议：8 种传输协议；五态连接管理；三段式工具命名；Bridge 双向通信系统。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>第三部分讲"怎么把多个 AI 拼起来、怎么扩展能力"：</p>
+          <p>· <strong>子智能体 / Fork</strong>：主 AI 派分身去干子任务，分身能继承现场。<br>· <strong>协调器</strong>：一个"包工头" AI 只负责派活、不亲自动手，指挥多个"工人" AI。<br>· <strong>技能系统/插件</strong>：像给 AI 装 App，按需加载新能力（你刚才用的 /kanxia 就是一个技能）。<br>· <strong>MCP 集成</strong>：让 AI 连外部工具和数据源的标准接口。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>Part 4 工程实践篇 — 从原理到构建</strong></p>
+          <p>13 流式架构与性能优化：QueryEngine 生命周期管理；并发控制；启动优化 160ms→65ms（-59%）；惰性加载策略。</p>
+          <p>14 Plan 模式与结构化工作流："先想后做"哲学；计划文件三层恢复策略；本地调度与远程触发。</p>
+          <p>15 构建你自己的 Agent Harness：六步实现路线图；循环依赖解决方案；四层可观测性体系；安全威胁模型。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>第四部分从"懂原理"走到"自己造"：</p>
+          <p>· <strong>流式架构 & 性能</strong>：怎么让 AI 边想边吐字、怎么把启动从 160 毫秒压到 65 毫秒。（流式 = 像打字机一样逐字蹦出来，而不是憋半天一次性给）<br>· <strong>Plan 模式</strong>："先想清楚计划再动手"的工作流。<br>· <strong>第 15 章是高潮</strong>：手把手六步教你从零搭一个自己的 Agent Harness。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>附录 — 参考资料速查</strong></p>
+          <p>A 架构导航地图 — 16 个核心模块、依赖树、6 条数据流路径、四层架构、10 种设计模式。</p>
+          <p>B 工具完整清单 — 50+ 工具 × 12 类，readOnly/destructive/concurrencySafe 属性。</p>
+          <p>C 功能标志速查表 — 89 个 Flag × 13 类，编译时/运行时类型，依赖关系图。</p>
+          <p>D 术语表 — 100 条中英对照术语，含交叉引用和章节定位。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>四份"工具手册"式的附录，方便随时查：系统结构地图、全部工具清单（标注哪些只读、哪些有破坏性、哪些能并行）、所有功能开关清单、中英术语对照表。对查资料的人很实用。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>适合谁</strong>（表格）</p>
+          <p><strong>架构师</strong> → 完整的 Agent 设计空间地图和工程权衡分析。<br><strong>高级工程师</strong> → 工具调用、流式处理、权限管控的底层机制。<br><strong>研究者</strong> → 可发表论文级别的 Agent 系统实现分析。<br><strong>Claude Code 用户</strong> → 理解设计意图，最大化利用其能力。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>作者列了四类目标读者及各自的收获。注意：四类全是技术/研究人群，<strong>没有"纯产品经理 / 无技术背景"这一档</strong>——这对你判断"我该不该读、能读懂多少"是个重要信号（详见后面"可行性"一节）。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>背景</strong></p>
+          <p>2026 年 3 月 31 日，安全研究员 Chaofan Shou (@Fried_rice) 发现 npm registry 中的 @anthropic-ai/claude-code 包存在构建配置失误。披露推文获得超 1700 万次浏览，引发了技术社区对 Agent 架构的空前讨论。</p>
+          <p>这本书的诞生正是受到这场讨论的启发——当 Agent 架构成为热门话题，我们意识到需要一本系统性的书来讲解 Agent Harness 的设计原理。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>讲书是怎么来的：2026 年 3 月底，一位安全研究员发现 Claude Code 的官方安装包（发布在 npm 这个代码仓库上）打包时配置出错，等于把内部代码暴露了。这条爆料被看了 1700 多万次，技术圈炸开了锅，大家开始疯狂讨论"Agent 到底怎么搭的"。</p>
+          <p>作者趁这股热度，决定写一本系统讲清楚原理的书。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><strong>贡献</strong>：欢迎 Issue 和 PR — 修正技术错误、补充实战案例、改进章节结构。</p>
+          <p><strong>致谢</strong>：Linux.Do 社区。</p>
+          <p><strong>Star History</strong>：[收藏增长曲线图]</p>
+          <p><strong>License</strong>：CC BY-NC-SA 4.0 — 可自由分享和改编，但须署名、非商业使用、并以相同协议共享。</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">大白话</span>
+          <p>收尾几块：<br>· 欢迎大家提意见、改错、补案例（Issue=提问题，PR=提交修改）。<br>· 感谢国内技术社区 Linux.Do。<br>· 一张收藏数增长曲线图。<br>· <strong>开源协议很关键</strong>：你可以自由转发和改编，但必须①署名②不能商用③改完还得用同样的协议开源。也就是说——<strong>想拿它去做收费产品/课程是不允许的</strong>。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">同样在讲 AI Agent，它和别的资料有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>绝大多数 AI Agent 资料停在"怎么用"的层面——教提示词、教调接口。这本书反其道而行：它选了一个"标杆产品"（Claude Code），把它当成解剖样本，专门讲<strong>"为什么这么设计"</strong>。它的创新不在某个新技术，而在<strong>视角和组织方式</strong>：用一套统一的比喻把零散的技术细节串成一个完整的认知体系。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🛞</div>
+          <div class="pattern-title">用"造马车"统一全书叙事</div>
+          <p class="pattern-desc">把对话循环、工具、权限这些抽象技术，对应成马车的辕、辐、軎辖。技术书最难的是"让外行也建立整体感"，这个贯穿全书的比喻是个很聪明的内容设计——它降低了认知门槛，也让全书有了记忆点。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔍</div>
+          <div class="pattern-title">逆向"解剖"而非正向教学</div>
+          <p class="pattern-desc">不是"我教你从零搭"，而是"我们一起拆开这个成熟产品看它怎么搭的"。借一个真实跑在生产环境、被海量用户验证过的系统当案例，比凭空讲原理可信得多——相当于不讲菜谱，直接带你进米其林后厨看。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🧭</div>
+          <div class="pattern-title">强调"可迁移"，不绑定框架</div>
+          <p class="pattern-desc">市面资料大多绑死某个框架（学了 LangChain 换个工具就废）。这本书刻意提炼"换到哪都通用"的设计原则，并把 139 张架构图做成可复用资产。卖的不是知识点，是一套"看任何 Agent 系统都用得上的脑图"。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📚</div>
+          <div class="pattern-title">体量与体系化做到极致</div>
+          <p class="pattern-desc">42 万字、15 章、139 张图、附录做成可查工具手册——在"碎片化短文 + 视频"主导的时代，反而回归"一本厚书系统讲透一件事"。这种密度和完整度本身就是稀缺的，也是它能快速涨到几千 star 的原因。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">这本书讲的是技术，但里面几个"设计思想"挪到产品上，意外地好用</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">"只保存无法推导的信息"——可以变成一条内容/记录的减负原则</div>
+          <p class="inspo-card-desc">书里 AI 记忆系统有条铁律：能从别处推出来的就别存，只存推不出来的。这其实是个万能的"减噪"原则。任何让人填表、记笔记、做归档的产品环节，都可以问一句：这个字段是不是别处已有、能自动带出来？砍掉冗余填写，体验立刻变轻。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">"四级渐进压缩"——信息过载时别一刀切，分档处理</div>
+          <p class="inspo-card-desc">AI 内存快满时不是直接清空，而是分四档逐步瘦身（先精简、再合并、最后才大刀阔斧）。这套"渐进降级"思路很适合内容/消息类场景：群消息太多时，先折叠、再摘要、最后才归档，而不是粗暴地"已读 99+"。给用户一个柔和的过载缓冲。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">"包工头只派活不干活"——团队/协作类功能的分工模型</div>
+          <p class="inspo-card-desc">书里的协调器模式：一个 AI 只负责拆任务、派活、汇总，绝不亲自下场执行。这条"编排者与执行者严格分离"的约束，放到任何有"管理者 + 一线"结构的产品里都成立——比如代理团队的任务分发，上层只管派单与统计，执行细节完全下放，权责清晰反而更高效。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">"先想后做"的 Plan 模式——给用户一个可确认的"预演"</div>
+          <p class="inspo-card-desc">Claude Code 有个模式：动手前先把计划列出来给你看，你点头了才执行。这个"高风险动作先预演、再确认"的交互，对任何不可逆操作都值钱：批量发送、批量改价、批量删除前，先弹一个"我将要做这 X 件事"的清单页，把焦虑和误操作一起消掉。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">把"技术大部头"拆成可查的工具手册——内容产品的双层结构</div>
+          <p class="inspo-card-desc">这本书正文讲思想、附录做成速查表（工具清单、术语表、开关表）。这是很高级的内容结构：一层供"系统学"，一层供"用时查"。你做任何知识型/帮助类内容（代理培训手册、运营 SOP）都能借鉴——别只写成一篇长文，配一份能随时跳查的索引，使用率会高得多。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不写代码的 PM，"用"这个项目能得到什么？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="callout callout-info animate-in" style="margin-bottom:28px;">
+        <div class="callout-icon">💡</div>
+        <div class="callout-content">
+          <strong class="callout-title">先理清一件事：它是"书"，不是"工具"</strong>
+          <p>这个项目没有可安装的软件、没有能调用的功能。它是一本免费在线书。所以"可行性"在这里要换个问法：<strong>不是"我能不能用它做出东西"，而是"我读它划不划算、能读懂多少、能带走什么"。</strong></p>
+        </div>
+      </div>
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">零门槛</div>
+          <strong>获取成本</strong>
+          <p class="viability-label">完全免费、网页直接读，无需安装、注册、付费。打开 lintsinghua.github.io 就能看。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level hard">偏高门槛</div>
+          <strong>阅读门槛</strong>
+          <p class="viability-label">面向架构师/工程师写，满是代码和技术术语。对无技术背景的 PM，能吸收的是"设计思想"层，细节会很吃力。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">看用途</div>
+          <strong>对你的实用度</strong>
+          <p class="viability-label">想自研 Agent / 带技术团队 → 价值高；只想找产品灵感 → 读前两章 + 各章开头的"为什么"即可。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要读，怎么读最划算</h2>
+        <p>别从头啃，会被代码劝退。<strong>建议路线</strong>：① 先读第 01 章（建立整体认知）和各章<strong>开头那段"为什么这样设计"</strong>——这部分是大白话、含金量最高，也最能转化成产品灵感；② 跳过所有代码块和带 <code>&lt;I,O,P&gt;</code> 这种符号的段落，不影响理解大局；③ 把它当"睡前读物 + 灵感库"，而不是"教程"。投入产出最高的方式是只取思想、不啃实现。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">几个要留意的点</strong>
+          <p>① <strong>它是"二手解读"</strong>：作者声明是靠公开文档反推的，不是官方源码，所以细节可能有出入，别当成绝对权威。<br>② <strong>协议禁止商用</strong>：CC BY-NC-SA 意味着你不能拿它的内容去做收费课程/产品，自己学习和团队内参没问题。<br>③ <strong>会过时</strong>：Claude Code 更新很快，书里某些具体数字/机制可能很快和最新版对不上——看思想比看细节保值。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类资料速览</h1>
+      <p class="module-subtitle">想搞懂 Claude Code / Agent 架构，除了它还有哪些选择</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">官方文档</span>
+          <span class="badge-desc">Anthropic 官方的 Claude Code 文档。最权威、最新，但只讲"怎么用"，不讲"为什么这么设计"。适合上手，不适合理解内部。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">李博杰博客</span>
+          <span class="badge-desc">《一场泄露看懂 Claude Code：Harness 是让 Agent 干活靠谱的关键》。一篇深度长文，是这本书的"轻量版"——想快速了解核心观点、不想读 42 万字的人，先看这篇。（<a href="https://01.me/2026/04/blog-claude-code/" target="_blank">01.me</a>）</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">各类逆向分析文</span>
+          <span class="badge-desc">源码泄露后社区涌现了一批"Claude Code 源码逆向"文章/指南，零散、深浅不一。胜在新鲜及时，输在不成体系——这本书相当于把这些零散讨论系统化、结构化了。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">框架官方教程</span>
+          <span class="badge-desc">LangChain / AutoGen / CrewAI 等自家文档。教你用具体框架搭 Agent，能直接动手，但绑定单一框架、且不会带你看"标杆产品"的设计取舍。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这本书适合：</strong>
+          <p>想系统、深入理解一个生产级 Agent 到底怎么搭的人——架构师、要带队自研 Agent 的工程负责人、做研究的人。也适合想用一套统一框架建立"Agent 全局观"的技术读者。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>只想快速上手 Claude Code 的使用者（看官方文档更快）；想找"复制粘贴就能跑"的代码模板的人（这是讲思想的书，不是脚手架）；以及完全无技术背景、只想要结论的人（建议直接看本报告 + 李博杰那篇长文就够了）。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">基于你的情况（PM + 也做独立小产品），我建议你这么做</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">花 10 分钟打开在线版翻第 01 章感受一下：<a href="https://lintsinghua.github.io/" target="_blank">lintsinghua.github.io</a>，看不下去就退，别有负担。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">想要"轻量版"先读这篇长文：<a href="https://01.me/2026/04/blog-claude-code/" target="_blank">《一场泄露看懂 Claude Code》</a>——一篇就能拿到核心观点，比啃 42 万字高效。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">只取思想、不啃代码：重点读每章开头的"为什么这样设计"，跳过所有代码块。把它当灵感库，而非教程。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">回看本报告"灵感卡片"那 5 条：挑 1 条和你手上的产品/运营场景对一对，看能不能落到一个具体改动上。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">你自己也做独立小产品——如果哪天想用 AI 搭个自动化小工具，第 15 章"六步搭建"可以当蓝图，到时候让我陪你一步步啃。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">想分享给团队里的技术同事：直接把 GitHub 链接发给他们，这本书对真正写代码的人价值最大。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>
