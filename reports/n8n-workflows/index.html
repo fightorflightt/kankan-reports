@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>n8n Workflow Collection - 自动化工作流模板大全</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">n8n Workflow Collection</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/Zie619/n8n-workflows" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="📊 总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">n8n Workflow Collection</h1>
+      <p class="cover-repo">github.com/Zie619/n8n-workflows</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">55.4k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">Python + JS</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">MIT</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#自动化</span>
+        <span class="cover-tag">#n8n</span>
+        <span class="cover-tag">#工作流模板</span>
+        <span class="cover-tag">#灵感库</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>想象你有一个「App 连连看」工具 n8n——能把 Gmail、Slack、ChatGPT、数据库、Telegram 这些 App 串起来自动干活。但这个仓库做的事更简单粗暴：<strong>它帮你搜刮了网上几乎所有验证过能跑的 n8n 自动化模板——4343 条，覆盖 365 个 App</strong>——分好类、可搜索、一键下载导入就用。相当于别人搭好了乐高模型，你只需要拿来微调。</p>
+        <p>55.4k Star 和 7.4k Fork 说明了一件事：<strong>「我不想从零搭自动化流程，给我现成的模板」是一个被严重低估的强需求。</strong></p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么 55,000 人给这个项目点了 Star？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">用 n8n 做自动化的人，大概都在经历这些问题</h2>
+
+        <p><strong>痛点一：从零搭工作流太慢了，而且你根本不知道「能怎么搭」。</strong>n8n 是个极其灵活的工具，但灵活性意味着选择成本。一个「收到邮件→提取关键信息→发 Slack→存 Google Sheets」的流程，你要想清楚每个节点的配置、API 参数、错误处理——新手可能花半天。更关键的是，你根本想不出来「能怎么组合」——你连 365 个集成里哪些能配对都不知道。4343 条模板就像一个庞大的「试试看」地图，告诉你哪些组合是跑通过的。</p>
+
+        <p><strong>痛点二：n8n 官方的模板太少，社区的太散。</strong>n8n 官方本身有模板市场，但数量和场景覆盖远不够。社区里虽然有高手分享，但散落在 Discord、Reddit、个人博客、YouTube 评论区里，没有一个中心化的地方能搜。这个仓库做了 n8n 官方没做好的事：把全网的碎片模板收拢到一处。</p>
+
+        <p><strong>痛点三：想复用别人的经验，但不知道质量如何。</strong>随便一个 JSON 文件导进 n8n 可能缺凭证、缺节点版本、有逻辑错误。作者给每一条打上了分类、复杂度标签，并声称「100% 导入成功率」——不管这个数字是否绝对准确，但意味着他做了质量筛选。对用户来说，这比自己在网上随机下载一个不知道能不能跑的 JSON 强得多。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，专业名词保留英文原文</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h3>The Ultimate Collection of n8n Automation Workflows</h3>
+          <p>Badges: 4343+ Workflows, 365+ Integrations, MIT License</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h3>n8n 自动化工作流的终极合集</h3>
+          <p>徽章：4343+ 条工作流、365+ 个集成、MIT 协议</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>What's New (November 2025)</strong>
+          <ul>
+            <li><strong>Enhanced Security</strong>: Full security audit completed, all CVEs resolved</li>
+            <li><strong>Docker Support</strong>: Multi-platform builds for linux/amd64 and linux/arm64</li>
+            <li><strong>GitHub Pages</strong>: Live searchable interface at zie619.github.io/n8n-workflows</li>
+            <li><strong>Performance</strong>: 100x faster search with SQLite FTS5 integration</li>
+            <li><strong>Modern UI</strong>: Completely redesigned interface with dark/light mode</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>最新动态（2025 年 11 月）</strong>
+          <ul>
+            <li><strong>安全增强</strong>：完成全面安全审计，所有 CVE 已修复</li>
+            <li><strong>Docker 支持</strong>：多平台构建（linux/amd64 和 linux/arm64）</li>
+            <li><strong>GitHub Pages</strong>：在线可搜索界面 zie619.github.io/n8n-workflows</li>
+            <li><strong>性能提升</strong>：通过 SQLite FTS5 实现 100 倍搜索加速</li>
+            <li><strong>现代化 UI</strong>：完全重新设计的界面，支持深色/浅色模式</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Quick Access — Use Online (No Installation)</strong>
+          <p>Visit zie619.github.io/n8n-workflows for instant access to: Smart Search, 15+ Categories, Mobile Ready, Direct Downloads.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>快速使用 — 在线版（无需安装）</strong>
+          <p>访问 zie619.github.io/n8n-workflows 即可使用：智能搜索、15+ 分类浏览、移动端适配、直接下载 JSON。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Features — By The Numbers</strong>
+          <ul>
+            <li>4,343 Production-Ready Workflows</li>
+            <li>365 Unique Integrations</li>
+            <li>29,445 Total Nodes</li>
+            <li>15 Organized Categories</li>
+            <li>100% Import Success Rate</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>功能 — 数据一览</strong>
+          <ul>
+            <li>4,343 条可投产工作流</li>
+            <li>365 个独立集成</li>
+            <li>29,445 个总节点</li>
+            <li>15 个分类</li>
+            <li>100% 导入成功率</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Features — Performance</strong>
+          <ul>
+            <li>&lt; 100ms Search Response</li>
+            <li>&lt; 50MB Memory Usage</li>
+            <li>700x Smaller Than v1</li>
+            <li>10x Faster Load Times</li>
+            <li>40x Less RAM Usage</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>功能 — 性能指标</strong>
+          <ul>
+            <li>&lt; 100ms 搜索响应时间</li>
+            <li>&lt; 50MB 内存占用</li>
+            <li>比 v1 缩小 700 倍</li>
+            <li>加载速度快 10 倍</li>
+            <li>RAM 使用减少 40 倍</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Local Installation</strong>
+          <p>Prerequisites: Python 3.9+, pip, 100MB free disk space.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>本地安装</strong>
+          <p>前置要求：Python 3.9+、pip、100MB 可用磁盘空间。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Documentation — API Endpoints</strong>
+          <table><tr><td>/</td><td>Web interface</td></tr><tr><td>/api/search</td><td>Search workflows</td></tr><tr><td>/api/stats</td><td>Repository statistics</td></tr><tr><td>/api/workflow/{id}</td><td>Get workflow JSON</td></tr><tr><td>/api/categories</td><td>List all categories</td></tr><tr><td>/api/export</td><td>Export workflows</td></tr></table>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>API 端点文档</strong>
+          <table><tr><td>/</td><td>Web 界面</td></tr><tr><td>/api/search</td><td>搜索工作流</td></tr><tr><td>/api/stats</td><td>仓库统计数据</td></tr><tr><td>/api/workflow/{id}</td><td>获取工作流 JSON</td></tr><tr><td>/api/categories</td><td>列出所有分类</td></tr><tr><td>/api/export</td><td>导出工作流</td></tr></table>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Search Features</strong>
+          <ul>
+            <li>Full-text search across names, descriptions, and nodes</li>
+            <li>Category filtering (Marketing, Sales, DevOps, etc.)</li>
+            <li>Complexity filtering (Low, Medium, High)</li>
+            <li>Trigger type filtering (Webhook, Schedule, Manual, etc.)</li>
+            <li>Service filtering (365+ integrations)</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>搜索功能</strong>
+          <ul>
+            <li>全文搜索（名称、描述、节点）</li>
+            <li>分类筛选（Marketing、Sales、DevOps 等）</li>
+            <li>复杂度筛选（Low、Medium、High）</li>
+            <li>触发方式筛选（Webhook、Schedule、Manual 等）</li>
+            <li>服务筛选（365+ 个集成）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Architecture</strong>
+          <p>Tech Stack: Backend — Python, FastAPI, SQLite with FTS5; Frontend — Vanilla JS, Tailwind CSS; Database — SQLite with Full-Text Search; Deployment — Docker, GitHub Actions, GitHub Pages; Security — Trivy scanning, CORS protection, Input validation.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>架构</strong>
+          <p>技术栈：后端 — Python + FastAPI + SQLite FTS5；前端 — 原生 JavaScript + Tailwind CSS；数据库 — SQLite 全文搜索；部署 — Docker + GitHub Actions + GitHub Pages；安全 — Trivy 扫描 + CORS 保护 + 输入校验。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Contributing</strong>
+          <p>Ways to contribute: Report bugs via Issues, Suggest features in Discussions, Improve documentation, Submit workflow fixes, Star the repository.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>参与贡献</strong>
+          <p>可以这样做：通过 Issues 报告 bug、在 Discussions 提建议、改进文档、提交工作流修复、给仓库点 Star。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Security Features</strong>
+          <p>Path traversal protection, Input validation & sanitization, CORS protection, Rate limiting, Docker security hardening, Non-root container user, Regular security scanning.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>安全特性</strong>
+          <p>路径遍历保护、输入校验与清洗、CORS 保护、速率限制、Docker 安全加固、非 root 容器用户、定期安全扫描。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <strong>Support</strong>
+          <p>If you find this project helpful, please consider buying the author a coffee or starring on GitHub. Made with care by Zie619 and contributors.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <strong>支持</strong>
+          <p>如果你觉得这个项目有帮助，可以请作者喝杯咖啡或给 GitHub 点 Star。由 Zie619 及贡献者用心打造。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">和常规的「模板合集」比，它有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这个项目做对了什么，让它从众多模板合集里跑出来</h2>
+        <p>GitHub 上搜「n8n templates」能翻出十几个同类仓库，但这个以 55.4k Star 碾压全场。核心不是模板多，而是「把内容做成了产品」。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔍</div>
+          <div class="pattern-title">把搜索做成第一优先级</div>
+          <p class="pattern-desc">大多数模板仓库只把 JSON 文件按文件夹一扔就完事了。它不——SQLite FTS5 全文搜索 + 分类筛选 + 复杂度筛选 + 触发方式筛选 + 服务筛选，<100ms 响应。把 4343 条数据的翻阅成本从「我翻半天找不到」降到「秒搜」。这不是内容创新，是体验创新。</p>
+        </div>
+
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🌐</div>
+          <div class="pattern-title">零安装的在线体验</div>
+          <p class="pattern-desc">市面上大多数模板合集的「使用方式」就是 git clone + 本地跑 Python 脚本。这个仓库有一行醒目的「Use Online (No Installation)」——一个 GitHub Pages 站，任何人打开浏览器就能搜、看、下载。这降低的不只是一步安装，而是把用户群从「会用命令行的开发者」扩展到了「会用浏览器的所有人」。</p>
+        </div>
+
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📊</div>
+          <div class="pattern-title">用产品思维包装数据</div>
+          <p class="pattern-desc">4343 条模板这个数字本身不稀奇，但作者给每条数据打了多维标签：集成服务、复杂度、触发方式、导入成功率。这本质上是一个「内容结构化」的工作——把一堆 JSON 文件变成了一个可检索、可筛选、可评估的数据库。这是信息聚合类项目的核心壁垒。</p>
+        </div>
+
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔄</div>
+          <div class="pattern-title">安全审计 + DMCA 合规</div>
+          <p class="pattern-desc">2025 年 8 月仓库有一次「DMCA 合规」历史重写，11 月完成全面安全审计。对于一个「模板聚合」项目来说，这种合规和安全意识很少见。说明作者在认真维护——不是一次性的 Star 收割，而是当作长期产品在迭代。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">「自动化方案超市」产品模型</div>
+          <p class="inspo-card-desc">这个仓库证明了：把「别人怎么搭的」做成可搜索可下载的产品，能拿到 55k Star。这不限于 n8n——Zapier 模板、Make 场景、IFTTT 配方，每个自动化平台都可以做一个类似的聚合站。本质是：用户不想学工具，用户想直接得到「解决我这个问题的方法」。你做的是帮他们跳过学习曲线。</p>
+        </div>
+
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">「模板即产品」模式可以复用到任何配置型工具</div>
+          <p class="inspo-card-desc">n8n 的模板是 JSON 文件，但思路可以套到更多领域：Figma 组件模板、Notion 模板、Airtable 数据库模板、Obsidian 笔记模板——只要是「高灵活度 + 高学习成本」的工具，用户永远需要「看看别人怎么搭的」。把模板打包成分好类、可搜索、有评分的产品，就是一门生意。</p>
+        </div>
+
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">「自动化诊断」——反向搜索</div>
+          <p class="inspo-card-desc">这个仓库是「我想做 X，搜一下有没有模板」。但可以反过来做：用户描述自己的日常工作流——「我每天早上收邮件，手动提取订单号，复制到 Excel，发给财务」——系统告诉他这里面哪几个环节可以被哪些 n8n 模板替代。这是从「模板搜索」变成「自动化机会发现」。</p>
+        </div>
+
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">GitHub Pages + 静态搜索 = 极低成本的内容产品</div>
+          <p class="inspo-card-desc">这个仓库的在线站不需要服务器、不需要数据库运维——GitHub Pages 免费 + SQLite FTS5 本地搜索。这说明一个 PM 可以完全不用后端开发，用静态文件 + 搜索索引就能做一个可用的内容产品。你有任何「信息集合」想产品化，这个技术方案成本趋近于零。</p>
+        </div>
+
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 5</div>
+          <div class="inspo-card-title">55k Star 背后的流量密码</div>
+          <p class="inspo-card-desc">n8n 本身在快速增长（GitHub 上 50k+ Star），而「工具的使用模板」天然享受工具增长的红利。当 n8n 每新增一个用户，这个仓库就有机会多一个使用者。这是一种寄生虫式的增长策略：选一个高速增长的开源工具，做它的内容/模板聚合，搭便车获取流量。对 PM 来说，这比从零做产品成功率更高。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">零门槛</div>
+          <strong>直接使用</strong>
+          <p class="viability-label">打开浏览器就能用在线站搜模板、下载 JSON。不需要安装任何东西。下载的 JSON 直接导入 n8n。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">需要有一个 n8n 实例来导入和运行工作流。n8n 本身可以免费跑在本地或用云服务（n8n.cloud）。有些工作流可能需要外部 API Key。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">非常适合</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">这个仓库本身不需要 Vibe Coding——直接浏览器搜索下载就行。但如果你想让 Claude Code 帮你在这个仓库基础上做改造（比如写个脚本自动导入、批量修改节点），门槛很低。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你想借鉴这个模式，大概需要什么</h2>
+        <p>这个仓库给 PM 的最大价值不是它的 JSON 文件本身，而是<strong>「把信息聚合做成产品」的方法</strong>。如果你想复刻这个模式到另一个工具：</p>
+        <p>• <strong>时间</strong>：收集+整理阶段 2-4 周（主要是搜集和分类），搭在线站 1 周（GitHub Pages + 静态搜索）</p>
+        <p>• <strong>钱</strong>：零成本。GitHub Pages 免费，域名可选项。唯一的投入是你的时间</p>
+        <p>• <strong>人</strong>：PM 一个人完全能搞定内容整理 + 用 Claude Code 写搜索前端。不需要工程师</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意</strong>
+          <p><strong>DMCA 版权风险</strong>：这个仓库经历过一次 DMCA 相关的历史重写。聚合第三方模板涉及版权问题——不是所有网上搜到的 JSON 都能自由分发。如果你要做类似产品，需要特别注意模板的原始版权。</p>
+          <p><strong>质量一致性</strong>：4343 条模板，质量参差不齐。作者的「100% 导入成功率」只保证 JSON 格式正确，不保证逻辑合理。实际使用时需要逐条验证。</p>
+          <p><strong>维护成本</strong>：n8n 版本更新频繁，API 参数可能变化，旧模板可能在新版本上失效。内容聚合产品最大的隐性成本是「持续更新」。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">在 n8n 模板聚合生态里，它处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">n8n 官方模板市场</span>
+          <span class="badge-desc">n8n 官方的内置模板库，质量最有保证但数量有限。官方不鼓励大规模第三方聚合（DMCA 事件证实了这点），所以这个仓库填补了官方留下的空白——但也因此踩了版权红线。</span>
+        </div>
+
+        <div class="badge-item animate-in">
+          <span class="badge-code">stelgkio/n8n-templates</span>
+          <span class="badge-desc">2,053 条模板，365 个集成。功能结构几乎一模一样（FastAPI + SQLite FTS5 + GitHub Pages），很可能是同一个项目的 fork 或者灵感来源。作为早期版本，Star 数不如 Zie619 的版本。</span>
+        </div>
+
+        <div class="badge-item animate-in">
+          <span class="badge-code">pxw3504k-web/awesome-n8n-workflows</span>
+          <span class="badge-desc">6000+ 条模板，声称是最大免费合集。有独立站 n8nworkflows.world。数量上更多，但组织结构和搜索体验不如 Zie619 的版本精细——多并不等于好。</span>
+        </div>
+
+        <div class="badge-item animate-in">
+          <span class="badge-code">sander2610/n8n-automation-templates-500</span>
+          <span class="badge-desc">5000+ 条模板，按平台组织（AWS、Stripe、LinkedIn 等），偏生产级。有独立浏览站 n8n-templates.ritiktechs.com。定位更像「企业自动化方案库」，而不是「大众灵感库」。</span>
+        </div>
+
+        <div class="badge-item animate-in">
+          <span class="badge-code">44510/n8n-workflow (2000+ Star)</span>
+          <span class="badge-desc">中文社区的 n8n 工作流合集，2000+ 条模板。有中文 README 和本地搜索服务。是中国用户的首选，但数量和功能丰富度不如 Zie619 版本。</span>
+        </div>
+
+        <div class="badge-item animate-in">
+          <span class="badge-code">ngueagho/awesome-n8n-templates</span>
+          <span class="badge-desc">按业务部门的分类方式（HR、Sales、Marketing 等），对非技术用户更友好。集成覆盖面广，但模板数量较少，更像一个精选集而非大全。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>• 想快速看「n8n 能做什么」的产品经理——在线搜索 5 分钟就能知道自动化能覆盖哪些场景</p>
+          <p>• 正在用 n8n 搭流程、不想从零开始的人——搜关键字 → 下载 JSON → 导入 → 微调</p>
+          <p>• 想做「内容聚合型产品」的 PM——这个项目的产品化思路（在线搜索体验 + 多维标签 + 零安装）值得研究</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>• 需要官方保障和长期维护的企业场景——这本质是个人维护的聚合仓库</p>
+          <p>• 对模板质量有极致要求的场景——4343 条不可能条条精品</p>
+          <p>• 没有 n8n 使用环境的人——模板只是蓝图，最终还是需要在 n8n 里跑</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">接下来你可以做什么</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">直接打开在线站 <a href="https://zie619.github.io/n8n-workflows" target="_blank">zie619.github.io/n8n-workflows</a> 体验搜索——不需要装任何东西</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">搜一搜你日常用到的工具（如「Gmail」「飞书」「Notion」），看看别人怎么把它们和 AI 串起来</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">如果你对 n8n 本身感兴趣：n8n 有免费的桌面版/自部署版，装一个后导入几条模板跑跑看</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">如果你觉得「模板聚合」这个产品模式有搞头：挑一个你熟悉的工具（Notion/Figma/Airtable），用这个仓库的产品思路试着做一个小型合集</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">对比其他 n8n 模板仓库（pxw3504k、sander2610、ngueagho），看看哪种分类和搜索方式更符合你的使用习惯</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>
