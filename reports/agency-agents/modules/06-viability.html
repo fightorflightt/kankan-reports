@@ -3,42 +3,42 @@
     <header class="module-header animate-in">
       <span class="module-number">06</span>
       <h1 class="module-title">产品化可行性</h1>
-      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+      <p class="module-subtitle">一个不写代码的 PM，能不能用上这个项目？——能，而且门槛比想象低</p>
     </header>
     <div class="module-body">
 
       <div class="viability-grid stagger-children">
         <div class="viability-card animate-in">
           <div class="viability-level easy">低门槛</div>
-          <strong>直接使用</strong>
-          <p class="viability-label">如果你在用 Claude Code，一行命令安装：./scripts/install.sh --tool claude-code。然后直接说「激活 Frontend Developer 帮我写组件」就行。</p>
+          <strong>上手难度</strong>
+          <p class="viability-label">有原生 App，下载后点几下就能把角色装进你的 AI 工具，全程不用碰命令行。这是它专门为「不想折腾」的人准备的入口。</p>
         </div>
         <div class="viability-card animate-in">
-          <div class="viability-level medium">中等</div>
+          <div class="viability-level easy">低门槛</div>
           <strong>依赖链</strong>
-          <p class="viability-label">需要先有一个支持的 AI 编程工具（Claude Code / Cursor / Codex 等）。clone 仓库后运行安装脚本即可。不需要额外付费。</p>
+          <p class="viability-label">前提是你已经在用 Claude Code / Cursor / Gemini 这类 AI 工具之一。本身免费、MIT 协议、可商用。不用注册、不用付费给它。</p>
         </div>
         <div class="viability-card animate-in">
-          <div class="viability-level easy">非常适合</div>
+          <div class="viability-level easy">高适配</div>
           <strong>Vibe Coding 适配度</strong>
-          <p class="viability-label">不仅能用，而且是 vibe coding 的加速器——你不需要自己写 prompt 来让 AI 做好前端开发，直接用「Frontend Developer」agent 就行。对 PM 来说，这降低了让 AI 产出高质量代码的门槛。</p>
+          <p class="viability-label">极高。哪怕不装，你也能直接把某个角色的「人设说明书」复制给我（Claude），让我照着那个角色帮你干活——零技术门槛。</p>
         </div>
       </div>
 
       <section class="screen animate-in">
-        <h2 class="screen-heading">如果你要基于这个项目做产品，大概需要什么</h2>
-        <p>• <strong>做 agent 市场 / 编排平台</strong>：需要开发团队，2-3 个工程师 + 1 个设计师，3-6 个月 MVP。核心难点在编排引擎和跨工具兼容性。</p>
-        <p>• <strong>做垂直行业的 agent 全家桶</strong>：1 个 PM（你）+ Claude Code 写 agent 定义文件，2-4 周能做第一版（10-20 个角色）。门槛极低，但需要行业知识。</p>
-        <p>• <strong>纯用这个仓库提效</strong>：零成本，今天就能装。最大的投入是熟悉各个 agent 能做什么。</p>
+        <h2 class="screen-heading">如果你要用，大概需要什么</h2>
+        <p><strong>最轻的玩法（推荐你先试）：</strong>零成本、5 分钟。去仓库里挑一个跟你工作相关的角色（比如「内容创作者」「UX 研究员」），把那份说明书整段复制，粘给我，说「按这个角色帮我做 XX」。不装任何东西就能体验到「专家人设」的差别。</p>
+        <p><strong>正式玩法：</strong>如果你想让这些角色常驻在自己电脑的 AI 工具里随时点用，就下载它的原生 App（macOS/Windows/Linux 都有），一键安装。需要你本机已经装了至少一个支持的 AI 工具。这步也基本是点鼠标，不写代码。</p>
       </section>
 
       <div class="callout callout-accent animate-in">
         <div class="callout-icon">⚠️</div>
         <div class="callout-content">
-          <strong class="callout-title">注意</strong>
-          <p><strong>质量参差不齐</strong>：232 个 agent 来自社区贡献，质量必然有高有低。有些 agent 定义详尽、流程清晰；有些可能只是泛泛的 prompt。需要试用筛选。</p>
-          <p><strong>工具的 agent 能力上限</strong>：agent 的定义写得再好，最终效果取决于底层 AI 工具的能力。同一个「Security Architect」agent 在 Claude Code（Opus 4.8）和 Kimi Code 上的表现可能天差地别。</p>
-          <p><strong>维护是个体力活</strong>：如果你 fork 了想长期维护，需要跟踪 18 种工具的 agent 格式变化、更新 232 个角色定义、处理社区 PR——这不是一个小工程。</p>
+          <strong class="callout-title">注意几个坑</strong>
+          <p>① <strong>角色多≠都好用</strong>：232 个角色质量参差，有些是社区随手加的，别指望个个精品，挑你真正需要的几个就够。<br>
+          ② <strong>它管「人设」，不管「干活的手」</strong>：这些角色本身只是说明书，真正干活的还是你背后的 AI 工具——效果好坏很大程度取决于你用的是不是好模型。<br>
+          ③ <strong>偏英文语境</strong>：原始角色是英文写的、也偏欧美工作流（比如 Reddit、Twitter 营销）。直接套到国内私域/微信场景会水土不服，最好自己改写成中文、换成你的业务语境再用。<br>
+          ④ <strong>装太多会拖累工具</strong>：README 自己也提醒，有的工具（如 OpenCode）装超过约 119 个角色会出问题，按需安装就好。</p>
         </div>
       </div>
     </div>
