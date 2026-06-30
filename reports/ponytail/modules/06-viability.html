@@ -1,0 +1,44 @@
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">如果你已经在用 Claude Code 或 Codex，两条命令就能装好。本质是安装一个规则集，不需要写代码。三种模式一键切换，不影响现有项目。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">需要先有一个支持 agent skill 的 AI 编程工具（Claude Code / Codex / Cursor 等）。Ponytail 本身零依赖，不额外收费、不需要 API Key。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">极高。它本身就是为 vibe coding 场景设计的——当你跟 AI 说"帮我做一个日期选择器"，它会先问"你真的需要一个日期选择器吗？HTML 原生的行不行？"</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要做，大概需要什么</h2>
+        <p>不需要写代码。你只需要一个已经在用的 AI 编程助手（Claude Code 是首选），两条命令装好。如果你是一个在用 AI 做产品的 PM，装 Ponytail 几乎是零成本、纯收益的事——它不会破坏任何东西，只会让你生成的代码更少、更安全。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意</strong>
+          <p><strong>如果你的项目已经用了 shadcn/ui 这类组件库：</strong>Ponytail 不知道你的设计系统存在，它可能会建议用原生 &lt;input&gt; 替代你已经安装好的组件。你需要在项目规则里额外说明"本项目使用 shadcn/ui"来约束它。</p>
+          <p><strong>小模型效果打折扣：</strong>在 Llama 3.2 (3B) 这类小模型上，Ponytail 基本没效果——它需要模型能理解"克制"这个抽象概念。</p>
+          <p><strong>本质是 Prompt 工程：</strong>核心逻辑是约 100 行 Markdown 规则。有人评价它是"一个 100 行 Markdown + 大量包装代码的仓库"——如果你理解 YAGNI 原则，它的价值主要在"不用每次都自己写这些提示词"。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

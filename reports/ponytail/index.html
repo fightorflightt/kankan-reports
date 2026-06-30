@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ponytail — 给 AI 编程代理装上"懒人高级工程师"的灵魂</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+      --color-accent:       #CC3333;
+      --color-accent-hover: #A82828;
+      --color-accent-light: #FFF0F0;
+      --color-accent-muted: #E57373;
+    }
+  </style>
+
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="nav-inner">
+      <span class="nav-title" id="nav-title-text">Ponytail</span>
+      <div class="nav-right">
+        <a class="nav-github-btn" id="github-link" href="https://github.com/DietrichGebert/ponytail" target="_blank" title="在 GitHub 上查看">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="nav-dots" id="nav-dots" role="tablist">
+        <!-- Dots injected by JS based on .module elements -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+<section class="module module-cover" id="module-1" data-module-title="总览">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">01</span>
+      <h1 class="cover-title">Ponytail</h1>
+      <p class="cover-repo">github.com/DietrichGebert/ponytail</p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">68.4k</div>
+          <div class="cover-stat-label">Stars</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">JavaScript / Python</div>
+          <div class="cover-stat-label">语言</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">MIT</div>
+          <div class="cover-stat-label">协议</div>
+        </div>
+      </div>
+      <div class="cover-tags">
+        <span class="cover-tag">#AI Agent</span>
+        <span class="cover-tag">#Prompt Engineering</span>
+        <span class="cover-tag">#YAGNI</span>
+        <span class="cover-tag">#开发者工具</span>
+      </div>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">这是什么？</h2>
+        <p>Ponytail 是一套给 AI 编程助手的"思维约束"——它让 AI 在写任何代码之前，先像团队里最懒但最资深的高级工程师一样思考：这东西真的需要吗？有没有现成的？能不能用一行代码解决？发布不到 10 天斩获近 7 万 Star，因为它戳中了所有用过 AI 编程的人共同的痛点：AI 太爱写代码了。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-2" data-module-title="痛点">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">02</span>
+      <h1 class="module-title">解决了什么痛点</h1>
+      <p class="module-subtitle">为什么有人愿意花时间做这个项目？它回应了什么真实问题？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">做这个项目的人，大概遇到了这些问题</h2>
+        <p>Dietrich Gebert 是个德国开发者，他每天跟 AI 编程助手打交道。和所有用 AI 写代码的人一样，他发现了一个尴尬的事实：AI 写代码的速度太快了，快到你还没想清楚要不要写这段代码，它已经帮你引入了三个新依赖、写了两百行封装、还贴心地加了动画效果。</p>
+        <p><strong>痛点一：AI 会为"选个日期"这种事引入一整个日期选择器库。</strong>你只是想要用户选个日期，AI 帮你装 flatpickr、写 wrapper 组件、配样式、加本地化，最后 404 行代码干了一件 HTML 原生 &lt;input type="date"&gt; 就能搞定的事。每多一行代码，就多一个未来要维护的东西。</p>
+        <p><strong>痛点二：AI 不理解"够用了"这个概念。</strong>人类资深工程师的核心能力不是写出更多代码，而是知道什么时候不写代码。他们会先问：这需求真的存在吗？标准库能搞定吗？但 AI 天生倾向于"做点什么"，它的默认模式是行动，不是克制。</p>
+        <p><strong>痛点三：过度构建不是 bug，是系统性倾向。</strong>这不是某个 AI 模型的问题，是所有 AI 编程助手的共同问题。它们被训练成"响应者"而非"质疑者"——你说要什么，它就给你什么，甚至给你更多。没有人给 AI 装上那个资深工程师脑子里的"刹车"。</p>
+      </section>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，专业名词保留英文原文</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h1>🥱 Ponytail</h1>
+          <p>Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h1>🥱 Ponytail（马尾辫）</h1>
+          <p>让你的 AI agent 像房间里最懒的 senior 工程师一样思考。最好的代码，是你从未写过的那行代码。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>Ponytail is an agent skill that turns your AI coding assistant from an eager junior who reaches for npm install at every prompt — into the lazily effective senior developer you wish you had on your team.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>Ponytail 是一个 agent skill，它能把你的 AI 编程助手从"每次 prompt 都想 npm install 的热血新人"变成"你梦寐以求的那个懒而高效的高级工程师"。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h2>How it works — the Decision Ladder</h2>
+          <p>Before an agent writes a single line, it walks this ladder top to bottom. The first rung that applies wins:</p>
+          <ol>
+            <li><strong>Does this need to exist?</strong> → Skip it (YAGNI)</li>
+            <li><strong>Already in the codebase?</strong> → Reuse it</li>
+            <li><strong>In the standard library?</strong> → Use stdlib</li>
+            <li><strong>Platform / Browser native?</strong> → Use native (e.g. <code>&lt;input type="date"&gt;</code>)</li>
+            <li><strong>Existing dependency can do it?</strong> → Use what's installed</li>
+            <li><strong>Can it be one line?</strong> → Write one line</li>
+            <li><strong>None of the above</strong> → Write the minimum viable code</li>
+          </ol>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h2>工作原理——决策阶梯</h2>
+          <p>在 agent 写出任何一行代码之前，它必须从梯子顶端开始往下走。第一个满足条件的台阶就是它要做的：</p>
+          <ol>
+            <li><strong>这东西真的需要存在吗？</strong> → 跳过（YAGNI 原则）</li>
+            <li><strong>代码库里已经有了？</strong> → 复用</li>
+            <li><strong>标准库能搞定？</strong> → 用标准库</li>
+            <li><strong>平台/浏览器原生支持？</strong> → 用原生功能（如 <code>&lt;input type="date"&gt;</code>）</li>
+            <li><strong>已经安装的依赖能解决？</strong> → 用已有依赖</li>
+            <li><strong>能一行写完吗？</strong> → 写一行</li>
+            <li><strong>以上都不行</strong> → 写出最少能跑的代码</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h2>Hard Red Lines — Never Cut</h2>
+          <p>Ponytail is about removing unnecessary code, not necessary safety:</p>
+          <ul>
+            <li>Input validation at trust boundaries</li>
+            <li>Error handling that prevents data loss</li>
+            <li>Security</li>
+            <li>Accessibility</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h2>硬性红线——永远不能砍</h2>
+          <p>Ponytail 砍的是不必要的代码，不是必要的安全措施：</p>
+          <ul>
+            <li>信任边界的输入校验</li>
+            <li>防止数据丢失的错误处理</li>
+            <li>安全性</li>
+            <li>可访问性（Accessibility）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h2>Modes</h2>
+          <p>Three intensity levels:</p>
+          <ul>
+            <li><strong>Lite</strong> — Gentle nudges, good for existing codebases with established patterns</li>
+            <li><strong>Full</strong> (default) — Full ladder enforcement + aggressive simplification</li>
+            <li><strong>Ultra</strong> — Every line must justify its existence. The agent will push back on you.</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h2>模式</h2>
+          <p>三种强度等级：</p>
+          <ul>
+            <li><strong>Lite（轻量）</strong> — 温和提醒，适合已有成熟模式的存量代码库</li>
+            <li><strong>Full（默认）</strong> — 完整阶梯执行 + 激进简化</li>
+            <li><strong>Ultra（极限）</strong> — 每一行代码都必须证明自己存在的理由。agent 会反过来质疑你的需求。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h2>Real-world results</h2>
+          <p>12 feature tasks on a FastAPI + React project (Haiku 4.5), with and without Ponytail:</p>
+          <ul>
+            <li><strong>-54% code</strong> (max -94%)</li>
+            <li><strong>-22% tokens</strong></li>
+            <li><strong>-20% cost</strong></li>
+            <li><strong>-27% time</strong></li>
+            <li><strong>100%</strong> passing security tests</li>
+          </ul>
+          <p>Real example — Date picker: flatpickr + wrapper + styles + localisation (404 lines) → <code>&lt;input type="date"&gt;</code> (23 lines). Color picker: 287 → 23 lines.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h2>真实效果</h2>
+          <p>在 FastAPI + React 项目上执行 12 个功能任务（Haiku 4.5 模型），对比有无 Ponytail：</p>
+          <ul>
+            <li><strong>代码量 -54%</strong>（最多 -94%）</li>
+            <li><strong>Token 消耗 -22%</strong></li>
+            <li><strong>成本 -20%</strong></li>
+            <li><strong>时间 -27%</strong></li>
+            <li><strong>100%</strong> 通过安全测试</li>
+          </ul>
+          <p>真实案例——日期选择器：flatpickr + wrapper + 样式 + 本地化（404 行）→ <code>&lt;input type="date"&gt;</code>（23 行）。颜色选择器：287 行 → 23 行。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h2>Installation</h2>
+          <p>Claude Code:</p>
+          <pre><code>/plugin marketplace add DietrichGebert/ponytail
+/plugin install ponytail@ponytail</code></pre>
+          <p>Codex CLI:</p>
+          <pre><code>codex skill install ponytail</code></pre>
+          <p>15+ platforms supported: Claude Code, Codex, GitHub Copilot CLI, Cursor, Windsurf, Cline, Gemini CLI, OpenCode, Aider, Kiro, and more.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h2>安装方式</h2>
+          <p>Claude Code：</p>
+          <pre><code>/plugin marketplace add DietrichGebert/ponytail
+/plugin install ponytail@ponytail</code></pre>
+          <p>Codex CLI：</p>
+          <pre><code>codex skill install ponytail</code></pre>
+          <p>支持 15+ 平台：Claude Code、Codex、GitHub Copilot CLI、Cursor、Windsurf、Cline、Gemini CLI、OpenCode、Aider、Kiro 等。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h2>Built-in commands</h2>
+          <ul>
+            <li><code>/ponytail-review</code> — Review current diff for over-engineering</li>
+            <li><code>/ponytail-audit</code> — Full repo audit</li>
+            <li><code>/ponytail-debt</code> — Collect intentionally simplified tech-debt markers</li>
+            <li><code>/ponytail-gain</code> — Impact dashboard</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h2>内置命令</h2>
+          <ul>
+            <li><code>/ponytail-review</code> — 审查当前 diff 是否有过度工程</li>
+            <li><code>/ponytail-audit</code> — 全仓库审计</li>
+            <li><code>/ponytail-debt</code> — 收集因故意简化而积累的技术债标记</li>
+            <li><code>/ponytail-gain</code> — 影响数据看板</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><em>注：README 中还包含完整的使用指南、配置文件示例、各平台安装细节、FAQ 和贡献指南等章节。</em></p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><em>注：以上为 README 核心章节的翻译。原文还包含完整的使用指南、配置文件示例、各平台安装细节、FAQ 和贡献指南等章节。</em></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-4" data-module-title="创新">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">04</span>
+      <h1 class="module-title">创新点</h1>
+      <p class="module-subtitle">和同类方案比，它有什么不一样？</p>
+    </header>
+    <div class="module-body">
+      <section class="screen animate-in">
+        <h2 class="screen-heading">和常规做法不一样的地方</h2>
+        <p>Ponytail 不是另一个代码生成工具，也不是一个 Linter。它不教 AI 怎么写代码，而是教 AI 什么时候不写代码。这是心智模型层面的创新——把 prompt engineering 从"让 AI 做得更多"转向"让 AI 做得更少"。</p>
+      </section>
+
+      <div class="pattern-cards stagger-children">
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🪜</div>
+          <div class="pattern-title">决策阶梯：把资深工程师的直觉编码成规则</div>
+          <p class="pattern-desc">资深工程师在动手前会下意识地走一遍"能不能不写"的检查清单。Ponytail 首次把这种隐性直觉显式化——7 级阶梯，每级一个问题，走到第一级能解决的直接停。这不是新理论，但把它做成可安装的 agent skill 是第一次。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🛡️</div>
+          <div class="pattern-title">减法里有安全红线</div>
+          <p class="pattern-desc">"少写代码"听起来像是教 AI 偷工减料。但 Ponytail 明确划出 4 条不可触碰的红线：输入校验、防数据丢失的错误处理、安全性、可访问性。这解决了"是不是为了省代码连安全都不要了"的信任问题——砍的是冗余，不是底线。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">🔌</div>
+          <div class="pattern-title">跨平台 Skill 而非单一工具插件</div>
+          <p class="pattern-desc">绝大多数 AI 编程工具的优化方案绑定在特定平台上。Ponytail 是一套通用的 Markdown 规则 + 轻量级生命周期 hooks，15+ 平台都能用。它不依赖某个产品给你加功能——它把自己变成了所有产品的"外挂"。</p>
+        </div>
+        <div class="pattern-card animate-in">
+          <div class="pattern-icon" style="background:var(--color-accent-light)">📊</div>
+          <div class="pattern-title">用数据证明"少即是多"</div>
+          <p class="pattern-desc">作者没有停留在理念层面，而是给出了具体的基准测试数据：代码量 -54%、Token -22%、成本 -20%、时间 -27%、安全测试 100% 通过。而且他还诚实公开了"小模型上会翻车""推理模型可能更贵"的负面数据——这种透明度在开源项目中罕见。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-5" data-module-title="灵感">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">05</span>
+      <h1 class="module-title">灵感卡片</h1>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+    </header>
+    <div class="module-body">
+      <div class="inspo-cards">
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 1</div>
+          <div class="inspo-card-title">给内部 AI 编程助手定制"组织级写代码规范"</div>
+          <p class="inspo-card-desc">大多数公司已经在用 AI 写代码了，但没人告诉 AI "我们公司不引入新依赖申请周期是 2 周，能不用就不用"。可以基于 Ponytail 的思路，做一套可配置的"组织约束规则"——不只是安全红线，还包括审批流程、技术选型偏好、已有内部库清单。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 2</div>
+          <div class="inspo-card-title">AI 代码评审的"过度工程检测"模式</div>
+          <p class="inspo-card-desc">现在的 AI code review 主要看 bug、安全、性能。但没人看"这个功能真的需要这么多代码吗"。可以做一个专门的"过度工程检测器"——扫描 PR，标出哪些改动可以用更简单的方式实现。类似 Ponytail 的 /ponytail-review，但作为独立的 code review 维度。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 3</div>
+          <div class="inspo-card-title">"约束即服务"：给非技术团队的 AI 使用加护栏</div>
+          <p class="inspo-card-desc">非技术团队（市场、运营、设计）也在用 AI 做轻量开发。但他们更需要约束——"不要在数据库里存明文密码"不是常识。可以做一个面向非技术用户的"安全护栏包"，类似 Ponytail 的红线机制，但覆盖更多非技术场景。</p>
+        </div>
+        <div class="inspo-card animate-in">
+          <div class="inspo-card-num">灵感 4</div>
+          <div class="inspo-card-title">把决策阶梯做成通用 AI 交互模式的蓝本</div>
+          <p class="inspo-card-desc">"做事之前先质疑要不要做"这个模式不只适用于写代码。可以扩展到写文档（"这份文档真的有人看吗"）、做设计（"这个组件在 3 个状态下的表现都考虑了吗"）、写邮件（"这封邮件有行动点吗，还是纯粹的信息扩散"）。核心洞察：AI 的下一个能力提升不是"更聪明"，而是"更克制"。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>上手难度</strong>
+          <p class="viability-label">如果你已经在用 Claude Code 或 Codex，两条命令就能装好。本质是安装一个规则集，不需要写代码。三种模式一键切换，不影响现有项目。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">需要先有一个支持 agent skill 的 AI 编程工具（Claude Code / Codex / Cursor 等）。Ponytail 本身零依赖，不额外收费、不需要 API Key。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">低门槛</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">极高。它本身就是为 vibe coding 场景设计的——当你跟 AI 说"帮我做一个日期选择器"，它会先问"你真的需要一个日期选择器吗？HTML 原生的行不行？"</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你要做，大概需要什么</h2>
+        <p>不需要写代码。你只需要一个已经在用的 AI 编程助手（Claude Code 是首选），两条命令装好。如果你是一个在用 AI 做产品的 PM，装 Ponytail 几乎是零成本、纯收益的事——它不会破坏任何东西，只会让你生成的代码更少、更安全。</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意</strong>
+          <p><strong>如果你的项目已经用了 shadcn/ui 这类组件库：</strong>Ponytail 不知道你的设计系统存在，它可能会建议用原生 &lt;input&gt; 替代你已经安装好的组件。你需要在项目规则里额外说明"本项目使用 shadcn/ui"来约束它。</p>
+          <p><strong>小模型效果打折扣：</strong>在 Llama 3.2 (3B) 这类小模型上，Ponytail 基本没效果——它需要模型能理解"克制"这个抽象概念。</p>
+          <p><strong>本质是 Prompt 工程：</strong>核心逻辑是约 100 行 Markdown 规则。有人评价它是"一个 100 行 Markdown + 大量包装代码的仓库"——如果你理解 YAGNI 原则，它的价值主要在"不用每次都自己写这些提示词"。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="module" id="module-7" data-module-title="竞品">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">07</span>
+      <h1 class="module-title">同类项目速览</h1>
+      <p class="module-subtitle">它在整个生态里处于什么位置</p>
+    </header>
+    <div class="module-body">
+
+      <div class="badge-list stagger-children">
+        <div class="badge-item animate-in">
+          <span class="badge-code">Cursor Rules（官方功能）</span>
+          <span class="badge-desc">Cursor 自带的 .cursorrules 可以写代码风格约束，但需要用户自己写规则，没有内置"决策阶梯"逻辑。Ponytail 跨平台通用、开箱即用。适合不想自己维护规则的团队。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">GitHub Copilot Instructions</span>
+          <span class="badge-desc">Copilot 的工作区指令系统，可以注入项目级约束。理念类似，但绑定在 GitHub 生态，且没有 Ponytail 的"质疑需求是否存在"这一步——Copilot 更倾向于帮你把需求做出来。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">Claude Code Hooks（内置）</span>
+          <span class="badge-desc">Claude Code 的 hooks 系统可以在代码生成前后做拦截，但需要用户自己写 hook 逻辑。Ponytail 相当于一套开箱即用的"克制型 hooks"。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">ESLint / SonarQube 等静态分析工具</span>
+          <span class="badge-desc">传统 Linter 做的是事后检查——代码写完了再告诉你哪里不好。Ponytail 做的是事前阻止——代码还没出生，先问"这孩子一定要生吗"。</span>
+        </div>
+        <div class="badge-item animate-in">
+          <span class="badge-code">YAGNI 原始原则（7 词 Prompt）</span>
+          <span class="badge-desc">Scott Logic CTO 曾用一句 7 个词的 YAGNI 提示词复现了 Ponytail 的核心效果。这恰恰说明：核心思想不新，但"把思想打包成可安装的工具"这件事本身有价值——数万 Star 证明用户愿意为便利付费。</span>
+        </div>
+      </div>
+
+      <div class="callout callout-info animate-in">
+        <div class="callout-icon">📌</div>
+        <div class="callout-content">
+          <strong class="callout-title">这个项目适合：</strong>
+          <p>已经在日常使用 AI 编程助手的开发者或 PM（尤其是 vibe coding 场景）；想要减少 AI 生成冗余代码的团队；希望控制 Token 成本的用户。</p>
+          <br>
+          <strong class="callout-title">不适合：</strong>
+          <p>项目已经建立了完善的 AI 编码规范且团队 YAGNI 意识强——这种情况下 Ponytail 的增量价值有限；使用小模型的场景（3B 以下基本无效）；对设计系统一致性要求极高的项目（需额外配置才能避免冲突）。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="module" id="module-8" data-module-title="行动">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">08</span>
+      <h1 class="module-title">下一步行动</h1>
+      <p class="module-subtitle">接下来你可以做什么</p>
+    </header>
+    <div class="module-body">
+      <div class="checklist">
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">在 Claude Code 里装 Ponytail（两条命令）：<code>/plugin marketplace add DietrichGebert/ponytail</code>，然后 <code>/plugin install ponytail@ponytail</code></span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">先开 Lite 模式用一个下午，感受一下 AI 的行为变化。然后切 Full 模式对比效果。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">如果你在用 shadcn/ui 等组件库，记得在项目 rules 里补充"本项目使用 XXX 组件库"——Ponytail 不知道你的设计系统。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">跑一次 <code>/ponytail-audit</code>，看看你当前项目里有多少可以简化的地方。</span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">读一下知乎这篇深度解析：<a href="https://zhuanlan.zhihu.com/p/2055145816080307371" target="_blank">一百行提示词，九天四万星：Ponytail 到底干了什么</a></span>
+        </div>
+        <div class="checklist-item animate-in">
+          <div class="checklist-box">✓</div>
+          <span class="checklist-text">如果觉得有用，给项目一个 Star：<a href="https://github.com/DietrichGebert/ponytail" target="_blank">github.com/DietrichGebert/ponytail</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <aside class="toc" id="toc-sidebar">
+    <div class="toc-title">目录</div>
+    <ul class="toc-list" id="toc-list"></ul>
+  </aside>
+
+  <script>
+    // Auto-populate nav dots + TOC sidebar from .module elements
+    (function() {
+      var modules = document.querySelectorAll('.module');
+      var dotsContainer = document.getElementById('nav-dots');
+      var tocList = document.getElementById('toc-list');
+
+      var tocLinks = [];
+
+      modules.forEach(function(mod, i) {
+        var title = mod.getAttribute('data-module-title') || ('Part ' + (i + 1));
+        var num = String(i + 1).padStart(2, '0');
+
+        // Build nav dot
+        if (dotsContainer) {
+          var btn = document.createElement('button');
+          btn.className = 'nav-dot';
+          btn.setAttribute('data-target', mod.id);
+          btn.setAttribute('data-tooltip', title);
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', title);
+          dotsContainer.appendChild(btn);
+        }
+
+        // Build TOC link
+        if (tocList) {
+          var li = document.createElement('li');
+          li.className = 'toc-item';
+          var a = document.createElement('a');
+          a.className = 'toc-link';
+          a.setAttribute('data-target', mod.id);
+          a.href = '#' + mod.id;
+          a.innerHTML = '<span class="toc-num">' + num + '</span>' + title;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+          li.appendChild(a);
+          tocList.appendChild(li);
+          tocLinks.push(a);
+        }
+      });
+
+      // Update active TOC item on scroll
+      function updateTocActive() {
+        if (!tocLinks.length) return;
+        var scrollMid = window.scrollY + window.innerHeight / 3;
+        var activeIdx = -1;
+        modules.forEach(function(mod, i) {
+          var top = mod.offsetTop;
+          var bottom = top + mod.offsetHeight;
+          if (scrollMid >= top && scrollMid < bottom) {
+            activeIdx = i;
+          }
+        });
+        tocLinks.forEach(function(link, i) {
+          if (i === activeIdx) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        requestAnimationFrame(updateTocActive);
+      }, { passive: true });
+      updateTocActive();
+    })();
+  </script>
+
+</body>
+</html>

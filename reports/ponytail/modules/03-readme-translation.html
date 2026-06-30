@@ -1,0 +1,201 @@
+<section class="module" id="module-3" data-module-title="README">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">README 逐句翻译</h1>
+      <p class="module-subtitle">忠实传达作者原话，专业名词保留英文原文</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h1>🥱 Ponytail</h1>
+          <p>Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h1>🥱 Ponytail（马尾辫）</h1>
+          <p>让你的 AI agent 像房间里最懒的 senior 工程师一样思考。最好的代码，是你从未写过的那行代码。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>Ponytail is an agent skill that turns your AI coding assistant from an eager junior who reaches for npm install at every prompt — into the lazily effective senior developer you wish you had on your team.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>Ponytail 是一个 agent skill，它能把你的 AI 编程助手从"每次 prompt 都想 npm install 的热血新人"变成"你梦寐以求的那个懒而高效的高级工程师"。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h2>How it works — the Decision Ladder</h2>
+          <p>Before an agent writes a single line, it walks this ladder top to bottom. The first rung that applies wins:</p>
+          <ol>
+            <li><strong>Does this need to exist?</strong> → Skip it (YAGNI)</li>
+            <li><strong>Already in the codebase?</strong> → Reuse it</li>
+            <li><strong>In the standard library?</strong> → Use stdlib</li>
+            <li><strong>Platform / Browser native?</strong> → Use native (e.g. <code>&lt;input type="date"&gt;</code>)</li>
+            <li><strong>Existing dependency can do it?</strong> → Use what's installed</li>
+            <li><strong>Can it be one line?</strong> → Write one line</li>
+            <li><strong>None of the above</strong> → Write the minimum viable code</li>
+          </ol>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h2>工作原理——决策阶梯</h2>
+          <p>在 agent 写出任何一行代码之前，它必须从梯子顶端开始往下走。第一个满足条件的台阶就是它要做的：</p>
+          <ol>
+            <li><strong>这东西真的需要存在吗？</strong> → 跳过（YAGNI 原则）</li>
+            <li><strong>代码库里已经有了？</strong> → 复用</li>
+            <li><strong>标准库能搞定？</strong> → 用标准库</li>
+            <li><strong>平台/浏览器原生支持？</strong> → 用原生功能（如 <code>&lt;input type="date"&gt;</code>）</li>
+            <li><strong>已经安装的依赖能解决？</strong> → 用已有依赖</li>
+            <li><strong>能一行写完吗？</strong> → 写一行</li>
+            <li><strong>以上都不行</strong> → 写出最少能跑的代码</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h2>Hard Red Lines — Never Cut</h2>
+          <p>Ponytail is about removing unnecessary code, not necessary safety:</p>
+          <ul>
+            <li>Input validation at trust boundaries</li>
+            <li>Error handling that prevents data loss</li>
+            <li>Security</li>
+            <li>Accessibility</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h2>硬性红线——永远不能砍</h2>
+          <p>Ponytail 砍的是不必要的代码，不是必要的安全措施：</p>
+          <ul>
+            <li>信任边界的输入校验</li>
+            <li>防止数据丢失的错误处理</li>
+            <li>安全性</li>
+            <li>可访问性（Accessibility）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h2>Modes</h2>
+          <p>Three intensity levels:</p>
+          <ul>
+            <li><strong>Lite</strong> — Gentle nudges, good for existing codebases with established patterns</li>
+            <li><strong>Full</strong> (default) — Full ladder enforcement + aggressive simplification</li>
+            <li><strong>Ultra</strong> — Every line must justify its existence. The agent will push back on you.</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h2>模式</h2>
+          <p>三种强度等级：</p>
+          <ul>
+            <li><strong>Lite（轻量）</strong> — 温和提醒，适合已有成熟模式的存量代码库</li>
+            <li><strong>Full（默认）</strong> — 完整阶梯执行 + 激进简化</li>
+            <li><strong>Ultra（极限）</strong> — 每一行代码都必须证明自己存在的理由。agent 会反过来质疑你的需求。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h2>Real-world results</h2>
+          <p>12 feature tasks on a FastAPI + React project (Haiku 4.5), with and without Ponytail:</p>
+          <ul>
+            <li><strong>-54% code</strong> (max -94%)</li>
+            <li><strong>-22% tokens</strong></li>
+            <li><strong>-20% cost</strong></li>
+            <li><strong>-27% time</strong></li>
+            <li><strong>100%</strong> passing security tests</li>
+          </ul>
+          <p>Real example — Date picker: flatpickr + wrapper + styles + localisation (404 lines) → <code>&lt;input type="date"&gt;</code> (23 lines). Color picker: 287 → 23 lines.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h2>真实效果</h2>
+          <p>在 FastAPI + React 项目上执行 12 个功能任务（Haiku 4.5 模型），对比有无 Ponytail：</p>
+          <ul>
+            <li><strong>代码量 -54%</strong>（最多 -94%）</li>
+            <li><strong>Token 消耗 -22%</strong></li>
+            <li><strong>成本 -20%</strong></li>
+            <li><strong>时间 -27%</strong></li>
+            <li><strong>100%</strong> 通过安全测试</li>
+          </ul>
+          <p>真实案例——日期选择器：flatpickr + wrapper + 样式 + 本地化（404 行）→ <code>&lt;input type="date"&gt;</code>（23 行）。颜色选择器：287 行 → 23 行。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h2>Installation</h2>
+          <p>Claude Code:</p>
+          <pre><code>/plugin marketplace add DietrichGebert/ponytail
+/plugin install ponytail@ponytail</code></pre>
+          <p>Codex CLI:</p>
+          <pre><code>codex skill install ponytail</code></pre>
+          <p>15+ platforms supported: Claude Code, Codex, GitHub Copilot CLI, Cursor, Windsurf, Cline, Gemini CLI, OpenCode, Aider, Kiro, and more.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h2>安装方式</h2>
+          <p>Claude Code：</p>
+          <pre><code>/plugin marketplace add DietrichGebert/ponytail
+/plugin install ponytail@ponytail</code></pre>
+          <p>Codex CLI：</p>
+          <pre><code>codex skill install ponytail</code></pre>
+          <p>支持 15+ 平台：Claude Code、Codex、GitHub Copilot CLI、Cursor、Windsurf、Cline、Gemini CLI、OpenCode、Aider、Kiro 等。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <h2>Built-in commands</h2>
+          <ul>
+            <li><code>/ponytail-review</code> — Review current diff for over-engineering</li>
+            <li><code>/ponytail-audit</code> — Full repo audit</li>
+            <li><code>/ponytail-debt</code> — Collect intentionally simplified tech-debt markers</li>
+            <li><code>/ponytail-gain</code> — Impact dashboard</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <h2>内置命令</h2>
+          <ul>
+            <li><code>/ponytail-review</code> — 审查当前 diff 是否有过度工程</li>
+            <li><code>/ponytail-audit</code> — 全仓库审计</li>
+            <li><code>/ponytail-debt</code> — 收集因故意简化而积累的技术债标记</li>
+            <li><code>/ponytail-gain</code> — 影响数据看板</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p><em>注：README 中还包含完整的使用指南、配置文件示例、各平台安装细节、FAQ 和贡献指南等章节。</em></p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p><em>注：以上为 README 核心章节的翻译。原文还包含完整的使用指南、配置文件示例、各平台安装细节、FAQ 和贡献指南等章节。</em></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
