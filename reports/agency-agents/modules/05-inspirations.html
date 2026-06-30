@@ -3,38 +3,34 @@
     <header class="module-header animate-in">
       <span class="module-number">05</span>
       <h1 class="module-title">灵感卡片</h1>
-      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定用它的代码</p>
+      <p class="module-subtitle">看完这个项目我想到的产品点子——不一定要用它的代码，但思路可以搬</p>
     </header>
     <div class="module-body">
       <div class="inspo-cards">
         <div class="inspo-card animate-in">
           <div class="inspo-card-num">灵感 1</div>
-          <div class="inspo-card-title">「AI 角色市场」——像 App Store 一样分发 Agent</div>
-          <p class="inspo-card-desc">117k Star 证明了对预定义 AI 角色的需求。可以做一个 agent 市场：用户搜场景（如「做小红书运营」）→ 找到对应 agent → 一键安装到自己的 AI 工具 → 评价和评分。本质是「AI 时代的技能市场」，每个 agent 都是一个可交易的数字商品。</p>
+          <div class="inspo-card-title">给你的运营做一套「岗位人设」AI 助手</div>
+          <p class="inspo-card-desc">这个项目最值得抄的，是「把模糊的‘帮我写点东西’，拆成一个个有明确人设和交付标准的角色」。你完全可以为运营场景做几个固定角色：「群文案手」「商品卖点提炼师」「下单步骤图脚本师」。每个角色提前写死它的口吻、要素清单、输出格式，运营只管丢商品信息，AI 就按那个角色稳定产出——做单质量不再看个人手感。</p>
         </div>
-
         <div class="inspo-card animate-in">
           <div class="inspo-card-num">灵感 2</div>
-          <div class="inspo-card-title">「团队编排器」——多 Agent 协作的主控台</div>
-          <p class="inspo-card-desc">232 个 agent 是原材料，但用户还需要一个「项目经理」来协调它们。可以做一个编排层：用户描述一个任务（如「帮我做一个电商 App」），系统自动选出需要的 agent（前端 + 后端 + UI 设计 + 支付集成 + 安全审计），按 DAG 顺序调度它们协作。仓库里已有的 agents-orchestrator 和 multi-agent-systems-architect 说明作者也在往这个方向想。</p>
+          <div class="inspo-card-title">「角色」比「功能」更好用，是个产品启发</div>
+          <p class="inspo-card-desc">普通用户面对一个空白 AI 输入框会发懵、不知道能问啥。这个项目证明：把能力包装成一个个有名字、有性格的「专家角色」，用户一下就懂「我该找谁」。这个思路能用在你们 App 的任何 AI 功能上——与其放个万能助手，不如给几张「专家卡片」让用户挑，转化和上手都会更好。</p>
         </div>
-
         <div class="inspo-card animate-in">
           <div class="inspo-card-num">灵感 3</div>
-          <div class="inspo-card-title">Agent 版本管理和 A/B 测试</div>
-          <p class="inspo-card-desc">这个项目本质上是一套 agent 的「源码仓库」。既然是代码，就需要版本管理、变更追踪、质量回归。可以做一个 agent CI/CD 平台：当你修改一个 agent 的定义时，自动跑一组测试用例（同样的输入，新旧 agent 分别输出什么？哪个更好？），用数据而非感觉来判断 agent 改进了还是退化了。</p>
+          <div class="inspo-card-title">「成功指标」写进角色里，逼 AI 交高质量活</div>
+          <p class="inspo-card-desc">它每个角色都带「成功标准」（比如测试角色硬性要求挑出 3-5 个问题、要有证据）。这招很妙：与其事后挑 AI 的毛病，不如一开始就把验收标准塞进角色定义里。做单场景同理——给「文案手」角色定死「必须包含价格锚点 + 紧迫感 + 一句行动指令」，输出就不会飘。</p>
         </div>
-
         <div class="inspo-card animate-in">
           <div class="inspo-card-num">灵感 4</div>
-          <div class="inspo-card-title">非技术场景的 Agent 角色扩展</div>
-          <p class="inspo-card-desc">这个仓库虽然偏向技术/营销场景，但框架可以套到任何领域。比如律师行业的 agent 集合（合同审核 agent + 诉讼策略 agent + 合规检查 agent）、医疗行业（诊断辅助 agent + 病历整理 agent + 患者沟通 agent）、教育行业（课程设计 agent + 作业批改 agent + 学习路径规划 agent）。谁先做了某个垂直行业的 agent 全家桶，谁就吃了第一波红利。</p>
+          <div class="inspo-card-title">「组队协作」模式：一个任务，多个角色接力</div>
+          <p class="inspo-card-desc">它演示了「8 个角色并行做一次产品探索」。对你做独立小工具特别有启发：一个稍复杂的任务（比如「调研一个选题」），可以让「趋势研究员→竞品分析→可行性核查」几个角色接力跑，每步专注一件事，最后拼成完整结论——这其实就是上文聊的「多 agent 协作」的平民玩法。</p>
         </div>
-
         <div class="inspo-card animate-in">
           <div class="inspo-card-num">灵感 5</div>
-          <div class="inspo-card-title">「Agent 即服务」的 SaaS 模式</div>
-          <p class="inspo-card-desc">企业不需要维护 232 个 agent 文件——他们只需要在需要的时候调用对的 agent。可以把这个仓库打包成 API 服务：客户传一个需求描述 → API 自动匹配 agent → agent 执行 → 返回结果。按调用次数或订阅收费。这比卖 agent 文件更高频、更可计量、更容易变现。</p>
+          <div class="inspo-card-title">开源 + 可二次创作 = 让别人帮你扩内容</div>
+          <p class="inspo-card-desc">它靠「人人能改、能加角色」滚成了 232 个角色、8 种语言。放到运营上：如果你把「做单角色模板」做成一个开放、好改的格式，让一线代理自己沉淀和贡献新模板（哪个品类该怎么写），你的内容库就能靠团队自增长，而不是全压在中台一个人身上。</p>
         </div>
       </div>
     </div>
