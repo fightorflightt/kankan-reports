@@ -1,0 +1,47 @@
+<section class="module" id="module-6" data-module-title="可行性">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">06</span>
+      <h1 class="module-title">产品化可行性</h1>
+      <p class="module-subtitle">一个不会写代码的 PM，能不能用这个项目做出东西来？</p>
+    </header>
+    <div class="module-body">
+
+      <div class="viability-grid stagger-children">
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">零门槛</div>
+          <strong>直接使用</strong>
+          <p class="viability-label">打开浏览器就能用在线站搜模板、下载 JSON。不需要安装任何东西。下载的 JSON 直接导入 n8n。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level medium">中等</div>
+          <strong>依赖链</strong>
+          <p class="viability-label">需要有一个 n8n 实例来导入和运行工作流。n8n 本身可以免费跑在本地或用云服务（n8n.cloud）。有些工作流可能需要外部 API Key。</p>
+        </div>
+        <div class="viability-card animate-in">
+          <div class="viability-level easy">非常适合</div>
+          <strong>Vibe Coding 适配度</strong>
+          <p class="viability-label">这个仓库本身不需要 Vibe Coding——直接浏览器搜索下载就行。但如果你想让 Claude Code 帮你在这个仓库基础上做改造（比如写个脚本自动导入、批量修改节点），门槛很低。</p>
+        </div>
+      </div>
+
+      <section class="screen animate-in">
+        <h2 class="screen-heading">如果你想借鉴这个模式，大概需要什么</h2>
+        <p>这个仓库给 PM 的最大价值不是它的 JSON 文件本身，而是<strong>「把信息聚合做成产品」的方法</strong>。如果你想复刻这个模式到另一个工具：</p>
+        <p>• <strong>时间</strong>：收集+整理阶段 2-4 周（主要是搜集和分类），搭在线站 1 周（GitHub Pages + 静态搜索）</p>
+        <p>• <strong>钱</strong>：零成本。GitHub Pages 免费，域名可选项。唯一的投入是你的时间</p>
+        <p>• <strong>人</strong>：PM 一个人完全能搞定内容整理 + 用 Claude Code 写搜索前端。不需要工程师</p>
+      </section>
+
+      <div class="callout callout-accent animate-in">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-content">
+          <strong class="callout-title">注意</strong>
+          <p><strong>DMCA 版权风险</strong>：这个仓库经历过一次 DMCA 相关的历史重写。聚合第三方模板涉及版权问题——不是所有网上搜到的 JSON 都能自由分发。如果你要做类似产品，需要特别注意模板的原始版权。</p>
+          <p><strong>质量一致性</strong>：4343 条模板，质量参差不齐。作者的「100% 导入成功率」只保证 JSON 格式正确，不保证逻辑合理。实际使用时需要逐条验证。</p>
+          <p><strong>维护成本</strong>：n8n 版本更新频繁，API 参数可能变化，旧模板可能在新版本上失效。内容聚合产品最大的隐性成本是「持续更新」。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
