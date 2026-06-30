@@ -1,0 +1,402 @@
+<section class="module" id="module-3" data-module-title="原文翻译">
+  <div class="module-content">
+    <header class="module-header animate-in">
+      <span class="module-number">03</span>
+      <h1 class="module-title">SKILL.md 逐句翻译</h1>
+      <p class="module-subtitle">这个 skill 没有 README，核心就是这份 SKILL.md（给 AI 看的说明书）。忠实对照，专业名词保留英文</p>
+    </header>
+    <div class="module-body">
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <pre><code>---
+name: teach
+description: Teach the user a new skill or concept, within this workspace.
+disable-model-invocation: true
+argument-hint: "What would you like to learn about?"
+---</code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>（文件头部的配置信息）名称：teach。描述：在这个工作区里，教用户一项新技能或新概念。disable-model-invocation: true（禁止模型自动调用——意思是只有用户亲手输入 <code>/teach</code> 才会触发，AI 不会自作主张地启动它）。argument-hint（输入提示）：「你想学点什么？」</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>The user has asked you to teach them something. This is a stateful request - they intend to learn the topic over multiple sessions.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>用户请你教他们点东西。这是一个「有状态的」（stateful）请求——他们打算跨越多次会话来学习这个主题。<em>（「有状态」= 有记忆、有进度，不是一次性的。）</em></p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>## Teaching Workspace</p>
+          <p>Treat the current directory as a teaching workspace. The state of their learning is captured in this directory in several files:</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>## 教学工作区（Teaching Workspace）</p>
+          <p>把当前目录当作一个教学工作区。用户的学习状态被记录在这个目录的若干文件里：</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <ul>
+            <li><code>MISSION.md</code>: A document capturing the <em>reason</em> the user is interested in the topic. This should be used to ground all teaching.</li>
+            <li><code>./reference/*.html</code>: A directory of reference materials... cheat sheets, reference algorithms, syntax, yoga poses, glossaries... They should be beautiful documents which print out well, and are designed for quick reference.</li>
+            <li><code>RESOURCES.md</code>: A list of resources which can be explored to ground your teaching in contextual knowledge, or to acquire knowledge and wisdom.</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <ul>
+            <li><code>MISSION.md</code>：记录用户对这个主题感兴趣的<em>原因</em>的文档。所有教学都应以它为根基。</li>
+            <li><code>./reference/*.html</code>：参考资料目录……速查表、参考算法、语法、瑜伽体式、术语表……它们应该是排版精美、打印出来也好看、为快速查阅而设计的文档。</li>
+            <li><code>RESOURCES.md</code>：一份可供探索的资源清单，用来把你的教学扎根在情境知识里，或用来获取知识与智慧。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <ul>
+            <li><code>./learning-records/*.md</code>: A directory of learning records, which capture what the user has learned... loosely equivalent to architectural decision records in software development... titled <code>0001-&lt;dash-case-name&gt;.md</code>, where the number increments each time.</li>
+            <li><code>./lessons/*.html</code>: A directory of lessons. A <strong>lesson</strong> is a single, self-contained HTML output that teaches one tightly-scoped thing tied to the mission.</li>
+            <li><code>./assets/*</code>: Reusable <strong>components</strong> shared across lessons.</li>
+            <li><code>NOTES.md</code>: A scratchpad for you to jot down user preferences, or working notes.</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <ul>
+            <li><code>./learning-records/*.md</code>：学习记录目录，记录用户已经学会了什么……大致相当于软件开发里的「架构决策记录」（ADR）……命名为 <code>0001-&lt;短横线命名&gt;.md</code>，编号每次递增。</li>
+            <li><code>./lessons/*.html</code>：课程目录。一节 <strong>lesson（课）</strong> 是一个独立完整的 HTML 输出，只教一件与 mission 紧密相关、范围很窄的事。</li>
+            <li><code>./assets/*</code>：跨课程复用的 <strong>components（组件）</strong>。</li>
+            <li><code>NOTES.md</code>：一个草稿本，供你随手记下用户偏好或工作笔记。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>## Philosophy</p>
+          <p>To learn at a deep level, the user needs three things:</p>
+          <ul>
+            <li><strong>Knowledge</strong>, captured from high-quality, high-trust resources</li>
+            <li><strong>Skills</strong>, acquired through highly-relevant interactive lessons devised by you, based on the knowledge</li>
+            <li><strong>Wisdom</strong>, which comes from interacting with other learners and practitioners</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>## 理念（Philosophy）</p>
+          <p>要深度学习，用户需要三样东西：</p>
+          <ul>
+            <li><strong>知识（Knowledge）</strong>，从高质量、高可信度的资源中获取</li>
+            <li><strong>技能（Skills）</strong>，通过你基于知识设计的、高度相关的互动课程习得</li>
+            <li><strong>智慧（Wisdom）</strong>，来自与其他学习者和从业者的互动</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>Before the <code>RESOURCES.md</code> is well-populated, your focus should be to find high-quality resources which will help the user acquire knowledge. Never trust your parametric knowledge.</p>
+          <p>Some topics may require more skills than knowledge. Learning more about theoretical physics might be more knowledge-based. For yoga, more skills-based.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>在 <code>RESOURCES.md</code> 还没填充充分之前，你的重点应该是找到能帮用户获取知识的高质量资源。<strong>永远不要相信你自己脑子里的（parametric）知识。</strong><em>（即：别凭 AI 自己的记忆瞎讲，要去找可靠出处。）</em></p>
+          <p>有些主题需要的技能多于知识。学理论物理可能更偏知识；学瑜伽则更偏技能。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>### Fluency vs Storage Strength</p>
+          <p>You should be careful to split between two types of learning:</p>
+          <ul>
+            <li><strong>Fluency strength</strong>: in-the-moment retrieval of knowledge</li>
+            <li><strong>Storage strength</strong>: long-term retention of knowledge</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>### 流畅度 vs 存储强度（Fluency vs Storage Strength）</p>
+          <p>你应当小心区分两种学习：</p>
+          <ul>
+            <li><strong>Fluency strength（流畅度）</strong>：当下、即时地想起某个知识</li>
+            <li><strong>Storage strength（存储强度）</strong>：知识的长期留存</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>Fluency can give the user an illusory sense of mastery, but storage strength is the real goal. Try to design lessons which build long-term retention by desirable difficulty:</p>
+          <ul>
+            <li>Using retrieval practice (recall from memory)</li>
+            <li>Spacing (distributing practice over time)</li>
+            <li>Interleaving (mixing up different but related topics in practice - for skills practice only)</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>流畅度会给用户一种「我掌握了」的<strong>错觉</strong>，但存储强度才是真正的目标。要努力设计能通过「适度的困难」（desirable difficulty）建立长期留存的课程：</p>
+          <ul>
+            <li>使用 retrieval practice（回忆练习——从记忆中主动回想）</li>
+            <li>Spacing（间隔——把练习分散在不同时间）</li>
+            <li>Interleaving（交叉——在练习中混入不同但相关的主题，仅用于技能练习）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>## Lessons</p>
+          <p>A lesson is the main thing you produce — the unit in which knowledge and skills reach the user. Each lesson is one self-contained HTML file, saved to <code>./lessons/</code> and titled <code>0001-&lt;dash-case-name&gt;.html</code> where the number increments each time.</p>
+          <p>A lesson should be <strong>beautiful</strong> — clean, readable typography and layout — since the user will return to these later to review. Think Tufte.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>## 课程（Lessons）</p>
+          <p>课，是你产出的主要东西——是知识与技能抵达用户的「单位」。每节课是一个独立完整的 HTML 文件，存到 <code>./lessons/</code>，命名为 <code>0001-&lt;短横线命名&gt;.html</code>，编号每次递增。</p>
+          <p>一节课应该是<strong>精美的</strong>——干净、易读的排版与布局——因为用户之后会回来复习。参照 Tufte 的风格。<em>（Edward Tufte，信息设计大师，以极简优雅著称。）</em></p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>The lesson should be short, and completable very quickly. Learners' working memory is very small, and we need to stay within it. But each lesson should give the user a single tangible win that they can build on. It should be directly tied to the mission, and should be in the user's zone of proximal development.</p>
+          <p>If possible, open the lesson file for the user by running a CLI command.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>课程应该短、能很快做完。学习者的「工作记忆」（working memory，即当下能同时处理的信息量）非常小，我们必须待在它的容量之内。但每节课都应给用户一个可以继续往上搭的、看得见摸得着的小胜利。它应直接与 mission 挂钩，并落在用户的 zone of proximal development（最近发展区）之内。</p>
+          <p>如果可能，通过运行一条 CLI 命令帮用户把课程文件打开。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>Each lesson should link via HTML anchors to other lessons and reference documents.</p>
+          <p>Each lesson should recommend a primary source for the user to read or watch. This should be the most high-quality, high-trust resource you found on the topic.</p>
+          <p>Each lesson should contain a reminder to ask followup questions to the agent. The agent is their teacher, and can assist with anything that's unclear.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>每节课都应通过 HTML 锚点链接到其他课程和参考文档。</p>
+          <p>每节课都应推荐一个 primary source（首要来源）供用户阅读或观看。这应是你就该主题找到的最高质量、最可信的资源。</p>
+          <p>每节课都应包含一句提醒：可以向 agent 追问后续问题。Agent 就是他们的老师，能帮忙解答任何不清楚的地方。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>## Assets</p>
+          <p>Lessons are built from reusable <strong>components</strong>, stored in <code>./assets/</code>: stylesheets, quiz widgets, simulators, diagram helpers — anything a second lesson could reuse.</p>
+          <p>Reuse is the default, not the exception... When a lesson needs something new and reusable, write it as a component in <code>./assets/</code> and link to it — never inline code a future lesson would duplicate.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>## 资产（Assets）</p>
+          <p>课程由可复用的 <strong>components（组件）</strong> 搭成，存放在 <code>./assets/</code>：样式表、测验小部件、模拟器、图表助手——任何第二节课可能复用的东西。</p>
+          <p>复用是默认，而非例外……当一节课需要某个新的、可复用的东西时，把它写成 <code>./assets/</code> 里的组件并链接过去——绝不把以后会重复的代码内联写死在一节课里。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>A shared stylesheet is the first component every workspace earns: every lesson links it, so the lessons look like one consistent course rather than a pile of one-offs. As the workspace grows, so should the component library.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>共享样式表是每个工作区应该挣到的第一个组件：每节课都链接它，于是这些课看起来像「一门统一的课程」，而不是一堆各做各的散件。随着工作区成长，组件库也应随之成长。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>## The Mission</p>
+          <p>Every lesson should be tied into the mission - the reason that the user is interested in learning about the topic.</p>
+          <p>If the user is unclear about the mission, or the <code>MISSION.md</code> is not populated, your first job should be to question the user on why they want to learn this.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>## 使命（The Mission）</p>
+          <p>每节课都应与 mission 绑定——也就是用户对这个主题感兴趣的原因。</p>
+          <p>如果用户对 mission 不清楚，或者 <code>MISSION.md</code> 还没填，你的第一项工作就是<strong>盘问用户「为什么想学这个」</strong>。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>Failing to understand the mission will mean knowledge acquisition is not grounded in real-world goals. Lessons will feel too abstract...</p>
+          <p>Missions may change as the user develops more skills and knowledge. This is normal... Confirm with the user before changing the mission.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>没搞懂 mission，就意味着知识获取没有扎根在真实世界的目标上。课程会显得太抽象……</p>
+          <p>随着用户技能和知识增长，mission 可能会变。这很正常……在改动 mission 之前，先和用户确认。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>## Zone Of Proximal Development</p>
+          <p>Each lesson, the user should always feel as if they are being challenged 'just enough'.</p>
+          <p>The user may specify an exact thing they want to learn. If they don't, figure out their zone of proximal development by: reading their <code>learning-records</code>; figuring out the right thing to teach based on their mission; teach the most relevant thing that fits in their zone of proximal development.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>## 最近发展区（Zone Of Proximal Development）</p>
+          <p>每一节课，用户都应始终感觉自己被「恰到好处」地挑战着。<em>（最近发展区：比你现有水平略高一点、跳一跳够得着的难度区间。）</em></p>
+          <p>用户可能会指定他们想学的确切内容。如果没有，就这样推算他们的最近发展区：读他们的 <code>learning-records</code>；根据他们的 mission 判断该教什么；教那个最相关、又落在最近发展区里的内容。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>## Knowledge</p>
+          <p>Lessons should be designed around a skill the user is going to learn. The knowledge in the lesson should be only what's required to acquire that skill. You teach the knowledge first, then get the user to practice the skills via an interactive feedback loop.</p>
+          <p>Knowledge should first be gathered from trusted resources... Lessons should be littered with citations... For acquiring knowledge, difficulty is the enemy. It eats working memory you need for understanding.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>## 知识（Knowledge）</p>
+          <p>课程应围绕用户即将学习的某项技能来设计。课里的知识应该只包含习得该技能所必需的部分。你先教知识，再通过互动的反馈回路让用户练习技能。</p>
+          <p>知识应首先从可信资源中收集……课程里应当遍布引用（citations）……对于获取知识，难度是敌人。它会吃掉你理解所需的工作记忆。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>## Skills</p>
+          <p>If knowledge is all about acquisition, skills are about durability and flexibility. Make the knowledge stick.</p>
+          <p>For skill acquisition, difficulty is the tool. Effortful retrieval is what builds storage strength. Skills should be taught through interactive lessons. There are several tools at your disposal: interactive lessons, using quizzes and light in-browser tasks; lessons which guide the user through a list of real-world steps to take (for instance, yoga poses).</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>## 技能（Skills）</p>
+          <p>如果说知识关乎「获取」，那么技能关乎「持久与灵活」。让知识真正粘住。</p>
+          <p>对于技能习得，<strong>难度是工具</strong>。费力的回忆才能建立存储强度。技能应通过互动课程来教。你有几样工具可用：用测验和轻量的浏览器内任务做成的互动课；引导用户走完一串「真实世界动作清单」的课（比如瑜伽体式）。<em>（注意这里和「知识」相反：学知识时难度是敌人，练技能时难度是工具。）</em></p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>Each of these should be based on a <strong>feedback loop</strong>... This feedback loop should be as tight as possible, giving feedback immediately - and ideally automatically.</p>
+          <p>For quizzes, each answer should be exactly the same number of words (and characters, if possible). Don't give the user any clues about the answer through formatting.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>这些都应建立在一个<strong>反馈回路（feedback loop）</strong>之上……这个反馈回路应尽可能「紧」，立刻给出反馈——最好是自动的。</p>
+          <p>对于测验，每个选项的字数（以及字符数，如果可能）都应完全一致。<strong>不要通过排版给用户任何关于正确答案的暗示。</strong><em>（防止靠「哪个选项更长」蒙对。）</em></p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>## Acquiring Wisdom</p>
+          <p>Wisdom comes from true real-world interaction... When the user asks a question that appears to require wisdom, your default posture should be to attempt to answer - but to ultimately delegate to a <strong>community</strong>.</p>
+          <p>A community is a place (online or offline) where the user can test their skills... You should attempt to find high-reputation communities... If the user expresses a preference that they don't want to join a community, respect it.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>## 获取智慧（Acquiring Wisdom）</p>
+          <p>智慧来自真实世界的互动……当用户问一个看起来需要「智慧」才能回答的问题时，你的默认姿态应该是：试着回答——但最终把它交给一个<strong>社群（community）</strong>。</p>
+          <p>社群是一个（线上或线下的）让用户能在真实世界检验自己技能的地方……你应努力找到高声誉的社群……如果用户表示不想加入社群，尊重这个意愿。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>## Reference Documents</p>
+          <p>While creating lessons, you should also create reference documents... Lessons will rarely be revisited later - reference documents will be. They should be the compressed essence of the lesson, in a format designed for quick reference.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>## 参考文档（Reference Documents）</p>
+          <p>在创建课程的同时，你也应创建参考文档……课程很少会被回头重看——参考文档会。它们应是课程的「压缩精华」，采用为快速查阅而设计的格式。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>Some learning topics lend themselves to reference: Syntax and code snippets for programming; Algorithms and flowcharts for processes; Yoga poses and sequences for yoga; Exercises and routines for fitness; Glossaries for any topic with its own nomenclature.</p>
+          <p>Glossaries, in particular, are an essential reference. Once one is created, it should be adhered to in every lesson.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>有些学习主题天然适合做成参考：编程的语法和代码片段；流程的算法和流程图；瑜伽的体式和序列；健身的训练动作和计划；任何有自己一套术语体系的主题的术语表（Glossary）。</p>
+          <p>尤其是术语表，是一种必备的参考。一旦建立，每节课都应遵守它。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>## <code>NOTES.md</code></p>
+          <p>The user will sometimes express preferences of how they want to be taught, or things you should keep in mind. This is the place to record those preferences, so you can refer back to them when designing lessons or working with the user.</p>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>## <code>NOTES.md</code>（笔记）</p>
+          <p>用户有时会表达他们希望被怎么教，或一些你该记住的事。这里就是记录这些偏好的地方，方便你在设计课程或与用户协作时回头参考。</p>
+        </div>
+      </div>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">原文</span>
+          <p>（另：teach 文件夹里还有 4 个「格式规范」文件，规定上面几个状态文件长什么样）</p>
+          <ul>
+            <li>MISSION-FORMAT.md</li>
+            <li>RESOURCES-FORMAT.md</li>
+            <li>LEARNING-RECORD-FORMAT.md</li>
+            <li>GLOSSARY-FORMAT.md</li>
+          </ul>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">中文</span>
+          <p>这 4 个文件是给 AI 的「填表模板」，要点摘译——</p>
+          <ul>
+            <li><strong>MISSION 规范</strong>：一个工作区只能有一个 mission；目标要具体（「10 月跑半马」胜过「变健康」）；用户说不清就先访谈再写；目标变了就更新。</li>
+            <li><strong>RESOURCES 规范</strong>：只收高可信来源；每条都要写一句「它讲什么、什么时候该用它」；分「知识 / 智慧（社群）」两组；缺好资源就显式标注缺口。</li>
+            <li><strong>LEARNING-RECORD 规范</strong>：像软件的 ADR，只记「非显而易见的洞察 / 用户已掌握的 / 被纠正的误解 / 目标的转变」，不是流水账日记；理解更新了就把旧记录标为「已被取代」而非删除。</li>
+            <li><strong>GLOSSARY 规范</strong>：只有当用户真正理解一个词，才把它加进术语表；定义要短、要有主见（一个概念多个叫法时只选最好的一个）；定义里也尽量用术语表自己的词。</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
